@@ -98,18 +98,25 @@ namespace Enemies
                         animator.SetTrigger("Attack");
                         nextAttackTime = Time.time + 1 / attackSpeed;
                     }
+                    else
+                    {
+                    }
                 }
                 else
                 {
+                    if (AnimationPlaying())
+                        return;
                     Move();
-                    animator.SetFloat("Velocity",rb.velocity.x);
                 }
+                animator.SetFloat("Velocity",rb.velocity.x);
+
             }
         }
 
    
         public override void Move()
         {
+            
             var position = transform.position;
             if (patrolRight)
             {

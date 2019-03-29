@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public enum Position {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour {
     public float hp = 200;
 
     [SerializeField] private float invincibieTime = 2f;
+    private float invincibleTimeRemains;
 
     public Vector3 knockUpForce = new Vector3(200, 200, 0);
     private float lastTimeKnockOff;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour {
 
 
     private void Start() {
+        _skinnedMeshRenderers = sprites.GetComponentsInChildren<SkinnedMeshRenderer>();
 //        GameManager.Instance.gameObjects.Add(gameObject);
 
         rb = GetComponent<Rigidbody>();
@@ -62,6 +65,20 @@ public class Player : MonoBehaviour {
                 transform.Translate(new Vector3(defendRecoilForce*Time.deltaTime,0,0));
             }
         }
+
+        if (IsPlayerInvincible())
+        {
+            PlayerFlickerWhenTakeDamage();
+            invincibleTimeRemains -= Time.deltaTime;
+
+        }
+        else
+        {
+            foreach (SkinnedMeshRenderer skinnedMeshRenderer in _skinnedMeshRenderers)
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
     }
 
     public void ResetInvincibleTime() {
@@ -70,7 +87,14 @@ public class Player : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
-        if (lastTimeTakeDamage + invincibieTime > Time.time) return;
+        if (IsPlayerInvincible())
+        {
+            return;
+        }
+        else
+        {
+            invincibleTimeRemains = invincibieTime;
+        }
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
 
@@ -89,6 +113,35 @@ public class Player : MonoBehaviour {
             floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
             GameUi.Instance.hpBar.fillAmount = hp / maxHp;
             if (hp <= 0) GameManager.Instance.PlayerAnimator.PlayerStartDying();
+        }
+    }
+
+    private bool IsPlayerInvincible()
+    {
+        return invincibleTimeRemains > 0;
+    }
+
+    [SerializeField] private GameObject sprites;
+    private bool flickerTrigger;
+    private SkinnedMeshRenderer[] _skinnedMeshRenderers;
+
+    private void PlayerFlickerWhenTakeDamage()
+    {
+        if (flickerTrigger)
+        {
+            flickerTrigger = false;
+            foreach (SkinnedMeshRenderer skinnedMeshRenderer in sprites.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+        }
+        else
+        {
+            flickerTrigger = true;
+            foreach (SkinnedMeshRenderer skinnedMeshRenderer in sprites.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
         }
     }
 

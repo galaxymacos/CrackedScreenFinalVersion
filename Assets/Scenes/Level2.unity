@@ -823,6 +823,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1867406187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &133020003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5387770269975078840, guid: a02d529cfc22d5e44a66cfdca82056a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5222131671930141279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &141602313
 GameObject:
   m_ObjectHideFlags: 0
@@ -15068,6 +15074,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7330050098777978901, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7330050098941587727, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_Mesh
@@ -15077,6 +15088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330050099143617044, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7330050099250236063, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
@@ -15339,8 +15355,18 @@ PrefabInstance:
       propertyPath: defendRecoilForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5222131670480362690, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: sprites
+      value: 
+      objectReference: {fileID: 133020003}
     - target: {fileID: 2130372258, guid: a02d529cfc22d5e44a66cfdca82056a6, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387770269975078840, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
