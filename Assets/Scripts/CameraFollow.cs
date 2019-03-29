@@ -2,12 +2,11 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    public Vector3 offset;
-    public Vector3 offsetIn3D;
+    public Vector3 offsetIn2D = new Vector3(0,0,-10);
     private Vector3 center;
-    [SerializeField] private float horizontalLimit = 5f;
-    [SerializeField] private float verticalLimit = 5f;
     [SerializeField] private GameObject player;
+    public float horizontalLimit = 5f;
+    public float verticalLimit = 2f;
 
     private void Start()
     {
@@ -17,20 +16,15 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-//        if (PlayerProperty.player.transform.position.x > center.x + horizontalLimit)
-//        {
-//            center = new Vector3(PlayerProperty.player.transform.position.x-horizontalLimit,center.y,center.z);
-//        }
-//        else if (PlayerProperty.player.transform.position.x < center.x - horizontalLimit)
-//        {
-//            center = new Vector3(PlayerProperty.player.transform.position.x+horizontalLimit,center.y,center.z);
-//        }
-//
-//        transform.position = center;
-//        if(!GameManager.Instance.is3D)
-//        {
-//            transform.rotation = Quaternion.identity;
-//        }
+        if (player.transform.position.x > center.x + horizontalLimit)
+            center = new Vector3(player.transform.position.x - horizontalLimit,center.y,center.z);
+        else if (player.transform.position.x < center.x - horizontalLimit)
+            center = new Vector3(player.transform.position.x+horizontalLimit,center.y,center.z);
+        if (player.transform.position.y < center.y - verticalLimit)
+            center = new Vector3(center.x,player.transform.position.y+verticalLimit,center.z);
+        else if (player.transform.position.y > center.y + verticalLimit)
+            center = new Vector3(center.x,player.transform.position.y-verticalLimit,center.z);
+        transform.position = center + offsetIn2D;
     }
 
     private void RotateCamera(bool is3D)
