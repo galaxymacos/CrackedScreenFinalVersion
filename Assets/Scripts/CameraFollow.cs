@@ -28,7 +28,6 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        print(transform.rotation.eulerAngles);
         if (GameManager.Instance.is3D)
         {
             positionOffset = Vector3.Lerp(positionOffset, offsetIn3D, smoothValueForSwitchDimension);
