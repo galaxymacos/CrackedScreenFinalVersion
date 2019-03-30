@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
         OnSceneChangeCallback += RearrangeObjectsBasedOnScene;
         OnSceneChangeCallback?.Invoke(false);
 
-        onPlayerDieCallback += Die;
         onPlayerDieCallback += RefreshHeartUi;
         
         
@@ -128,18 +127,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void DecreaseLifeNum()
     {
         playerLives -= 1;
         if (playerLives <= 0)
+        {
             Gameover();
-        else
-            RefreshHeartUi();
+        }
     }
 
+    public bool isGameOver;
     private void Gameover()
     {
+        isGameOver = true;
         gameOverPanel.SetActive(true); // Turn on the game over menu
+        Time.timeScale = 0f;
+        
         PlayerPrefs.DeleteAll(); // Delete all player data when game is turned off
     }
 

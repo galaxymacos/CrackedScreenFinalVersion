@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T))
             {
                 Time.timeScale = 0.5f;
-                _cameraEffect.StartShaking(); // Keep shaking
+                _cameraEffect.StartShaking(0.1f); // Keep shaking
             }
 
             if (Input.GetKey(KeyCode.T))

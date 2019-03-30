@@ -38,10 +38,14 @@ public class PlayerAnimator : MonoBehaviour
 
     public void PlayerDie()
     {
-        GameManager.Instance.onPlayerDieCallback?.Invoke();
-        GameManager.Instance.PlayerDying = false;
+        GameManager.Instance.DecreaseLifeNum();
+        if (!GameManager.Instance.isGameOver)
+        {
+            GameManager.Instance.onPlayerDieCallback?.Invoke();
+            playerController.canControl = true;
+            GameManager.Instance.PlayerDying = false;
+        }
 
-        playerController.canControl = true;
     }
 
 }
