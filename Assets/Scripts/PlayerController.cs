@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraPosIn3D;
 
 
-    public InputMaster controls;
     // Player ability
     public bool canAwake;
     public bool canControl;
@@ -36,20 +35,21 @@ public class PlayerController : MonoBehaviour
     public float horizontalMovement;
     public float verticalMovement;
 
-    private void Awake()
-    {
-        controls.Player.Jump.performed += ctx => JumpAndSetGliding();
-        controls.Player.Movement.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
-    }
-
     private void OnEnable()
     {
-        controls.Enable();
+        GameManager.Instance.controls.Player.Movement.Enable();
+        GameManager.Instance.controls.Player.Movement.performed += SetMovement;
+        GameManager.Instance.controls.Player.Jump.Enable();
+        GameManager.Instance.controls.Player.Jump.performed += JumpAndSetGliding;
+
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        GameManager.Instance.controls.Player.Movement.Disable();
+        GameManager.Instance.controls.Player.Movement.performed -= SetMovement;
+        GameManager.Instance.controls.Player.Jump.Disable();
+        GameManager.Instance.controls.Player.Jump.performed -= JumpAndSetGliding;
     }
 
     // Start is called before the first frame update
@@ -68,11 +68,11 @@ public class PlayerController : MonoBehaviour
         canControlDialogueBox = true;
     }
 
-    public void SetMovement(Vector2 movement)
+    public void SetMovement(InputAction.CallbackContext context)
     {
-        print(movement);
-        horizontalMovement = movement.x;
-        verticalMovement = movement.y;
+        Vector2 moveAxis = context.ReadValue<Vector2>();
+        horizontalMovement = moveAxis.x;
+        verticalMovement = moveAxis.y;
     }
 
     private void Update()
@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        horizontalMovement = Input.GetAxisRaw("Horizontal");
-        verticalMovement = Input.GetAxisRaw("Vertical");
+//        horizontalMovement = Input.GetAxisRaw("Horizontal");
+//        verticalMovement = Input.GetAxisRaw("Vertical");
 
         if (canAwake) CheckIfPlayerAwakes();
 
@@ -118,9 +118,8 @@ public class PlayerController : MonoBehaviour
 //        }
     }
 
-    private void JumpAndSetGliding()
+    private void JumpAndSetGliding(InputAction.CallbackContext context)
     {
-        print("Try to jump");
         playerMovement.Jump();
         playerMovement.isGliding = true;
     }
