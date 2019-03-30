@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
         controls.Player.Defend.Enable();
         controls.Player.Defend.performed += HandleDefend;
         controls.Player.BasicAttack.Enable();
-        controls.Player.BasicAttack.performed += HandleAirSlash;
+        controls.Player.BasicAttack.performed += HandleBasicAttack;
         controls.Player.AirSlash.Enable();
         controls.Player.AirSlash.performed += HandleAirSlash;
         controls.Player.CounterStrike.Enable();

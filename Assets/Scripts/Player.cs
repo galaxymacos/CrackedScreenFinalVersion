@@ -98,6 +98,8 @@ public class Player : MonoBehaviour {
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
 
+        PlayerProperty.controller.transferStoragePowerFull = false;
+
         if (Camera.main.GetComponent<CameraEffect>().isShaking)
         {
             Camera.main.GetComponent<CameraEffect>().StopShaking();

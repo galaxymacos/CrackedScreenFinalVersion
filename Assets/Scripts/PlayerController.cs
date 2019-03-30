@@ -38,18 +38,23 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.controls.Player.Movement.Enable();
-        GameManager.Instance.controls.Player.Movement.performed += SetMovement;
+        GameManager.Instance.controls.Player.Movement.performed += HandleMovement;
         GameManager.Instance.controls.Player.Jump.Enable();
-        GameManager.Instance.controls.Player.Jump.performed += JumpAndSetGliding;
-
+        GameManager.Instance.controls.Player.Jump.performed += HandleJump;
+        GameManager.Instance.controls.Player.Transform.Enable();
+        GameManager.Instance.controls.Player.Transform.performed += HandleTransform;
+        GameManager.Instance.controls.Player.Transform.cancelled += HandleTransformRelease;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.controls.Player.Movement.Disable();
-        GameManager.Instance.controls.Player.Movement.performed -= SetMovement;
+        GameManager.Instance.controls.Player.Movement.performed -= HandleMovement;
         GameManager.Instance.controls.Player.Jump.Disable();
-        GameManager.Instance.controls.Player.Jump.performed -= JumpAndSetGliding;
+        GameManager.Instance.controls.Player.Jump.performed -= HandleJump;
+        GameManager.Instance.controls.Player.Transform.Disable();
+        GameManager.Instance.controls.Player.Transform.performed -= HandleTransform;
+        GameManager.Instance.controls.Player.Transform.cancelled -= HandleTransformRelease;
     }
 
     // Start is called before the first frame update
@@ -68,11 +73,45 @@ public class PlayerController : MonoBehaviour
         canControlDialogueBox = true;
     }
 
-    public void SetMovement(InputAction.CallbackContext context)
+    public void HandleMovement(InputAction.CallbackContext context)
     {
         Vector2 moveAxis = context.ReadValue<Vector2>();
         horizontalMovement = moveAxis.x;
         verticalMovement = moveAxis.y;
+    }
+
+    public void HandleTransform(InputAction.CallbackContext context)
+    {
+        if (canAwake && canControl)
+        {
+            Time.timeScale = 0.5f;
+            _cameraEffect.StartShaking(0.1f); // Keep shaking
+            isTransforming = true;
+        }
+    }
+
+    private bool isTransforming;
+
+    public void HandleTransformRelease(InputAction.CallbackContext context)
+    {
+        isTransforming = false;
+        powerAccumulateTime = 0;
+        _cameraEffect.StopShaking();
+        Time.timeScale = 1f;
+        if (transferStoragePowerFull)
+        {
+            GameManager.Instance.is3D = !GameManager.Instance.is3D;
+            if (GameManager.Instance.is3D)
+            {
+                GameManager.Instance.OnSceneChangeCallback?.Invoke(true);
+            }
+            else
+            {
+                GameManager.Instance.OnSceneChangeCallback?.Invoke(false);
+            }
+
+            transferStoragePowerFull = false; // reset storage power full
+        }
     }
 
     private void Update()
@@ -81,44 +120,18 @@ public class PlayerController : MonoBehaviour
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.KnockUp ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block)
         {
-            return; // Refuse all player input if player is being stunned or being knocked up
+            return;
         }
 
         if (!canControl)
         {
             return;
         }
-
-//        horizontalMovement = Input.GetAxisRaw("Horizontal");
-//        verticalMovement = Input.GetAxisRaw("Vertical");
-
         if (canAwake) CheckIfPlayerAwakes();
 
-//
-//        if (Input.GetKeyDown(KeyCode.Space))
-//        {
-//            JumpAndSetGliding();
-//        }
-
-
-//        if (!Input.GetKey(KeyCode.Space))    // TODO to delete this to make the game easier by letting player to jump to the highest point once he/she presses the spacebar
-//        {
-//            playerMovement.FallDown();
-//        }
-
-
-//        // can't running while on the air
-//        if (playerMovement.playerCurrentState != PlayerMovement.PlayerState.Jump &&
-//            playerMovement.playerCurrentState != PlayerMovement.PlayerState.DoubleJump)
-//        {
-//            if (Input.GetKey(KeyCode.LeftControl))
-//            {
-//                playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Run);
-//            }
-//        }
     }
 
-    private void JumpAndSetGliding(InputAction.CallbackContext context)
+    private void HandleJump(InputAction.CallbackContext context)
     {
         playerMovement.Jump();
         playerMovement.isGliding = true;
@@ -129,39 +142,15 @@ public class PlayerController : MonoBehaviour
     {
         if (canControl)
         {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Time.timeScale = 0.5f;
-                _cameraEffect.StartShaking(0.1f); // Keep shaking
-            }
 
-            if (Input.GetKey(KeyCode.T))
+
+            if (isTransforming)
                 powerAccumulateTime += Time.deltaTime / Time.timeScale;
             if (powerAccumulateTime > enter3DWorldDuration)
             {
                 transferStoragePowerFull = true;
             }
 
-            if (Input.GetKeyUp(KeyCode.T))
-            {
-                powerAccumulateTime = 0;
-                _cameraEffect.StopShaking();
-                Time.timeScale = 1f;
-                if (transferStoragePowerFull)
-                {
-                    GameManager.Instance.is3D = !GameManager.Instance.is3D;
-                    if (GameManager.Instance.is3D)
-                    {
-                        GameManager.Instance.OnSceneChangeCallback?.Invoke(true);
-                    }
-                    else
-                    {
-                        GameManager.Instance.OnSceneChangeCallback?.Invoke(false);
-                    }
-
-                    transferStoragePowerFull = false; // reset storage power full
-                }
-            }
         }
     }
 
