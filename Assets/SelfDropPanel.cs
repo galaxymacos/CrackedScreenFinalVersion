@@ -9,6 +9,7 @@ public class SelfDropPanel : MonoBehaviour
     private float dropTimeRemains;
     private bool hasInteracted;
     private Rigidbody rb;
+    public bool isFalling;
 
     private void Start()
     {
@@ -24,8 +25,30 @@ public class SelfDropPanel : MonoBehaviour
             {
                 rb.useGravity = true;
                 rb.isKinematic = false;
+                gameObject.layer = LayerMask.NameToLayer("Abandoned");
+                foreach (Transform child in transform)
+                {
+                    child.gameObject.layer = LayerMask.NameToLayer("Abandoned");
+                }
+
+                isFalling = true;
             }
         }
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (isFalling)
+        {
+            ApplyGravity();
+        }
+    }
+
+    public void ApplyGravity()
+    {
+        rb.velocity-=new Vector3(0,20*Time.fixedDeltaTime,0);
     }
 
     private void OnCollisionEnter(Collision other)

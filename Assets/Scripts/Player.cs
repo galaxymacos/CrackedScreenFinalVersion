@@ -98,6 +98,10 @@ public class Player : MonoBehaviour {
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
 
+        if (Camera.main.GetComponent<CameraEffect>().isShaking)
+        {
+            Camera.main.GetComponent<CameraEffect>().StopShaking();
+        }
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
             AudioManager.instance.PlaySfx("Defend");

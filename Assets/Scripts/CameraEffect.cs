@@ -8,7 +8,6 @@ public class CameraEffect : MonoBehaviour
 {
     private Coroutine shakeCoroutine;
     public bool isShaking => shakeTimeRemain > 0;
-    public bool shakeTrigger;
     public float shakeIntensity = 0.4f;
     public float shakeIntensityIncreaseSpeed = 0.1f;
     public float shakeTimeRemain;
