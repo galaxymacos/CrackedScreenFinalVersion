@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform cameraPosIn3D;
 
 
+    public InputMaster controls;
     // Player ability
     public bool canAwake;
     public bool canControl;
@@ -34,6 +36,21 @@ public class PlayerController : MonoBehaviour
     public float horizontalMovement;
     public float verticalMovement;
 
+    private void Awake()
+    {
+        controls.Player.Jump.performed += ctx => JumpAndSetGliding();
+        controls.Player.Movement.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -49,6 +66,13 @@ public class PlayerController : MonoBehaviour
         onFacingChangeCallback?.Invoke(true);
         canControl = true;
         canControlDialogueBox = true;
+    }
+
+    public void SetMovement(Vector2 movement)
+    {
+        print(movement);
+        horizontalMovement = movement.x;
+        verticalMovement = movement.y;
     }
 
     private void Update()
@@ -70,12 +94,11 @@ public class PlayerController : MonoBehaviour
 
         if (canAwake) CheckIfPlayerAwakes();
 
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerMovement.Jump();
-            playerMovement.isGliding = true;
-        }
+//
+//        if (Input.GetKeyDown(KeyCode.Space))
+//        {
+//            JumpAndSetGliding();
+//        }
 
 
 //        if (!Input.GetKey(KeyCode.Space))    // TODO to delete this to make the game easier by letting player to jump to the highest point once he/she presses the spacebar
@@ -93,6 +116,13 @@ public class PlayerController : MonoBehaviour
 //                playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Run);
 //            }
 //        }
+    }
+
+    private void JumpAndSetGliding()
+    {
+        print("Try to jump");
+        playerMovement.Jump();
+        playerMovement.isGliding = true;
     }
 
 
