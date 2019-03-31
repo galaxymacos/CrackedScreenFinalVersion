@@ -14,16 +14,23 @@ public enum AudioGroup
     FirstBoss,
     SecondBoss
 }
+
+[Serializable]
+public class SoundTrack
+{
+    public AudioMixerGroup AudioMixerGroup;
+    public Sound[] sounds;
+}
 public class AudioManager : MonoBehaviour
 {
     // Whenever a sound of each sound array is playing, the other sounds in the same array will be forced to stop
-    private Dictionary<AudioGroup, Sound[]> soundDictionary;
+    private Dictionary<AudioGroup, SoundTrack> soundDictionary;
 
-    public Sound[] CharacterSounds;
-    public Sound[] FirstBossSounds;
-    public Sound[] SecondBossSounds;
-    public Sound[] UiSounds;
-    public Sound[] BackgroundMusics;
+    public SoundTrack CharacterSounds;
+    public SoundTrack FirstBossSounds;
+    public SoundTrack SecondBossSounds;
+    public SoundTrack UiSounds;
+    public SoundTrack BackgroundMusics;
     
     
     
@@ -42,7 +49,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         
-        soundDictionary = new Dictionary<AudioGroup, Sound[]>();
+        soundDictionary = new Dictionary<AudioGroup, SoundTrack>();
         soundDictionary.Add(AudioGroup.Character,CharacterSounds);
         soundDictionary.Add(AudioGroup.Ui,UiSounds);
         soundDictionary.Add(AudioGroup.Bgm, BackgroundMusics);
@@ -50,10 +57,11 @@ public class AudioManager : MonoBehaviour
         soundDictionary.Add(AudioGroup.SecondBoss, SecondBossSounds);
 
 
-        foreach (Sound[] sounds in soundDictionary.Values) // Create one audiosource for each audioGroup
+        foreach (SoundTrack soundTrack in soundDictionary.Values) // Create one audiosource for each audioGroup
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-            foreach (Sound sound in sounds)
+            audioSource.outputAudioMixerGroup = soundTrack.AudioMixerGroup;
+            foreach (Sound sound in soundTrack.sounds)
             {
                 sound.source = audioSource;
             }
@@ -67,9 +75,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(AudioGroup audioGroup, string soundName)
     {
-        soundDictionary.TryGetValue(audioGroup,out var soundArr);
-        if (soundArr != null)
-            foreach (var sound in soundArr)
+        soundDictionary.TryGetValue(audioGroup,out SoundTrack soundTrack);
+        if (soundTrack != null)
+            foreach (var sound in soundTrack.sounds)
             {
      
                     if (sound.name == soundName)
@@ -90,8 +98,12 @@ public class AudioManager : MonoBehaviour
 
     public void StopSound(AudioGroup audioGroup)
     {
-        soundDictionary.TryGetValue(audioGroup,out var soundArr);
-        soundArr?[0].source.Stop();
+        soundDictionary.TryGetValue(audioGroup,out SoundTrack soundTrack);
+        if (soundTrack?.sounds.Length > 0)
+        {
+            soundTrack.sounds[0].source.Stop();
+            
+        }
     }
     
     

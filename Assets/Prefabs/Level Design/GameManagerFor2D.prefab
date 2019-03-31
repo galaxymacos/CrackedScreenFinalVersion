@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 2177889124415726824}
   - component: {fileID: 2177889124415726822}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameManagerFor2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc14838b3aacb445b629b164804e6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controls:
+    m_Asset: {fileID: 11400000, guid: 4ee2467c7408e5646aaebd70ba97ddc8, type: 3}
   gameIsOver: 0
   gameIsPaused: 0
   isPlayerDying: 0
@@ -114,6 +116,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   PlayerAnimator: {fileID: 0}
   PlayerDying: 0
+  isGameOver: 0
 --- !u!114 &2177889124415726822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,13 +427,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859199081091750478, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -2.4000244
+      propertyPath: m_AnchoredPosition.x
+      value: -4.699951
       objectReference: {fileID: 0}
     - target: {fileID: 5859199081091750478, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.699951
+      propertyPath: m_AnchoredPosition.y
+      value: -2.4000244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b7d317aa0410643a77de5b042c0b0e, type: 3}

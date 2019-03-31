@@ -35,15 +35,17 @@ public class PlayerController : MonoBehaviour
     public float horizontalMovement;
     public float verticalMovement;
 
+    [SerializeField] private InputMaster controls;
+
     private void OnEnable()
     {
-        GameManager.Instance.controls.Player.Movement.Enable();
-        GameManager.Instance.controls.Player.Movement.performed += HandleMovement;
-        GameManager.Instance.controls.Player.Jump.Enable();
-        GameManager.Instance.controls.Player.Jump.performed += HandleJump;
-        GameManager.Instance.controls.Player.Transform.Enable();
-        GameManager.Instance.controls.Player.Transform.performed += HandleTransform;
-        GameManager.Instance.controls.Player.Transform.cancelled += HandleTransformRelease;
+        controls.Player.Movement.Enable();
+        controls.Player.Movement.performed += HandleMovement;
+        controls.Player.Jump.Enable();
+       controls.Player.Jump.performed += HandleJump;
+        controls.Player.Transform.Enable();
+       controls.Player.Transform.performed += HandleTransform;
+        controls.Player.Transform.cancelled += HandleTransformRelease;
     }
 
     private void OnDisable()
