@@ -20,13 +20,15 @@ public class Block : Skill
         {
             if (TimePlayed + blockingDuration <= Time.time)
             {
-                playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Stand);
-                print("Change player state in blocking function");
-                
-//                playerController.canControl = true;
-                _isPlaying = false;
+                EndDefend();
             }
         }
+    }
+
+    public void EndDefend()
+    {
+        playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Stand);
+        _isPlaying = false;
     }
 
     public override void Play()
@@ -38,7 +40,6 @@ public class Block : Skill
             base.Play();
             _skillNotOnCooldown = false; // Skill is on cooldown
             playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Block);
-            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
         }
         else
         {

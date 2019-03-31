@@ -288,9 +288,9 @@ public class PlayerMovement : MonoBehaviour
         LayerMask slopeLayer = 1 << 15;
         var position = transform.position;
         var hasHitRightGround = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
-            GetComponent<BoxCollider>().size.y / 2 + 0.01f, groundLayer);
+            GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitLeftGround = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
-            GetComponent<BoxCollider>().size.y / 2 + 0.01f, groundLayer);
+            GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitSlope = Physics.Raycast(position, Vector3.down,
             GetComponent<BoxCollider>().size.y / 2 + 0.4f, slopeLayer);
 
