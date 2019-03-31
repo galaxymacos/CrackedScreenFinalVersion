@@ -43,14 +43,14 @@ public class SpawnVolcanoAttack : BossAbility
         if (!warning1)
         {
             volcano1 = Instantiate(volcano, attackPos[0], Quaternion.identity);
-            AudioManager.instance.PlayBossSound("Warning");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Warning");
             warning1 = true;
             print("Warning one");
         }
         
         if (Time.time > abilityStartTime + delayBetteenWarningAndAttack && !explosion1)
         {
-            AudioManager.instance.PlayBossSound("Explosion");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Explosion");
             volcano1.GetComponent<VolcanoFlameHitPlayer>().ActivateDamage();
             explosion1 = true;
             print("explosion one");
@@ -60,7 +60,7 @@ public class SpawnVolcanoAttack : BossAbility
         if (Time.time > abilityStartTime + timeIntervalBetweenSpawn && !warning2)
         {
             volcano2 = Instantiate(volcano, attackPos[1], Quaternion.identity);
-            AudioManager.instance.PlayBossSound("Warning");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Warning");
             warning2 = true;
             print("Warning two");
 
@@ -68,7 +68,8 @@ public class SpawnVolcanoAttack : BossAbility
         }
         if (Time.time > abilityStartTime + timeIntervalBetweenSpawn + delayBetteenWarningAndAttack && !explosion2)
         {
-            AudioManager.instance.PlayBossSound("Explosion");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Explosion");
+
             volcano2.GetComponent<VolcanoFlameHitPlayer>().ActivateDamage();
             explosion2 = true;
             print("explosion two");
@@ -78,7 +79,8 @@ public class SpawnVolcanoAttack : BossAbility
         if (Time.time > abilityStartTime + 2 * timeIntervalBetweenSpawn && !warning3)
         {
             volcano3 = Instantiate(volcano, attackPos[2], Quaternion.identity);
-            AudioManager.instance.PlayBossSound("Warning");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Warning");
+
             warning3 = true;
             print("Warning three");
 
@@ -87,7 +89,8 @@ public class SpawnVolcanoAttack : BossAbility
         
         if (Time.time > abilityStartTime + 2* timeIntervalBetweenSpawn + delayBetteenWarningAndAttack && !explosion3)
         {
-            AudioManager.instance.PlayBossSound("Explosion");
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Explosion");
+
             volcano3.GetComponent<VolcanoFlameHitPlayer>().ActivateDamage();
             explosion3 = true;
             print("explosion three");

@@ -45,7 +45,7 @@ public class CannonBall : MonoBehaviour
     {
         PlayerProperty.playerClass.TakeDamage(damage);
         PlayerProperty.playerClass.GetKnockOff(transform.position);
-        AudioManager.instance.PlaySfx("CannonBallExplode");
+//        AudioManager.instance.PlaySfx("CannonBallExplode");
         Destroy(gameObject);
     }
 

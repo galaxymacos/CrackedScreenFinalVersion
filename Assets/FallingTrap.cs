@@ -44,7 +44,7 @@ public class FallingTrap : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.instance.PlaySfx("IceCracking"); // TODO add sound to AudioManager
+//        AudioManager.instance.PlaySfx("IceCracking"); // TODO add sound to AudioManager
         crackingTimeRemains = delayBeforeFalling;
     }
 

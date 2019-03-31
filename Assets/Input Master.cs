@@ -30,6 +30,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_Run = m_Player.GetAction("Run");
         m_Player_CounterStrike = m_Player.GetAction("Counter Strike");
         m_Player_Transform = m_Player.GetAction("Transform");
+        m_Player_Interact = m_Player.GetAction("Interact");
         m_Initialized = true;
     }
     private void Uninitialize()
@@ -45,6 +46,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_Run = null;
         m_Player_CounterStrike = null;
         m_Player_Transform = null;
+        m_Player_Interact = null;
         m_Initialized = false;
     }
     public void SetAsset(InputActionAsset newAsset)
@@ -69,6 +71,7 @@ public class InputMaster : InputActionAssetReference
     private InputAction m_Player_Run;
     private InputAction m_Player_CounterStrike;
     private InputAction m_Player_Transform;
+    private InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private InputMaster m_Wrapper;
@@ -83,6 +86,7 @@ public class InputMaster : InputActionAssetReference
         public InputAction @Run { get { return m_Wrapper.m_Player_Run; } }
         public InputAction @CounterStrike { get { return m_Wrapper.m_Player_CounterStrike; } }
         public InputAction @Transform { get { return m_Wrapper.m_Player_Transform; } }
+        public InputAction @Interact { get { return m_Wrapper.m_Player_Interact; } }
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }

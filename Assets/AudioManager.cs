@@ -1,14 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// This enum contains music group that have only one instance
+/// </summary>
+public enum AudioGroup
+{
+    Character,
+    Ui,
+    Bgm,
+    FirstBoss,
+    SecondBoss
+}
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    // Whenever a sound of each sound array is playing, the other sounds in the same array will be forced to stop
+    private Dictionary<AudioGroup, Sound[]> soundDictionary;
 
-    public Sound[] Musics;
-
-    public Sound[] BossSounds;
+    public Sound[] CharacterSounds;
+    public Sound[] FirstBossSounds;
+    public Sound[] SecondBossSounds;
+    public Sound[] UiSounds;
+    public Sound[] BackgroundMusics;
+    
+    
+    
     // Start is called before the first frame update
 
     public static AudioManager instance;
@@ -24,162 +42,57 @@ public class AudioManager : MonoBehaviour
             return;
         }
         
-        
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
-        
-        foreach (Sound s in Musics)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-        }
+        soundDictionary = new Dictionary<AudioGroup, Sound[]>();
+        soundDictionary.Add(AudioGroup.Character,CharacterSounds);
+        soundDictionary.Add(AudioGroup.Ui,UiSounds);
+        soundDictionary.Add(AudioGroup.Bgm, BackgroundMusics);
+        soundDictionary.Add(AudioGroup.FirstBoss, FirstBossSounds);
+        soundDictionary.Add(AudioGroup.SecondBoss, SecondBossSounds);
 
-        foreach (Sound s in BossSounds)
+
+        foreach (Sound[] sounds in soundDictionary.Values) // Create one audiosource for each audioGroup
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            foreach (Sound sound in sounds)
+            {
+                sound.source = audioSource;
+            }
         }
     }
 
     private void Start()
     {
-        PlayMusic("ChapterOneBgm");
+        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
     }
 
-    public void PlaySfx(string soundName)
+    public void PlaySound(AudioGroup audioGroup, string soundName)
     {
-        foreach (var sound in sounds)
-        {
-            if (sound != null)
+        soundDictionary.TryGetValue(audioGroup,out var soundArr);
+        if (soundArr != null)
+            foreach (var sound in soundArr)
             {
-                if (sound.name == soundName)
-                {
-                    if (sound.source.loop && !sound.source.isPlaying)
+     
+                    if (sound.name == soundName)
                     {
-                        sound.source.Play();
+                        if (!sound.source.isPlaying)
+                        {
+                            sound.source.clip = sound.clip;
+                            sound.source.volume = sound.volume;
+                            sound.source.pitch = sound.pitch;
+                            sound.source.loop = sound.loop;
+                            sound.source.Play();
+                        }
                     }
+                
 
-                    if (!sound.source.loop && !sound.source.isPlaying)
-                    {
-                        sound.source.Play();
-                    }
-                }
-                else
-                {
-                    if (sound.loop)
-                    {
-                        sound.source.Stop();                        
-                    }
-                    else
-                    {
-                        // do nothing (let the sound stops itself)
-                    }
-                }
-        
             }
-        }
+    }
+
+    public void StopSound(AudioGroup audioGroup)
+    {
+        soundDictionary.TryGetValue(audioGroup,out var soundArr);
+        soundArr?[0].source.Stop();
     }
     
-    public void PlayMusic(string soundName)
-    {
-        foreach (var sound in Musics)
-        {
-            if (sound != null)
-            {
-                if (sound.name == soundName)
-                {
-                    if (!sound.source.isPlaying)
-                    {
-                        sound.source.Play();                        
-                    }
-                }
-                else
-                {
-                    if (sound.loop)
-                    {
-                        sound.source.Stop();                        
-                    }
-                    else
-                    {
-                        // do nothing (let the sound stops itself)
-                    }
-                }
-        
-            }
-        }
-    }
     
-    public void PlayBossSound(string soundName)
-    {
-        foreach (var sound in BossSounds)
-        {
-            if (sound != null)
-            {
-                if (sound.name == soundName)
-                {
-                    if (!sound.source.isPlaying)
-                    {
-                        sound.source.Play();                        
-                    }
-                }
-                else
-                {
-                    if (sound.loop)
-                    {
-                        sound.source.Stop();                        
-                    }
-                    else
-                    {
-                        // do nothing (let the sound stops itself)
-                    }
-                }
-        
-            }
-        }
-    }
-
-    public void StopAllSfx()
-    {
-        foreach (Sound sound in sounds)
-        {
-            if (sound != null)
-            {
-                if (sound.loop)
-                {
-                    sound.source.Stop();                    
-                }
-            }
-        }
-    }
-
-    public void ForceStopAllSfx()
-    {
-        foreach (Sound sound in sounds)
-        {
-            sound?.source.Stop();
-        }
-    }
-
-    public void StopSfx(string name)
-    {
-        foreach (Sound sound in sounds)
-        {
-            if (sound != null && sound.name == name)
-            {
-                sound.source.Stop();
-            }
-        }
-    }
 }

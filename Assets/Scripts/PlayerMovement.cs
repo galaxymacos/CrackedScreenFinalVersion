@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
 
     public bool isMoving;
+    public bool isRunningPressed;
 
     // Player State
     [SerializeField] private float jumpForce = 500f;
@@ -72,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         ChangePlayerState(PlayerState.Stand);
     }
 
+ 
+
     public void ChangePlayerState(PlayerState newPlayerState)
     {
         if (newPlayerState == playerCurrentState) // No need to change player state if player is already in that state
@@ -84,32 +88,33 @@ public class PlayerMovement : MonoBehaviour
 
         playerPreviousState = playerCurrentState;
         playerCurrentState = newPlayerState;
-        AudioManager.instance.StopAllSfx();
 
         switch (newPlayerState)
         {
             case PlayerState.Jump:
-                AudioManager.instance.PlaySfx("Jump");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Jump");
 
                 break;
             case PlayerState.DoubleJump:
-                AudioManager.instance.PlaySfx("Double Jump");
-
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Double Jump");
                 break;
             case PlayerState.Attack:
                 break;
             case PlayerState.Stand:
+                AudioManager.instance.StopSound(AudioGroup.Character);
                 break;
             case PlayerState.Walk:
-                AudioManager.instance.PlaySfx("Walk");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+
 
                 break;
             case PlayerState.Run:
-                AudioManager.instance.PlaySfx("Run");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+
 
                 break;
             case PlayerState.Block:
-                AudioManager.instance.PlaySfx("Block");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
                 break;
             case PlayerState.Stunned:
                 break;
@@ -338,13 +343,37 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    [SerializeField] private InputMaster controls;
+    private void OnEnable()
+    {
+        controls.Player.Run.Enable();
+        controls.Player.Run.performed+=RunKeyPress;
+        controls.Player.Run.cancelled += RunKeyRelease;
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Run.Disable();
+        controls.Player.Run.performed -= RunKeyPress;
+        controls.Player.Run.cancelled-=RunKeyRelease;
+    }
+
+    public void RunKeyPress(InputAction.CallbackContext context)
+    {
+        isRunningPressed = true;
+    }
+    public void RunKeyRelease(InputAction.CallbackContext context)
+    {
+        isRunningPressed = false;
+    }
+
     public void MovePlayerOnGround()
     {
         if (GameManager.Instance.player.GetComponent<PlayerController>().horizontalMovement > 0 ||
             GameManager.Instance.player.GetComponent<PlayerController>().horizontalMovement < 0||
             ( GameManager.Instance.player.GetComponent<PlayerController>().verticalMovement < 0|| GameManager.Instance.player.GetComponent<PlayerController>().verticalMovement > 0) && GameManager.Instance.is3D)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (isRunningPressed)
             {
                 if (playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.DoubleJump)
                     ChangePlayerState(PlayerState.Run);

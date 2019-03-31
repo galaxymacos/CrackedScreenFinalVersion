@@ -32,7 +32,7 @@ public class SpawnFireUnderPlayerFoot : BossAbility
             if (remainTimeBeforeMainAttackLands <= 0)
             {
                 Instantiate(attack, attackLocation, Quaternion.identity);
-                AudioManager.instance.PlayBossSound("Explosion");
+                AudioManager.instance.PlaySound(AudioGroup.FirstBoss, "Explosion");
                 if ((player.transform.position - attackLocation).magnitude < explosionRadius)
                 {
                     player.GetComponent<Player>().TakeDamage(20);
@@ -48,6 +48,7 @@ public class SpawnFireUnderPlayerFoot : BossAbility
         remainTimeBeforeMainAttackLands = delayBeforeMainAttackLands;
         attackLocation = player.transform.position;
         Instantiate(preAttack, attackLocation, Quaternion.identity);    // Indicate that an attack is going to land here soon
-        AudioManager.instance.PlayBossSound("Warning");
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss, "Warning");
+
     }
 }

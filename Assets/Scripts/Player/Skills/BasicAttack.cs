@@ -33,7 +33,8 @@ public class BasicAttack : Skill
                 _skillNotOnCooldown = false;
                 base.Play();
 
-                AudioManager.instance.PlaySfx("Basic Attack");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Basic Attack");
+                
                 var enemies = EnemyDetector._enemiesInRange;
                 bool HasAttackedOneEnemy = false;
                 foreach (var enemy in enemies)

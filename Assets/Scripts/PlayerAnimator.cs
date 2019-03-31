@@ -32,8 +32,8 @@ public class PlayerAnimator : MonoBehaviour
             GameManager.Instance.PlayerDying = true;
             PlayerProperty.animator.SetTrigger(Die);
         }
-        AudioManager.instance.ForceStopAllSfx();
-        AudioManager.instance.PlaySfx("Die");
+//        AudioManager.instance.ForceStopAllSfx();
+        AudioManager.instance.PlaySound(AudioGroup.Character,"Die");
     }
 
     public void PlayerDie()

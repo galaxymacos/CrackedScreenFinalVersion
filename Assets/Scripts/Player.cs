@@ -98,17 +98,18 @@ public class Player : MonoBehaviour {
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
 
+        PlayerProperty.controller.transferStoragePowerFull = false;
+
         if (Camera.main.GetComponent<CameraEffect>().isShaking)
         {
             Camera.main.GetComponent<CameraEffect>().StopShaking();
         }
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
-            AudioManager.instance.PlaySfx("Defend");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
         }
         else {
-            AudioManager.instance.PlaySfx("PlayerHurt");
-
+            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
             ChangeRageTo(rage + damage);
             var playerTransform = transform;
@@ -172,7 +173,8 @@ public class Player : MonoBehaviour {
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
-            AudioManager.instance.PlaySfx("Defend");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
+
             defendRecoilTimeRemain = defendRecoilTime;
             if (attackPosition.x > transform.position.x) {
                 defendRecoilDirection = Position.Left;

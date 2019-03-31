@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     internal OnSceneChange OnSceneChangeCallback;
 
+    [SerializeField] internal InputMaster controls;
+
 
     private const string _playerSaveCoordinate = "PlayerLastCoordinate";
 

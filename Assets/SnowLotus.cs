@@ -14,7 +14,7 @@ public class SnowLotus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlaySfx("SnowLotus");    // TODO find snow lotus sound
+//        AudioManager.instance.PlaySfx("SnowLotus");    // TODO find snow lotus sound
         Destroy(gameObject,existDuration);
     }
 

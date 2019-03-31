@@ -22,7 +22,6 @@ public class Pendulum : MonoBehaviour
 
     private void SetUpStartAndEndAngle()
     {
-        print(start+" "+end);
         start = PendulumRotation(angle);
         end = PendulumRotation(-angle);
     }
