@@ -10,9 +10,9 @@ public class fenceScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             fenceScript.death = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f;
+          //  Cursor.visible = true;
+          //  Cursor.lockState = CursorLockMode.None;
+          //  Time.timeScale = 0f;
         }
     }
 }
