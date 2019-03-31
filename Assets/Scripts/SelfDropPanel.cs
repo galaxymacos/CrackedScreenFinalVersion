@@ -11,9 +11,16 @@ public class SelfDropPanel : MonoBehaviour
     private Rigidbody rb;
     public bool isFalling;
 
+    public float shakeIntensity = 0.4f;
+    public float shakeDuration = 0.3f;
+    private float originalX;
+    [SerializeField] private AudioSource Dropping;
+    [SerializeField] private AudioSource Shaking;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        originalX = transform.position.x;
     }
 
     private void Update()
@@ -23,6 +30,7 @@ public class SelfDropPanel : MonoBehaviour
             dropTimeRemains -= Time.deltaTime;
             if (dropTimeRemains <= 0)
             {
+                Dropping.Play();
                 rb.useGravity = true;
                 rb.isKinematic = false;
                 gameObject.layer = LayerMask.NameToLayer("Abandoned");
@@ -33,6 +41,17 @@ public class SelfDropPanel : MonoBehaviour
 
                 isFalling = true;
             }
+        }
+
+        if (hasInteracted)
+        {
+            if (shakeDuration > 0f)
+            {
+                shakeDuration -= Time.deltaTime;
+                float randomX = Random.Range(-shakeIntensity, shakeIntensity);
+                transform.position = new Vector3(originalX + randomX, transform.position.y, transform.position.z);
+            }
+            
         }
 
         
@@ -58,6 +77,7 @@ public class SelfDropPanel : MonoBehaviour
             print("player in range");
             dropTimeRemains = dropDelay;
             hasInteracted = true;
+            Shaking.Play();
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Deadly"))

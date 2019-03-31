@@ -51,6 +51,8 @@ namespace Skills
                 }
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }
+
+            PlayerProperty.player.GetComponent<PlayerController>().canControl = true;
         }
         
         public void CreateAirborneSlashCollider(bool isFacingRight)

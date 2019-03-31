@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This enum contains music group that have only one instance
@@ -70,7 +71,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            PlaySound(AudioGroup.Bgm,"ChapterTwoBgm");
+        }
+//        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
     }
 
     public void PlaySound(AudioGroup audioGroup, string soundName)
@@ -82,7 +87,8 @@ public class AudioManager : MonoBehaviour
      
                     if (sound.name == soundName)
                     {
-                        if (!sound.source.isPlaying)
+                        
+                        if ((sound.source.clip != sound.clip && sound.source.isPlaying) || !sound.source.isPlaying)
                         {
                             sound.source.clip = sound.clip;
                             sound.source.volume = sound.volume;

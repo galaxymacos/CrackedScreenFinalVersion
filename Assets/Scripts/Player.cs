@@ -174,6 +174,8 @@ public class Player : MonoBehaviour {
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
+            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
+
 
             defendRecoilTimeRemain = defendRecoilTime;
             if (attackPosition.x > transform.position.x) {
@@ -200,6 +202,23 @@ public class Player : MonoBehaviour {
 
     public void GetKnockOff(Vector3 attackPosition, Vector3 force) {
         if (lastTimeKnockOff + invincibieTime > Time.time) return;
+
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+            print("block enemy attack");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
+            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
+
+
+            defendRecoilTimeRemain = defendRecoilTime;
+            if (attackPosition.x > transform.position.x) {
+                defendRecoilDirection = Position.Left;
+            }
+            else {
+                defendRecoilDirection = Position.Right;
+            }
+            return;
+            
+        }
 
         lastTimeKnockOff = Time.time;
         if (hp <= 0) return;

@@ -27,6 +27,11 @@ public class ArcherEnemy : Enemy
     [SerializeField] private float patrolSpeed = 5f;
     public float rightLimit = 5f;
 
+    [SerializeField] private AudioSource dodgeSound;
+    [SerializeField] private AudioSource dieSound;
+    [SerializeField] private AudioSource hitToAirSound;
+    [SerializeField] private AudioSource shootArrowSound;
+
 
     private bool needTurnAround()
     {
@@ -63,6 +68,7 @@ public class ArcherEnemy : Enemy
     {
         if (dodging) return;
         if (DodgingSucceed()) return;
+        hitToAirSound.Play();
         base.KnockUp(force);
     }
 
@@ -74,6 +80,7 @@ public class ArcherEnemy : Enemy
             dodging = true;
             animator.SetTrigger("RollAttack");
             chargeNextAttack = true;
+            dodgeSound.Play();
             return true;
         }
 
@@ -107,9 +114,11 @@ public class ArcherEnemy : Enemy
 
     protected override void Die()
     {
-        spriteRenderer.enabled = false;
+        dieSound.Play();
+        laySec = 10000f; 
+//        spriteRenderer.enabled = false;
 //        AudioManager.instance.PlaySfx("MinionDie");
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
     }
     
     public bool CanMove()
@@ -171,6 +180,7 @@ public class ArcherEnemy : Enemy
 
     public void SpawnTheFuckingArrow()
     {
+        shootArrowSound.Play();
         var arrowInstantiate = Instantiate(arrow, arrowSpawnPoint.position, Quaternion.identity);
         arrowInstantiate.GetComponent<Arrow>().flyDirection =
             (PlayerProperty.playerPosition - transform.position).normalized;

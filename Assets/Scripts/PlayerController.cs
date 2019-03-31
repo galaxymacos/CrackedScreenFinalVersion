@@ -84,8 +84,9 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransform(InputAction.CallbackContext context)
     {
-        if (canAwake && canControl)
+        if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand)
         {
+            AudioManager.instance.PlaySound(AudioGroup.Character, "DimensionLeapPreparing");
             Time.timeScale = 0.5f;
             _cameraEffect.StartShaking(0.1f); // Keep shaking
             isTransforming = true;
@@ -96,12 +97,15 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransformRelease(InputAction.CallbackContext context)
     {
+        AudioManager.instance.StopSound(AudioGroup.Character);
         isTransforming = false;
         powerAccumulateTime = 0;
         _cameraEffect.StopShaking();
         Time.timeScale = 1f;
         if (transferStoragePowerFull)
         {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"DimensionLeapTo3D");
+            print("play 3d sound");
             GameManager.Instance.is3D = !GameManager.Instance.is3D;
             if (GameManager.Instance.is3D)
             {
