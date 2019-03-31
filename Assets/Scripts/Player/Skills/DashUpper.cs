@@ -65,7 +65,7 @@ public class DashUpper : Skill
             }
             else
             {
-                AudioManager.instance.PlaySfx("Uppercut");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Uppercut");
                 _isPlaying = false;
 
                 rb.velocity = Vector3.zero;
@@ -103,7 +103,7 @@ public class DashUpper : Skill
     {
         if (_skillNotOnCooldown) // Check if the skill is on cooldown
         {
-            AudioManager.instance.PlaySfx("Dash");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Dash");
             GameManager.Instance.animator.SetTrigger("Dash Uppercut");
             playerController.canControl = false;
 

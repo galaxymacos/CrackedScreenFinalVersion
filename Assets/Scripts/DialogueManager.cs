@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogueHasDisplayed = false;
         playerController.canControl = false;
-        AudioManager.instance.StopAllSfx();
+//        AudioManager.instance.StopAllSfx();
         dialogues = _dialogues;
         animator.SetBool("isOpen", true);
         // Pause the game if dialogue is playing
@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
 
         var sentence = sentences.Dequeue();
         StopAllCoroutines();
-        AudioManager.instance.PlaySfx("Type");
+        AudioManager.instance.PlaySound(AudioGroup.Ui,"Type");
         StartCoroutine(TypeSentence(sentence));
         return true;
     }
@@ -92,7 +92,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueText.text == sentence)
             {
                 currentDialogueHasDisplayed = true;
-                AudioManager.instance.StopSfx("Type");
+                AudioManager.instance.StopSound(AudioGroup.Ui);
             }
             yield return null;
         }

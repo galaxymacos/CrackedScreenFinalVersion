@@ -12,7 +12,7 @@ public class StandingEnemy : Enemy
 
     protected override void Die()
     {
-        AudioManager.instance.PlaySfx("RockBreak");    // TODO find rock break sound
+//        AudioManager.instance.PlaySfx("RockBreak");    // TODO find rock break sound
         Destroy(gameObject);
     }
 

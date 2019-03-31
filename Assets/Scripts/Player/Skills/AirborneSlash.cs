@@ -33,7 +33,7 @@ namespace Skills
                 _skillNotOnCooldown = false;
                 base.Play();
 
-                AudioManager.instance.PlaySfx("Air Slash");
+                AudioManager.instance.PlaySound(AudioGroup.Character, "Air Slash");
                 var enemies = EnemyDetector._enemiesInRange;
                 foreach (var enemy in enemies)
                 {

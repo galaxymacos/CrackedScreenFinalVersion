@@ -4261,170 +4261,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0454a1b7dcda93247a5a4d0a7ee72f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  CharacterSounds:
   - name: Walk
     clip: {fileID: 8300000, guid: 5b913e342d633104888664e50c420e5c, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Run
-    clip: {fileID: 8300000, guid: 907a90cb1bfc2034b93849e51912d74d, type: 3}
-    volume: 1
+  FirstBossSounds: []
+  SecondBossSounds: []
+  UiSounds: []
+  BackgroundMusics:
+  - name: Chapter One Bgm
+    clip: {fileID: 8300000, guid: 70baeb754373c9542856d8c0460ad734, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Double Jump
-    clip: {fileID: 8300000, guid: 21e3ae0b68a41b7448b5d32d8beee01e, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Jump
-    clip: {fileID: 8300000, guid: 696d00eb9f3ed7e408a53f3b8556528e, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Dash
-    clip: {fileID: 8300000, guid: b83f36a087932f94891aa66a993d5e70, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlackHoleExplosion
-    clip: {fileID: 8300000, guid: 1413f07866aa5134887c456bec25c320, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Air Slash
-    clip: {fileID: 8300000, guid: 9d94f748c32cfd44ebda5ba00c1c65ac, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Die
-    clip: {fileID: 8300000, guid: 3f36da30652cd7d449957fab127098dd, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Rest
-    clip: {fileID: 8300000, guid: c301333a5500a2f4d96c4eadaac5f74c, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlockStart
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlockSuccess
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: DialogueBox
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: TipsPanelOpen
-    clip: {fileID: 0}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Uppercut
-    clip: {fileID: 8300000, guid: 821692af9fcdb7142b548d3192add1e0, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PlayerHurt
-    clip: {fileID: 8300000, guid: 65e80c98768434246a9b0b910ead6420, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Type
-    clip: {fileID: 8300000, guid: ba6942b64d735444fb9cf781691cd0f1, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlackHoleSoaking
-    clip: {fileID: 8300000, guid: 887713d5a5bae984bba004a5b53ac487, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Defend
-    clip: {fileID: 8300000, guid: d0fcd96333b3d314f8f695a1d0f5543a, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Counter Attack
-    clip: {fileID: 8300000, guid: c9e9cc037f4b3d54d87c800fb5b803c5, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlackHoleSoaking
-    clip: {fileID: 8300000, guid: 887713d5a5bae984bba004a5b53ac487, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: MinionDie
-    clip: {fileID: 8300000, guid: 8c2759c60c6e0e44e82d3a2b67984bf3, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BlackHoleSoaking
-    clip: {fileID: 8300000, guid: 887713d5a5bae984bba004a5b53ac487, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  Musics:
-  - name: ChapterOneBgm
+  - name: Chapter One Fighting Bgm
     clip: {fileID: 8300000, guid: 2bb941422ba860e44b06f747cc145273, type: 3}
-    volume: 0.638
+    volume: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: ChapterOneFightingBgm
-    clip: {fileID: 8300000, guid: 2bb941422ba860e44b06f747cc145273, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: StartMenuBgm
+  - name: Chapter Two Bgm
     clip: {fileID: 8300000, guid: cbbc771c778b4cd4caab5727c778a773, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
-    source: {fileID: 0}
-  BossSounds:
-  - name: Warning
-    clip: {fileID: 8300000, guid: ea843ed04bd86df4295407897e875f16, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Explosion
-    clip: {fileID: 8300000, guid: d6b632583e1ac5049a088496d399e02d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
     source: {fileID: 0}
 --- !u!4 &682173425 stripped
 Transform:
