@@ -171,7 +171,7 @@ public class Player : MonoBehaviour {
     }
 
     public void ChangeRageTo(float newRageLevel) {
-            rage = newRageLevel;
+            rage = Mathf.Clamp(newRageLevel,0,maxRage);
             GameUi.Instance.mpBar.fillAmount = rage / maxRage;
     }
 

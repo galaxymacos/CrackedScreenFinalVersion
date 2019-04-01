@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransform(InputAction.CallbackContext context)
     {
-        if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand)
+        if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand && !GameManager.Instance.is3D)
         {
             dimensionLeapParticleEffect.SetActive(true);
             AudioManager.instance.PlaySound(AudioGroup.Character, "DimensionLeapPreparing");
@@ -127,10 +127,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
-            PlayerProperty.playerClass.maxRage);
-        print(rage);
-        PlayerProperty.playerClass.ChangeRageTo(rage);
+        if (!GameManager.Instance.is3D)
+        {
+            float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
+                PlayerProperty.playerClass.maxRage);
+            PlayerProperty.playerClass.ChangeRageTo(rage);    
+        }
+        else
+        {
+            PlayerProperty.playerClass.ChangeRageTo(PlayerProperty.playerClass.rage-10*Time.deltaTime);    // TODO change to rageLoseSpeed
+            if (PlayerProperty.playerClass.rage <= 0)
+            {
+                GameManager.Instance.OnSceneChangeCallback.Invoke(false);
+            }
+        }
+        
         if (playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stunned ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.KnockUp ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block)
