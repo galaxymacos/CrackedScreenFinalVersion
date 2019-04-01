@@ -116,6 +116,7 @@ public class ArcherEnemy : Enemy
     {
         dieSound.Play();
         laySec = 10000f; 
+        ChangeEnemyState(EnemyState.LayOnGround);
 //        spriteRenderer.enabled = false;
 //        AudioManager.instance.PlaySfx("MinionDie");
         Destroy(gameObject, 3f);

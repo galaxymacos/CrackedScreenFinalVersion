@@ -247,6 +247,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (PlayerProperty.playerClass.isPlayerUsingAbility())
+            return;
         if (isGrounded)
         {
             ResetVerticalVelocity();

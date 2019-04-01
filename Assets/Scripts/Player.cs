@@ -121,6 +121,16 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public bool isPlayerUsingAbility()
+    {
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Air Slash") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Counterattack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend");
+    }
+
     private bool IsPlayerInvincible()
     {
         return invincibleTimeRemains > 0;
