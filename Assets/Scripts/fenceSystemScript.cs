@@ -106,7 +106,6 @@ public class fenceSystemScript : MonoBehaviour
     void Fence4()
     {
         float temp = GetRandomNumber();
-        Debug.Log(durationRandom1);
         durationRandom1 -= Time.deltaTime;
         if (durationRandom1 < 0)
         {

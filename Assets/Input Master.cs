@@ -28,7 +28,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_AirSlash = m_Player.GetAction("Air Slash");
         m_Player_Jump = m_Player.GetAction("Jump");
         m_Player_Run = m_Player.GetAction("Run");
-        m_Player_CounterStrike = m_Player.GetAction("Counter Strike");
+        m_Player_CounterAttack = m_Player.GetAction("Counter Attack");
         m_Player_Transform = m_Player.GetAction("Transform");
         m_Player_Interact = m_Player.GetAction("Interact");
         m_Initialized = true;
@@ -44,7 +44,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_AirSlash = null;
         m_Player_Jump = null;
         m_Player_Run = null;
-        m_Player_CounterStrike = null;
+        m_Player_CounterAttack = null;
         m_Player_Transform = null;
         m_Player_Interact = null;
         m_Initialized = false;
@@ -69,7 +69,7 @@ public class InputMaster : InputActionAssetReference
     private InputAction m_Player_AirSlash;
     private InputAction m_Player_Jump;
     private InputAction m_Player_Run;
-    private InputAction m_Player_CounterStrike;
+    private InputAction m_Player_CounterAttack;
     private InputAction m_Player_Transform;
     private InputAction m_Player_Interact;
     public struct PlayerActions
@@ -84,7 +84,7 @@ public class InputMaster : InputActionAssetReference
         public InputAction @AirSlash { get { return m_Wrapper.m_Player_AirSlash; } }
         public InputAction @Jump { get { return m_Wrapper.m_Player_Jump; } }
         public InputAction @Run { get { return m_Wrapper.m_Player_Run; } }
-        public InputAction @CounterStrike { get { return m_Wrapper.m_Player_CounterStrike; } }
+        public InputAction @CounterAttack { get { return m_Wrapper.m_Player_CounterAttack; } }
         public InputAction @Transform { get { return m_Wrapper.m_Player_Transform; } }
         public InputAction @Interact { get { return m_Wrapper.m_Player_Interact; } }
         public InputActionMap Get() { return m_Wrapper.m_Player; }

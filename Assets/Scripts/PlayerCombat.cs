@@ -25,8 +25,8 @@ public class PlayerCombat : MonoBehaviour
         controls.Player.BasicAttack.performed += HandleBasicAttack;
         controls.Player.AirSlash.Enable();
         controls.Player.AirSlash.performed += HandleAirSlash;
-        controls.Player.CounterStrike.Enable();
-        controls.Player.CounterStrike.performed += HandleCounterAttack;
+        controls.Player.CounterAttack.Enable();
+        controls.Player.CounterAttack.performed += HandleCounterAttack;
     }
 
     private void OnDisable()
@@ -41,8 +41,8 @@ public class PlayerCombat : MonoBehaviour
         controls.Player.BasicAttack.performed -= HandleBasicAttack;
         controls.Player.AirSlash.Disable();
         controls.Player.AirSlash.performed -= HandleAirSlash;
-        controls.Player.CounterStrike.Disable();
-        controls.Player.CounterStrike.performed -= HandleCounterAttack;
+        controls.Player.CounterAttack.Disable();
+        controls.Player.CounterAttack.performed -= HandleCounterAttack;
     }
 
     private void HandleDashUppercut(InputAction.CallbackContext context)
