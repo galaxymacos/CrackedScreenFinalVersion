@@ -125,22 +125,22 @@ public class PlayerMovement : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(newPlayerState), newPlayerState, null);
         }
-        
-        if (playerCurrentState == PlayerState.Jump)
-        {
-            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-            playerCollider.center = new Vector3(0, 1, 0);
-        }
-        else if (playerCurrentState == PlayerState.DoubleJump)
-        {
-            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-            playerCollider.center = new Vector3(0, 1.5f, 0);
-        }
-        else
-        {
-            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-            playerCollider.center = new Vector3(0, 0, 0);
-        }
+        // Change collider when jumping and double jumping
+//        if (playerCurrentState == PlayerState.Jump)
+//        {
+//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
+//            playerCollider.center = new Vector3(0, 1, 0);
+//        }
+//        else if (playerCurrentState == PlayerState.DoubleJump)
+//        {
+//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
+//            playerCollider.center = new Vector3(0, 1.5f, 0);
+//        }
+//        else
+//        {
+//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
+//            playerCollider.center = new Vector3(0, 0, 0);
+//        }
         ChangeAnimationAccordingToAction();
     }
 

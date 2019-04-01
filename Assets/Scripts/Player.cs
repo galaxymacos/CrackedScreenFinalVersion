@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
     public float rage;
 
     private Rigidbody rb;
+    private GameObject DimensionLeapParticleEffect;
     
     
 
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour {
         hp = maxHp;
 
         GameManager.Instance.onPlayerDieCallback += RestorePlayerHealth;
+        DimensionLeapParticleEffect = transform.Find("DimensionLeapParticleEffect").gameObject;
     }
 
     private void Update() {
@@ -97,7 +99,7 @@ public class Player : MonoBehaviour {
         }
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
-
+        DimensionLeapParticleEffect.SetActive(false);
         PlayerProperty.controller.transferStoragePowerFull = false;
 
         if (Camera.main.GetComponent<CameraEffect>().isShaking)
@@ -179,6 +181,7 @@ public class Player : MonoBehaviour {
     }
 
     public void GetKnockOff(Vector3 attackPosition) {
+
         if (lastTimeKnockOff + invincibieTime > Time.time) return;
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
@@ -197,7 +200,7 @@ public class Player : MonoBehaviour {
             return;
             
         }
-        
+        DimensionLeapParticleEffect.SetActive(false);
         lastTimeKnockOff = Time.time;
         if (hp <= 0) return;
         rb.velocity = Vector3.zero;
