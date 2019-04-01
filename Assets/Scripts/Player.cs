@@ -113,14 +113,17 @@ public class Player : MonoBehaviour {
         else {
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
-            ChangeRageTo(rage + damage);
             var playerTransform = transform;
-            var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
-                Quaternion.identity);
-            floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
-            GameUi.Instance.hpBar.fillAmount = hp / maxHp;
+            ShowFloatingDamage(damage, playerTransform);
             if (hp <= 0) GameManager.Instance.PlayerAnimator.PlayerStartDying();
         }
+    }
+
+    private void ShowFloatingDamage(int damage, Transform playerTransform)
+    {
+        var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
+            Quaternion.identity);
+        floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
     }
 
     public bool isPlayerUsingAbility()
@@ -167,11 +170,9 @@ public class Player : MonoBehaviour {
         GameUi.Instance.hpBar.fillAmount = hp / maxHp;
     }
 
-    private void ChangeRageTo(float newRageLevel) {
-        if (newRageLevel < 100) {
+    public void ChangeRageTo(float newRageLevel) {
             rage = newRageLevel;
             GameUi.Instance.mpBar.fillAmount = rage / maxRage;
-        }
     }
 
     // Player debuff

@@ -127,6 +127,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
+            PlayerProperty.playerClass.maxRage);
+        print(rage);
+        PlayerProperty.playerClass.ChangeRageTo(rage);
         if (playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stunned ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.KnockUp ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block)
