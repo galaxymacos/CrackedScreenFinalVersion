@@ -88,32 +88,33 @@ public class PlayerMovement : MonoBehaviour
 
         playerPreviousState = playerCurrentState;
         playerCurrentState = newPlayerState;
-        AudioManager.instance.StopAllSfx();
 
         switch (newPlayerState)
         {
             case PlayerState.Jump:
-                AudioManager.instance.PlaySfx("Jump");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Jump");
 
                 break;
             case PlayerState.DoubleJump:
-                AudioManager.instance.PlaySfx("Double Jump");
-
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Double Jump");
                 break;
             case PlayerState.Attack:
                 break;
             case PlayerState.Stand:
+                AudioManager.instance.StopSound(AudioGroup.Character);
                 break;
             case PlayerState.Walk:
-                AudioManager.instance.PlaySfx("Walk");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+
 
                 break;
             case PlayerState.Run:
-                AudioManager.instance.PlaySfx("Run");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+
 
                 break;
             case PlayerState.Block:
-                AudioManager.instance.PlaySfx("Block");
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
                 break;
             case PlayerState.Stunned:
                 break;
@@ -287,9 +288,9 @@ public class PlayerMovement : MonoBehaviour
         LayerMask slopeLayer = 1 << 15;
         var position = transform.position;
         var hasHitRightGround = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
-            GetComponent<BoxCollider>().size.y / 2 + 0.01f, groundLayer);
+            GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitLeftGround = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
-            GetComponent<BoxCollider>().size.y / 2 + 0.01f, groundLayer);
+            GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitSlope = Physics.Raycast(position, Vector3.down,
             GetComponent<BoxCollider>().size.y / 2 + 0.4f, slopeLayer);
 

@@ -29,8 +29,8 @@ public class BlackHole : MonoBehaviour
         IEnumerable<Collider> a = Physics.OverlapSphere(transform.position, radius, enemyLayer);
         enemiesInRange = a.Select(col => col.gameObject).ToArray();
         enemyRigidbodysInRange = enemiesInRange.Select(enemy => enemy.GetComponent<Rigidbody>()).ToArray();
-        AudioManager.instance.StopAllSfx();
-        AudioManager.instance.PlaySfx("BlackHoleSoaking");
+//        AudioManager.instance.StopAllSfx();
+//        AudioManager.instance.PlaySfx("BlackHoleSoaking");
         print("Playing black hole soaking");
     }
 
@@ -68,8 +68,8 @@ public class BlackHole : MonoBehaviour
                 
                 mainCamera.GetComponent<CameraEffect>().ShakeForSeconds(0.15f);
             }
-            AudioManager.instance.StopSfx("BlackHoleSoaking");
-            AudioManager.instance.PlaySfx("BlackHoleExplosion");
+//            AudioManager.instance.StopSfx("BlackHoleSoaking");
+//            AudioManager.instance.PlaySfx("BlackHoleExplosion");
             Destroy(gameObject);
         }
     }

@@ -24,7 +24,7 @@ namespace Skills
             print("Counter Attack!!!!!!!!!!!!");
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
-            AudioManager.instance.PlaySfx("Counter Attack");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Counter Attack");
             Slash();    // TODO put slash to be triggered by animation
             
         }
@@ -51,6 +51,8 @@ namespace Skills
                 }
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }
+
+            PlayerProperty.player.GetComponent<PlayerController>().canControl = true;
         }
         
         public void CreateAirborneSlashCollider(bool isFacingRight)

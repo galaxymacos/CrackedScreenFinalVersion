@@ -76,7 +76,7 @@ namespace Enemies
         protected override void Die()
         {
             spriteRenderer.enabled = false;
-            AudioManager.instance.PlaySfx("MinionDie");
+//            AudioManager.instance.PlaySfx("MinionDie");
             Destroy(gameObject);
 
         }
