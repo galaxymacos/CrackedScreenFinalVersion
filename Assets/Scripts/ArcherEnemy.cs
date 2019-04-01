@@ -112,11 +112,13 @@ public class ArcherEnemy : Enemy
         return isConnectingToGround;
     }
 
+    private bool isDead;
+
     protected override void Die()
     {
         dieSound.Play();
-        laySec = 10000f; 
-        ChangeEnemyState(EnemyState.LayOnGround);
+        isDead = true;
+        animator.SetBool("IsDead",true);
 //        spriteRenderer.enabled = false;
 //        AudioManager.instance.PlaySfx("MinionDie");
         Destroy(gameObject, 3f);
@@ -124,12 +126,16 @@ public class ArcherEnemy : Enemy
     
     public bool CanMove()
     {
-        return !isStiffed && !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing;
+        return !isStiffed && !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing && !isDead;
     }
 
 //    private float dodgingTimeRemains;
     public override void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         base.Update();
         animator.SetBool("Idle", _enemyCurrentState == EnemyState.Standing);
 

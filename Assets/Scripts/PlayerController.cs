@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
 
     [SerializeField] private float enter3DWorldDuration = 2f;
+    [SerializeField] private GameObject dimensionLeapParticleEffect;
+    [SerializeField] private GameObject dimensionLeapSucceedParticleEffect;
     public float powerAccumulateTime;
     public bool transferStoragePowerFull;
 
@@ -43,9 +45,9 @@ public class PlayerController : MonoBehaviour
         controls.Player.Movement.performed += HandleMovement;
         controls.Player.Jump.Enable();
        controls.Player.Jump.performed += HandleJump;
-        controls.Player.Transform.Enable();
-       controls.Player.Transform.performed += HandleTransform;
-        controls.Player.Transform.cancelled += HandleTransformRelease;
+        controls.Player.DimensionLeap.Enable();
+       controls.Player.DimensionLeap.performed += HandleTransform;
+        controls.Player.DimensionLeap.cancelled += HandleTransformRelease;
     }
 
     private void OnDisable()
@@ -54,9 +56,9 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.controls.Player.Movement.performed -= HandleMovement;
         GameManager.Instance.controls.Player.Jump.Disable();
         GameManager.Instance.controls.Player.Jump.performed -= HandleJump;
-        GameManager.Instance.controls.Player.Transform.Disable();
-        GameManager.Instance.controls.Player.Transform.performed -= HandleTransform;
-        GameManager.Instance.controls.Player.Transform.cancelled -= HandleTransformRelease;
+        GameManager.Instance.controls.Player.DimensionLeap.Disable();
+        GameManager.Instance.controls.Player.DimensionLeap.performed -= HandleTransform;
+        GameManager.Instance.controls.Player.DimensionLeap.cancelled -= HandleTransformRelease;
     }
 
     // Start is called before the first frame update
@@ -84,8 +86,9 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransform(InputAction.CallbackContext context)
     {
-        if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand)
+        if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand && !GameManager.Instance.is3D)
         {
+            dimensionLeapParticleEffect.SetActive(true);
             AudioManager.instance.PlaySound(AudioGroup.Character, "DimensionLeapPreparing");
             Time.timeScale = 0.5f;
             _cameraEffect.StartShaking(0.1f); // Keep shaking
@@ -97,6 +100,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransformRelease(InputAction.CallbackContext context)
     {
+        dimensionLeapParticleEffect.SetActive(false);
         AudioManager.instance.StopSound(AudioGroup.Character);
         isTransforming = false;
         powerAccumulateTime = 0;
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1f;
         if (transferStoragePowerFull)
         {
+            dimensionLeapSucceedParticleEffect.SetActive(true);
             AudioManager.instance.PlaySound(AudioGroup.Character,"DimensionLeapTo3D");
             print("play 3d sound");
             GameManager.Instance.is3D = !GameManager.Instance.is3D;
@@ -122,6 +127,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.is3D)
+        {
+            float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
+                PlayerProperty.playerClass.maxRage);
+            PlayerProperty.playerClass.ChangeRageTo(rage);    
+        }
+        else
+        {
+            PlayerProperty.playerClass.ChangeRageTo(PlayerProperty.playerClass.rage-10*Time.deltaTime);    // TODO change to rageLoseSpeed
+            if (PlayerProperty.playerClass.rage <= 0)
+            {
+                GameManager.Instance.OnSceneChangeCallback.Invoke(false);
+            }
+        }
+        
         if (playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stunned ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.KnockUp ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block)

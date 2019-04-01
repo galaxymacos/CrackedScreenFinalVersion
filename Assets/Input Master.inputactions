@@ -96,7 +96,7 @@
                     "bindings": []
                 },
                 {
-                    "name": "Transform",
+                    "name": "DimensionLeap",
                     "id": "1000edeb-02ae-4a64-8c54-e1e2625eea78",
                     "expectedControlLayout": "",
                     "continuous": false,
@@ -279,7 +279,7 @@
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Transform",
+                    "action": "DimensionLeap",
                     "chainWithPrevious": false,
                     "isComposite": false,
                     "isPartOfComposite": false,

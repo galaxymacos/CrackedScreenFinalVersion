@@ -29,7 +29,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_Jump = m_Player.GetAction("Jump");
         m_Player_Run = m_Player.GetAction("Run");
         m_Player_CounterAttack = m_Player.GetAction("Counter Attack");
-        m_Player_Transform = m_Player.GetAction("Transform");
+        m_Player_DimensionLeap = m_Player.GetAction("DimensionLeap");
         m_Player_Interact = m_Player.GetAction("Interact");
         m_Initialized = true;
     }
@@ -45,7 +45,7 @@ public class InputMaster : InputActionAssetReference
         m_Player_Jump = null;
         m_Player_Run = null;
         m_Player_CounterAttack = null;
-        m_Player_Transform = null;
+        m_Player_DimensionLeap = null;
         m_Player_Interact = null;
         m_Initialized = false;
     }
@@ -70,7 +70,7 @@ public class InputMaster : InputActionAssetReference
     private InputAction m_Player_Jump;
     private InputAction m_Player_Run;
     private InputAction m_Player_CounterAttack;
-    private InputAction m_Player_Transform;
+    private InputAction m_Player_DimensionLeap;
     private InputAction m_Player_Interact;
     public struct PlayerActions
     {
@@ -85,7 +85,7 @@ public class InputMaster : InputActionAssetReference
         public InputAction @Jump { get { return m_Wrapper.m_Player_Jump; } }
         public InputAction @Run { get { return m_Wrapper.m_Player_Run; } }
         public InputAction @CounterAttack { get { return m_Wrapper.m_Player_CounterAttack; } }
-        public InputAction @Transform { get { return m_Wrapper.m_Player_Transform; } }
+        public InputAction @DimensionLeap { get { return m_Wrapper.m_Player_DimensionLeap; } }
         public InputAction @Interact { get { return m_Wrapper.m_Player_Interact; } }
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }

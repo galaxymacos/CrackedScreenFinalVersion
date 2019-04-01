@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
     public float rage;
 
     private Rigidbody rb;
+    private GameObject DimensionLeapParticleEffect;
     
     
 
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour {
         hp = maxHp;
 
         GameManager.Instance.onPlayerDieCallback += RestorePlayerHealth;
+        DimensionLeapParticleEffect = transform.Find("DimensionLeapParticleEffect").gameObject;
     }
 
     private void Update() {
@@ -97,7 +99,7 @@ public class Player : MonoBehaviour {
         }
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return;
-
+        DimensionLeapParticleEffect.SetActive(false);
         PlayerProperty.controller.transferStoragePowerFull = false;
 
         if (Camera.main.GetComponent<CameraEffect>().isShaking)
@@ -111,14 +113,17 @@ public class Player : MonoBehaviour {
         else {
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
-            ChangeRageTo(rage + damage);
             var playerTransform = transform;
-            var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
-                Quaternion.identity);
-            floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
-            GameUi.Instance.hpBar.fillAmount = hp / maxHp;
+            ShowFloatingDamage(damage, playerTransform);
             if (hp <= 0) GameManager.Instance.PlayerAnimator.PlayerStartDying();
         }
+    }
+
+    private void ShowFloatingDamage(int damage, Transform playerTransform)
+    {
+        var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
+            Quaternion.identity);
+        floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
     }
 
     public bool isPlayerUsingAbility()
@@ -165,11 +170,9 @@ public class Player : MonoBehaviour {
         GameUi.Instance.hpBar.fillAmount = hp / maxHp;
     }
 
-    private void ChangeRageTo(float newRageLevel) {
-        if (newRageLevel < 100) {
-            rage = newRageLevel;
+    public void ChangeRageTo(float newRageLevel) {
+            rage = Mathf.Clamp(newRageLevel,0,maxRage);
             GameUi.Instance.mpBar.fillAmount = rage / maxRage;
-        }
     }
 
     // Player debuff
@@ -179,6 +182,7 @@ public class Player : MonoBehaviour {
     }
 
     public void GetKnockOff(Vector3 attackPosition) {
+
         if (lastTimeKnockOff + invincibieTime > Time.time) return;
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
@@ -197,7 +201,7 @@ public class Player : MonoBehaviour {
             return;
             
         }
-        
+        DimensionLeapParticleEffect.SetActive(false);
         lastTimeKnockOff = Time.time;
         if (hp <= 0) return;
         rb.velocity = Vector3.zero;
