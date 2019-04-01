@@ -11,7 +11,8 @@ public class fencesDeathCheck : MonoBehaviour
     {
         if (fenceScript.death)
         {
-            SceneManager.LoadScene("SchoolScene");
+            // SceneManager.LoadScene("SchoolScene");
+            SceneManager.LoadSceneAsync("SchoolScene", LoadSceneMode.Additive);
         }
     }
 }
