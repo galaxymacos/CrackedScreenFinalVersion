@@ -9,7 +9,6 @@ public class SecondStageBoss : Enemy
 {
     public bool moveTowardsPlayer;
     private float moveTimeRemainsThisRound;
-    private Animator animator;
 
     public BossAbility[] BossAbilities;
 
@@ -24,7 +23,6 @@ public class SecondStageBoss : Enemy
 
     protected override void Start()
     {
-        animator = GetComponent<Animator>();
         OnChangeEnemyStateCallback += AnimateEnemy;
         specialAttackTimeRemains = specialAttackInterval;
         base.Start();

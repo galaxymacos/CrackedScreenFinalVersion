@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 
 public class ArcherEnemy : Enemy
 {
-    private Animator animator;
     [SerializeField] private GameObject arrow;
 
     [SerializeField] private Transform arrowSpawnPoint;
@@ -28,7 +27,6 @@ public class ArcherEnemy : Enemy
     public float rightLimit = 5f;
 
     [SerializeField] private AudioSource dodgeSound;
-    [SerializeField] private AudioSource dieSound;
     [SerializeField] private AudioSource hitToAirSound;
     [SerializeField] private AudioSource shootArrowSound;
 
@@ -44,7 +42,6 @@ public class ArcherEnemy : Enemy
 
     protected override void Start()
     {
-        animator = GetComponent<Animator>();
         OnChangeEnemyStateCallback += AnimateEnemy;
         base.Start();
         currentDistanceFromCenter = Random.Range(leftLimit, rightLimit);
@@ -112,16 +109,10 @@ public class ArcherEnemy : Enemy
         return isConnectingToGround;
     }
 
-    private bool isDead;
 
     protected override void Die()
     {
-        dieSound.Play();
-        isDead = true;
-        animator.SetBool("IsDead",true);
-//        spriteRenderer.enabled = false;
-//        AudioManager.instance.PlaySfx("MinionDie");
-        Destroy(gameObject, 3f);
+        base.Die();
     }
     
     public bool CanMove()
@@ -132,10 +123,7 @@ public class ArcherEnemy : Enemy
 //    private float dodgingTimeRemains;
     public override void Update()
     {
-        if (isDead)
-        {
-            return;
-        }
+        
         base.Update();
         animator.SetBool("Idle", _enemyCurrentState == EnemyState.Standing);
 
