@@ -89,6 +89,9 @@ public abstract class Enemy : MonoBehaviour
         nextAttackTime = 0;
     }
 
+    public float HitPauseTime = 0.2f;    // The game stop for this second when the enemy is attacked to increase hit feel
+    private float HitPauseTimeRemain;    // The game stop for this second when the enemy is attacked to increase hit feel
+    private bool istimeSlowing;
 
     public virtual void TakeDamage(float damage)
     {
@@ -98,9 +101,25 @@ public abstract class Enemy : MonoBehaviour
             return;
         }
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
-        if (HP <= 0) Die();
-
-        if (floatingText != null) ShowFloatingText();
+        HitPauseTimeRemain = HitPauseTime;
+        if (HP <= 0)
+        {
+            Die();
+            // TODO add die pause time
+        }
+        else
+        {
+            HitPauseTimeRemain = HitPauseTime;
+            istimeSlowing = true;
+        }
+        if (floatingText != null)
+        {
+            ShowFloatingText();
+        }
+        else
+        {
+            print("Floating text is missing for "+gameObject.name);
+        }
     }
 
     /// <summary>
@@ -161,6 +180,20 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
+        if (istimeSlowing)
+        {
+            if (HitPauseTimeRemain > 0)
+            {
+                Time.timeScale = 0.1f;
+                HitPauseTimeRemain -= Time.deltaTime / Time.timeScale;
+            }
+            else
+            {
+                istimeSlowing = false;
+                Time.timeScale = 1f;
+            }
+        }
+
         if (canStiff) TryUnstiffing();
 
 

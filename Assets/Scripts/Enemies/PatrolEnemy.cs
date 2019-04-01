@@ -11,11 +11,10 @@ namespace Enemies
         private float currentDistanceFromCenter;
         public float leftLimit = -5f;
         public float rightLimit = 5f;
+        public float extraGravity = 10f;
 
         [SerializeField] private EnemyDetector AttackHitBox;
         internal bool floorExistsInFront;
-
-
 
         private bool needTurnAround()
         {
@@ -49,6 +48,12 @@ namespace Enemies
             {
                 patrolRight = false;
             }
+        }
+
+        private void FixedUpdate()
+        {
+            print("Add force to enemy");
+            GetComponent<Rigidbody>().velocity += new Vector3(0,-extraGravity)*Time.fixedDeltaTime;
         }
 
         private bool PlayerInRange()
