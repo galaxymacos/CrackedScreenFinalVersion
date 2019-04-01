@@ -16,11 +16,16 @@ public class ParticleEffectProcessor : MonoBehaviour
     {
         if (is3D)
         {
-            threeDimensionParticleEffect.SetActive(true);
+            Invoke("ShowEffect",1f);
         }
         else
         {
             threeDimensionParticleEffect.SetActive(false);
         }
+    }
+
+    private void ShowEffect()
+    {
+        threeDimensionParticleEffect.SetActive(true);
     }
 }
