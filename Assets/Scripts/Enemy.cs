@@ -57,12 +57,14 @@ public abstract class Enemy : MonoBehaviour
     private Player playerScript;
 
 
-    public Rigidbody rb;
-    public SpriteRenderer spriteRenderer;
+    internal Rigidbody rb;
+    internal SpriteRenderer spriteRenderer;
 
 
     internal float StiffTimeRemain;
     [SerializeField] private float stunDuration = 0.5f;
+
+    [SerializeField] private AudioSource dieSound;
 
     public void ChangeEnemyState(EnemyState enemyState)
     {
@@ -79,6 +81,7 @@ public abstract class Enemy : MonoBehaviour
     {
         HP = maxHp;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
 
         GameManager.Instance.gameObjects.Add(gameObject);
@@ -122,10 +125,18 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    internal bool isDead;
+    internal Animator animator;
     /// <summary>
     ///     This method will be implemented by children only
     /// </summary>
-    protected abstract void Die();
+    protected virtual void Die()
+    {
+        dieSound.Play();
+        isDead = true;
+        animator.SetBool("isDead",true);
+        Destroy(gameObject, 3f);
+    }
 
     public void Stiff(float time)
     {
@@ -192,6 +203,11 @@ public abstract class Enemy : MonoBehaviour
                 istimeSlowing = false;
                 Time.timeScale = 1f;
             }
+        }
+
+        if (isDead)
+        {
+            return;
         }
 
         if (canStiff) TryUnstiffing();

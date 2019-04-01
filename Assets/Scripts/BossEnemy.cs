@@ -15,7 +15,6 @@ public class BossEnemy : Enemy
 
     public float moveTimeInARow = 3f;
 
-    private Animator animator;
 
     public BossAbility[] BossAbilities;
     public string[] specialAttackAnimationNames;
@@ -31,7 +30,6 @@ public class BossEnemy : Enemy
 
     protected override void Start()
     {
-        animator = GetComponent<Animator>();
         OnChangeEnemyStateCallback += AnimateEnemy;
         specialAttackTimeRemains = specialAttackInterval;
         base.Start();
