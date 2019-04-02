@@ -8,6 +8,12 @@ public class GravitationalBlackHole : Skill
     [SerializeField] private Transform place;
 
 
+    [SerializeField] private EnemyDetector skillHitBox;
+    [SerializeField] private int damage;
+    [SerializeField] private Vector3 enemyKnockUpForce;
+    
+
+
     private bool _tookDamage;
 
     private void Update()
@@ -19,8 +25,37 @@ public class GravitationalBlackHole : Skill
                 _skillNotOnCooldown = true;
             }
         }
+        
+        if (hasSuckEnemy && suckEnemyDurationLeft > 0)
+        {
+            suckEnemyDurationLeft -= Time.deltaTime;
+            if (suckEnemyDurationLeft <= 0)
+            {
+                enemyPicked.GetComponent<Enemy>().enabled = true;
+
+                print("enable");
+
+                enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
+                if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
+                {
+                    enemyPicked.GetComponent<Enemy>().KnockUp(enemyKnockUpForce);
+                }
+                else
+                {
+                    enemyPicked.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
+                }
+
+                enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
+                hasSuckEnemy = false;
+
+            }
+        }
     }
 
+    private bool hasSuckEnemy;
+    [SerializeField] private float suckEnemyDuration = 2f;
+    private float suckEnemyDurationLeft;
+    private GameObject enemyPicked;
 
     public override void Play()
     {
@@ -29,9 +64,27 @@ public class GravitationalBlackHole : Skill
             GameManager.Instance.animator.SetTrigger("Black Hole");
 
             _skillNotOnCooldown = false;
-            print("playing skill");
+//            print("playing skill");
             base.Play();
-            Instantiate(gravitationalBlackHole, place.position, Quaternion.identity);
+//            Instantiate(gravitationalBlackHole, place.position, Quaternion.identity);
+
+            if (!hasSuckEnemy)
+            {
+                hasSuckEnemy = true;
+                suckEnemyDurationLeft = suckEnemyDuration;
+                var enemies = skillHitBox._enemiesInRange;
+                if (enemies.Count > 0)
+                {
+                    enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
+                    enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
+                    enemyPicked.GetComponent<Enemy>().enabled = false;
+                    enemyPicked.transform.position = skillHitBox.transform.position;
+                }
+            }
+
+            
+
+
         }
         else
         {

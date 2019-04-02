@@ -6,15 +6,15 @@ namespace Enemies
 {
     public class PatrolEnemy : Enemy
     {
-        private Animator animator;
         private bool patrolRight = true;
         private float currentDistanceFromCenter;
         public float leftLimit = -5f;
         public float rightLimit = 5f;
         public float extraGravity = 10f;
+        [SerializeField] private AudioSource attackSound;
 
         [SerializeField] private EnemyDetector AttackHitBox;
-        internal bool floorExistsInFront;
+        [SerializeField] internal bool floorExistsInFront;
 
         private bool needTurnAround()
         {
@@ -36,7 +36,6 @@ namespace Enemies
 
         protected override void Start()
         {
-            animator = GetComponent<Animator>();
             OnChangeEnemyStateCallback += AnimateEnemy;
             base.Start();
             currentDistanceFromCenter = Random.Range(leftLimit, rightLimit);
@@ -52,7 +51,6 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            print("Add force to enemy");
             GetComponent<Rigidbody>().velocity += new Vector3(0,-extraGravity)*Time.fixedDeltaTime;
         }
 
@@ -80,10 +78,7 @@ namespace Enemies
 
         protected override void Die()
         {
-            spriteRenderer.enabled = false;
-//            AudioManager.instance.PlaySfx("MinionDie");
-            Destroy(gameObject);
-
+            base.Die();
         }
 
         public override void Update()
@@ -101,6 +96,7 @@ namespace Enemies
                     if (Time.time >= nextAttackTime)
                     {
                         animator.SetTrigger("Attack");
+                        attackSound.Play();
                         nextAttackTime = Time.time + 1 / attackSpeed;
                     }
                     else
