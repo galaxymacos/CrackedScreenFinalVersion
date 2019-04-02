@@ -101,15 +101,14 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Attack:
                 break;
             case PlayerState.Stand:
-                AudioManager.instance.StopSound(AudioGroup.Character);
                 break;
             case PlayerState.Walk:
-                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+//                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
 
 
                 break;
             case PlayerState.Run:
-                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+//                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
 
 
                 break;
@@ -125,28 +124,20 @@ public class PlayerMovement : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(newPlayerState), newPlayerState, null);
         }
-        // Change collider when jumping and double jumping
-//        if (playerCurrentState == PlayerState.Jump)
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 1, 0);
-//        }
-//        else if (playerCurrentState == PlayerState.DoubleJump)
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 1.5f, 0);
-//        }
-//        else
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 0, 0);
-//        }
+
         ChangeAnimationAccordingToAction();
     }
 
     private void Update()
     {
-        
+        if (playerCurrentState == PlayerState.Run)
+        {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+        }
+        else if (playerCurrentState == PlayerState.Walk)
+        {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+        }
         
     }
 
