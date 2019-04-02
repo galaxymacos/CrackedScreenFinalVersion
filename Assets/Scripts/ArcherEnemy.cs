@@ -58,14 +58,14 @@ public class ArcherEnemy : Enemy
     public override void TakeDamage(float damage)
     {
         if (dodging) return;
-        if (DodgingSucceed()) return;
+        if ( !animator.GetCurrentAnimatorStateInfo(0).IsName("isBeingSucked") && DodgingSucceed()) return;
         base.TakeDamage(damage);
     }
 
     public override void KnockUp(Vector3 force)
     {
         if (dodging) return;
-        if (DodgingSucceed()) return;
+        if ( !animator.GetCurrentAnimatorStateInfo(0).IsName("isBeingSucked") && DodgingSucceed()) return;
         hitToAirSound.Play();
         base.KnockUp(force);
     }
@@ -237,7 +237,8 @@ public class ArcherEnemy : Enemy
     public override bool AnimationPlaying()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("IsBeingSucked");
     }
 
     public void AnimateEnemy(EnemyState enemyState)

@@ -32,7 +32,6 @@ public class GravitationalBlackHole : Skill
             if (suckEnemyDurationLeft <= 0)
             {
                 enemyPicked.GetComponent<Enemy>().enabled = true;
-                enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
 
                 print("enable");
 
@@ -46,7 +45,9 @@ public class GravitationalBlackHole : Skill
                     enemyPicked.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
                 }
 
+                enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
                 hasSuckEnemy = false;
+
             }
         }
     }
