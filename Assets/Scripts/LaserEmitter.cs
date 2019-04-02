@@ -19,11 +19,11 @@ public class LaserEmitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LayerMask enemyMask = 1 >> 9;
+        int layer_mask = LayerMask.GetMask("Player");
         startAngle = (startAngle + rotateSpeed * Time.deltaTime)%360;
         var position = transform.position;
         lr.SetPosition(0,position);
-        Physics.Raycast(position, new Vector3(Mathf.Sin(startAngle),0,Mathf.Cos(startAngle)),out var hitInfo,100f);
+        Physics.Raycast(position, new Vector3(Mathf.Sin(startAngle),0,Mathf.Cos(startAngle)),out var hitInfo,100f,layer_mask);
         
 
         if (hitInfo.collider)
