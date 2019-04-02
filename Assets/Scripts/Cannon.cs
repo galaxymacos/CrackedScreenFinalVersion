@@ -6,17 +6,21 @@ public class Cannon : MonoBehaviour
 {
     [SerializeField] private GameObject cannonBall;
     [SerializeField] private float spawnCannonBallInterval;
+    [SerializeField] private GameObject exampleCannonBall;
+    private Vector3 exampleCannonBallPosition;
+    private Quaternion exampleCannonBallQuaternion;
     private float nextCannonBallTimeRemains;
     private AudioSource _audioSource;
 
     [SerializeField] private bool canAttack;
 
-    private EnemyDetector enemyDetector;
+    [SerializeField] private EnemyDetector enemyDetector;
     // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        enemyDetector = LevelManager.Instance.cannonAttackRange.GetComponent<EnemyDetector>();
+        exampleCannonBallPosition = exampleCannonBall.transform.position;
+        exampleCannonBallQuaternion = exampleCannonBall.transform.rotation;
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class Cannon : MonoBehaviour
             if (nextCannonBallTimeRemains <= 0)
             {
                 nextCannonBallTimeRemains = spawnCannonBallInterval;
-                Instantiate(cannonBall, transform.position, transform.rotation);
+                Instantiate(cannonBall, exampleCannonBallPosition, exampleCannonBallQuaternion);
             }
         }
         

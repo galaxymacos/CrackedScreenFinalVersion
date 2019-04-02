@@ -19,13 +19,18 @@ public class LaserEmitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        LayerMask enemyMask = 1 >> 9;
         startAngle = (startAngle + rotateSpeed * Time.deltaTime)%360;
         var position = transform.position;
         lr.SetPosition(0,position);
         Physics.Raycast(position, new Vector3(Mathf.Sin(startAngle),0,Mathf.Cos(startAngle)),out var hitInfo,100f);
+        
+
         if (hitInfo.collider)
         {
-            lr.SetPosition(1,hitInfo.point);
+            print("laser hits "+hitInfo.collider.name);
+
+           lr.SetPosition(1,hitInfo.point);
             if (hitInfo.collider.gameObject == PlayerProperty.player)
             {
                 PlayerProperty.playerClass.TakeDamage(damage);
@@ -35,7 +40,7 @@ public class LaserEmitter : MonoBehaviour
         }
         else
         {
-            lr.SetPosition(1,new Vector3(Mathf.Sin(startAngle),0,Mathf.Cos(startAngle))*5000);
+            lr.SetPosition(1,new Vector3(Mathf.Sin(startAngle),0,Mathf.Cos(startAngle))*100000);
         }
     }
 }

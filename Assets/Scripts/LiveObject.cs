@@ -19,12 +19,16 @@ public class LiveObject : MonoBehaviour
             if (bc != null && bc.isTrigger)
             {
                 boxTriggerColliderSizeDictionary.Add(bc,bc.size.z);
+                bc.size = new Vector3(bc.size.x,bc.size.y,5000);
             }
             else if (bc != null && !bc.isTrigger)
             {
                 boxColliderSizeDictionary.Add(bc,bc.size.z);
+                bc.size = new Vector3(bc.size.x,bc.size.y,5000);
+
             }
         }
+        
 
     }
 
