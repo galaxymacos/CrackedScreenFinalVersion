@@ -32,7 +32,8 @@ public class GravitationalBlackHole : Skill
             if (suckEnemyDurationLeft <= 0)
             {
                 enemyPicked.GetComponent<Enemy>().enabled = true;
-                enemyPicked.GetComponent<Animator>().enabled = true;
+                enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
+
                 print("enable");
 
                 enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
@@ -74,7 +75,7 @@ public class GravitationalBlackHole : Skill
                 if (enemies.Count > 0)
                 {
                     enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
-                    enemyPicked.GetComponent<Animator>().enabled = false;
+                    enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
                     enemyPicked.GetComponent<Enemy>().enabled = false;
                     enemyPicked.transform.position = skillHitBox.transform.position;
                 }

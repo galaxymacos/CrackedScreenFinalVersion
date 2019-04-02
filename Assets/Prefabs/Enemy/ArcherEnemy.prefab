@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &297201522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297201523}
+  - component: {fileID: 297201524}
+  - component: {fileID: 7751828504632544988}
+  m_Layer: 9
+  m_Name: Front Ground Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297201523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297201522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.57, y: -1.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8994724862319612647}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &297201524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297201522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7751828504632544988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297201522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fff72e58619064591d2a1c46ce19ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8994724862319612634
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +96,7 @@ Transform:
   m_Children:
   - {fileID: 8994724862755921750}
   - {fileID: 8994724863643017952}
+  - {fileID: 297201523}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -168,9 +226,8 @@ MonoBehaviour:
   maxHp: 200
   moveSpeed: 5
   nextAttackTime: 0
-  rb: {fileID: 0}
-  spriteRenderer: {fileID: 0}
   stunDuration: 0.5
+  dieSound: {fileID: 2116066300}
   HitPauseTime: 0.2
   arrow: {fileID: 2354164066189162369, guid: 1bd5da2a9c2f3584c89234a475964a60, type: 3}
   arrowSpawnPoint: {fileID: 8994724863643017952}
@@ -181,7 +238,6 @@ MonoBehaviour:
   patrolSpeed: 5
   rightLimit: 5
   dodgeSound: {fileID: 2116066302}
-  dieSound: {fileID: 2116066300}
   hitToAirSound: {fileID: 2116066301}
   shootArrowSound: {fileID: 2116066299}
 --- !u!114 &3526587479162617202

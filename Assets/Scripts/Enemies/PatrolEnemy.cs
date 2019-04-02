@@ -14,7 +14,7 @@ namespace Enemies
         [SerializeField] private AudioSource attackSound;
 
         [SerializeField] private EnemyDetector AttackHitBox;
-        internal bool floorExistsInFront;
+        [SerializeField] internal bool floorExistsInFront;
 
         private bool needTurnAround()
         {
