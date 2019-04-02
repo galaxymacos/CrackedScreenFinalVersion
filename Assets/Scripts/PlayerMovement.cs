@@ -304,7 +304,7 @@ public class PlayerMovement : MonoBehaviour
     {
         LayerMask wallLayer = 1 << 14;
         var position = transform.position;
-        var hasHitRightWall = Physics.Raycast(position, Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+        var hasHitRightWall = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
             wallLayer);
         return hasHitRightWall;
     }
@@ -313,9 +313,9 @@ public class PlayerMovement : MonoBehaviour
     {
         LayerMask wallLayer = 1 << 14;
         var position = transform.position;
-        var hasHitRightWall = Physics.Raycast(position, Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+        var hasHitLeftWall = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
             wallLayer);
-        return hasHitRightWall;
+        return hasHitLeftWall;
     }
 
     private void OnCollisionExit(Collision other)
