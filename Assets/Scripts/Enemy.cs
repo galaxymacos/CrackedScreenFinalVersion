@@ -279,7 +279,6 @@ public abstract class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        PlayerProperty.playerClass.TakeDamage(atk);
         if (canStun && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
         {
             PlayerProperty.playerClass.GetStunned(stunDuration);
@@ -288,6 +287,8 @@ public abstract class Enemy : MonoBehaviour
 
         if (canKnockUp && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
             PlayerProperty.playerClass.GetKnockOff(transform.position);
+        PlayerProperty.playerClass.TakeDamage(atk);
+
     }
 
     public virtual void OnCollisionEnter(Collision other)

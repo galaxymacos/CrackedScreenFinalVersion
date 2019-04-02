@@ -143,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ApplyGravity();
         if (GameManager.Instance.PlayerDying) return;
         if (CheckIfPlayerOnGround()) MovePlayerOnGround();
 
@@ -151,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ChangePlayerState(PlayerState.FallDown);
         }
-        ApplyGravity();
+        
     }
 
     public bool VerticalVelocityIsNegative()
@@ -160,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         return rb.velocity.y < -0.01f;
     }
 
-    private void ApplyGravity()
+    public void ApplyGravity()
     {
         rb.AddForce(0, -gravity * Time.fixedDeltaTime, 0);
     }
