@@ -46,7 +46,97 @@ MonoBehaviour:
   CharacterSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: DimensionLeapPreparing
+      clip: {fileID: 8300000, guid: d136bd02d947bb64b8a6dd5fe0c5e64a, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: DimensionLeapTo3D
+      clip: {fileID: 8300000, guid: ec1110e6bbdb5f345adbe5faae02450d, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Walk
+      clip: {fileID: 8300000, guid: 5b913e342d633104888664e50c420e5c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Jump
+      clip: {fileID: 8300000, guid: 696d00eb9f3ed7e408a53f3b8556528e, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Double Jump
+      clip: {fileID: 8300000, guid: 21e3ae0b68a41b7448b5d32d8beee01e, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Run
+      clip: {fileID: 8300000, guid: 907a90cb1bfc2034b93849e51912d74d, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Defend
+      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: PlayerHurt
+      clip: {fileID: 8300000, guid: 65e80c98768434246a9b0b910ead6420, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Basic Attack
+      clip: {fileID: 8300000, guid: 237f469a819ef0e47beeee4b6cb0ea77, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Air Slash
+      clip: {fileID: 8300000, guid: 9d94f748c32cfd44ebda5ba00c1c65ac, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Dash
+      clip: {fileID: 8300000, guid: b83f36a087932f94891aa66a993d5e70, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Uppercut
+      clip: {fileID: 8300000, guid: 821692af9fcdb7142b548d3192add1e0, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Counter Attack
+      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Defend
+      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Defend
+      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   FirstBossSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
@@ -62,4 +152,10 @@ MonoBehaviour:
   BackgroundMusics:
     AudioMixerGroup: {fileID: 243928605391016854, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: ChapterTwoBgm
+      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
