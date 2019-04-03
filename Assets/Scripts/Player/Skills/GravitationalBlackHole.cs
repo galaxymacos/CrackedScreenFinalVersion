@@ -31,6 +31,10 @@ public class GravitationalBlackHole : Skill
             suckEnemyDurationLeft -= Time.deltaTime;
             if (suckEnemyDurationLeft <= 0)
             {
+                if (enemyPicked == null || !enemyPickedIsHitToAir)
+                {
+                    return;
+                }
                 enemyPicked.GetComponent<Enemy>().enabled = true;
 
                 print("enable");
@@ -56,17 +60,16 @@ public class GravitationalBlackHole : Skill
     [SerializeField] private float suckEnemyDuration = 2f;
     private float suckEnemyDurationLeft;
     private GameObject enemyPicked;
+    private bool enemyPickedIsHitToAir;
 
     public override void Play()
     {
         if (_skillNotOnCooldown) // Check if the skill is on cooldown
         {
-            GameManager.Instance.animator.SetTrigger("Black Hole");
+            GameManager.Instance.animator.SetTrigger("Black Hole");    // play player catch head animation
 
             _skillNotOnCooldown = false;
-//            print("playing skill");
             base.Play();
-//            Instantiate(gravitationalBlackHole, place.position, Quaternion.identity);
 
             if (!hasSuckEnemy)
             {
@@ -75,10 +78,16 @@ public class GravitationalBlackHole : Skill
                 var enemies = skillHitBox._enemiesInRange;
                 if (enemies.Count > 0)
                 {
+                    print("detect more than 1 enemy");
                     enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
-                    enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
-                    enemyPicked.GetComponent<Enemy>().enabled = false;
-                    enemyPicked.transform.position = skillHitBox.transform.position;
+                    if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
+                    {
+                        enemyPickedIsHitToAir = true;
+                        enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
+                        enemyPicked.GetComponent<Enemy>().enabled = false;
+                        enemyPicked.transform.position = skillHitBox.transform.position;    
+                    }
+                    
                 }
             }
 

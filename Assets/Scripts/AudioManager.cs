@@ -60,10 +60,10 @@ public class AudioManager : MonoBehaviour
 
         foreach (SoundTrack soundTrack in soundDictionary.Values) // Create one audiosource for each audioGroup
         {
-            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.outputAudioMixerGroup = soundTrack.AudioMixerGroup;
             foreach (Sound sound in soundTrack.sounds)
             {
+                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.outputAudioMixerGroup = soundTrack.AudioMixerGroup;
                 sound.source = audioSource;
             }
         }
@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
                     if (sound.name == soundName)
                     {
                         
-                        if ((sound.source.clip != sound.clip && sound.source.isPlaying) || !sound.source.isPlaying)
+                        if (!sound.source.isPlaying)
                         {
                             sound.source.clip = sound.clip;
                             sound.source.volume = sound.volume;

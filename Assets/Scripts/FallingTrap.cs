@@ -12,7 +12,7 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] private GameObject snowLotus;
     private bool hasInteracted;
 
-    [SerializeField] private float delayBeforeFalling = 1f;
+    [SerializeField] private float delayBeforeFalling = 0.5f;
     private float crackingTimeRemains;
 
     [SerializeField] private AudioClip soundOfIceCracking;

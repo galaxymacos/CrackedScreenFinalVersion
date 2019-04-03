@@ -53,8 +53,9 @@ public class SecondStageBoss : Enemy
 
     protected override void Die()
     {
+        print("boss dies");
+        base.Die();
         OnBossDieCallback?.Invoke();
-        Destroy(gameObject);
 
     }
 

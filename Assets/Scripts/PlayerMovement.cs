@@ -101,15 +101,14 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Attack:
                 break;
             case PlayerState.Stand:
-                AudioManager.instance.StopSound(AudioGroup.Character);
                 break;
             case PlayerState.Walk:
-                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+//                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
 
 
                 break;
             case PlayerState.Run:
-                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+//                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
 
 
                 break;
@@ -125,33 +124,26 @@ public class PlayerMovement : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(newPlayerState), newPlayerState, null);
         }
-        // Change collider when jumping and double jumping
-//        if (playerCurrentState == PlayerState.Jump)
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 1, 0);
-//        }
-//        else if (playerCurrentState == PlayerState.DoubleJump)
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 1.5f, 0);
-//        }
-//        else
-//        {
-//            var playerCollider = PlayerProperty.player.GetComponent<BoxCollider>();
-//            playerCollider.center = new Vector3(0, 0, 0);
-//        }
+
         ChangeAnimationAccordingToAction();
     }
 
     private void Update()
     {
-        
+        if (playerCurrentState == PlayerState.Run)
+        {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+        }
+        else if (playerCurrentState == PlayerState.Walk)
+        {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+        }
         
     }
 
     private void FixedUpdate()
     {
+        ApplyGravity();
         if (GameManager.Instance.PlayerDying) return;
         if (CheckIfPlayerOnGround()) MovePlayerOnGround();
 
@@ -160,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ChangePlayerState(PlayerState.FallDown);
         }
-        ApplyGravity();
+        
     }
 
     public bool VerticalVelocityIsNegative()
@@ -169,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         return rb.velocity.y < -0.01f;
     }
 
-    private void ApplyGravity()
+    public void ApplyGravity()
     {
         rb.AddForce(0, -gravity * Time.fixedDeltaTime, 0);
     }
@@ -291,12 +283,14 @@ public class PlayerMovement : MonoBehaviour
         var position = transform.position;
         var hasHitRightGround = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
+        var hasHitCenterGround = Physics.Raycast(position, Vector3.down,
+            GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitLeftGround = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2 + 0.2f, groundLayer);
         var hasHitSlope = Physics.Raycast(position, Vector3.down,
             GetComponent<BoxCollider>().size.y / 2 + 0.4f, slopeLayer);
 
-        isGrounded = (hasHitRightGround || hasHitLeftGround) && rb.velocity.y <= 0 || hasHitSlope;
+        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || hasHitSlope;
         if (isGrounded)
             if (hasKnockUp && rb.velocity.y <= 0) // hasKnockUp TODO is this variable really necessery?
             {
@@ -312,7 +306,7 @@ public class PlayerMovement : MonoBehaviour
     {
         LayerMask wallLayer = 1 << 14;
         var position = transform.position;
-        var hasHitRightWall = Physics.Raycast(position, Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+        var hasHitRightWall = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
             wallLayer);
         return hasHitRightWall;
     }
@@ -321,9 +315,9 @@ public class PlayerMovement : MonoBehaviour
     {
         LayerMask wallLayer = 1 << 14;
         var position = transform.position;
-        var hasHitRightWall = Physics.Raycast(position, Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+        var hasHitLeftWall = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
             wallLayer);
-        return hasHitRightWall;
+        return hasHitLeftWall;
     }
 
     private void OnCollisionExit(Collision other)

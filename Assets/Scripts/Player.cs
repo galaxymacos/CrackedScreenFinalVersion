@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
     private Position defendRecoilDirection;
     
     private bool recoilDirection;
-    private float defendRecoilTimeRemain = 0;
+    internal float defendRecoilTimeRemain = 0;
 
     public GameObject floatingText;
     public float hp = 200;
@@ -109,13 +109,20 @@ public class Player : MonoBehaviour {
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
+            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
+
         }
         else {
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
             var playerTransform = transform;
             ShowFloatingDamage(damage, playerTransform);
-            if (hp <= 0) GameManager.Instance.PlayerAnimator.PlayerStartDying();
+            if (hp <= 0)
+            {
+//                _playerMovement.ApplyGravity();
+                
+                GameManager.Instance.PlayerAnimator.PlayerStartDying();
+            }
         }
     }
 

@@ -21,19 +21,24 @@ namespace Skills
 
         public override void Play()
         {
+            PlayerProperty.playerClass.defendRecoilTimeRemain = 0;
             print("Counter Attack!!!!!!!!!!!!");
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"Counter Attack");
-            Slash();    // TODO put slash to be triggered by animation
             
         }
 
-        public void Slash()    // The method is called in the frame when the animation hits the enemy
+        /// <summary>
+        /// The method will be called in the frame when the animation hits the enemy
+        /// </summary>
+        public void Slash()   
         {
             var enemies = EnemyDetector._enemiesInRange;
             foreach (var enemy in enemies)
             {
+                print("Slash");
+
                 if (enemy == null)
                 {
                     continue;
