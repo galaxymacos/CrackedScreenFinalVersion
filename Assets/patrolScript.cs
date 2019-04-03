@@ -17,6 +17,8 @@ public class patrolScript : MonoBehaviour
     private float rotationSpeed = 0.2f;
     private bool checkAttack = false;
     private float attackDuration = 2.0f;
+    private float attackSpeed = 1.0f;
+    private float fightTime = 0.5f;
 
     private void Start()
     {
@@ -40,12 +42,20 @@ public class patrolScript : MonoBehaviour
 
     void Attack()
     {
+
         attackDuration -= Time.deltaTime;
         if (attackDuration < 0)
         {
-            RobotLight.color = Color.white;
-            checkAttack = false;
-            attackDuration = 2.0f;
+            transform.position = Vector3.MoveTowards(transform.position, transform.forward, attackSpeed);
+            fightTime -= Time.deltaTime;
+            if (fightTime < 0)
+            {
+                RobotLight.color = Color.white;
+                checkAttack = false;
+                attackDuration = 2.0f;
+                fightTime = 0.5f;
+            }
+          
         }
     }
 
