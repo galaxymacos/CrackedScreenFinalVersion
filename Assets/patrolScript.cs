@@ -5,63 +5,52 @@ using UnityEngine.AI;
 
 public class patrolScript : MonoBehaviour
 {
-    public Transform[] directPoints; 
+    public List<Transform> wayPoints = new List<Transform>();
 
-    private int index = 0;
+    private Transform targetPoint;
 
-    public float patroTime = 3f;
+    private int targetPontIndex=0;
+    private float minDistance = 0.1f;
+    private int lastwaypointIndex;
+    private float movementSpeed = 0.2f;
+    private float rotationSpeed = 0.2f;
 
-    private float timer = 0;
-
-
-
-    private NavMeshAgent navMeshAgent;
-
- 
-
- 
-
-void Awake()
-
+    private void Start()
     {
-
-        navMeshAgent = GetComponent<NavMeshAgent>();
-
-        navMeshAgent.destination = directPoints[index].position;
-
+        lastwaypointIndex = wayPoints.Count - 1;
+        targetPoint = wayPoints[targetPontIndex];
     }
 
-
-
-    void Update()
-
+    private void Update()
     {
+        float movementStep = movementSpeed + Time.deltaTime;
+        float rotationStep = rotationSpeed + Time.deltaTime;
 
-        if (navMeshAgent.remainingDistance < 0.5f)
+        Vector3 directionToTargets = targetPoint.position - transform.position;
+        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTargets);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, rotationStep);
+        float distance = Vector3.Distance(transform.position, targetPoint.position);
+        CheckDistanceTopoint(distance);
+        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position,movementStep);
+        
+    }
 
+    void CheckDistanceTopoint(float currentDistance)
+    {
+        if (currentDistance <= minDistance)
         {
-
-            timer += Time.deltaTime;
-
-            if (timer == patroTime)
-
-            {
-
-                index++;
-
-                index %= 4;
-
-                timer = 0;
-
-                navMeshAgent.destination = directPoints[index].position;
-
-            }
-
+            targetPontIndex++;
+            UpdayTargetPoint();
         }
-
     }
 
-
-
+    void UpdayTargetPoint()
+    {
+        if (targetPontIndex > lastwaypointIndex)
+        {
+            targetPontIndex = 0;
+        }
+        targetPoint = wayPoints[targetPontIndex];
+    }
 }
 
