@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class patrolScript : MonoBehaviour
 {
+    [SerializeField] Light RobotLight;
     public List<Transform> wayPoints = new List<Transform>();
 
     private Transform targetPoint;
@@ -14,14 +15,41 @@ public class patrolScript : MonoBehaviour
     private int lastwaypointIndex;
     private float movementSpeed = 0.2f;
     private float rotationSpeed = 0.2f;
+    private bool checkAttack = false;
+    private float attackDuration = 2.0f;
 
     private void Start()
     {
         lastwaypointIndex = wayPoints.Count - 1;
         targetPoint = wayPoints[targetPontIndex];
+
     }
 
     private void Update()
+    {
+        if (!checkAttack)
+        {
+            Move();
+        }
+        else
+        {
+            Attack();
+        }
+        
+    }
+
+    void Attack()
+    {
+        attackDuration -= Time.deltaTime;
+        if (attackDuration < 0)
+        {
+            RobotLight.color = Color.white;
+            checkAttack = false;
+            attackDuration = 2.0f;
+        }
+    }
+
+    void Move()
     {
         float movementStep = movementSpeed + Time.deltaTime;
         float rotationStep = rotationSpeed + Time.deltaTime;
@@ -31,8 +59,7 @@ public class patrolScript : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, rotationStep);
         float distance = Vector3.Distance(transform.position, targetPoint.position);
         CheckDistanceTopoint(distance);
-        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position,movementStep);
-        
+        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, movementStep);
     }
 
     void CheckDistanceTopoint(float currentDistance)
@@ -51,6 +78,15 @@ public class patrolScript : MonoBehaviour
             targetPontIndex = 0;
         }
         targetPoint = wayPoints[targetPontIndex];
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            RobotLight.color = Color.red;
+            checkAttack = true;
+        }
     }
 }
 
