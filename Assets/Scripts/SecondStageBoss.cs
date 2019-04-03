@@ -136,9 +136,10 @@ public class SecondStageBoss : Enemy
 
     [SerializeField] private EnemyDetector playerInAttackRangeDetector;
     private bool playerInAttackRange => playerInAttackRangeDetector.playerInRange();
-    
-    private void FixedUpdate()
+
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (CanMove())
         {
             Move();

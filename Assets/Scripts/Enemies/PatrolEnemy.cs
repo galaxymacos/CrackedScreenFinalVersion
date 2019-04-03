@@ -10,7 +10,6 @@ namespace Enemies
         private float currentDistanceFromCenter;
         public float leftLimit = -5f;
         public float rightLimit = 5f;
-        public float extraGravity = 10f;
         [SerializeField] private AudioSource attackSound;
 
         [SerializeField] private EnemyDetector AttackHitBox;
@@ -49,10 +48,7 @@ namespace Enemies
             }
         }
 
-        private void FixedUpdate()
-        {
-            GetComponent<Rigidbody>().velocity += new Vector3(0,-extraGravity)*Time.fixedDeltaTime;
-        }
+        
 
         private bool PlayerInRange()
         {
