@@ -174,8 +174,9 @@ public class BossEnemy : Enemy
         return Time.time >= nextAttackTime;
     }
 
-    private void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (canMove && _enemyCurrentState == EnemyState.Standing)
         {
             Move();

@@ -14,7 +14,10 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public EnemyState _enemyCurrentState;
-
+    public float extraGravity = 10f;
+    private float originalExtraGravity;
+    public float extraGravityPerHit = 1f;
+    public float extraGravityPerKnockUp = 1f;
 
     // Private 
     public int atk = 5;
@@ -41,6 +44,7 @@ public abstract class Enemy : MonoBehaviour
     public bool isFacingRight;
 
     // buff and 
+    
     protected bool isStiffed;
 
     public float laySec = 2f; // How many seconds the enemy will stay on ground if it got hit to the air
@@ -82,6 +86,7 @@ public abstract class Enemy : MonoBehaviour
         HP = maxHp;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        originalExtraGravity = extraGravity;
 
 
         GameManager.Instance.gameObjects.Add(gameObject);
@@ -96,6 +101,10 @@ public abstract class Enemy : MonoBehaviour
     private float HitPauseTimeRemain;    // The game stop for this second when the enemy is attacked to increase hit feel
     private bool istimeSlowing;
 
+    public virtual void FixedUpdate() {
+        GetComponent<Rigidbody>().velocity += new Vector3(0,-extraGravity)*Time.fixedDeltaTime;
+    }
+
     public virtual void TakeDamage(float damage)
     {
         if (HP < 0)
@@ -105,6 +114,7 @@ public abstract class Enemy : MonoBehaviour
         }
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         HitPauseTimeRemain = HitPauseTime;
+        extraGravity += extraGravityPerHit;
         if (HP <= 0)
         {
             Die();
@@ -151,6 +161,7 @@ public abstract class Enemy : MonoBehaviour
         if (!canKnockUp) return;
         if (HP < 0) return;
 //        print("Try to knock up the enemy");
+        extraGravity += extraGravityPerKnockUp;
         if (_enemyCurrentState == EnemyState.GotHitToAir) GetComponent<Animator>().SetTrigger("HitToAir");
         FaceBasedOnPlayerPosition();
         rb.AddForce(force);
@@ -299,6 +310,7 @@ public abstract class Enemy : MonoBehaviour
             {
                 laySecLeft = laySec;
                 ChangeEnemyState(EnemyState.LayOnGround);
+                extraGravity = originalExtraGravity;
             }
     }
 }
