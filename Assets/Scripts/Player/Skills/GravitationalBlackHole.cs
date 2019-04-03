@@ -28,6 +28,8 @@ public class GravitationalBlackHole : Skill
         
         if (hasSuckEnemy && suckEnemyDurationLeft > 0)
         {
+            enemyPicked.transform.position = skillHitBox.transform.position;    
+
             suckEnemyDurationLeft -= Time.deltaTime;
             if (suckEnemyDurationLeft <= 0)
             {
@@ -73,21 +75,26 @@ public class GravitationalBlackHole : Skill
 
             if (!hasSuckEnemy)
             {
-                hasSuckEnemy = true;
-                suckEnemyDurationLeft = suckEnemyDuration;
+                
                 var enemies = skillHitBox._enemiesInRange;
                 if (enemies.Count > 0)
                 {
-                    print("detect more than 1 enemy");
+                    suckEnemyDurationLeft = suckEnemyDuration;
+                    hasSuckEnemy = true;
                     enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
                     if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
                     {
                         enemyPickedIsHitToAir = true;
                         enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
+                        print("is being sucked");
+                        
                         enemyPicked.GetComponent<Enemy>().enabled = false;
-                        enemyPicked.transform.position = skillHitBox.transform.position;    
                     }
                     
+                    
+                }
+                else {
+                    hasSuckEnemy = false;
                 }
             }
 

@@ -290,6 +290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyCurrentState: 0
+  extraGravity: 5
+  extraGravityPerHit: 1
+  extraGravityPerKnockUp: 1
   atk: 5
   attackRange: 2
   attackSpeed: 0.5
@@ -312,7 +315,6 @@ MonoBehaviour:
   HitPauseTime: 0.2
   leftLimit: -5
   rightLimit: 5
-  extraGravity: 5
   attackSound: {fileID: 9137494104933902466}
   AttackHitBox: {fileID: 424240814}
   floorExistsInFront: 0

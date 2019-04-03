@@ -150,9 +150,15 @@ public class GameManager : MonoBehaviour
 
     private void RefreshHeartUi()
     {
-        for (var i = 0; i < playerLives; i++) livesUI[i].sprite = healthImage;
+        for (var i = 0; i < livesUI.Count; i++) {
+            if (i < playerLives) {
 
-        for (var i = playerLives; i < livesUI.Count; i++) livesUI[i].sprite = null;
+                livesUI[i].enabled = true;
+            }
+            else {
+                livesUI[i].enabled = false;
+            }
+        }
     }
     
     

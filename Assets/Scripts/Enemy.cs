@@ -309,7 +309,7 @@ public abstract class Enemy : MonoBehaviour
             if (_enemyCurrentState == EnemyState.GotHitToAir)
             {
                 laySecLeft = laySec;
-                ChangeEnemyState(EnemyState.LayOnGround);
+                ChangeEnemyState(EnemyState.LayOnGround);    
                 extraGravity = originalExtraGravity;
             }
     }
