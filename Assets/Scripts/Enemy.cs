@@ -262,9 +262,15 @@ public abstract class Enemy : MonoBehaviour
     public void Flip(bool facingRight) // Dealing with face changing in children behavior
     {
         if (facingRight)
+        {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            isFacingRight = true;
+        }
         else
+        {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            isFacingRight = false;
+        }
     }
 
     /// <summary>

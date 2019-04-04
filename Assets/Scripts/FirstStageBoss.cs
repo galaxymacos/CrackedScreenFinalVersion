@@ -292,4 +292,12 @@ public class FirstStageBoss : Enemy
                 throw new ArgumentOutOfRangeException();
         }
     }
+
+    public void AutoAttack()
+    {
+        if (autoAttackRange.playerInRange())
+        {
+            Attack();
+        }
+    }
 }
