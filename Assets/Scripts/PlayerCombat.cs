@@ -92,6 +92,12 @@ public class PlayerCombat : MonoBehaviour
                 _playerMovement.playerCurrentState == PlayerMovement.PlayerState.Walk);
     }
 
+    private bool CanPlayerPerformHeadCatchAttack() {
+        return _playerController.canControl &&
+               (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand ||
+                _playerMovement.playerCurrentState == PlayerMovement.PlayerState.Walk);
+    }
+
     private bool CanPlayerPerformAirAttack()
     {
         return _playerController.canControl
