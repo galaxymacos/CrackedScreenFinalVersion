@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
-public class BossEnemy : Enemy
+public class FirstStageBoss : Enemy
 {
     public float movingTowardsPlayerPercentage = 0.7f;
 
@@ -21,7 +21,6 @@ public class BossEnemy : Enemy
 
     [SerializeField] private float ignoreKnockUpTime = 3f;    // Enemy can't be knocked up for seconds after boss just stand up from lying 
     private float ignoreKnockUpTimeLeft;
-    [SerializeField] private int MaxknockUpTimes = 3;    // Enemy can't be knock up more than this number in a row
     private int currentKnockUpTimes;
     public delegate void OnBossDie();
 
@@ -41,16 +40,12 @@ public class BossEnemy : Enemy
     public override void KnockUp(Vector3 force)
     {
         // Boss can't be knocked up for more than several times
-        if (currentKnockUpTimes >= MaxknockUpTimes )
-        {
-            return;
-        }
+
 
         if (ignoreKnockUpTimeLeft > 0f)
         {
             return;
         }
-        currentKnockUpTimes++;
         base.KnockUp(force);
     }
 
@@ -58,14 +53,12 @@ public class BossEnemy : Enemy
     {
         base.StandUp();
         ignoreKnockUpTimeLeft = ignoreKnockUpTime;
-        currentKnockUpTimes = 0;
     }
 
     protected override void Die()
     {
+        base.Die();
         OnBossDieCallback?.Invoke();
-        Destroy(gameObject);
-
     }
     
     

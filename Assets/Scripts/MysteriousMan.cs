@@ -5,12 +5,12 @@ using UnityEngine;
 public class MysteriousMan : MonoBehaviour
 {
     public GameObject dialogueBox;
-    private BossEnemy bossEnemy;
+    private FirstStageBoss _firstStageBoss;
 
     private void Start()
     {
-        bossEnemy = transform.GetComponent<BossEnemy>();
-        bossEnemy.OnBossDieCallback += ActivateBossDieDialogue;
+        _firstStageBoss = transform.GetComponent<FirstStageBoss>();
+//        bossEnemy.OnBossDieCallback += ActivateBossDieDialogue;
     }
 
     public void ActivateBossDieDialogue()
