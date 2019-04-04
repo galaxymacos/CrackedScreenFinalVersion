@@ -411,11 +411,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flames (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5414904517046167705, guid: 3ef4a93c8f84adf48ae9001421c1dfe2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5414904517046167686, guid: 3ef4a93c8f84adf48ae9001421c1dfe2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +468,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef4a93c8f84adf48ae9001421c1dfe2, type: 3}
+--- !u!1 &2430420873077684832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5414904517046167705, guid: 3ef4a93c8f84adf48ae9001421c1dfe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7682872753204794105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7972244469237676322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,6 +542,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 791578654, guid: 50cc1231ce9336c4890b52ab74611c44, type: 3}
+      propertyPath: flameGun
+      value: 
+      objectReference: {fileID: 2430420873077684832}
+    - target: {fileID: 791578654, guid: 50cc1231ce9336c4890b52ab74611c44, type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
       objectReference: {fileID: 2430420872956527774}
@@ -556,11 +561,6 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[3]
       value: 
       objectReference: {fileID: 2430420872673370391}
-    - target: {fileID: 791578654, guid: 50cc1231ce9336c4890b52ab74611c44, type: 3}
-      propertyPath: flameGun
-      value: 
-      objectReference: {fileID: 5414904517046167705, guid: 3ef4a93c8f84adf48ae9001421c1dfe2,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cc1231ce9336c4890b52ab74611c44, type: 3}
 --- !u!4 &2426129460184824522 stripped
