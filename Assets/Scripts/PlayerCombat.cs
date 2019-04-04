@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Experimental.Input;
 
 public class PlayerCombat : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerCombat : MonoBehaviour
 
     private float counterAttackTimeRemains;
     [SerializeField] private Skill[] playerSkills;
+
+    [SerializeField] private GameObject forceUppercutParticleEffect;
+    
 
 
     private void OnEnable()
@@ -47,12 +51,36 @@ public class PlayerCombat : MonoBehaviour
 
     private void HandleDashUppercut(InputAction.CallbackContext context)
     {
-        if (CanPlayerPerformGroundAttack()) playerSkills[0].Play();
+        if (CanPlayerPerformGroundAttack() || CanPlayerPerformDashUpperAttack())
+        {
+            if (CanPlayerPerformDashUpperAttack())
+            {
+                ForceAttackDashUppercut();
+            }
+            playerSkills[0].Play();
+        }
+    }
+
+    /// <summary>
+    /// This method is played when player has successfully used ability in a continuous strike
+    /// </summary>
+    private void ForceAttackDashUppercut()
+    {
+        print("force uppercut");
+        forceUppercutParticleEffect.SetActive(true);
+        StartCoroutine(DisableForceUppercut());
+    }
+
+    public IEnumerator DisableForceUppercut()
+    {
+        yield return new WaitForSeconds(1f);
+        forceUppercutParticleEffect.SetActive(false);
     }
 
     public void HandleHeadCatchAttack(InputAction.CallbackContext context)
     {
         if (CanPlayerPerformGroundAttack() || CanPlayerPerformHeadCatchAttack()) {
+            print("Try to catch enemy's head");
             playerSkills[1].Play();
         }
     }
@@ -95,9 +123,14 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private bool CanPlayerPerformHeadCatchAttack() {
-        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("BasicAttack") ||
-               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("CounterAttack") ||
-               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("DashUppercut");
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Counter Attack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut");
+    }
+
+    private bool CanPlayerPerformDashUpperAttack()
+    {
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack");
     }
 
     private bool CanPlayerPerformAirAttack()

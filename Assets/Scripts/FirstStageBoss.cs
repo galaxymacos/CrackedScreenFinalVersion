@@ -140,29 +140,66 @@ public class FirstStageBoss : Enemy
         return Time.time >= nextAttackTime;
     }
 
+    private bool flickerTrigger;
+
+    
+    public override void Update()
+    {
+        base.Update();
+        if (ignoreKnockUpTimeLeft>0)
+        {
+            PlayerFlickerWhenTakeDamage();
+
+        }
+        else
+        {
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.enabled = true;
+            }
+        }
+    }
+    
+    private void PlayerFlickerWhenTakeDamage()
+    {
+        if (flickerTrigger)
+        {
+            flickerTrigger = false;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+        }
+        else
+        {
+            flickerTrigger = true;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
+    }
+
     public override void FixedUpdate()
     {
         base.FixedUpdate();
         if (canMove && _enemyCurrentState == EnemyState.Standing) Move();
     }
 
-// 
-
+    [SerializeField] private EnemyDetector playerInRangeDetector;
 
     public override void Move()
     {
+        /*
         if (moveTimeRemainsThisRound > 0)
         {
             if (moveTowardsPlayer)
             {
-//                rb.MovePosition(transform.position + PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
                 rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
-//                transform.Translate(PlayerDirectionInPlane()*moveSpeed*Time.deltaTime);
                 moveTimeRemainsThisRound -= Time.fixedDeltaTime;
             }
             else
             {
-//                rb.MovePosition(transform.position-PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
                 rb.velocity = new Vector3(-PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
 
 
@@ -173,6 +210,9 @@ public class FirstStageBoss : Enemy
         {
             ChangeBossMovementDirectionInRandom();
         }
+        */
+        if(!playerInRangeDetector.playerInRange())
+        rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
     }
 
     /// <summary>

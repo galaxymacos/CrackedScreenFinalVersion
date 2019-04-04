@@ -90,15 +90,6 @@ public class DashUpper : Skill
         }
     }
 
-
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(dashPosition.position, dashRadius);
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(uppercutPosition.position, uppercutRadius);
-    }
-
     public override void Play()
     {
         if (_skillNotOnCooldown) // Check if the skill is on cooldown

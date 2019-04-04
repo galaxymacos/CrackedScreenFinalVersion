@@ -6,6 +6,7 @@ public class BasicAttack : Skill
 {
             [SerializeField] private float damage = 10f;
         public EnemyDetector EnemyDetector;
+        public AnimationClip basicAttackAnimationClip;
 
         public Vector3 enemyKnockdownForce;
 
@@ -31,6 +32,9 @@ public class BasicAttack : Skill
             {
                 GameManager.Instance.animator.SetTrigger("Basic Attack");
                 _skillNotOnCooldown = false;
+                playerController.canControl = false;
+                
+                StartCoroutine(PlayerCanControl(PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).length));
                 base.Play();
 
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Basic Attack");
@@ -58,6 +62,8 @@ public class BasicAttack : Skill
                     enemy.GetComponent<Enemy>().TakeDamage(damage);
                     enemy.GetComponent<Enemy>().Stiff(stiffTimeWhenHit);
                 }
+
+                StartCoroutine(PlayerCanControl(basicAttackAnimationClip.length));
             }
             else
             {
