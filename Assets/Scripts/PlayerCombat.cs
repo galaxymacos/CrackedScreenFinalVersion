@@ -18,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
         controls.Player.DashUppercut.Enable();
         controls.Player.DashUppercut.performed += HandleDashUppercut;
         controls.Player.BlackHoleAttack.Enable();
-        controls.Player.BlackHoleAttack.performed += HandleBlackHoleAttack;
+        controls.Player.BlackHoleAttack.performed += HandleHeadCatchAttack;
         controls.Player.Defend.Enable();
         controls.Player.Defend.performed += HandleDefend;
         controls.Player.BasicAttack.Enable();
@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         controls.Player.DashUppercut.Disable();
         controls.Player.DashUppercut.performed -= HandleDashUppercut;
         controls.Player.BlackHoleAttack.Disable();
-        controls.Player.BlackHoleAttack.performed -= HandleBlackHoleAttack;
+        controls.Player.BlackHoleAttack.performed -= HandleHeadCatchAttack;
         controls.Player.Defend.Disable();
         controls.Player.Defend.performed -= HandleDefend;
         controls.Player.BasicAttack.Disable();
@@ -50,9 +50,11 @@ public class PlayerCombat : MonoBehaviour
         if (CanPlayerPerformGroundAttack()) playerSkills[0].Play();
     }
 
-    public void HandleBlackHoleAttack(InputAction.CallbackContext context)
+    public void HandleHeadCatchAttack(InputAction.CallbackContext context)
     {
-        if (CanPlayerPerformGroundAttack()) playerSkills[1].Play();
+        if (CanPlayerPerformGroundAttack() || CanPlayerPerformHeadCatchAttack()) {
+            playerSkills[1].Play();
+        }
     }
 
     public void HandleDefend(InputAction.CallbackContext context)
@@ -93,9 +95,9 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private bool CanPlayerPerformHeadCatchAttack() {
-        return _playerController.canControl &&
-               (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand ||
-                _playerMovement.playerCurrentState == PlayerMovement.PlayerState.Walk);
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("BasicAttack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("CounterAttack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("DashUppercut");
     }
 
     private bool CanPlayerPerformAirAttack()

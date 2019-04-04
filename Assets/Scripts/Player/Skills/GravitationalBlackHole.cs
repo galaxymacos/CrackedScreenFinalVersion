@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GravitationalBlackHole : Skill
 {
-    [SerializeField] private GameObject gravitationalBlackHole;
-    [SerializeField] private Transform place;
-
-
     [SerializeField] private EnemyDetector skillHitBox;
     [SerializeField] private int damage;
     [SerializeField] private Vector3 enemyKnockUpForce;
@@ -41,7 +37,6 @@ public class GravitationalBlackHole : Skill
 
                 print("enable");
 
-                enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
                 if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
                 {
                     enemyPicked.GetComponent<Enemy>().KnockUp(enemyKnockUpForce);
@@ -50,6 +45,8 @@ public class GravitationalBlackHole : Skill
                 {
                     enemyPicked.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
                 }
+                enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
+
 
                 enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
                 hasSuckEnemy = false;
