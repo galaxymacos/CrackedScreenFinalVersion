@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class patrolScript : MonoBehaviour
 {
     [SerializeField] Light RobotLight;
+    [SerializeField] GameObject flameGun;
     public List<Transform> wayPoints = new List<Transform>();
 
     private Transform targetPoint;
@@ -18,7 +19,7 @@ public class patrolScript : MonoBehaviour
     private bool checkAttack = false;
     private float attackDuration = 2.0f;
     private float attackSpeed = 1.0f;
-    private float fightTime = 0.5f;
+    private float fightTime = 2.0f;
 
     private void Start()
     {
@@ -46,14 +47,15 @@ public class patrolScript : MonoBehaviour
         attackDuration -= Time.deltaTime;
         if (attackDuration < 0)
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.forward, attackSpeed);
+            flameGun.SetActive(true);
             fightTime -= Time.deltaTime;
             if (fightTime < 0)
             {
+                flameGun.SetActive(false);
                 RobotLight.color = Color.white;
                 checkAttack = false;
-                attackDuration = 2.0f;
-                fightTime = 0.5f;
+                attackDuration = 2.5f;
+                fightTime = 2.0f;
             }
           
         }
