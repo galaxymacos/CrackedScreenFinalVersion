@@ -1,51 +1,54 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
 public class FirstStageBoss : Enemy
 {
-    public float movingTowardsPlayerPercentage = 0.7f;
+    public delegate void OnBossDie();
 
-    public bool moveTowardsPlayer;
-
-    private float moveTimeRemainsThisRound;
-
-    public float moveTimeInARow = 3f;
+    [SerializeField] private EnemyDetector autoAttackRange;
 
 
     public BossAbility[] BossAbilities;
-    public string[] specialAttackAnimationNames;
 
-    [SerializeField] private float ignoreKnockUpTime = 3f;    // Enemy can't be knocked up for seconds after boss just stand up from lying 
-    private float ignoreKnockUpTimeLeft;
+
+// Start is called before the first frame update
+    private bool canMove;
     private int currentKnockUpTimes;
-    public delegate void OnBossDie();
+
+    [SerializeField]
+    private float ignoreKnockUpTime = 3f; // Enemy can't be knocked up for seconds after boss just stand up from lying 
+
+    private float ignoreKnockUpTimeLeft;
+    private bool isplayingAnimation;
+
+    public float moveTimeInARow = 3f;
+
+    private float moveTimeRemainsThisRound;
+
+    public bool moveTowardsPlayer;
+    public float movingTowardsPlayerPercentage = 0.7f;
 
     public OnBossDie OnBossDieCallback;
-    [SerializeField] private EnemyDetector autoAttackRange;
+    public string[] specialAttackAnimationNames;
+
+    public float specialAttackInterval = 10f;
+    public float specialAttackTimeRemains;
 
     protected override void Start()
     {
         OnChangeEnemyStateCallback += AnimateEnemy;
         specialAttackTimeRemains = specialAttackInterval;
         base.Start();
-        
     }
-    
-    
+
 
     public override void KnockUp(Vector3 force)
     {
         // Boss can't be knocked up for more than several times
 
 
-        if (ignoreKnockUpTimeLeft > 0f)
-        {
-            return;
-        }
+        if (ignoreKnockUpTimeLeft > 0f) return;
         base.KnockUp(force);
     }
 
@@ -60,11 +63,6 @@ public class FirstStageBoss : Enemy
         base.Die();
         OnBossDieCallback?.Invoke();
     }
-    
-    
-// Start is called before the first frame update
-    private bool canMove;
-    private bool isplayingAnimation;
 
     public void LockEnemyMove()
     {
@@ -80,37 +78,27 @@ public class FirstStageBoss : Enemy
     private bool animationPlaying()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") || 
-            animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike");
     }
 
-    public float specialAttackInterval = 10f;
-    public float specialAttackTimeRemains;
-    
     public override void InteractWithPlayer()
     {
-        if (ignoreKnockUpTimeLeft > 0)
-        {
-            ignoreKnockUpTimeLeft -= Time.deltaTime;
-        }
-        if (StiffTimeRemain <= 0 & _enemyCurrentState == EnemyState.Standing)
+        if (ignoreKnockUpTimeLeft > 0) ignoreKnockUpTimeLeft -= Time.deltaTime;
+        if ((StiffTimeRemain <= 0) & (_enemyCurrentState == EnemyState.Standing))
         {
             if (autoAttackRange.playerInRange())
-            {
                 if (attackCooldownUp() && !animationPlaying())
                 {
-                    rb.velocity = new Vector3(0,rb.velocity.y,0);
+                    rb.velocity = new Vector3(0, rb.velocity.y, 0);
                     animator.SetTrigger("Attack");
 
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
-            }
 
             SpecialAttack();
         }
-        
-        
-        
+
 
         if (!animationPlaying())
         {
@@ -120,47 +108,32 @@ public class FirstStageBoss : Enemy
         else
         {
             LockEnemyMove();
-
         }
+
         canMove = !isStiffed && !isplayingAnimation;
-        
-        animator.SetFloat("HorizontalVelocity",rb.velocity.x);
+
+        animator.SetFloat("HorizontalVelocity", rb.velocity.x);
     }
 
     private void SpecialAttack()
     {
         specialAttackTimeRemains -= Time.deltaTime;
         if (specialAttackTimeRemains <= 0)
-        {
-            
             if (!animationPlaying())
             {
                 specialAttackTimeRemains = specialAttackInterval;
-                int randomAbilityIndex = Random.Range(0, specialAttackAnimationNames.Length);
-                animator.SetTrigger(specialAttackAnimationNames[randomAbilityIndex]);
-                if (randomAbilityIndex < BossAbilities.Length)
-                {
-                    BossAbilities[randomAbilityIndex].Play();
-                }
+                var randomAbilityIndex = Random.Range(0, BossAbilities.Length);
+                BossAbilities[randomAbilityIndex].Play();
             }
-        }
     }
 
     private void ChangeFacing(float horizontalSpeed)
     {
-        if (horizontalSpeed>0)
-        {
-            Flip(true);
-        }
+        if (horizontalSpeed > 0) Flip(true);
 
-        if (horizontalSpeed<0)
-        {
-            Flip(false);
-        }
+        if (horizontalSpeed < 0) Flip(false);
     }
 
-    
-    
 
     private bool attackCooldownUp()
     {
@@ -170,49 +143,10 @@ public class FirstStageBoss : Enemy
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (canMove && _enemyCurrentState == EnemyState.Standing)
-        {
-            Move();
-        }
- 
+        if (canMove && _enemyCurrentState == EnemyState.Standing) Move();
     }
 
-//    public ContinuousStrikeHitbox continuousStrikeHitBoxScript;
-    public EnemyDetector EnemyDetector;
-
-    public float teleportLimit = 4f;
-    public void ContinuousStrike()
-    {
-//        if (continuousStrikeHitBoxScript.playerInRange)
-//        {
-//            Attack();
-//        }
-        foreach (Collider col in EnemyDetector._enemiesInRange)
-        {
-            if (col.gameObject == PlayerProperty.player)
-            {
-                Attack();
-                break;
-            }
-        }
-    }
-
-    public void Teleport()
-    {
-        Vector3 playerPos = PlayerProperty.playerPosition;
-        if (Random.Range(0, 2) < 1)
-        {
-            transform.position = playerPos + new Vector3(-teleportLimit, 0, 0);
-            Flip(true);
-            
-        }
-        else
-        {
-            transform.position = playerPos + new Vector3(teleportLimit, 0, 0);
-            Flip(false);
-
-        }
-    }
+// 
 
 
     public override void Move()
@@ -222,19 +156,18 @@ public class FirstStageBoss : Enemy
             if (moveTowardsPlayer)
             {
 //                rb.MovePosition(transform.position + PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
-                rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed,rb.velocity.y);
+                rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
 //                transform.Translate(PlayerDirectionInPlane()*moveSpeed*Time.deltaTime);
-                moveTimeRemainsThisRound -= Time.fixedDeltaTime;    
+                moveTimeRemainsThisRound -= Time.fixedDeltaTime;
             }
             else
             {
 //                rb.MovePosition(transform.position-PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
-                rb.velocity = new Vector3(-PlayerDirectionInPlane().x * moveSpeed,rb.velocity.y);
+                rb.velocity = new Vector3(-PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
 
 
                 moveTimeRemainsThisRound -= Time.fixedDeltaTime;
             }
-                
         }
         else
         {
@@ -242,6 +175,10 @@ public class FirstStageBoss : Enemy
         }
     }
 
+    /// <summary>
+    ///  This method needs to be updated when new attack ability is added in animator
+    /// </summary>
+    /// <returns></returns>
     public override bool AnimationPlaying()
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
@@ -251,17 +188,14 @@ public class FirstStageBoss : Enemy
 
     private Vector3 PlayerDirectionInPlane()
     {
-        Vector3 playerDirection = (GameManager.Instance.player.transform.position - transform.position).normalized;
-       return new Vector3(playerDirection.x,0,playerDirection.z);
+        var playerDirection = (GameManager.Instance.player.transform.position - transform.position).normalized;
+        return new Vector3(playerDirection.x, 0, playerDirection.z);
     }
 
     private void ChangeBossMovementDirectionInRandom()
     {
-        int randomNumber = Random.Range(0, 100);
-        if (randomNumber <= movingTowardsPlayerPercentage*100)
-        {
-            moveTowardsPlayer = true;
-        }
+        var randomNumber = Random.Range(0, 100);
+        if (randomNumber <= movingTowardsPlayerPercentage * 100) moveTowardsPlayer = true;
 
         moveTimeRemainsThisRound = moveTimeInARow;
     }
@@ -269,10 +203,7 @@ public class FirstStageBoss : Enemy
     public override void OnCollisionEnter(Collision other)
     {
         base.OnCollisionEnter(other);
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
-        {
-            moveTowardsPlayer = !moveTowardsPlayer;
-        } 
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall")) moveTowardsPlayer = !moveTowardsPlayer;
     }
 
     public void AnimateEnemy(EnemyState enemyState)
@@ -280,7 +211,7 @@ public class FirstStageBoss : Enemy
         switch (_enemyCurrentState)
         {
             case EnemyState.Standing:
-                animator.SetBool("Stand",true);
+                animator.SetBool("Stand", true);
                 break;
             case EnemyState.GotHitToAir:
                 animator.SetTrigger("HitToAir");
@@ -295,9 +226,6 @@ public class FirstStageBoss : Enemy
 
     public void AutoAttack()
     {
-        if (autoAttackRange.playerInRange())
-        {
-            Attack();
-        }
+        if (autoAttackRange.playerInRange()) Attack();
     }
 }
