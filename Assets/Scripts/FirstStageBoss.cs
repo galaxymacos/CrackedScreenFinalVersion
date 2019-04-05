@@ -115,6 +115,14 @@ public class FirstStageBoss : Enemy
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
     }
 
+    public override void TakeDamage(float damage)
+    {
+        if (ignoreKnockUpTimeLeft > 0)
+            return;
+        base.TakeDamage(damage);
+        
+    }
+
     private void SpecialAttack()
     {
         specialAttackTimeRemains -= Time.deltaTime;
@@ -140,29 +148,66 @@ public class FirstStageBoss : Enemy
         return Time.time >= nextAttackTime;
     }
 
+    private bool flickerTrigger;
+
+    
+    public override void Update()
+    {
+        base.Update();
+        if (ignoreKnockUpTimeLeft>0)
+        {
+            PlayerFlickerWhenTakeDamage();
+
+        }
+        else
+        {
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.enabled = true;
+            }
+        }
+    }
+    
+    private void PlayerFlickerWhenTakeDamage()
+    {
+        if (flickerTrigger)
+        {
+            flickerTrigger = false;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+        }
+        else
+        {
+            flickerTrigger = true;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
+    }
+
     public override void FixedUpdate()
     {
         base.FixedUpdate();
         if (canMove && _enemyCurrentState == EnemyState.Standing) Move();
     }
 
-// 
-
+    [SerializeField] private EnemyDetector playerInRangeDetector;
 
     public override void Move()
     {
+        /*
         if (moveTimeRemainsThisRound > 0)
         {
             if (moveTowardsPlayer)
             {
-//                rb.MovePosition(transform.position + PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
                 rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
-//                transform.Translate(PlayerDirectionInPlane()*moveSpeed*Time.deltaTime);
                 moveTimeRemainsThisRound -= Time.fixedDeltaTime;
             }
             else
             {
-//                rb.MovePosition(transform.position-PlayerDirectionInPlane()*moveSpeed*Time.fixedDeltaTime);
                 rb.velocity = new Vector3(-PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
 
 
@@ -173,6 +218,9 @@ public class FirstStageBoss : Enemy
         {
             ChangeBossMovementDirectionInRandom();
         }
+        */
+        if(!playerInRangeDetector.playerInRange())
+        rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
     }
 
     /// <summary>
@@ -214,9 +262,11 @@ public class FirstStageBoss : Enemy
                 animator.SetBool("Stand", true);
                 break;
             case EnemyState.GotHitToAir:
+                animator.SetBool("Stand",false);
                 animator.SetTrigger("HitToAir");
                 break;
             case EnemyState.LayOnGround:
+                animator.SetBool("Stand",false);
                 animator.SetTrigger("LayDown");
                 break;
             default:

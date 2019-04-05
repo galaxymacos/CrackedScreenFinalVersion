@@ -4,13 +4,8 @@ using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-    [SerializeField] private Slider musicVolumeSlider;
-    [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private AudioMixer audioMixer;
 
-    private void Start()
-    {
-    }
 
     public void OnMusicVolumeChange(float _newVol)
     {

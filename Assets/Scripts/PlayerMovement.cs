@@ -146,7 +146,6 @@ public class PlayerMovement : MonoBehaviour
         ApplyGravity();
         if (GameManager.Instance.PlayerDying) return;
         if (CheckIfPlayerOnGround()) {
-            print("player is on ground");
             MovePlayerOnGround();
         }
 

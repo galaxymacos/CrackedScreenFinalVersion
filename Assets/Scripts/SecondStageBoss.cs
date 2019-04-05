@@ -64,8 +64,45 @@ public class SecondStageBoss : Enemy
         base.Update();
         animator.SetBool("AnimationPlaying", AnimationPlaying());
         
+        if (ignoreKnockUpTimeLeft>0)
+        {
+            PlayerFlickerWhenTakeDamage();
+
+        }
+        else
+        {
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.enabled = true;
+            }
+        }
+        
 
     }
+    
+    private bool flickerTrigger;
+
+    
+    private void PlayerFlickerWhenTakeDamage()
+    {
+        if (flickerTrigger)
+        {
+            flickerTrigger = false;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = false;
+            }
+        }
+        else
+        {
+            flickerTrigger = true;
+            foreach (SpriteRenderer skinnedMeshRenderer in GetComponentsInChildren<SpriteRenderer>())
+            {
+                skinnedMeshRenderer.enabled = true;
+            }
+        }
+    }
+
 
 // Start is called before the first frame update
 
