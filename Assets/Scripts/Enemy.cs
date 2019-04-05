@@ -43,6 +43,8 @@ public abstract class Enemy : MonoBehaviour
 
     public bool isFacingRight;
 
+    private CameraEffect cameraEffect;
+
     // buff and 
     
     protected bool isStiffed;
@@ -83,6 +85,7 @@ public abstract class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        cameraEffect = Camera.main.GetComponent<CameraEffect>();
         HP = maxHp;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -161,7 +164,9 @@ public abstract class Enemy : MonoBehaviour
         if (!canKnockUp) return;
         if (HP < 0) return;
 //        print("Try to knock up the enemy");
-        extraGravity += extraGravityPerKnockUp;
+cameraEffect.ShakeForSeconds(0.2f);
+
+extraGravity += extraGravityPerKnockUp;
         if (_enemyCurrentState == EnemyState.GotHitToAir) GetComponent<Animator>().SetTrigger("HitToAir");
         FaceBasedOnPlayerPosition();
         rb.AddForce(force);

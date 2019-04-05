@@ -115,6 +115,14 @@ public class FirstStageBoss : Enemy
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
     }
 
+    public override void TakeDamage(float damage)
+    {
+        if (ignoreKnockUpTimeLeft > 0)
+            return;
+        base.TakeDamage(damage);
+        
+    }
+
     private void SpecialAttack()
     {
         specialAttackTimeRemains -= Time.deltaTime;
@@ -254,9 +262,11 @@ public class FirstStageBoss : Enemy
                 animator.SetBool("Stand", true);
                 break;
             case EnemyState.GotHitToAir:
+                animator.SetBool("Stand",false);
                 animator.SetTrigger("HitToAir");
                 break;
             case EnemyState.LayOnGround:
+                animator.SetBool("Stand",false);
                 animator.SetTrigger("LayDown");
                 break;
             default:

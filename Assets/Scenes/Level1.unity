@@ -4163,6 +4163,22 @@ PrefabInstance:
       propertyPath: enemyKnockUpForce.y
       value: 1200
       objectReference: {fileID: 0}
+    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: headCatchAnimationClip
+      value: 
+      objectReference: {fileID: 7400000, guid: ab650fea5c07f3a45bbd63f2a010597e, type: 2}
+    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: explodeParticleEffect
+      value: 
+      objectReference: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
+        type: 3}
+    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: explodeSpawnPlace
+      value: 
+      objectReference: {fileID: 5709622654332376159}
     - target: {fileID: 2177889124953702678, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: skillImage
@@ -5424,8 +5440,29 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5709622654332376159, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709622654332376159, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709622654332376159, guid: a02d529cfc22d5e44a66cfdca82056a6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02d529cfc22d5e44a66cfdca82056a6, type: 3}
+--- !u!4 &5709622654332376159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5709622654332376159, guid: a02d529cfc22d5e44a66cfdca82056a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5222131671930141279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5831542604496991915
 PrefabInstance:
   m_ObjectHideFlags: 0
