@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -115,12 +116,19 @@ public class FirstStageBoss : Enemy
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
     }
 
+    [SerializeField] private TextMeshProUGUI TextMeshProDamage;
+    [SerializeField] private GameObject CanvasDamage;
+    [SerializeField] private GameObject WorldCanvasForDamageText;
+    
     public override void TakeDamage(float damage)
     {
         if (ignoreKnockUpTimeLeft > 0)
             return;
         base.TakeDamage(damage);
-        
+        var floatingDamage = Instantiate(TextMeshProDamage, CanvasDamage.transform.position, Quaternion.identity,CanvasDamage.transform);
+//        floatingDamage.transform.parent = WorldCanvasForDamageText.transform;
+        floatingDamage.transform.localScale = new Vector3(Mathf.Abs(floatingDamage.transform.localScale.x),floatingDamage.transform.localScale.y,floatingDamage.transform.localScale.z);
+        TextMeshProDamage.text = "-" + damage;
     }
 
     private void SpecialAttack()
