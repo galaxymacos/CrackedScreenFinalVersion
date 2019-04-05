@@ -11,11 +11,18 @@ public class OpenDoorScript : MonoBehaviour
         door = GetComponent<Animation>();
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-          door.Play("open");
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("Open");
+                door.Play("open");
+            }
+        
         }
     }
+
 }
