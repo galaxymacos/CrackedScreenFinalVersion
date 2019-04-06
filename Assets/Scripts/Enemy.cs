@@ -73,6 +73,8 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] private AudioSource dieSound;
 
+    private Transform bloodPlace;
+
     public void ChangeEnemyState(EnemyState enemyState)
     {
         if (_enemyCurrentState != enemyState)
@@ -86,6 +88,11 @@ public abstract class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        bloodPlace = transform.Find("BloodPlace");
+        if (bloodPlace == null)
+        {
+            Debug.LogWarning("blood spawn place of "+name+" can't be found");
+        }
         cameraEffect = Camera.main.GetComponent<CameraEffect>();
         HP = maxHp;
         rb = GetComponent<Rigidbody>();
@@ -130,8 +137,35 @@ public abstract class Enemy : MonoBehaviour
             istimeSlowing = true;
         }
         FloatingDamageDisplay(damage);
+
+        BloodParticleEffectDisplay(damage);
+        
         GameManager.Instance.lastHitEnemy = gameObject;
         GameManager.Instance.lastHitEnemyTime = Time.time;
+    }
+
+    private void BloodParticleEffectDisplay(float damage)
+    {
+        GameObject bloodTypeToSpawn;
+        float bloodScaleMultiplier = 2f;
+        if (damage >= 80)
+        {
+            bloodTypeToSpawn = GameManager.Instance.blood;
+        }
+        else if (damage > 49)
+        {
+            bloodTypeToSpawn = GameManager.Instance.smallBlood;    // TODO will be replaced by median blood
+        }
+        else
+        {
+            bloodTypeToSpawn = GameManager.Instance.smallBlood;
+        }
+        Vector3 InstantiateDir;
+        InstantiateDir = (transform.position - PlayerProperty.playerPosition).normalized;
+        InstantiateDir = new Vector3(InstantiateDir.x,InstantiateDir.y,0);
+        GameObject blood = Instantiate(bloodTypeToSpawn, bloodPlace.position, Quaternion.FromToRotation(Vector3.right,InstantiateDir));
+        blood.transform.localScale *= bloodScaleMultiplier;
+        blood.transform.SetParent(null);
     }
 
     private void FloatingDamageDisplay(float damage)

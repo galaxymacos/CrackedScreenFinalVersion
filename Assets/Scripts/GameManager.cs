@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
     #region UI
 
     public GameObject floatingDamage;
+    public GameObject blood;
+    public GameObject smallBlood;
 
     #endregion
 
