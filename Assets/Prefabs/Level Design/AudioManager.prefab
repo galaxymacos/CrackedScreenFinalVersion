@@ -140,11 +140,59 @@ MonoBehaviour:
   FirstBossSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: bossSerialAttack
+      clip: {fileID: 8300000, guid: fa359030ccfe2bc40979d7bb1e0621ee, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossTurnAround
+      clip: {fileID: 8300000, guid: 49556d31acac5234da31e8652719f01b, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossIsHit
+      clip: {fileID: 8300000, guid: a48c8f092e471e04eb2f397dee987d62, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossIsDead
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   SecondBossSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: secondbossAttack
+      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: secondbossJump
+      clip: {fileID: 8300000, guid: ad87497a0ecceb741943406853424a0c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: secondbosshitGround
+      clip: {fileID: 8300000, guid: 41492a53f26772449bd840777a7100d4, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: secondBossDeath
+      clip: {fileID: 8300000, guid: d077a1cd82fd0424d85f0439116274d1, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   UiSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
