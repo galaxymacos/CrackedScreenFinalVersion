@@ -77,7 +77,7 @@ public class HeadCatch : Skill
 
             if (!hasSuckEnemy)
             {
-                if (Time.time - GameManager.Instance.lastHitEnemyTime < 0.3f)
+                if (Time.time - GameManager.Instance.lastHitEnemyTime < 0.5f)
                 {
                     enemyPicked = GameManager.Instance.lastHitEnemy;
                     if (enemyPicked != null)
