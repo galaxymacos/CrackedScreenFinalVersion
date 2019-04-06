@@ -77,6 +77,12 @@ namespace Enemies
             base.Die();
         }
 
+        public override void KnockUp(Vector3 force)
+        {
+            base.KnockUp(force);
+            print("Patrol enemy is knocked up");
+        }
+
         public override void Update()
         {
             base.Update();

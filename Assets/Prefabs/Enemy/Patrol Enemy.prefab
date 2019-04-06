@@ -101,6 +101,36 @@ Transform:
   m_Father: {fileID: 7280185882751371416}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3218909959658597851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5733100073813919868}
+  m_Layer: 9
+  m_Name: BloodPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5733100073813919868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218909959658597851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7280185882751371416}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5074176224910245007
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +241,7 @@ Transform:
   - {fileID: 4144406565062894441}
   - {fileID: 424240813}
   - {fileID: 7055322539645313239}
+  - {fileID: 5733100073813919868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -302,8 +333,6 @@ MonoBehaviour:
   canStiff: 0
   canStun: 0
   defense: 0
-  floatingText: {fileID: 1032005598791896220, guid: a2dcd5457e94b5f4eb00b39a88d522f0,
-    type: 3}
   HP: 200
   isFacingRight: 0
   laySec: 2

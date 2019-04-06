@@ -114,6 +114,22 @@ public class GameManager : MonoBehaviour
                             pair.Key.size = new Vector3(pair.Key.size.x, pair.Key.size.y,pair.Value);
                         }
                     }
+                    
+                    if (liveObject.capsuleTriggerColliderSizeDictionary.Count > 0)
+                    {
+                        foreach (KeyValuePair<CapsuleCollider, float> pair in liveObject.capsuleTriggerColliderSizeDictionary)
+                        {
+                            pair.Key.height = pair.Value;
+                        }
+                    }
+
+                    if (liveObject.capsuleColliderSizeDictionary.Count > 0)
+                    {
+                        foreach (KeyValuePair<CapsuleCollider, float> pair in liveObject.capsuleColliderSizeDictionary)
+                        {
+                            pair.Key.height = pair.Value;
+                        }
+                    }
                 }
             }
 
@@ -139,6 +155,22 @@ public class GameManager : MonoBehaviour
                         foreach (KeyValuePair<BoxCollider, float> pair in liveObject.boxColliderSizeDictionary)
                         {
                             pair.Key.size = new Vector3(pair.Key.size.x, pair.Key.size.y,1000);
+                        }
+                    }
+                    
+                    if (liveObject.capsuleTriggerColliderSizeDictionary.Count > 0)
+                    {
+                        foreach (KeyValuePair<CapsuleCollider, float> pair in liveObject.capsuleTriggerColliderSizeDictionary)
+                        {
+                            pair.Key.height = 5000;
+                        }
+                    }
+
+                    if (liveObject.capsuleColliderSizeDictionary.Count > 0)
+                    {
+                        foreach (KeyValuePair<CapsuleCollider, float> pair in liveObject.capsuleColliderSizeDictionary)
+                        {
+                            pair.Key.height = 5000;
                         }
                     }
                 }
