@@ -17,7 +17,7 @@ public class patrolScript : MonoBehaviour
     private float movementSpeed = 0.2f;
     private float rotationSpeed = 0.2f;
     private bool checkAttack = false;
-    private float attackDuration = 2.0f;
+    private float attackDuration = 1.0f;
     private float attackSpeed = 1.0f;
     private float fightTime = 2.0f;
 
@@ -54,7 +54,7 @@ public class patrolScript : MonoBehaviour
                 flameGun.SetActive(false);
                 RobotLight.color = Color.white;
                 checkAttack = false;
-                attackDuration = 2.5f;
+                attackDuration = 1f;
                 fightTime = 2.0f;
             }
           

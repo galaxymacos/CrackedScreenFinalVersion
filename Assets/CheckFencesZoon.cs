@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckFencesZoon : MonoBehaviour
 {
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
