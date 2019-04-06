@@ -140,7 +140,31 @@ MonoBehaviour:
   FirstBossSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: bossSerialAttack
+      clip: {fileID: 8300000, guid: fa359030ccfe2bc40979d7bb1e0621ee, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossTurnAround
+      clip: {fileID: 8300000, guid: 49556d31acac5234da31e8652719f01b, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossIsHit
+      clip: {fileID: 8300000, guid: a48c8f092e471e04eb2f397dee987d62, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: bossIsDead
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   SecondBossSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
