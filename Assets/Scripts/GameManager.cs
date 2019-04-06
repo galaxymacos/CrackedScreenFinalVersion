@@ -38,6 +38,21 @@ public class GameManager : MonoBehaviour
 
     public Animator animator;
     public PlayerAnimator PlayerAnimator;
+    
+    //
+
+    #region UI
+
+    public GameObject floatingDamage;
+
+    #endregion
+
+    #region Enemy
+
+    internal GameObject lastHitEnemy;
+    internal float lastHitEnemyTime;
+
+    #endregion
 
     public static GameManager Instance { get; private set; }
 

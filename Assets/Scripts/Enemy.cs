@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Globalization;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -37,8 +40,6 @@ public abstract class Enemy : MonoBehaviour
 
     private float delayBeforeDestroy;
 
-    // Floating damage text
-    [SerializeField] private GameObject floatingText;
     public float HP;
 
     public bool isFacingRight;
@@ -128,14 +129,18 @@ public abstract class Enemy : MonoBehaviour
             HitPauseTimeRemain = HitPauseTime;
             istimeSlowing = true;
         }
-        if (floatingText != null)
-        {
-            ShowFloatingText();
-        }
-        else
-        {
-            print("Floating text is missing for "+gameObject.name);
-        }
+        FloatingDamageDisplay(damage);
+    }
+
+    private void FloatingDamageDisplay(float damage)
+    {
+        var textInstantiated = Instantiate(GameManager.Instance.floatingDamage, transform.position + new Vector3(0, 1.5f),
+            Quaternion.identity);
+        textInstantiated.GetComponentInChildren<TextMeshPro>().text =
+            Mathf.Clamp(damage - defense, 0, Mathf.Infinity).ToString(CultureInfo.InvariantCulture);
+        textInstantiated.transform.SetParent(null);
+        textInstantiated.transform.localScale = new Vector3(Mathf.Abs(textInstantiated.transform.localScale.x),
+            Mathf.Abs(textInstantiated.transform.localScale.y), Mathf.Abs(textInstantiated.transform.localScale.z));
     }
 
     internal bool isDead;
@@ -199,11 +204,6 @@ extraGravity += extraGravityPerKnockUp;
     /// <summary>
     ///     This method will be called when enemy takes damage
     /// </summary>
-    private void ShowFloatingText()
-    {
-        var text = Instantiate(floatingText, transform.position, Quaternion.identity);
-        text.GetComponent<TextMesh>().text = Convert.ToInt32(HP).ToString();
-    }
 
     public virtual void Update()
     {

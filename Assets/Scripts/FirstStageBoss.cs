@@ -116,17 +116,13 @@ public class FirstStageBoss : Enemy
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
     }
 
-    [SerializeField] private GameObject TextDamageSpawnPoint;
-    [SerializeField] private GameObject TextDamage;
     
     public override void TakeDamage(float damage)
     {
         if (ignoreKnockUpTimeLeft > 0)
             return;
         base.TakeDamage(damage);
-        var textInstantiated = Instantiate(TextDamage, TextDamageSpawnPoint.transform.position, TextDamageSpawnPoint.transform.rotation,TextDamageSpawnPoint.transform);
-        textInstantiated.transform.SetParent(null);
-        textInstantiated.transform.localScale = new Vector3(Mathf.Abs(textInstantiated.transform.localScale.x),Mathf.Abs(textInstantiated.transform.localScale.y),Mathf.Abs(textInstantiated.transform.localScale.z));
+        
 //        var position = textInstantiated.transform.position;
 //        var rotation = textInstantiated.transform.rotation;
 //        print(position);
