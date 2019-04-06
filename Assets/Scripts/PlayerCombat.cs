@@ -80,7 +80,6 @@ public class PlayerCombat : MonoBehaviour
     public void HandleHeadCatchAttack(InputAction.CallbackContext context)
     {
         if (CanPlayerPerformGroundAttack() || CanPlayerPerformHeadCatchAttack()) {
-            print("Try to catch enemy's head");
             playerSkills[1].Play();
         }
     }

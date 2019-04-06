@@ -130,6 +130,8 @@ public abstract class Enemy : MonoBehaviour
             istimeSlowing = true;
         }
         FloatingDamageDisplay(damage);
+        GameManager.Instance.lastHitEnemy = gameObject;
+        GameManager.Instance.lastHitEnemyTime = Time.time;
     }
 
     private void FloatingDamageDisplay(float damage)
@@ -176,6 +178,9 @@ extraGravity += extraGravityPerKnockUp;
         FaceBasedOnPlayerPosition();
         rb.AddForce(force);
         ChangeEnemyState(EnemyState.GotHitToAir);
+        
+        GameManager.Instance.lastHitEnemy = gameObject;
+        GameManager.Instance.lastHitEnemyTime = Time.time;
     }
 
     public void FaceBasedOnPlayerPosition()

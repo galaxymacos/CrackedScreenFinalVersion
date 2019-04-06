@@ -24,7 +24,7 @@ public class HeadCatch : Skill
         
         if (hasSuckEnemy && suckEnemyDurationLeft > 0)
         {
-            enemyPicked.transform.position = skillHitBox.transform.position;    
+            enemyPicked.transform.position = skillHitBox.transform.position;
 
             suckEnemyDurationLeft -= Time.deltaTime;
             if (suckEnemyDurationLeft <= 0)
@@ -34,8 +34,6 @@ public class HeadCatch : Skill
                     return;
                 }
                 enemyPicked.GetComponent<Enemy>().enabled = true;
-
-                print("enable");
 
                 if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
                 {
@@ -79,7 +77,25 @@ public class HeadCatch : Skill
 
             if (!hasSuckEnemy)
             {
-                
+                if (Time.time - GameManager.Instance.lastHitEnemyTime < 0.3f)
+                {
+                    enemyPicked = GameManager.Instance.lastHitEnemy;
+                    if (enemyPicked != null)
+                    {
+                        if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
+                        {
+                            suckEnemyDurationLeft = suckEnemyDuration;
+                            hasSuckEnemy = true;
+                            enemyPickedIsHitToAir = true;
+                            enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
+                            print("Player performing forced suck");
+                        
+                            enemyPicked.GetComponent<Enemy>().enabled = false;
+                            return;
+                        }  
+                    }
+
+                }
                 var enemies = skillHitBox._enemiesInRange;
                 if (enemies.Count > 0)
                 {
@@ -93,13 +109,14 @@ public class HeadCatch : Skill
                         print("is being sucked");
                         
                         enemyPicked.GetComponent<Enemy>().enabled = false;
-                    }
-                    
-                    
+                    }  
                 }
                 else {
                     hasSuckEnemy = false;
                 }
+                   
+                    
+                
             }
         }
         else
