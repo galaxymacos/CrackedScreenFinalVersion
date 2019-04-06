@@ -232,7 +232,7 @@ public class FirstStageBoss : Enemy
         }
         */
         if(!playerInRangeDetector.playerInRange())
-        rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed, rb.velocity.y, PlayerDirectionInPlane().z*moveSpeed);
     }
 
     /// <summary>

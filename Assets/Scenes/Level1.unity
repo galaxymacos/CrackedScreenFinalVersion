@@ -5912,6 +5912,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4748427393667605385, guid: 753f203dbafc4ff418370ef16adf3996,
         type: 3}
+    - target: {fileID: 935729184725828517, guid: d7e29c5ef976512458eaa77d12d3149d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 935729183313021926, guid: d7e29c5ef976512458eaa77d12d3149d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e29c5ef976512458eaa77d12d3149d, type: 3}
 --- !u!33 &8528463293059169182
