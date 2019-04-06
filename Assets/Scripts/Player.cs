@@ -142,6 +142,15 @@ public class Player : MonoBehaviour {
                PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Counterattack") ||
                PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend");
     }
+    
+    public bool isPlayerUsingGroundAbility()
+    {
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Counterattack") ||
+               PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend");
+    }
 
     private bool IsPlayerInvincible()
     {

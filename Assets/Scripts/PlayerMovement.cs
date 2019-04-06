@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplyGravity();
         if (GameManager.Instance.PlayerDying) return;
-        if (CheckIfPlayerOnGround()) {
+        if (CheckIfPlayerOnGround() && !PlayerProperty.playerClass.isPlayerUsingGroundAbility()) {
             MovePlayerOnGround();
         }
 
@@ -303,6 +303,8 @@ public class PlayerMovement : MonoBehaviour
 
         return isGrounded;
     }
+
+
 
     private bool PlayerHasWallAtRight()
     {

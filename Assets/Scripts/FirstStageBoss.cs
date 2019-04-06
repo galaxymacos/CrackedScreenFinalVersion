@@ -117,7 +117,7 @@ public class FirstStageBoss : Enemy
     }
 
     [SerializeField] private GameObject TextDamageSpawnPoint;
-    [SerializeField] private TextMeshPro TextDamage;
+    [SerializeField] private GameObject TextDamage;
     
     public override void TakeDamage(float damage)
     {
@@ -125,11 +125,13 @@ public class FirstStageBoss : Enemy
             return;
         base.TakeDamage(damage);
         var textInstantiated = Instantiate(TextDamage, TextDamageSpawnPoint.transform.position, TextDamageSpawnPoint.transform.rotation,TextDamageSpawnPoint.transform);
-        var position = textInstantiated.transform.position;
-        var rotation = textInstantiated.transform.rotation;
-        print(position);
         textInstantiated.transform.SetParent(null);
-        textInstantiated.transform.position = transform.position;
+        textInstantiated.transform.localScale = new Vector3(Mathf.Abs(textInstantiated.transform.localScale.x),Mathf.Abs(textInstantiated.transform.localScale.y),Mathf.Abs(textInstantiated.transform.localScale.z));
+//        var position = textInstantiated.transform.position;
+//        var rotation = textInstantiated.transform.rotation;
+//        print(position);
+//        textInstantiated.transform.SetParent(null);
+//        textInstantiated.transform.position = transform.position;
 
 //        textInstantiated.transform.position = textInstantiated.transform.TransformDirection(textInstantiated.transform.position);
 
