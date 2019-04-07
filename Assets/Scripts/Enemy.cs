@@ -50,8 +50,8 @@ public abstract class Enemy : MonoBehaviour
     
     protected bool isStiffed;
 
-    public float laySec = 2f; // How many seconds the enemy will stay on ground if it got hit to the air
-
+    private float currentLaySec; // How many seconds the enemy will stay on ground if it got hit to the air
+    public float maxLaySec = 2f;
     public float laySecLeft;
 
     // enemy type
@@ -82,12 +82,19 @@ public abstract class Enemy : MonoBehaviour
             _enemyCurrentState = enemyState;
             OnChangeEnemyStateCallback?.Invoke(enemyState);
         }
+
+        if (_enemyCurrentState == EnemyState.Standing)
+        {
+            currentLaySec = maxLaySec;
+            extraGravity = originalExtraGravity;
+        }
     }
 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        currentLaySec = maxLaySec;
         bloodPlace = transform.Find("BloodPlace");
         if (bloodPlace == null)
         {
@@ -125,7 +132,11 @@ public abstract class Enemy : MonoBehaviour
         }
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         HitPauseTimeRemain = HitPauseTime;
-        extraGravity += extraGravityPerHit;
+        if (_enemyCurrentState == EnemyState.GotHitToAir)
+        {
+            extraGravity += extraGravityPerHit;
+        }
+        
         if (HP <= 0)
         {
             Die();
@@ -207,6 +218,10 @@ public abstract class Enemy : MonoBehaviour
 //        print("Try to knock up the enemy");
 
 cameraEffect.ShakeForSeconds(0.2f);
+if (_enemyCurrentState == EnemyState.LayOnGround)
+{
+    currentLaySec -= 0.5f;
+}
 extraGravity += extraGravityPerKnockUp;
         if (_enemyCurrentState == EnemyState.GotHitToAir) GetComponent<Animator>().SetTrigger("HitToAir");
         FaceBasedOnPlayerPosition();
@@ -358,9 +373,8 @@ extraGravity += extraGravityPerKnockUp;
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             if (_enemyCurrentState == EnemyState.GotHitToAir)
             {
-                laySecLeft = laySec;
+                laySecLeft = currentLaySec;
                 ChangeEnemyState(EnemyState.LayOnGround);    
-                extraGravity = originalExtraGravity;
             }
     }
 }
