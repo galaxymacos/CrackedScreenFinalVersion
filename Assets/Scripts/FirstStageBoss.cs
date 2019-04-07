@@ -273,7 +273,8 @@ public class FirstStageBoss : Enemy
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             moveTowardsPlayer = !moveTowardsPlayer;
-            animator.SetTrigger("PiercingSpearHitWall");
+            
+
         }
     }
 

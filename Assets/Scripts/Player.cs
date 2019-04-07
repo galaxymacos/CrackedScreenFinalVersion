@@ -90,6 +90,7 @@ public class Player : MonoBehaviour {
     public void ResetInvincibleTime() {
         lastTimeKnockOff = 0;
         lastTimeTakeDamage = 0;
+        invincibleTimeRemains = 0;
     }
 
     private Transform bloodPlace;
