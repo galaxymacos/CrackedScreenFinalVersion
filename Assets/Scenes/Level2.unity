@@ -12173,11 +12173,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 8560200603484630749, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: far clip plane
-      value: 10000
-      objectReference: {fileID: 0}
     - target: {fileID: 8560200603484630748, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12238,57 +12233,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2130372245}
-    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.9899998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 002fc2d954eb4e74996da844cf0c1c60,
-        type: 3}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.21698111
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.21698111
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.21698111
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb95ee1c10f8dae4a95744ccdaf87ceb, type: 3}
 --- !u!1001 &8822494130962262711
