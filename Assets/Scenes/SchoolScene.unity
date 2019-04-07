@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
@@ -4140,6 +4140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430420873576051704, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4230,11 +4235,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7972244468849275196, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: fireTrigger
@@ -4244,6 +4244,31 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426129460184824522, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872260039116, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872483707087, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872673370395, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872956527746, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
@@ -14433,6 +14458,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430420873576051704, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14523,11 +14553,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7972244468849275196, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: fireTrigger
@@ -14537,6 +14562,31 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426129460184824522, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872260039116, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872483707087, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872673370395, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872956527746, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
@@ -25176,6 +25226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430420873576051704, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25266,11 +25321,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7972244468849275196, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: fireTrigger
@@ -25280,6 +25330,31 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426129460184824522, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872260039116, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872483707087, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872673370395, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872956527746, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
@@ -28219,6 +28294,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2430420873576051704, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28289,11 +28369,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2430420873077684832, guid: 2df07a877452a6b49832cb5f437fd83a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7972244468849275196, guid: 2df07a877452a6b49832cb5f437fd83a,
         type: 3}
       propertyPath: fireTrigger
@@ -28303,6 +28378,26 @@ PrefabInstance:
         type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872260039116, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872483707087, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872673370395, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420872956527746, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
