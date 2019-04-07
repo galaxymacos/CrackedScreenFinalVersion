@@ -62,6 +62,12 @@ public class DragonFist : BossAbility
             PlayerProperty.playerClass.GetKnockOff(transform.position,new Vector3(0,dragonFistFlyKnockUpForce,0));
             PlayerProperty.playerClass.ResetInvincibleTime();    // Player not invincible after it is knocked up by dragon fist
             animator.SetBool("DragonFistHitPlayer",true);
+            if (!GetComponent<SecondStageBoss>().hasEnlargedCameraDragonFist)
+            {
+                Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize/0.3f, 0.05f);
+                GetComponent<SecondStageBoss>().hasEnlargedCameraDragonFist = true;
+            }
+
         }
     }
 

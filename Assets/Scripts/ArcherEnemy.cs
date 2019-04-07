@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.Rendering.PostProcessing;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +15,7 @@ public class ArcherEnemy : Enemy
     private bool chargeNextAttack;
     private float currentDistanceFromCenter;
     private bool dodging;
-    [SerializeField] private float dodgingProbability = 0.8f;
+    [SerializeField] private float dodgingProbability = 0.3f;
 
 
     [SerializeField] private float dodgingSpeed = 20f;
@@ -23,7 +24,7 @@ public class ArcherEnemy : Enemy
     private bool patrolRight = true;
 
 
-    [SerializeField] private float patrolSpeed = 5f;
+    [SerializeField] private float patrolSpeed = 8f;
     public float rightLimit = 5f;
 
     [SerializeField] private AudioSource dodgeSound;
@@ -143,9 +144,10 @@ public class ArcherEnemy : Enemy
     {
         dodging = false;
     }
-    
-    private void FixedUpdate()
+
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         animator.SetFloat("Velocity",rb.velocity.x);
         if (CanMove())
         {

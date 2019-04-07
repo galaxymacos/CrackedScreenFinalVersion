@@ -23,4 +23,9 @@ public class HomeRun : MonoBehaviour {
             PlayerProperty.playerClass.TakeDamage(100);
         }
     }
+
+    public void CameraSizeLower()
+    {
+        Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize*0.3f, 0.05f);
+    }
 }

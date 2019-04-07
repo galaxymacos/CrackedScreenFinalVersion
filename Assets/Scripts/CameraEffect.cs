@@ -15,13 +15,17 @@ public class CameraEffect : MonoBehaviour
     [SerializeField] private float sizeSmoothValue = 0.5f;
     private Camera _camera;
     private CameraFollow cameraFollow;
+    private float originalSizeSmoothValue;
+    private Camera spriteCamera;
 
     private void Start()
     {
+        originalSizeSmoothValue = sizeSmoothValue;
         cameraFollow = GetComponent<CameraFollow>();
         originalPos = transform.localPosition;
         _camera = GetComponent<Camera>();
         destinationCameraSize = _camera.orthographicSize;
+        spriteCamera = transform.Find("SpriteCamera").gameObject.GetComponent<Camera>();
     }
 
     /// <summary>
@@ -50,6 +54,10 @@ public class CameraEffect : MonoBehaviour
         {
             ChangeSizeToTargetSize();
         }
+        else
+        {
+//            sizeSmoothValue = originalSizeSmoothValue;
+        }
 
         if (isShaking)
         {
@@ -69,6 +77,7 @@ public class CameraEffect : MonoBehaviour
     {
         Camera.main.orthographicSize =
             Mathf.Lerp(Camera.main.orthographicSize, destinationCameraSize, sizeSmoothValue);
+        spriteCamera.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, destinationCameraSize, sizeSmoothValue);
     }
 
     public void StartShaking(float shakeStartIntensity)
@@ -103,4 +112,11 @@ public class CameraEffect : MonoBehaviour
     {
         destinationCameraSize = size;
     }
+    
+    public void EnlargeCamera(float size, float smoothValue)
+    {
+        destinationCameraSize = size;
+        sizeSmoothValue = smoothValue;
+    }
+
 }

@@ -63,6 +63,7 @@ public class FirstStageBoss : Enemy
     {
         base.Die();
         OnBossDieCallback?.Invoke();
+        BroadcastMessage("OnFirstBossDie");
     }
 
     public void LockEnemyMove()

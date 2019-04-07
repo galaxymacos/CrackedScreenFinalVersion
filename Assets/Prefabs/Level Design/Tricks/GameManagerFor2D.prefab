@@ -115,6 +115,11 @@ MonoBehaviour:
   playerLives: 3
   animator: {fileID: 0}
   PlayerAnimator: {fileID: 0}
+  floatingDamage: {fileID: 4748427393667605385, guid: 753f203dbafc4ff418370ef16adf3996,
+    type: 3}
+  blood: {fileID: 876229043633345149, guid: f83d038f018606347b522e0cee5644f5, type: 3}
+  smallBlood: {fileID: 876229043633345149, guid: 9d97fa68339a39e45a3977e7cc8750c9,
+    type: 3}
   PlayerDying: 0
   isGameOver: 0
 --- !u!114 &2177889124415726822
@@ -197,9 +202,15 @@ MonoBehaviour:
   skillName: Gravitational Black Hole
   cooldown: 2
   skillImage: {fileID: 0}
-  gravitationalBlackHole: {fileID: 8572992204164747384, guid: 1b1ebdde61337df4e88ced5c5bf3d8f4,
+  skillHitBox: {fileID: 0}
+  damage: 100
+  enemyKnockUpForce: {x: 1000, y: 600, z: 0}
+  suckEnemyDuration: 2
+  headCatchAnimationClip: {fileID: 7400000, guid: ab650fea5c07f3a45bbd63f2a010597e,
+    type: 2}
+  explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
-  place: {fileID: 0}
+  explodeSpawnPlace: {fileID: 0}
 --- !u!114 &2177889124953702680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +271,8 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   damage: 10
   EnemyDetector: {fileID: 0}
+  basicAttackAnimationClip: {fileID: 7400000, guid: af133abffac06524f801b74833c138e5,
+    type: 2}
   enemyKnockdownForce: {x: 100, y: 100, z: 0}
   stiffTimeWhenHit: 0.3
 --- !u!1 &2177889125111506749

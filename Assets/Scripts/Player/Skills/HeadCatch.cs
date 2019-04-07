@@ -88,8 +88,6 @@ public class HeadCatch : Skill
                             hasSuckEnemy = true;
                             enemyPickedIsHitToAir = true;
                             enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
-                            print("Player performing forced suck");
-                        
                             enemyPicked.GetComponent<Enemy>().enabled = false;
                             return;
                         }  

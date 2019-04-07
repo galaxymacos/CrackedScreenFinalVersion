@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Globalization;
+using TMPro;
 using UnityEditor.U2D;
 using UnityEngine;
 
@@ -38,7 +40,9 @@ public class Player : MonoBehaviour {
     
 
 
-    private void Start() {
+    private void Start()
+    {
+        bloodPlace = transform.Find("BloodPlace");
         _skinnedMeshRenderers = sprites.GetComponentsInChildren<SkinnedMeshRenderer>();
 //        GameManager.Instance.gameObjects.Add(gameObject);
 
@@ -88,6 +92,8 @@ public class Player : MonoBehaviour {
         lastTimeTakeDamage = 0;
     }
 
+    private Transform bloodPlace;
+    
     public void TakeDamage(int damage) {
         if (IsPlayerInvincible())
         {
@@ -117,6 +123,8 @@ public class Player : MonoBehaviour {
             ChangeHpTo(hp - damage);
             var playerTransform = transform;
             ShowFloatingDamage(damage, playerTransform);
+            BloodParticleEffectDisplay(damage);
+            FloatingDamageDisplay(damage);
             if (hp <= 0)
             {
 //                _playerMovement.ApplyGravity();
@@ -124,6 +132,44 @@ public class Player : MonoBehaviour {
                 GameManager.Instance.PlayerAnimator.PlayerStartDying();
             }
         }
+        
+        
+        
+    }
+    
+    private void FloatingDamageDisplay(float damage)
+    {
+        var textInstantiated = Instantiate(GameManager.Instance.floatingDamage, transform.position + new Vector3(0, 1.5f),
+            Quaternion.identity);
+        textInstantiated.GetComponentInChildren<TextMeshPro>().text =
+            Mathf.Clamp(damage, 0, Mathf.Infinity).ToString(CultureInfo.InvariantCulture);
+        textInstantiated.transform.SetParent(null);
+        textInstantiated.transform.localScale = new Vector3(Mathf.Abs(textInstantiated.transform.localScale.x),
+            Mathf.Abs(textInstantiated.transform.localScale.y), Mathf.Abs(textInstantiated.transform.localScale.z));
+    }
+    private void BloodParticleEffectDisplay(float damage)
+    {
+        GameObject bloodTypeToSpawn;
+        float bloodScaleMultiplier = 2f;
+        if (damage >= 80)
+        {
+            bloodTypeToSpawn = GameManager.Instance.blood;
+        }
+        else if (damage > 49)
+        {
+            bloodTypeToSpawn = GameManager.Instance.smallBlood;    // TODO will be replaced by median blood
+        }
+        else
+        {
+            bloodTypeToSpawn = GameManager.Instance.smallBlood;
+        }
+        Vector3 InstantiateDir;
+        InstantiateDir = (transform.position - PlayerProperty.playerPosition).normalized;
+        InstantiateDir = new Vector3(InstantiateDir.x,InstantiateDir.y,0);
+        GameObject blood = Instantiate(bloodTypeToSpawn, bloodPlace.position, Quaternion.FromToRotation(Vector3.right,InstantiateDir));
+        blood.transform.localScale *= bloodScaleMultiplier;
+        blood.transform.Rotate(new Vector3(0,0,180));
+        blood.transform.SetParent(null);
     }
 
     private void ShowFloatingDamage(int damage, Transform playerTransform)
