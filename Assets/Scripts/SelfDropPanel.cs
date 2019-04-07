@@ -54,6 +54,10 @@ public class SelfDropPanel : MonoBehaviour
             
         }
 
+        //if (true)
+        //{
+        //    Instantiate(this);
+        //}
         
     }
 
