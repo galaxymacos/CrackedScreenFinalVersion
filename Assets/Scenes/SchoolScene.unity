@@ -4990,12 +4990,12 @@ PrefabInstance:
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.73
+      value: 77.73
       objectReference: {fileID: 0}
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.35
+      value: 67.08
       objectReference: {fileID: 0}
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
@@ -11291,6 +11291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b292239a46c9a48b1bb5bef01f5074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputfieldUI: {fileID: 1366547505}
   door: {fileID: 0}
 --- !u!1001 &850953818
 PrefabInstance:
@@ -17842,7 +17843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1366547506
 MonoBehaviour:
   m_ObjectHideFlags: 0
