@@ -540,6 +540,7 @@ Transform:
   - {fileID: 24074644172116184}
   - {fileID: 1240424892}
   - {fileID: 4868413463344064402}
+  - {fileID: 7434692705527466337}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.28800002}
@@ -833,6 +834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e45d75eb1b61047959244184488a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frisbee: {fileID: 2642932977463142504, guid: 391b51a43dc9b3e47967bca7c11abda1, type: 3}
+  frisbeeSpawnPlace: {fileID: 8356939938631180118}
 --- !u!1 &935729185197263187
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +939,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.377778, y: 11.377778}
+  m_Size: {x: 22.755556, y: 22.755556}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -999,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592747650541227504}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7299957, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935729184725828524}
@@ -1076,6 +1079,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8356939938631180118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7434692705527466337}
+  m_Layer: 9
+  m_Name: FrisBeeSpawnPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7434692705527466337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356939938631180118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 935729184725828524}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7055322539577119185
 PrefabInstance:
   m_ObjectHideFlags: 0
