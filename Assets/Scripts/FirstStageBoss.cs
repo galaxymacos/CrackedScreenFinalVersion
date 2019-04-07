@@ -14,7 +14,6 @@ public class FirstStageBoss : Enemy
 
 
 // Start is called before the first frame update
-    private bool canMove;
     private int currentKnockUpTimes;
 
     [SerializeField]
@@ -81,7 +80,8 @@ public class FirstStageBoss : Enemy
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("TornadoMaker");
     }
 
     public override void InteractWithPlayer()
@@ -111,10 +111,12 @@ public class FirstStageBoss : Enemy
         {
             LockEnemyMove();
         }
-
-        canMove = !isStiffed && !isplayingAnimation;
-
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
+    }
+
+    public bool CanMove()
+    {
+        return !isStiffed && !animationPlaying();
     }
 
     
@@ -204,7 +206,10 @@ public class FirstStageBoss : Enemy
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (canMove && _enemyCurrentState == EnemyState.Standing) Move();
+        if (CanMove() && _enemyCurrentState == EnemyState.Standing)
+        {
+            Move();
+        }
     }
 
     [SerializeField] private EnemyDetector playerInRangeDetector;

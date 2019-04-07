@@ -4,36 +4,58 @@ using UnityEngine;
 
 public class Tornado : MonoBehaviour
 {
-    [SerializeField] private float growUpTime = 2f;
-    private float growUpTimeRemains;
-    [SerializeField] private float growUpSpeed = 0.5f;
 
     [SerializeField] private int damage = 10;
+    [SerializeField] private float targetLocalScale = 1.5f;
+    private float originalLocalScale;
+    private bool hasFullyGrown;
+
+    [SerializeField] private float existedTime = 3f;
+
+    private float existedTimeRemains;
     // Start is called before the first frame update
     void Start()
     {
-        growUpTimeRemains = growUpTime;
+        existedTimeRemains = existedTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (growUpTimeRemains > 0)
+        if (transform.localScale.x < targetLocalScale)
         {
-            growUpTimeRemains -= Time.deltaTime;
-            transform.parent.localScale += new Vector3(growUpSpeed / Time.deltaTime, growUpSpeed / Time.deltaTime, growUpSpeed / Time.deltaTime);
+            transform.localScale += new Vector3(Time.deltaTime,Time.deltaTime,Time.deltaTime);
+        }
+        else
+        {
+            FinishGrowing();
+        }
+
+        if (hasFullyGrown)
+        {
+            existedTimeRemains -= Time.deltaTime;
+            if (existedTimeRemains <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void FinishGrowing()
     {
-        if (other.gameObject == PlayerProperty.player)
+        hasFullyGrown = true;
+        GetComponent<SpriteRenderer>().color = Color.white;
+        // TODO add tornado turns to full state sound
+    }
+
+ 
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (hasFullyGrown && other.gameObject == PlayerProperty.player)
         {
-            if (growUpTimeRemains <= 0)
-            {
                 PlayerProperty.playerClass.TakeDamage(damage);
                 PlayerProperty.playerClass.GetKnockOff(transform.position);
-            }
         }
     }
 }
