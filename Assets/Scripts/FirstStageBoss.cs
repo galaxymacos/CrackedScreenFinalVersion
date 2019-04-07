@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class FirstStageBoss : Enemy
 {
-    public delegate void OnBossDie();
+    internal delegate void OnFirstStageBossDie();
 
     [SerializeField] private EnemyDetector autoAttackRange;
 
@@ -29,7 +29,7 @@ public class FirstStageBoss : Enemy
     public bool moveTowardsPlayer;
     public float movingTowardsPlayerPercentage = 0.7f;
 
-    public OnBossDie OnBossDieCallback;
+    internal OnFirstStageBossDie onFirstStageBossDieCallback;
     public string[] specialAttackAnimationNames;
 
     public float specialAttackInterval = 10f;
@@ -61,8 +61,7 @@ public class FirstStageBoss : Enemy
     protected override void Die()
     {
         base.Die();
-        OnBossDieCallback?.Invoke();
-        BroadcastMessage("OnFirstBossDie");
+        onFirstStageBossDieCallback?.Invoke();
     }
 
     public void LockEnemyMove()
