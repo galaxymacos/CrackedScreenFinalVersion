@@ -81,7 +81,8 @@ public class FirstStageBoss : Enemy
         return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("TornadoMaker");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("TornadoMaker")||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear");
     }
 
     public override void InteractWithPlayer()
@@ -269,7 +270,11 @@ public class FirstStageBoss : Enemy
     public override void OnCollisionEnter(Collision other)
     {
         base.OnCollisionEnter(other);
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall")) moveTowardsPlayer = !moveTowardsPlayer;
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            moveTowardsPlayer = !moveTowardsPlayer;
+            animator.SetTrigger("PiercingSpearHitWall");
+        }
     }
 
     public void AnimateEnemy(EnemyState enemyState)
