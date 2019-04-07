@@ -34,4 +34,6 @@ public class EnemyDetector : MonoBehaviour
     {
         return _enemiesInRange.Select(col => col.gameObject).Contains(PlayerProperty.player);
     }
+    
+    
 }
