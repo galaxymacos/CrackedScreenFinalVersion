@@ -193,6 +193,18 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: BossWaveWeapon
+      clip: {fileID: 8300000, guid: dd98c2fe7fe121d42b63838e0e0296a4, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: secondBossisHit
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   UiSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
