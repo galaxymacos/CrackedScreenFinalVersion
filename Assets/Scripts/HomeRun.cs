@@ -26,6 +26,6 @@ public class HomeRun : MonoBehaviour {
 
     public void CameraSizeLower()
     {
-        Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize*0.3f, 0.05f);
+        Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize*0.7f);
     }
 }

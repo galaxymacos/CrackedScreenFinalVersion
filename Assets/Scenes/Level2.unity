@@ -7114,6 +7114,11 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4067711423258362183, guid: a115ec06bca3adc499b6eb7803a4a775,
+        type: 3}
+      propertyPath: multiplier
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a115ec06bca3adc499b6eb7803a4a775, type: 3}
 --- !u!4 &1492110149 stripped
@@ -12119,6 +12124,16 @@ PrefabInstance:
       propertyPath: BossAbilities.Array.data[0]
       value: 
       objectReference: {fileID: 815796198}
+    - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
+        type: 3}
+      propertyPath: maxHp
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8481021724713760891, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -12157,6 +12172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560200603484630749, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
+        type: 3}
+      propertyPath: far clip plane
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8560200603484630748, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
         type: 3}
@@ -12227,6 +12247,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.9899998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560200603831285977, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 8560200603831285983, guid: eb95ee1c10f8dae4a95744ccdaf87ceb,
         type: 3}

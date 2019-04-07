@@ -58,15 +58,16 @@ public class DragonFist : BossAbility
         isDashingForward = false;
         if (dragonFistHitBox.playerInRange())
         {
-            PlayerProperty.playerClass.TakeDamage(10);
-            PlayerProperty.playerClass.GetKnockOff(transform.position,new Vector3(0,dragonFistFlyKnockUpForce,0));
-            PlayerProperty.playerClass.ResetInvincibleTime();    // Player not invincible after it is knocked up by dragon fist
-            animator.SetBool("DragonFistHitPlayer",true);
-            if (!GetComponent<SecondStageBoss>().hasEnlargedCameraDragonFist)
+            if (PlayerProperty.playerClass.invincibleTimeRemains <= 0)
             {
-                Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize/0.3f, 0.05f);
+                Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize/0.7f);
                 GetComponent<SecondStageBoss>().hasEnlargedCameraDragonFist = true;
             }
+            PlayerProperty.playerClass.TakeDamage(10);
+            PlayerProperty.playerClass.GetKnockOff(transform.position,new Vector3(0,dragonFistFlyKnockUpForce,0));
+            
+            PlayerProperty.playerClass.ResetInvincibleTime();    // Player not invincible after it is knocked up by dragon fist
+            animator.SetBool("DragonFistHitPlayer",true);
 
         }
     }

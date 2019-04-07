@@ -18,6 +18,8 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] private AudioClip soundOfIceCracking;
     [SerializeField] private AudioClip soundOfIceFalling;
     private AudioSource audioSource;
+    private bool isFalling;
+    [SerializeField] private float extraForce = 10f;
 
     private void Start()
     {
@@ -38,7 +40,16 @@ public class FallingTrap : MonoBehaviour
             if (crackingTimeRemains <= 0)
             {
                 rb.useGravity = true;
+                isFalling = true;
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isFalling)
+        {
+            rb.AddForce(new Vector3(0,-extraForce,0));
         }
     }
 

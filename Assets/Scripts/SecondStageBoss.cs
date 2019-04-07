@@ -110,6 +110,13 @@ public class SecondStageBoss : Enemy
                animator.GetCurrentAnimatorStateInfo(0).IsName("BaseballAttack");
     }
 
+    public bool IsHitOnAirOrLayDown()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("HitToAir")|| 
+        animator.GetCurrentAnimatorStateInfo(0).IsName("LayOnGround")||
+        animator.GetCurrentAnimatorStateInfo(0).IsName("GetUpFromGround");
+    }
+
     public float specialAttackInterval = 10f;
     public float specialAttackTimeRemains;
     
@@ -140,7 +147,7 @@ public class SecondStageBoss : Enemy
 
     public bool CanMove()
     {
-        return !isStiffed && !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing;
+        return !isStiffed && !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing && !IsHitOnAirOrLayDown();
     }
 
     private void SpecialAttack()
@@ -177,7 +184,10 @@ public class SecondStageBoss : Enemy
         }
         else
         {
-            FaceBasedOnPlayerPosition();
+            if (!IsHitOnAirOrLayDown())
+            {
+                FaceBasedOnPlayerPosition();
+            }
         }
  
     }

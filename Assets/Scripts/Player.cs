@@ -25,7 +25,7 @@ public class Player : MonoBehaviour {
     public float hp = 200;
 
     [SerializeField] private float invincibieTime = 2f;
-    private float invincibleTimeRemains;
+    internal float invincibleTimeRemains;
 
     public Vector3 knockUpForce = new Vector3(200, 200, 0);
     private float lastTimeKnockOff;

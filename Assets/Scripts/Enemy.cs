@@ -205,8 +205,8 @@ public abstract class Enemy : MonoBehaviour
         if (!canKnockUp) return;
         if (HP < 0) return;
 //        print("Try to knock up the enemy");
-cameraEffect.ShakeForSeconds(0.2f);
 
+cameraEffect.ShakeForSeconds(0.2f);
 extraGravity += extraGravityPerKnockUp;
         if (_enemyCurrentState == EnemyState.GotHitToAir) GetComponent<Animator>().SetTrigger("HitToAir");
         FaceBasedOnPlayerPosition();
