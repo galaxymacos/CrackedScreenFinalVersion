@@ -34,25 +34,7 @@ namespace Skills
                 base.Play();
 
                 AudioManager.instance.PlaySound(AudioGroup.Character, "Air Slash");
-                var enemies = EnemyDetector._enemiesInRange;
-                foreach (var enemy in enemies)
-                {
-                    if (enemy == null)
-                         continue;
-                    enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    if (enemy.transform.position.x>PlayerProperty.playerPosition.x)
-                    {
-                        print("slash enemy from left");
-                        enemy.GetComponent<Enemy>().KnockUp(enemyKnockdownForce);
-                    }
-                    else
-                    {
-                        print("slash enemy from right");
-
-                        enemy.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
-                    }
-                    enemy.GetComponent<Enemy>().TakeDamage(damage);
-                }
+                AirSlashStrike();
             }
             else
             {
@@ -64,6 +46,29 @@ namespace Skills
 //        {
 //            enemyKnockdownForce = new Vector3(-enemyKnockdownForce.x, enemyKnockdownForce.y, enemyKnockdownForce.z);
 //        }
+
+        public void AirSlashStrike()
+        {
+            var enemies = EnemyDetector._enemiesInRange;
+            foreach (var enemy in enemies)
+            {
+                if (enemy == null)
+                    continue;
+                enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                if (enemy.transform.position.x>PlayerProperty.playerPosition.x)
+                {
+                    print("slash enemy from left");
+                    enemy.GetComponent<Enemy>().KnockUp(enemyKnockdownForce);
+                }
+                else
+                {
+                    print("slash enemy from right");
+
+                    enemy.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
+                }
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
 
         public bool PlayerisLeft()
         {
