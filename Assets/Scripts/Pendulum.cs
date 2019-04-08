@@ -42,8 +42,8 @@ public class Pendulum : MonoBehaviour
 
         if (enemyDetector.playerInRange())
         {
-            PlayerProperty.playerClass.TakeDamage(damageToPlayer);
             PlayerProperty.playerClass.GetKnockOff(transform.TransformDirection(transform.position));
+            PlayerProperty.playerClass.TakeDamage(damageToPlayer);
 
         }
     }

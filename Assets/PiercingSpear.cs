@@ -32,11 +32,10 @@ public class PiercingSpear : BossAbility
             {
                 tookDamageInFirstStage = true;
                 piercingPlayer = true;
-                PlayerProperty.playerClass.TakeDamage(5);
                 PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
+                PlayerProperty.playerClass.TakeDamage(5);
                 PlayerProperty.playerClass.ResetInvincibleTime();
 //                PlayerProperty.playerClass.GetKnockOff(transform.position);
-                PlayerProperty.controller.canControl = false;
                 
                 PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
@@ -44,7 +43,10 @@ public class PiercingSpear : BossAbility
             {
                 if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                 {
+                    PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
+
                     PlayerProperty.player.transform.position = transform.position+new Vector3(3,0,0);
+
                 }
                 transform.parent.GetComponent<FirstStageBoss>().Flip(true);
                 rb.AddForce(new Vector3(pierceSpeed,0,0));
@@ -57,6 +59,8 @@ public class PiercingSpear : BossAbility
             {
                 if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                 {
+                    PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
+
                     PlayerProperty.player.transform.position = transform.position+new Vector3(-3,0,0);
                 }
 
@@ -72,6 +76,10 @@ public class PiercingSpear : BossAbility
 
     public override void Play()
     {
+        if (isTouchingWall)
+        {
+            return;
+        }
 //        if (piercingPlayer)
 //        {
 //            AudioManager.instance.StopSound(AudioGroup.Character);
@@ -95,27 +103,29 @@ public class PiercingSpear : BossAbility
         {
             tookDamageInFirstStage = false;
             isTouchingWall = true;
-            if (piercingPlayer)
-            {
-                piercingPlayer = false;
-                PlayerProperty.controller.canControl = true;
-                PlayerProperty.playerClass.TakeDamage(hitWallDamage);
-
-                if (transform.position.x > PlayerProperty.player.transform.position.x)
-                {
-                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0),new Vector3());
-                }
-                else
-                {
-                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(2,0,0));
-                }
-            }
+            
             if (piercingHitWall !=null &&piercingHitWall.clip != null)
             {
                 piercingHitWall.Play();
             }
             transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
             print("Hit wall");
+            if (piercingPlayer)
+            {
+                piercingPlayer = false;
+                PlayerProperty.controller.canControl = true;
+
+                if (pierceRight)
+                {
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(-2,0,0),new Vector3(30,15,0));
+                }
+                else
+                {
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0),new Vector3(-30,15,0));
+                }
+                PlayerProperty.playerClass.TakeDamage(hitWallDamage);
+
+            }
            
         }
     }
@@ -127,6 +137,7 @@ public class PiercingSpear : BossAbility
             isTouchingWall = false;
         }
     }
+    
     
     
 
