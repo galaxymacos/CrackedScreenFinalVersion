@@ -57,12 +57,10 @@ namespace Skills
                 enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if (enemy.transform.position.x>PlayerProperty.playerPosition.x)
                 {
-                    print("slash enemy from left");
                     enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockdownForce);
                 }
                 else
                 {
-                    print("slash enemy from right");
 
                     enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
                 }

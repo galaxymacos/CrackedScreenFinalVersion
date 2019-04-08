@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] internal GameObject cannonAttackRange;
-    
+    [SerializeField] internal GameObject selfDropPanel;
     public static LevelManager Instance { get; private set; }
 
     private void Awake()

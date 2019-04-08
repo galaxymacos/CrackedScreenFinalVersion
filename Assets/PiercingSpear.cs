@@ -32,7 +32,8 @@ public class PiercingSpear : BossAbility
             {
                 tookDamageInFirstStage = true;
                 piercingPlayer = true;
-                PlayerProperty.playerClass.TakeDamage(10);
+                PlayerProperty.playerClass.TakeDamage(5);
+                PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
                 PlayerProperty.playerClass.ResetInvincibleTime();
 //                PlayerProperty.playerClass.GetKnockOff(transform.position);
                 PlayerProperty.controller.canControl = false;
@@ -102,7 +103,7 @@ public class PiercingSpear : BossAbility
 
                 if (transform.position.x > PlayerProperty.player.transform.position.x)
                 {
-                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0));
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0),new Vector3());
                 }
                 else
                 {
