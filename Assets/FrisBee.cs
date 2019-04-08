@@ -25,8 +25,10 @@ public class FrisBee : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 masterDirection = (master.transform.position - transform.position).normalized;
-        rb.AddForce(masterDirection*reverseSpeed);
+        if (master != null) {
+            Vector3 masterDirection = (master.transform.position - transform.position).normalized;
+            rb.AddForce(masterDirection*reverseSpeed);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

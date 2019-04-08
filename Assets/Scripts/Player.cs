@@ -247,6 +247,10 @@ public class Player : MonoBehaviour {
         {
             return false;
         }
+        else
+        {
+            invincibleTimeRemains = invincibieTime;
+        }
         
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {

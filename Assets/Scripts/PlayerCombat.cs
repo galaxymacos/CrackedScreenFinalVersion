@@ -127,9 +127,9 @@ public class PlayerCombat : MonoBehaviour
                PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut");
     }
 
-    private bool CanPlayerPerformDashUpperAttack()
-    {
-        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack");
+    private bool CanPlayerPerformDashUpperAttack() {
+        DashUpper dashUpper = FindObjectOfType<DashUpper>();
+        return PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") && dashUpper._skillNotOnCooldown;
     }
 
     private bool CanPlayerPerformAirAttack()

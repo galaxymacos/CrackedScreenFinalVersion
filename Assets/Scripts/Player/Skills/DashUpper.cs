@@ -53,7 +53,7 @@ public class DashUpper : Skill
                 List<Collider> enemies = dashEnemyDetector._enemiesInRange;
                 foreach (Collider enemy in enemies) // Push enemies back
                 {
-                    if (enemy == null) continue;
+                    if (enemy == null || enemy.GetComponent<Enemy>()._enemyCurrentState == Enemy.EnemyState.LayOnGround) continue;
                     enemy.GetComponent<Enemy>().ForceMove(new Vector3(dashSpeed * Time.fixedDeltaTime, 0) * playerController.facingOffset);
                     if (!_tookDamagePhaseOne) // only take damage once in phase one
                     {
@@ -72,7 +72,7 @@ public class DashUpper : Skill
                 List<Collider> enemies = uppercutEnemyDetector._enemiesInRange;
                 foreach (var enemy in enemies)
                 {
-                    if(enemy==null)
+                    if(enemy==null || enemy.GetComponent<Enemy>()._enemyCurrentState == Enemy.EnemyState.LayOnGround)
                         continue;
                     enemyKnockDownForce = new Vector3(_originalEnemyKnockDownForce.x * playerController.facingOffset,
                         _originalEnemyKnockDownForce.y, _originalEnemyKnockDownForce.z);                    
