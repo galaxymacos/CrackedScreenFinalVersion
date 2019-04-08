@@ -2841,6 +2841,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1548028356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &895102769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8374912006113776559, guid: 4349620ea809d10458683b9c9fc8ae4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1036207777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e051bccfbb6bb6b439e305e43e473166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &895102770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959094807, guid: 4349620ea809d10458683b9c9fc8ae4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1036207777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e45d75eb1b61047959244184488a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &895102771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1959094804, guid: 4349620ea809d10458683b9c9fc8ae4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1036207777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6e161f6b9ce374db9de1ee4e31cb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &905209781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101347083126900571, guid: ed13c5bef03e7e840a81437d03c5f03e,
@@ -3700,9 +3736,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935729184725828527, guid: 4349620ea809d10458683b9c9fc8ae4a,
         type: 3}
+      propertyPath: BossAbilities.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 935729184725828527, guid: 4349620ea809d10458683b9c9fc8ae4a,
+        type: 3}
       propertyPath: BossAbilities.Array.data[0]
       value: 
       objectReference: {fileID: 2084412306}
+    - target: {fileID: 935729184725828527, guid: 4349620ea809d10458683b9c9fc8ae4a,
+        type: 3}
+      propertyPath: BossAbilities.Array.data[1]
+      value: 
+      objectReference: {fileID: 895102771}
+    - target: {fileID: 935729184725828527, guid: 4349620ea809d10458683b9c9fc8ae4a,
+        type: 3}
+      propertyPath: BossAbilities.Array.data[2]
+      value: 
+      objectReference: {fileID: 895102770}
+    - target: {fileID: 935729184725828527, guid: 4349620ea809d10458683b9c9fc8ae4a,
+        type: 3}
+      propertyPath: BossAbilities.Array.data[3]
+      value: 
+      objectReference: {fileID: 895102769}
     m_RemovedComponents:
     - {fileID: 1335410371, guid: 4349620ea809d10458683b9c9fc8ae4a, type: 3}
     - {fileID: 8374912006113776570, guid: 4349620ea809d10458683b9c9fc8ae4a, type: 3}
@@ -9441,7 +9497,7 @@ PrefabInstance:
     - target: {fileID: 5438854329331403861, guid: c3082a9cfd8b6b04bb9d40bba6db52ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.98
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 5438854329331403861, guid: c3082a9cfd8b6b04bb9d40bba6db52ff,
         type: 3}
@@ -9492,6 +9548,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438854329331403860, guid: c3082a9cfd8b6b04bb9d40bba6db52ff,
+        type: 3}
+      propertyPath: enemyToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438854329331403860, guid: c3082a9cfd8b6b04bb9d40bba6db52ff,
+        type: 3}
+      propertyPath: spawnPlace.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438854329331403860, guid: c3082a9cfd8b6b04bb9d40bba6db52ff,
+        type: 3}
+      propertyPath: enemyToSpawn.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3082a9cfd8b6b04bb9d40bba6db52ff, type: 3}

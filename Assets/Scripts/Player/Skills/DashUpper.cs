@@ -76,7 +76,7 @@ public class DashUpper : Skill
                         continue;
                     enemyKnockDownForce = new Vector3(_originalEnemyKnockDownForce.x * playerController.facingOffset,
                         _originalEnemyKnockDownForce.y, _originalEnemyKnockDownForce.z);                    
-                    enemy.GetComponent<Enemy>().KnockUp(enemyKnockDownForce);
+                    enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockDownForce);
                     if (!_tookDamagePhaseTwo)
                     {
                         enemy.GetComponent<Enemy>().TakeDamage(damage);

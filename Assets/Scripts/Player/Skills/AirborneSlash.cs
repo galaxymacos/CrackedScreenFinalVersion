@@ -58,13 +58,13 @@ namespace Skills
                 if (enemy.transform.position.x>PlayerProperty.playerPosition.x)
                 {
                     print("slash enemy from left");
-                    enemy.GetComponent<Enemy>().KnockUp(enemyKnockdownForce);
+                    enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockdownForce);
                 }
                 else
                 {
                     print("slash enemy from right");
 
-                    enemy.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
+                    enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
                 }
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }

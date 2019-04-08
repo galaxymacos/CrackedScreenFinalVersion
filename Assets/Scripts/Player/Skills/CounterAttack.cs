@@ -47,11 +47,11 @@ namespace Skills
                 if (enemy.transform.position.x>GameManager.Instance.player.transform.position.x)
                 {
                     print(enemyKnockdownForce.x+" "+enemyKnockdownForce.y+" "+enemyKnockdownForce.z);
-                    enemy.GetComponent<Enemy>().KnockUp(enemyKnockdownForce);
+                    enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockdownForce);
                 }
                 else
                 {
-                    enemy.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
+                    enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
 
                 }
                 enemy.GetComponent<Enemy>().TakeDamage(damage);

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -17,15 +15,16 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public EnemyState _enemyCurrentState;
-    public float extraGravity = 10f;
-    private float originalExtraGravity;
-    public float extraGravityPerHit = 1f;
-    public float extraGravityPerKnockUp = 1f;
+    internal Animator animator;
 
     // Private 
     public int atk = 5;
     public float attackRange = 2f;
     public float attackSpeed = 1f; // 1 hit in 1 sec
+
+    private Transform bloodPlace;
+
+    private CameraEffect cameraEffect;
 
     [SerializeField] private bool canAttack = true;
     [SerializeField] private bool canKnockUp;
@@ -34,31 +33,41 @@ public abstract class Enemy : MonoBehaviour
     [Header("Enemy ability")] [SerializeField]
     private bool canStun;
 
+    private float currentLaySec; // How many seconds the enemy will stay on ground if it got hit to the air
+
     // Ability
     public int defense = 1;
 
     private float delayBeforeDestroy;
 
+    [SerializeField] private AudioSource dieSound;
+    public float extraGravity = 10f;
+    public float extraGravityPerHit = 1f;
+    public float extraGravityPerKnockUp = 1f;
+
+    public float HitPauseTime = 0.2f; // The game stop for this second when the enemy is attacked to increase hit feel
+    private float HitPauseTimeRemain; // The game stop for this second when the enemy is attacked to increase hit feel
+
     public float HP;
+
+    internal bool isDead;
 
     public bool isFacingRight;
 
-    private CameraEffect cameraEffect;
-
     // buff and 
-    
-    protected bool isStiffed;
 
-    private float currentLaySec; // How many seconds the enemy will stay on ground if it got hit to the air
-    public float maxLaySec = 2f;
+    protected bool isStiffed;
+    private bool istimeSlowing;
     public float laySecLeft;
 
     // enemy type
     public float maxHp = 200f;
+    public float maxLaySec = 2f;
     public float moveSpeed = 5f;
     public float nextAttackTime;
 
     public OnChangeEnemyState OnChangeEnemyStateCallback;
+    private float originalExtraGravity;
 
     private Player playerScript;
 
@@ -68,10 +77,6 @@ public abstract class Enemy : MonoBehaviour
 
 
     [SerializeField] private float stunDuration = 0.5f;
-
-    [SerializeField] private AudioSource dieSound;
-
-    private Transform bloodPlace;
 
     public void ChangeEnemyState(EnemyState enemyState)
     {
@@ -94,10 +99,7 @@ public abstract class Enemy : MonoBehaviour
     {
         currentLaySec = maxLaySec;
         bloodPlace = transform.Find("BloodPlace");
-        if (bloodPlace == null)
-        {
-            Debug.LogWarning("blood spawn place of "+name+" can't be found");
-        }
+        if (bloodPlace == null) Debug.LogWarning("blood spawn place of " + name + " can't be found");
         cameraEffect = Camera.main.GetComponent<CameraEffect>();
         HP = maxHp;
         rb = GetComponent<Rigidbody>();
@@ -113,12 +115,9 @@ public abstract class Enemy : MonoBehaviour
         nextAttackTime = 0;
     }
 
-    public float HitPauseTime = 0.2f;    // The game stop for this second when the enemy is attacked to increase hit feel
-    private float HitPauseTimeRemain;    // The game stop for this second when the enemy is attacked to increase hit feel
-    private bool istimeSlowing;
-
-    public virtual void FixedUpdate() {
-        GetComponent<Rigidbody>().velocity += new Vector3(0,-extraGravity)*Time.fixedDeltaTime;
+    public virtual void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().velocity += new Vector3(0, -extraGravity) * Time.fixedDeltaTime;
     }
 
     public virtual void TakeDamage(float damage)
@@ -128,13 +127,11 @@ public abstract class Enemy : MonoBehaviour
             print("The enemy is already dead");
             return;
         }
+
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         HitPauseTimeRemain = HitPauseTime;
-        if (_enemyCurrentState == EnemyState.GotHitToAir)
-        {
-            extraGravity += extraGravityPerHit;
-        }
-        
+        if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += extraGravityPerHit;
+
         if (HP <= 0)
         {
             Die();
@@ -145,10 +142,11 @@ public abstract class Enemy : MonoBehaviour
             HitPauseTimeRemain = HitPauseTime;
             istimeSlowing = true;
         }
+
         FloatingDamageDisplay(damage);
 
         BloodParticleEffectDisplay(damage);
-        
+
         GameManager.Instance.lastHitEnemy = gameObject;
         GameManager.Instance.lastHitEnemyTime = Time.time;
     }
@@ -156,30 +154,26 @@ public abstract class Enemy : MonoBehaviour
     private void BloodParticleEffectDisplay(float damage)
     {
         GameObject bloodTypeToSpawn;
-        float bloodScaleMultiplier = 2f;
+        var bloodScaleMultiplier = 2f;
         if (damage >= 80)
-        {
             bloodTypeToSpawn = GameManager.Instance.blood;
-        }
         else if (damage > 49)
-        {
-            bloodTypeToSpawn = GameManager.Instance.smallBlood;    // TODO will be replaced by median blood
-        }
+            bloodTypeToSpawn = GameManager.Instance.smallBlood; // TODO will be replaced by median blood
         else
-        {
             bloodTypeToSpawn = GameManager.Instance.smallBlood;
-        }
         Vector3 InstantiateDir;
         InstantiateDir = (transform.position - PlayerProperty.playerPosition).normalized;
-        InstantiateDir = new Vector3(InstantiateDir.x,InstantiateDir.y,0);
-        GameObject blood = Instantiate(bloodTypeToSpawn, bloodPlace.position, Quaternion.FromToRotation(Vector3.right,InstantiateDir));
+        InstantiateDir = new Vector3(InstantiateDir.x, InstantiateDir.y, 0);
+        var blood = Instantiate(bloodTypeToSpawn, bloodPlace.position,
+            Quaternion.FromToRotation(Vector3.right, InstantiateDir));
         blood.transform.localScale *= bloodScaleMultiplier;
         blood.transform.SetParent(null);
     }
 
     private void FloatingDamageDisplay(float damage)
     {
-        var textInstantiated = Instantiate(GameManager.Instance.floatingDamage, transform.position + new Vector3(0, 1.5f),
+        var textInstantiated = Instantiate(GameManager.Instance.floatingDamage,
+            transform.position + new Vector3(0, 1.5f),
             Quaternion.identity);
         textInstantiated.GetComponentInChildren<TextMeshPro>().text =
             Mathf.Clamp(damage - defense, 0, Mathf.Infinity).ToString(CultureInfo.InvariantCulture);
@@ -188,8 +182,6 @@ public abstract class Enemy : MonoBehaviour
             Mathf.Abs(textInstantiated.transform.localScale.y), Mathf.Abs(textInstantiated.transform.localScale.z));
     }
 
-    internal bool isDead;
-    internal Animator animator;
     /// <summary>
     ///     This method will be implemented by children only
     /// </summary>
@@ -197,36 +189,34 @@ public abstract class Enemy : MonoBehaviour
     {
         dieSound.Play();
         isDead = true;
-        animator.SetBool("isDead",true);
+        animator.SetBool("isDead", true);
         Destroy(gameObject, 3f);
     }
 
 
-
-    public virtual void KnockUp(Vector3 force)
+    public virtual void GetKnockUp(Vector3 force)
     {
-        if (!canKnockUp) return;
-        if (HP < 0) return;
-//        print("Try to knock up the enemy");
+        if (!canKnockUp || HP < 0) return;
+        cameraEffect.ShakeForSeconds(0.2f);
 
-cameraEffect.ShakeForSeconds(0.2f);
-if (_enemyCurrentState == EnemyState.LayOnGround)
-{
-    currentLaySec -= 0.5f;
-}
-extraGravity += extraGravityPerKnockUp;
-        if (_enemyCurrentState == EnemyState.GotHitToAir) GetComponent<Animator>().SetTrigger("HitToAir");
+        if (_enemyCurrentState == EnemyState.LayOnGround) currentLaySec -= 0.5f;
+        extraGravity += extraGravityPerKnockUp;
+        if (_enemyCurrentState == EnemyState.GotHitToAir)
+        {
+            GetComponent<Animator>().SetTrigger("HitToAir");
+        }
+        rb.velocity = Vector3.zero;
         FaceBasedOnPlayerPosition();
         rb.AddForce(force);
         ChangeEnemyState(EnemyState.GotHitToAir);
-        
+
         GameManager.Instance.lastHitEnemy = gameObject;
         GameManager.Instance.lastHitEnemyTime = Time.time;
     }
 
     public void FaceBasedOnPlayerPosition()
     {
-        if (AnimationPlaying()) // Can't change facing when boss is using its ability
+        if (AnimationPlaying() || _enemyCurrentState == EnemyState.LayOnGround) // Can't change facing when boss is using its ability
             return;
         if (PlayerIsAtRight())
             Flip(true);
@@ -250,7 +240,6 @@ extraGravity += extraGravityPerKnockUp;
     /// <summary>
     ///     This method will be called when enemy takes damage
     /// </summary>
-
     public virtual void Update()
     {
         if (istimeSlowing)
@@ -267,20 +256,14 @@ extraGravity += extraGravityPerKnockUp;
             }
         }
 
-        if (isDead)
-        {
-            return;
-        }
-        
+        if (isDead) return;
+
         if (canKnockUp)
             if (_enemyCurrentState == EnemyState.LayOnGround)
                 TryStandUp();
 
 
-        if (GameManager.Instance.PlayerDying)
-        {
-            return;
-        }
+        if (GameManager.Instance.PlayerDying) return;
 
         InteractWithPlayer();
     }
@@ -338,7 +321,6 @@ extraGravity += extraGravityPerKnockUp;
         if (canKnockUp && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
             PlayerProperty.playerClass.GetKnockOff(transform.position);
         PlayerProperty.playerClass.TakeDamage(atk);
-
     }
 
     public virtual void OnCollisionEnter(Collision other)
@@ -348,7 +330,7 @@ extraGravity += extraGravityPerKnockUp;
             if (_enemyCurrentState == EnemyState.GotHitToAir)
             {
                 laySecLeft = currentLaySec;
-                ChangeEnemyState(EnemyState.LayOnGround);    
+                ChangeEnemyState(EnemyState.LayOnGround);
             }
     }
 }

@@ -63,12 +63,12 @@ public class ArcherEnemy : Enemy
         base.TakeDamage(damage);
     }
 
-    public override void KnockUp(Vector3 force)
+    public override void GetKnockUp(Vector3 force)
     {
         if (dodging) return;
         if ( !animator.GetCurrentAnimatorStateInfo(0).IsName("isBeingSucked") && DodgingSucceed()) return;
         hitToAirSound.Play();
-        base.KnockUp(force);
+        base.GetKnockUp(force);
     }
 
     private bool DodgingSucceed()

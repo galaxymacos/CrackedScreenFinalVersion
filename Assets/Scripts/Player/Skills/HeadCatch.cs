@@ -37,11 +37,11 @@ public class HeadCatch : Skill
 
                 if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
                 {
-                    enemyPicked.GetComponent<Enemy>().KnockUp(enemyKnockUpForce);
+                    enemyPicked.GetComponent<Enemy>().GetKnockUp(enemyKnockUpForce);
                 }
                 else
                 {
-                    enemyPicked.GetComponent<Enemy>().KnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
+                    enemyPicked.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
                 }
                 enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
                 var explodeEffect = Instantiate(explodeParticleEffect, explodeSpawnPlace.position, explodeSpawnPlace.rotation);

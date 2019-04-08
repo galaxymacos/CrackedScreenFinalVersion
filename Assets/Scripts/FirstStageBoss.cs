@@ -43,13 +43,13 @@ public class FirstStageBoss : Enemy
     }
 
 
-    public override void KnockUp(Vector3 force)
+    public override void GetKnockUp(Vector3 force)
     {
         // Boss can't be knocked up for more than several times
 
 
         if (ignoreKnockUpTimeLeft > 0f) return;
-        base.KnockUp(force);
+        base.GetKnockUp(force);
     }
 
     public override void StandUp()

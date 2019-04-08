@@ -27,7 +27,7 @@ public class SecondStageBoss : Enemy
         base.Start();
     }
 
-    public override void KnockUp(Vector3 force)
+    public override void GetKnockUp(Vector3 force)
     {
         // Boss can't be knocked up for more than several times
 
@@ -35,7 +35,7 @@ public class SecondStageBoss : Enemy
         {
             return;
         }
-        base.KnockUp(force);
+        base.GetKnockUp(force);
     }
 
     public override void StandUp()

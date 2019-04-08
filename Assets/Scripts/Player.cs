@@ -96,48 +96,7 @@ public class Player : MonoBehaviour {
 
     private Transform bloodPlace;
     
-    public bool TakeDamage(int damage) {
-        if (IsPlayerInvincible())
-        {
-            return false;
-        }
-        else
-        {
-            invincibleTimeRemains = invincibieTime;
-        }
-        lastTimeTakeDamage = Time.time;
-        if (GameManager.Instance.PlayerDying) return false;
-        DimensionLeapParticleEffect.SetActive(false);
-        PlayerProperty.controller.transferStoragePowerFull = false;
-
-        if (Camera.main.GetComponent<CameraEffect>().isShaking)
-        {
-            Camera.main.GetComponent<CameraEffect>().StopShaking();
-        }
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
-            print("block enemy attack");
-            AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
-            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
-
-        }
-        else {
-            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
-            ChangeHpTo(hp - damage);
-            var playerTransform = transform;
-            ShowFloatingDamage(damage, playerTransform);
-            BloodParticleEffectDisplay(damage);
-            FloatingDamageDisplay(damage);
-            if (hp <= 0)
-            {
-//                _playerMovement.ApplyGravity();
-                
-                GameManager.Instance.PlayerAnimator.PlayerStartDying();
-            }
-        }
-
-        return true;
-
-    }
+    
     
     private void FloatingDamageDisplay(float damage)
     {
@@ -240,14 +199,55 @@ public class Player : MonoBehaviour {
     }
 
     // Player debuff
-
-
-    public bool GetKnockOff(Vector3 attackPosition) {
-
-        if (lastTimeKnockOff + invincibieTime > Time.time)
+    public bool TakeDamage(int damage) {
+        if (IsPlayerInvincible())
         {
             return false;
         }
+        else
+        {
+            invincibleTimeRemains = invincibieTime;
+        }
+        lastTimeTakeDamage = Time.time;
+        if (GameManager.Instance.PlayerDying) return false;
+        DimensionLeapParticleEffect.SetActive(false);
+        PlayerProperty.controller.transferStoragePowerFull = false;
+
+        if (Camera.main.GetComponent<CameraEffect>().isShaking)
+        {
+            Camera.main.GetComponent<CameraEffect>().StopShaking();
+        }
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+            print("block enemy attack");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
+            GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
+
+        }
+        else {
+            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
+            ChangeHpTo(hp - damage);
+            var playerTransform = transform;
+            ShowFloatingDamage(damage, playerTransform);
+            BloodParticleEffectDisplay(damage);
+            FloatingDamageDisplay(damage);
+            if (hp <= 0)
+            {
+//                _playerMovement.ApplyGravity();
+                
+                GameManager.Instance.PlayerAnimator.PlayerStartDying();
+            }
+        }
+
+        return true;
+
+    }
+
+    public bool GetKnockOff(Vector3 attackPosition) {
+        if (IsPlayerInvincible())
+        {
+            return false;
+        }
+        
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
