@@ -5,12 +5,14 @@ using UnityEngine;
 public class HitWall : MonoBehaviour
 {
     private bool hasHitWall;
+    internal bool piercingPlayer;
     [SerializeField] private int hitWallDamage = 15;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !hasHitWall)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !hasHitWall && piercingPlayer)
         {
             hasHitWall = true;
+            piercingPlayer = false;
             transform.parent.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
             PlayerProperty.controller.canControl = true;
             PlayerProperty.playerClass.TakeDamage(hitWallDamage);

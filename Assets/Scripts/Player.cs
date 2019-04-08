@@ -95,17 +95,17 @@ public class Player : MonoBehaviour {
 
     private Transform bloodPlace;
     
-    public void TakeDamage(int damage) {
+    public bool TakeDamage(int damage) {
         if (IsPlayerInvincible())
         {
-            return;
+            return false;
         }
         else
         {
             invincibleTimeRemains = invincibieTime;
         }
         lastTimeTakeDamage = Time.time;
-        if (GameManager.Instance.PlayerDying) return;
+        if (GameManager.Instance.PlayerDying) return false;
         DimensionLeapParticleEffect.SetActive(false);
         PlayerProperty.controller.transferStoragePowerFull = false;
 
@@ -133,9 +133,9 @@ public class Player : MonoBehaviour {
                 GameManager.Instance.PlayerAnimator.PlayerStartDying();
             }
         }
-        
-        
-        
+
+        return true;
+
     }
     
     private void FloatingDamageDisplay(float damage)
@@ -244,16 +244,17 @@ public class Player : MonoBehaviour {
         StartCoroutine(Stun(sec));
     }
 
-    public void GetKnockOff(Vector3 attackPosition) {
+    public bool GetKnockOff(Vector3 attackPosition) {
 
-        if (lastTimeKnockOff + invincibieTime > Time.time) return;
+        if (lastTimeKnockOff + invincibieTime > Time.time)
+        {
+            return false;
+        }
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
-
-
             defendRecoilTimeRemain = defendRecoilTime;
             if (attackPosition.x > transform.position.x) {
                 defendRecoilDirection = Position.Left;
@@ -261,12 +262,12 @@ public class Player : MonoBehaviour {
             else {
                 defendRecoilDirection = Position.Right;
             }
-            return;
+            return false;
             
         }
         DimensionLeapParticleEffect.SetActive(false);
         lastTimeKnockOff = Time.time;
-        if (hp <= 0) return;
+        if (hp <= 0) return false;
         rb.velocity = Vector3.zero;
         PlayerProperty.controller.canControl = false;
         if (attackPosition.x < transform.position.x)
@@ -275,6 +276,7 @@ public class Player : MonoBehaviour {
             rb.velocity = knockUpForce;
         _playerMovement.ChangePlayerState(PlayerMovement.PlayerState.KnockUp);
         GameManager.Instance.animator.SetTrigger(knockOff);
+        return true;
     }
 
     public void GetKnockOff(Vector3 attackPosition, Vector3 force) {
