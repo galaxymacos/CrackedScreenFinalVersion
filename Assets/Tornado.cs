@@ -54,8 +54,8 @@ public class Tornado : MonoBehaviour
     {
         if (hasFullyGrown && other.gameObject == PlayerProperty.player)
         {
-                PlayerProperty.playerClass.TakeDamage(damage);
-                PlayerProperty.playerClass.GetKnockOff(transform.position);
+            PlayerProperty.playerClass.GetKnockOff(transform.position);
+            PlayerProperty.playerClass.TakeDamage(damage);
         }
     }
 }

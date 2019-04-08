@@ -66,8 +66,8 @@ public class FallingTrap : MonoBehaviour
         {
             var thisTransform = transform;
             Physics.Raycast(thisTransform.position, thisTransform.forward, out var hit);
-            playerScript.TakeDamage(10);
             playerScript.GetKnockOff(hit.point);
+            playerScript.TakeDamage(10);
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") && !hasInteracted)

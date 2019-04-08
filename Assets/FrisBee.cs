@@ -44,8 +44,8 @@ public class FrisBee : MonoBehaviour
 
         if (other.gameObject == PlayerProperty.player)
         {
-            PlayerProperty.playerClass.TakeDamage(5);
             PlayerProperty.playerClass.GetKnockOff(transform.position);
+            PlayerProperty.playerClass.TakeDamage(5);
         }
     }
 }

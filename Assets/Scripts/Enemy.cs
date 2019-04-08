@@ -317,9 +317,8 @@ public abstract class Enemy : MonoBehaviour
     public abstract bool AnimationPlaying();
 
     public void Attack()
-    {
-        if (canKnockUp && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
-            PlayerProperty.playerClass.GetKnockOff(transform.position);
+    { 
+        PlayerProperty.playerClass.GetKnockOff(transform.position);
         PlayerProperty.playerClass.TakeDamage(atk);
     }
 
