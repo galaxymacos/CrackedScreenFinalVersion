@@ -25,7 +25,7 @@ namespace Skills
             print("Counter Attack!!!!!!!!!!!!");
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
-            AudioManager.instance.PlaySound(AudioGroup.Character,"Counter Attack");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"CounterAttack");
             
         }
 

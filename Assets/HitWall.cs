@@ -8,10 +8,18 @@ public class HitWall : MonoBehaviour
     internal bool piercingPlayer;
     [SerializeField] private int hitWallDamage = 15;
     [SerializeField] private AudioSource piercingHitWall;
+    private PiercingSpear _piercingSpear;
+
+    private void Start()
+    {
+        _piercingSpear = transform.parent.parent.GetComponent<PiercingSpear>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !hasHitWall && piercingPlayer)
         {
+            _piercingSpear.tookDamageInFirstStage = false;
             hasHitWall = true;
             piercingPlayer = false;
             piercingHitWall.Play();
@@ -29,7 +37,7 @@ public class HitWall : MonoBehaviour
             }
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))

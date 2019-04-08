@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
+        GameManager.Instance.onPlayerDieCallback += PlayerInvincibleWhenRespawn;
         bloodPlace = transform.Find("BloodPlace");
         _skinnedMeshRenderers = sprites.GetComponentsInChildren<SkinnedMeshRenderer>();
 //        GameManager.Instance.gameObjects.Add(gameObject);
@@ -330,5 +331,10 @@ public class Player : MonoBehaviour {
 
     public void RestorePlayerHealth() {
         ChangeHpTo(maxHp);
+    }
+
+    public void PlayerInvincibleWhenRespawn()
+    {
+        invincibleTimeRemains = 3f;
     }
 }

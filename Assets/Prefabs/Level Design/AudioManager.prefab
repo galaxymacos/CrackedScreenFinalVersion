@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4806271105166043187}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -80.03776, y: -31.598095, z: 139.0152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -141,25 +141,61 @@ MonoBehaviour:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
     sounds:
-    - name: bossSerialAttack
+    - name: SerialAttack
       clip: {fileID: 8300000, guid: fa359030ccfe2bc40979d7bb1e0621ee, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: bossTurnAround
+    - name: Spin
       clip: {fileID: 8300000, guid: 49556d31acac5234da31e8652719f01b, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: bossIsHit
+    - name: IsHit
       clip: {fileID: 8300000, guid: a48c8f092e471e04eb2f397dee987d62, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: bossIsDead
+    - name: Die
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Pierce
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: PierceHitWall
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Stomp
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: PerpareToTornadoJump
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: BasicAttack
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Move
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
@@ -169,37 +205,73 @@ MonoBehaviour:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
     sounds:
-    - name: secondbossAttack
+    - name: Attack
       clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: secondbossJump
+    - name: Jump
       clip: {fileID: 8300000, guid: ad87497a0ecceb741943406853424a0c, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: secondbosshitGround
+    - name: HitGround
       clip: {fileID: 8300000, guid: 41492a53f26772449bd840777a7100d4, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: secondBossDeath
+    - name: Death
       clip: {fileID: 8300000, guid: d077a1cd82fd0424d85f0439116274d1, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: BossWaveWeapon
+    - name: HomeRun
       clip: {fileID: 8300000, guid: dd98c2fe7fe121d42b63838e0e0296a4, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: secondBossisHit
+    - name: DragonFist
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: BaseBallStrike
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: DragonFist
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Move
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: BaseballImpactWave
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Jump
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: HugeSlashToGround
       clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
       volume: 1
       pitch: 1
@@ -208,12 +280,30 @@ MonoBehaviour:
   UiSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
-    sounds: []
+    sounds:
+    - name: DialogueBoxOpen
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      source: {fileID: 0}
+    - name: DialogueBoxClose
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      source: {fileID: 0}
   BackgroundMusics:
     AudioMixerGroup: {fileID: 243928605391016854, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
     sounds:
-    - name: ChapterTwoBgm
+    - name: ChapterTwo
+      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: ChapterOne
       clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
       volume: 1
       pitch: 1

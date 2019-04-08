@@ -71,9 +71,13 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            PlaySound(AudioGroup.Bgm,"ChapterOne");
+        }
         if (SceneManager.GetActiveScene().name == "Level2")
         {
-            PlaySound(AudioGroup.Bgm,"ChapterTwoBgm");
+            PlaySound(AudioGroup.Bgm,"ChapterTwo");
         }
 //        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
     }
@@ -107,7 +111,10 @@ public class AudioManager : MonoBehaviour
         soundDictionary.TryGetValue(audioGroup,out SoundTrack soundTrack);
         if (soundTrack?.sounds.Length > 0)
         {
-            soundTrack.sounds[0].source.Stop();
+            foreach (Sound sound in soundTrack.sounds)
+            {
+                sound.source.Stop();
+            }
             
         }
     }
