@@ -9,7 +9,6 @@ public class JumpParticleEffectSpawner : MonoBehaviour
 
     public void SpawnJumpParticleEffect()
     {
-        print("Spawn jump particle effect");
         var jumpParticleEffectSpawned = Instantiate(jumpParticleEffect, placeToSpawn.position, Quaternion.identity);
         jumpParticleEffectSpawned.transform.parent = null;
     }

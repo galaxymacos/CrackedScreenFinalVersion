@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class SelfDropPanel : MonoBehaviour
 {
+    private GameObject AnotherSelfDropPanel;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
     [Tooltip("Panel drops after touching player for ? seconds")]
     [SerializeField,Range(0,10)] private float dropDelay = 2f;
     private float dropTimeRemains;
     private bool hasInteracted;
     private Rigidbody rb;
     public bool isFalling;
+    [SerializeField] private float disappearTime = 3f;
 
     public float shakeIntensity = 0.4f;
     public float shakeDuration = 0.3f;
@@ -19,8 +23,11 @@ public class SelfDropPanel : MonoBehaviour
 
     private void Start()
     {
+        AnotherSelfDropPanel = LevelManager.Instance.selfDropPanel;
         rb = GetComponent<Rigidbody>();
         originalX = transform.position.x;
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     private void Update()
@@ -42,6 +49,22 @@ public class SelfDropPanel : MonoBehaviour
                 isFalling = true;
             }
         }
+
+        if (isFalling)
+        {
+            if (disappearTime > 0)
+            {
+                disappearTime -= Time.deltaTime;
+                if (disappearTime <= 0)
+                {
+                    print("spawning another self drop panel");
+                    Instantiate(AnotherSelfDropPanel, originalPosition, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
+        }
+        
+        
 
         if (hasInteracted)
         {
@@ -84,9 +107,6 @@ public class SelfDropPanel : MonoBehaviour
             Shaking.Play();
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Deadly"))
-        {
-            Destroy(gameObject,2f);
-        }
+        
     }
 }

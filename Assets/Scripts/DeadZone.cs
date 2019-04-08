@@ -8,6 +8,4 @@ public class DeadZone : MonoBehaviour
     {
         GetComponent<MeshRenderer>().enabled = false;
     }
-    
-    
 }

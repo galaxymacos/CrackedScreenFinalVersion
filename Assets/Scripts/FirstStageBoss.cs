@@ -105,7 +105,7 @@ public class FirstStageBoss : Enemy
 
             }
         }
-        if (!animationPlaying())
+        if (!animationPlaying() && _enemyCurrentState != EnemyState.LayOnGround)
         {
             ReleaseEnemyMove();
             ChangeFacing(rb.velocity.x);
