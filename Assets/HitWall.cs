@@ -7,12 +7,14 @@ public class HitWall : MonoBehaviour
     private bool hasHitWall;
     internal bool piercingPlayer;
     [SerializeField] private int hitWallDamage = 15;
+    [SerializeField] private AudioSource piercingHitWall;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !hasHitWall && piercingPlayer)
         {
             hasHitWall = true;
             piercingPlayer = false;
+            piercingHitWall.Play();
             transform.parent.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
             PlayerProperty.controller.canControl = true;
             PlayerProperty.playerClass.TakeDamage(hitWallDamage);
