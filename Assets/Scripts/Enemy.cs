@@ -29,7 +29,6 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] private bool canAttack = true;
     [SerializeField] private bool canKnockUp;
-    [SerializeField] private bool canStiff;
 
 
     [Header("Enemy ability")] [SerializeField]
@@ -68,7 +67,6 @@ public abstract class Enemy : MonoBehaviour
     internal SpriteRenderer spriteRenderer;
 
 
-    internal float StiffTimeRemain;
     [SerializeField] private float stunDuration = 0.5f;
 
     [SerializeField] private AudioSource dieSound;
@@ -203,13 +201,7 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    public void Stiff(float time)
-    {
-        if (!canStiff)
-            return;
-        isStiffed = true;
-        StiffTimeRemain = time;
-    }
+
 
     public virtual void KnockUp(Vector3 force)
     {
@@ -279,32 +271,20 @@ extraGravity += extraGravityPerKnockUp;
         {
             return;
         }
-
-        if (canStiff) TryUnstiffing();
-
-
+        
         if (canKnockUp)
             if (_enemyCurrentState == EnemyState.LayOnGround)
                 TryStandUp();
 
 
-        if (GameManager.Instance.PlayerDying) return;
+        if (GameManager.Instance.PlayerDying)
+        {
+            return;
+        }
 
         InteractWithPlayer();
     }
 
-    private void TryUnstiffing()
-    {
-        if (StiffTimeRemain > 0)
-        {
-            isStiffed = true;
-            StiffTimeRemain -= Time.deltaTime;
-        }
-        else
-        {
-            isStiffed = false;
-        }
-    }
 
     private void TryStandUp()
     {

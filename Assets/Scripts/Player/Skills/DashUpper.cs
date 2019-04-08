@@ -58,7 +58,6 @@ public class DashUpper : Skill
                     if (!_tookDamagePhaseOne) // only take damage once in phase one
                     {
                         enemy.GetComponent<Enemy>().TakeDamage(damage);
-                        enemy.GetComponent<Enemy>().Stiff(stiffTimePhaseOne);
                         _tookDamagePhaseOne = true;
                     }
                 }

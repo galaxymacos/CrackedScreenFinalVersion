@@ -87,7 +87,7 @@ public class FirstStageBoss : Enemy
     public override void InteractWithPlayer()
     {
         if (ignoreKnockUpTimeLeft > 0) ignoreKnockUpTimeLeft -= Time.deltaTime;
-        if ((StiffTimeRemain <= 0) & (_enemyCurrentState == EnemyState.Standing))
+        if (_enemyCurrentState == EnemyState.Standing)
         {
             if (autoAttackRange.playerInRange())
                 if (attackCooldownUp() && !animationPlaying())
@@ -98,10 +98,13 @@ public class FirstStageBoss : Enemy
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
 
-            SpecialAttack();
+            specialAttackTimeRemains -= Time.deltaTime;
+            if (specialAttackTimeRemains <= 0 && !animationPlaying())
+            {
+                SpecialAttack();
+
+            }
         }
-
-
         if (!animationPlaying())
         {
             ReleaseEnemyMove();
@@ -112,6 +115,13 @@ public class FirstStageBoss : Enemy
             LockEnemyMove();
         }
         animator.SetFloat("HorizontalVelocity", rb.velocity.x);
+    }
+    private void SpecialAttack()
+    {
+        print("Play special attack");
+        specialAttackTimeRemains = specialAttackInterval;
+        var randomAbilityIndex = Random.Range(0, BossAbilities.Length); 
+        BossAbilities[randomAbilityIndex].Play();
     }
 
     public bool CanMove()
@@ -125,30 +135,9 @@ public class FirstStageBoss : Enemy
         if (ignoreKnockUpTimeLeft > 0)
             return;
         base.TakeDamage(damage);
-        
-//        var position = textInstantiated.transform.position;
-//        var rotation = textInstantiated.transform.rotation;
-//        print(position);
-//        textInstantiated.transform.SetParent(null);
-//        textInstantiated.transform.position = transform.position;
-
-//        textInstantiated.transform.position = textInstantiated.transform.TransformDirection(textInstantiated.transform.position);
-
-
-//        floatingDamage.transform.localScale = new Vector3(isFacingRight?floatingDamage.transform.localScale.x:-floatingDamage.transform.localScale.x,floatingDamage.transform.localScale.y,floatingDamage.transform.localScale.z);
     }
 
-    private void SpecialAttack()
-    {
-        specialAttackTimeRemains -= Time.deltaTime;
-        if (specialAttackTimeRemains <= 0)
-            if (!animationPlaying())
-            {
-                specialAttackTimeRemains = specialAttackInterval;
-                var randomAbilityIndex = Random.Range(0, BossAbilities.Length);
-                BossAbilities[randomAbilityIndex].Play();
-            }
-    }
+    
 
     private void ChangeFacing(float horizontalSpeed)
     {

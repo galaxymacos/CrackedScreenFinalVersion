@@ -125,8 +125,10 @@ public class SecondStageBoss : Enemy
         {
             ignoreKnockUpTimeLeft -= Time.deltaTime;
         }
-        if (StiffTimeRemain <= 0 & _enemyCurrentState == EnemyState.Standing)
+        if (_enemyCurrentState == EnemyState.Standing)
         {
+            FaceBasedOnPlayerPosition();
+            
             if (autoAttackRange.playerInRange())
             {
                 if (attackCooldownUp() && !AnimationPlaying())
@@ -137,8 +139,17 @@ public class SecondStageBoss : Enemy
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
             }
+            
+            specialAttackTimeRemains -= Time.deltaTime;
+            print(specialAttackTimeRemains);
+            if (specialAttackTimeRemains <= 0)
+            {
 
-            SpecialAttack();
+                if (!AnimationPlaying())
+                {
+                    SpecialAttack();
+                }
+            }
         }
 
         animator.SetFloat("HorizontalVelocity",rb.velocity.x);
@@ -151,18 +162,10 @@ public class SecondStageBoss : Enemy
 
     private void SpecialAttack()
     {
-        FaceBasedOnPlayerPosition();
-        specialAttackTimeRemains -= Time.deltaTime;
-        if (specialAttackTimeRemains <= 0)
-        {
+        specialAttackTimeRemains = specialAttackInterval;
+        int randomAbilityIndex = Random.Range(0, BossAbilities.Length);
+        BossAbilities[randomAbilityIndex].Play();
             
-            if (!AnimationPlaying())
-            {
-                specialAttackTimeRemains = specialAttackInterval;
-                int randomAbilityIndex = Random.Range(0, BossAbilities.Length);
-                    BossAbilities[randomAbilityIndex].Play();
-            }
-        }
     }
 
     private bool attackCooldownUp()

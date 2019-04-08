@@ -60,7 +60,6 @@ public class BasicAttack : Skill
 
                     }
                     enemy.GetComponent<Enemy>().TakeDamage(damage);
-                    enemy.GetComponent<Enemy>().Stiff(stiffTimeWhenHit);
                 }
 
                 StartCoroutine(PlayerCanControl(basicAttackAnimationClip.length));

@@ -163,7 +163,7 @@ public class ArcherEnemy : Enemy
     
     public override void InteractWithPlayer()
     {
-        if (StiffTimeRemain <= 0 && _enemyCurrentState == EnemyState.Standing && !AnimationPlaying())
+        if (_enemyCurrentState == EnemyState.Standing && !AnimationPlaying())
         {
             if (PlayerInRange())
             {

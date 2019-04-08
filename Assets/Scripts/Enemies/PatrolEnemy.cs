@@ -80,7 +80,7 @@ namespace Enemies
 
         public override void InteractWithPlayer()
         {
-            if (StiffTimeRemain<=0 && _enemyCurrentState == EnemyState.Standing)
+            if (_enemyCurrentState == EnemyState.Standing)
             {
                 if (PlayerInRange())
                 {
