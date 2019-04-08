@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class EnemyDetector : MonoBehaviour
 {
     internal List<Collider> _enemiesInRange;
