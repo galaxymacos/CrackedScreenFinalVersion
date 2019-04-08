@@ -17,7 +17,7 @@ public class FloatingPanel : MonoBehaviour
     [SerializeField] private float distance = 10f;
     // Start is called before the first frame update
     private Vector3 originalPos;
-    private bool movingInPositiveDir;
+    [SerializeField] private bool movingInPositiveDir;
     private bool playerInRange;
     void Start()
     {
