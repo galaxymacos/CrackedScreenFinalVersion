@@ -127,6 +127,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!canControl)
+        {
+            print("Player can't control");
+            AudioManager.instance.StopSound(AudioGroup.Character);
+        }
         if (!GameManager.Instance.is3D)
         {
             float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,

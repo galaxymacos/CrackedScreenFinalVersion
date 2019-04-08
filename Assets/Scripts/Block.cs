@@ -36,6 +36,7 @@ public class Block : Skill
         if (_skillNotOnCooldown)
         {
             GameManager.Instance.animator.SetTrigger("Defend");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
 //            playerController.canControl = false;
             base.Play();
             _skillNotOnCooldown = false; // Skill is on cooldown

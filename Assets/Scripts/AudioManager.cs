@@ -111,7 +111,10 @@ public class AudioManager : MonoBehaviour
         soundDictionary.TryGetValue(audioGroup,out SoundTrack soundTrack);
         if (soundTrack?.sounds.Length > 0)
         {
-            soundTrack.sounds[0].source.Stop();
+            foreach (Sound sound in soundTrack.sounds)
+            {
+                sound.source.Stop();
+            }
             
         }
     }

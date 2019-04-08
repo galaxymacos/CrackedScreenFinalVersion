@@ -10,7 +10,7 @@ public class PiercingSpear : BossAbility
     [SerializeField] private HitWall hitwall;
     private Rigidbody rb;
 
-    private bool tookDamageInFirstStage;
+    internal bool tookDamageInFirstStage;
 
     [SerializeField] private EnemyDetector piercingSpearHitBox;
 
@@ -24,8 +24,8 @@ public class PiercingSpear : BossAbility
         {
             if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage)
             {
-                hitwall.piercingPlayer = true;
                 tookDamageInFirstStage = true;
+                hitwall.piercingPlayer = true;
                 PlayerProperty.playerClass.TakeDamage(10);
                 PlayerProperty.playerClass.ResetInvincibleTime();
 //                PlayerProperty.playerClass.GetKnockOff(transform.position);
