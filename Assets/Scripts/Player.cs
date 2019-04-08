@@ -241,9 +241,6 @@ public class Player : MonoBehaviour {
 
     // Player debuff
 
-    public void GetStunned(float sec) {
-        StartCoroutine(Stun(sec));
-    }
 
     public bool GetKnockOff(Vector3 attackPosition) {
 
@@ -313,13 +310,6 @@ public class Player : MonoBehaviour {
     }
 
 
-    private IEnumerator Stun(float sec) {
-        _playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Stunned);
-        _playerController.canControl = false;
-        yield return new WaitForSeconds(sec);
-        _playerMovement.ChangePlayerState(_playerMovement.playerPreviousState);
-        _playerController.canControl = true;
-    }
 
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Deadly") && !GameManager.Instance.PlayerDying) {

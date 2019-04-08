@@ -7,25 +7,31 @@ public class PiercingSpear : BossAbility
     private float pierceSpeed = 200f;
     private bool pierceRight;
     private bool isPiercing;
-    [SerializeField] private HitWall hitwall;
     private Rigidbody rb;
 
     internal bool tookDamageInFirstStage;
 
     [SerializeField] private EnemyDetector piercingSpearHitBox;
+    
+    private bool isTouchingWall;
+    internal bool piercingPlayer;
+    [SerializeField] private int hitWallDamage = 15;
+    [SerializeField] private AudioSource piercingHitWall;
+
+  
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = transform.parent.GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear"))
+        if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear"))
         {
-            if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage)
+            if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage && PlayerProperty.playerClass.hp > 0)
             {
                 tookDamageInFirstStage = true;
-                hitwall.piercingPlayer = true;
+                piercingPlayer = true;
                 PlayerProperty.playerClass.TakeDamage(10);
                 PlayerProperty.playerClass.ResetInvincibleTime();
 //                PlayerProperty.playerClass.GetKnockOff(transform.position);
@@ -33,13 +39,13 @@ public class PiercingSpear : BossAbility
                 
                 PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-            if (pierceRight)
+            if (pierceRight )
             {
-                if (piercingSpearHitBox.playerInRange())
+                if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                 {
                     PlayerProperty.player.transform.position = transform.position+new Vector3(3,0,0);
                 }
-                GetComponent<FirstStageBoss>().Flip(true);
+                transform.parent.GetComponent<FirstStageBoss>().Flip(true);
                 rb.AddForce(new Vector3(pierceSpeed,0,0));
 //                if (piercingSpearHitBox.playerInRange())
                 {
@@ -48,12 +54,12 @@ public class PiercingSpear : BossAbility
             }
             else
             {
-                if (piercingSpearHitBox.playerInRange())
+                if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                 {
                     PlayerProperty.player.transform.position = transform.position+new Vector3(-3,0,0);
                 }
 
-                GetComponent<FirstStageBoss>().Flip(false);
+                transform.parent.GetComponent<FirstStageBoss>().Flip(false);
                 rb.AddForce(new Vector3(-pierceSpeed,0,0));
 //                if (piercingSpearHitBox.playerInRange())
                 {
@@ -65,7 +71,11 @@ public class PiercingSpear : BossAbility
 
     public override void Play()
     {
-        GetComponent<Animator>().SetTrigger("PiercingSpear");
+//        if (piercingPlayer)
+//        {
+//            AudioManager.instance.StopSound(AudioGroup.Character);
+//        }
+        transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpear");
         isPiercing = true;
         if (PlayerProperty.playerPosition.x < transform.position.x)
         {
@@ -77,6 +87,47 @@ public class PiercingSpear : BossAbility
 
         }
     }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !isTouchingWall)
+        {
+            tookDamageInFirstStage = false;
+            isTouchingWall = true;
+            if (piercingPlayer)
+            {
+                piercingPlayer = false;
+                PlayerProperty.controller.canControl = true;
+                PlayerProperty.playerClass.TakeDamage(hitWallDamage);
+
+                if (transform.position.x > PlayerProperty.player.transform.position.x)
+                {
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0));
+                }
+                else
+                {
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(2,0,0));
+                }
+            }
+            if (piercingHitWall !=null &&piercingHitWall.clip != null)
+            {
+                piercingHitWall.Play();
+            }
+            transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
+            print("Hit wall");
+           
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            isTouchingWall = false;
+        }
+    }
+    
+    
 
 
 }

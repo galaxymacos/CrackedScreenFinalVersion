@@ -129,8 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canControl)
         {
-            print("Player can't control");
-            AudioManager.instance.StopSound(AudioGroup.Character);
+//            AudioManager.instance.StopSound(AudioGroup.Character);
         }
         if (!GameManager.Instance.is3D)
         {

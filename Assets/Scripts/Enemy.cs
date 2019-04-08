@@ -355,12 +355,6 @@ extraGravity += extraGravityPerKnockUp;
 
     public void Attack()
     {
-        if (canStun && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
-        {
-            PlayerProperty.playerClass.GetStunned(stunDuration);
-            Debug.Log("Stun player");
-        }
-
         if (canKnockUp && PlayerProperty.movementClass.playerCurrentState != PlayerMovement.PlayerState.Block)
             PlayerProperty.playerClass.GetKnockOff(transform.position);
         PlayerProperty.playerClass.TakeDamage(atk);
