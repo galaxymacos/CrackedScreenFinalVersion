@@ -11,6 +11,8 @@ public class TimerScript : MonoBehaviour
     private float timer;
     private bool canCount = true;
     private bool doOnce = false;
+    private int seconds;
+    private int minutes;
 
     private void Start()
     {
@@ -22,7 +24,9 @@ public class TimerScript : MonoBehaviour
         if (timer >= 0.0f && canCount)
         {
             timer -= Time.deltaTime;
-            uiText.text = timer.ToString("F");
+            seconds = (int)(timer % 60);
+            minutes = (int)(timer / 60) % 60;
+            uiText.text = string.Format("{0:0}:{1:0}", minutes, seconds);
         }   
         else if (timer <= 0.0f && !doOnce)
         {
