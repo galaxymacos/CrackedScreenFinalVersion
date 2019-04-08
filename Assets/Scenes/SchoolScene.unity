@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 88.88
+  m_Text: 88:88
 --- !u!222 &26537225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2454,6 +2454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec37ef0722e8c14880abf24417c165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerUI: {fileID: 1738994162}
 --- !u!65 &205136552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22721,7 +22722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1738994163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28864,7 +28865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 26537224}
-  maintimer: 5
+  maintimer: 300
 --- !u!1001 &2125418874
 PrefabInstance:
   m_ObjectHideFlags: 0
