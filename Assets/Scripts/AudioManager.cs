@@ -71,9 +71,13 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            PlaySound(AudioGroup.Bgm,"ChapterOne");
+        }
         if (SceneManager.GetActiveScene().name == "Level2")
         {
-            PlaySound(AudioGroup.Bgm,"ChapterTwoBgm");
+            PlaySound(AudioGroup.Bgm,"ChapterTwo");
         }
 //        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
     }
