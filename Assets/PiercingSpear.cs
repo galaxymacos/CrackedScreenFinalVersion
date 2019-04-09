@@ -32,6 +32,7 @@ public class PiercingSpear : BossAbility
             {
                 tookDamageInFirstStage = true;
                 piercingPlayer = true;
+                AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitPlayer");
                 PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
                 PlayerProperty.playerClass.TakeDamage(5);
                 PlayerProperty.playerClass.ResetInvincibleTime();
@@ -80,11 +81,8 @@ public class PiercingSpear : BossAbility
         {
             return;
         }
-//        if (piercingPlayer)
-//        {
-//            AudioManager.instance.StopSound(AudioGroup.Character);
-//        }
         transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpear");
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Pierce");
         isPiercing = true;
         if (PlayerProperty.playerPosition.x < transform.position.x)
         {
@@ -108,6 +106,8 @@ public class PiercingSpear : BossAbility
             {
                 piercingHitWall.Play();
             }
+            AudioManager.instance.StopSound(AudioGroup.FirstBoss);
+            AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitWall");
             transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
             print("Hit wall");
             if (piercingPlayer)

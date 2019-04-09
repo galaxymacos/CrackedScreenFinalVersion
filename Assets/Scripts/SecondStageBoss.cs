@@ -141,7 +141,6 @@ public class SecondStageBoss : Enemy
             }
             
             specialAttackTimeRemains -= Time.deltaTime;
-            print(specialAttackTimeRemains);
             if (specialAttackTimeRemains <= 0)
             {
 
@@ -188,6 +187,7 @@ public class SecondStageBoss : Enemy
         {
             if (!IsHitOnAirOrLayDown())
             {
+                rb.velocity = Vector3.zero;
                 FaceBasedOnPlayerPosition();
             }
         }

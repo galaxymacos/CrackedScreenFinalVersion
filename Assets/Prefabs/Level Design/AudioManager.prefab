@@ -183,13 +183,31 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: PerpareToTornadoJump
+    - name: PrepareToTornadoJump
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: BasicAttack
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Move
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: PierceHitPlayer
+      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Move
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1

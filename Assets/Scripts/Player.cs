@@ -243,11 +243,12 @@ public class Player : MonoBehaviour {
     }
 
     public bool GetKnockOff(Vector3 attackPosition) {
+        print("Player is knocked off");
         if (IsPlayerInvincible())
         {
             return false;
         }
-        
+        print("Player is knocked off successfully");
         
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
@@ -278,8 +279,11 @@ public class Player : MonoBehaviour {
         return true;
     }
 
-    public void GetKnockOff(Vector3 attackPosition, Vector3 force) {
-        if (lastTimeKnockOff + invincibieTime > Time.time) return;
+    public bool GetKnockOff(Vector3 attackPosition, Vector3 force) {
+        if (IsPlayerInvincible())
+        {
+            return false;
+        }
 
         if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
             print("block enemy attack");
@@ -294,12 +298,12 @@ public class Player : MonoBehaviour {
             else {
                 defendRecoilDirection = Position.Right;
             }
-            return;
+            return true;
             
         }
 
         lastTimeKnockOff = Time.time;
-        if (hp <= 0) return;
+        if (hp <= 0) return false;
         rb.velocity = Vector3.zero;
         PlayerProperty.controller.canControl = false;
         if (attackPosition.x < transform.position.x)
@@ -308,6 +312,7 @@ public class Player : MonoBehaviour {
             rb.velocity = force;
         _playerMovement.ChangePlayerState(PlayerMovement.PlayerState.KnockUp);
         GameManager.Instance.animator.SetTrigger(knockOff);
+        return true;
     }
 
 
