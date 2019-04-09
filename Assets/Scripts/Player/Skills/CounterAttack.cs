@@ -21,10 +21,11 @@ namespace Skills
 
         public override void Play()
         {
+            PlayerProperty.playerClass.enemyHitPlayerWhenDefend = false;
             PlayerProperty.playerClass.defendRecoilTimeRemain = 0;
-            print("Counter Attack!!!!!!!!!!!!");
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
+            print("set counter attack trigger");
             AudioManager.instance.PlaySound(AudioGroup.Character,"CounterAttack");
             
         }
@@ -43,16 +44,14 @@ namespace Skills
                 {
                     continue;
                 }
-                enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//                enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 if (enemy.transform.position.x>GameManager.Instance.player.transform.position.x)
                 {
-                    print(enemyKnockdownForce.x+" "+enemyKnockdownForce.y+" "+enemyKnockdownForce.z);
                     enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockdownForce);
                 }
                 else
                 {
                     enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
-
                 }
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }

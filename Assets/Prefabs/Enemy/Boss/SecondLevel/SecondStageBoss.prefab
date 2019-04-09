@@ -546,7 +546,6 @@ GameObject:
   - component: {fileID: 8481021725361355583}
   - component: {fileID: 8481021725361355581}
   - component: {fileID: 8481021725361355580}
-  - component: {fileID: 8481021725361355555}
   - component: {fileID: 8481021725361355554}
   - component: {fileID: 8481021725361355552}
   - component: {fileID: 8481021725361355553}
@@ -643,28 +642,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyCurrentState: 0
-  extraGravity: 10
-  extraGravityPerHit: 1
-  extraGravityPerKnockUp: 1
   atk: 5
   attackRange: 2
   attackSpeed: 0.2
   canAttack: 1
   canKnockUp: 1
-  canStiff: 0
   canStun: 0
   defense: 1
+  dieSound: {fileID: 6823379516368052287, guid: 75350909b619a674ba3f36fc0efbb724,
+    type: 3}
+  extraGravity: 10
+  extraGravityPerHit: 1
+  extraGravityPerKnockUp: 1
+  HitPauseTime: 0.2
   HP: 0
   isFacingRight: 0
-  laySec: 2
   laySecLeft: 0
   maxHp: 150
+  maxLaySec: 2
   moveSpeed: 5
   nextAttackTime: 0
   stunDuration: 0.5
-  dieSound: {fileID: 6823379516368052287, guid: 75350909b619a674ba3f36fc0efbb724,
-    type: 3}
-  HitPauseTime: 0.2
   moveTowardsPlayer: 0
   BossAbilities:
   - {fileID: 8481021725361355559}
@@ -692,18 +690,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8481021725361355555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8481021725361355576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c962f58fb0d54348a561e2d65679535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8481021725361355554
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -793,6 +779,7 @@ MonoBehaviour:
   dashingSpeed: 10
   dragonFistFlyKnockUpForce: 37
   dragonFistHitBox: {fileID: 8481021726579908791}
+  dragonFistDashHitBox: {fileID: 0}
   followHomeRunChance: 0.5
 --- !u!114 &8481021725361355556
 MonoBehaviour:

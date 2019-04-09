@@ -13,11 +13,12 @@ public class SecondBossAttack : MonoBehaviour
         {
             if (attackIndex == 5)     // If it is the last strike of the basic attack, deal extra damage and knock up player
             {
-                PlayerProperty.playerClass.TakeDamage(30);
                 PlayerProperty.playerClass.GetKnockOff(transform.position);
+                PlayerProperty.playerClass.TakeDamage(30);
             }
             else
             {
+                PlayerProperty.playerClass.GetKnockOff(transform.position);
                 PlayerProperty.playerClass.TakeDamage(10);
             }
         }

@@ -75,7 +75,15 @@ public class SecondStageBoss : Enemy
     
     private bool flickerTrigger;
 
-    
+    public override void TakeDamage(float damage)
+    {
+        if (ignoreKnockUpTimeLeft > 0)
+        {
+            return;
+        }
+        base.TakeDamage(damage);
+    }
+
     private void PlayerFlickerWhenTakeDamage()
     {
         if (flickerTrigger)
@@ -234,6 +242,7 @@ public class SecondStageBoss : Enemy
             case EnemyState.Standing:
                 
                 animator.SetBool("Stand",true);
+                specialAttackTimeRemains = specialAttackInterval;    // Can't attack instantly when boss get up from the ground
                 break;
             case EnemyState.GotHitToAir:
                 animator.SetTrigger("HitToAir");

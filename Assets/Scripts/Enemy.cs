@@ -196,6 +196,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void GetKnockUp(Vector3 force)
     {
+        print("Enemy is knocked up");
         if (!canKnockUp || HP < 0) return;
         cameraEffect.ShakeForSeconds(0.2f);
 

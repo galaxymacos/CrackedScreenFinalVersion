@@ -11255,6 +11255,16 @@ PrefabInstance:
       propertyPath: skillImage
       value: 
       objectReference: {fileID: 645972420}
+    - target: {fileID: 2177889124953702678, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: blockingDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177889124953702678, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: cooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2177889124953702679, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: EnemyDetector
@@ -11604,6 +11614,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9996805
       objectReference: {fileID: 0}
+    - target: {fileID: 1303406619, guid: a02d529cfc22d5e44a66cfdca82056a6, type: 3}
+      propertyPath: enemyKnockdownForce.y
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02d529cfc22d5e44a66cfdca82056a6, type: 3}
 --- !u!23 &6132884398726378496
@@ -11945,7 +11959,7 @@ PrefabInstance:
     - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
       propertyPath: maxHp
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
@@ -11956,6 +11970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: specialAttackInterval
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
+        type: 3}
+      propertyPath: extraGravityPerHit
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2652205189285035683, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
@@ -11975,12 +11994,12 @@ PrefabInstance:
     - target: {fileID: 8481021726252821095, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
       propertyPath: m_Size.x
-      value: 11.377778
+      value: 22.755556
       objectReference: {fileID: 0}
     - target: {fileID: 8481021726252821095, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
       propertyPath: m_Size.y
-      value: 11.377778
+      value: 22.755556
       objectReference: {fileID: 0}
     - target: {fileID: 8481021725361355554, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
