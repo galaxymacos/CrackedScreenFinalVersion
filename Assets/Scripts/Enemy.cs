@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking.NetworkSystem;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     public int atk = 5;
     public float attackRange = 2f;
     public float attackSpeed = 1f; // 1 hit in 1 sec
+    [SerializeField] private GameObject enemySpawner;
 
     private Transform bloodPlace;
 
@@ -90,6 +92,11 @@ public abstract class Enemy : MonoBehaviour
         {
             currentLaySec = maxLaySec;
             extraGravity = originalExtraGravity;
+            // Spawn enemy when standing up
+            if (enemySpawner != null)
+            {
+                enemySpawner.GetComponent<EnemySpawner>().Spawn();
+            }
         }
     }
 

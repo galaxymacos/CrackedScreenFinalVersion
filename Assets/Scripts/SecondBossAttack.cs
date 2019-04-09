@@ -20,6 +20,7 @@ public class SecondBossAttack : MonoBehaviour
             {
                 PlayerProperty.playerClass.GetKnockOff(transform.position);
                 PlayerProperty.playerClass.TakeDamage(10);
+                PlayerProperty.playerClass.ResetInvincibleTime();
             }
         }
     }

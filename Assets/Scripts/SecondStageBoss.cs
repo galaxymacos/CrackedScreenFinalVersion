@@ -202,6 +202,7 @@ public class SecondStageBoss : Enemy
                 FaceBasedOnPlayerPosition();
             }
         }
+
  
     }
 

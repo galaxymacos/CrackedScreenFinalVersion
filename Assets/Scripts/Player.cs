@@ -212,7 +212,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
 
     // Player debuff
     public bool TakeDamage(int damage) {
-        if (IsPlayerInvincible())
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
         {
             return false;
         }
@@ -254,7 +254,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
     }
 
     public bool GetKnockOff(Vector3 attackPosition) {
-        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut"))
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
         {
             return false;
         }
