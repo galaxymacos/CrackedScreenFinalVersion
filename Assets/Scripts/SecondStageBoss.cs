@@ -232,13 +232,17 @@ public class SecondStageBoss : Enemy
         switch (_enemyCurrentState)
         {
             case EnemyState.Standing:
+                
                 animator.SetBool("Stand",true);
                 break;
             case EnemyState.GotHitToAir:
                 animator.SetTrigger("HitToAir");
+                animator.SetBool("Stand",false);
                 break;
             case EnemyState.LayOnGround:
                 animator.SetTrigger("LayOnGround");
+                animator.SetBool("Stand",false);
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

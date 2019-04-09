@@ -244,7 +244,7 @@ public class Player : MonoBehaviour {
 
     public bool GetKnockOff(Vector3 attackPosition) {
         print("Player is knocked off");
-        if (IsPlayerInvincible())
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut"))
         {
             return false;
         }
