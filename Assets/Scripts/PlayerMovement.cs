@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case PlayerState.DoubleJump:
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Double Jump");
+                
                 break;
             case PlayerState.Attack:
                 break;
@@ -395,8 +396,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (playerCurrentState != PlayerState.Defend && playerCurrentState != PlayerState.Jump)
+            if (playerCurrentState != PlayerState.Defend && playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.DoubleJump)
+            {
+                // Fix a nasty double jump bug
                 ChangePlayerState(PlayerState.Stand);
+            }
         }
 
     }

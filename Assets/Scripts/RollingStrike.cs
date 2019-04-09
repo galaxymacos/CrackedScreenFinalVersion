@@ -11,6 +11,7 @@ public class RollingStrike : BossAbility
     [SerializeField] private float jumpForce = 1000f;
     private bool startJumping;
     private float gravity = 4000f;
+    [SerializeField] private int damage = 20;
 
     private Rigidbody _rigidbody;
     // Start is called before the first frame update
@@ -41,8 +42,8 @@ public class RollingStrike : BossAbility
         startJumping = false;
         if (RollingStrikeHitBoxPlayerDetector.playerInRange())
         {
-            PlayerProperty.playerClass.TakeDamage(20);
             PlayerProperty.playerClass.GetKnockOff(transform.position);
+            PlayerProperty.playerClass.TakeDamage(damage);
         }
     }
 

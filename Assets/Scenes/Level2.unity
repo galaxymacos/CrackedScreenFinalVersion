@@ -3801,6 +3801,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 345534896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &893383191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8481021725361355557, guid: 1f9ad15104c547547bb8e7c336aa315a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8481021726824044979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a620693ae67546e428e632190012985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &900311330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4155218201899248151, guid: caa33b1a081b0264d969c70245d254a6,
@@ -12094,9 +12106,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
+      propertyPath: BossAbilities.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
+        type: 3}
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 801529879}
+    - target: {fileID: 8481021725361355581, guid: 1f9ad15104c547547bb8e7c336aa315a,
+        type: 3}
+      propertyPath: BossAbilities.Array.data[0]
+      value: 
+      objectReference: {fileID: 893383191}
     - target: {fileID: 2652205189285035683, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
       propertyPath: m_Camera

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -69,17 +70,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    internal string currentBgm = "";
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            PlaySound(AudioGroup.Bgm,"ChapterOne");
+            currentBgm = "ChapterOne";
         }
-        if (SceneManager.GetActiveScene().name == "Level2")
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            PlaySound(AudioGroup.Bgm,"ChapterTwo");
+            currentBgm = "ChapterTwo";
         }
-//        PlaySound(AudioGroup.Bgm,"Chapter One Bgm");
+    }
+
+    private void Update()
+    {
+        SwitchBgm(currentBgm);
     }
 
     public void PlaySound(AudioGroup audioGroup, string soundName)
@@ -116,6 +123,33 @@ public class AudioManager : MonoBehaviour
                 sound.source.Stop();
             }
             
+        }
+    }
+
+    private string targetBgm;
+
+
+    public void SwitchBgm(string soundName)
+    {
+        for (int i = 0; i < BackgroundMusics.sounds.Length; i++)
+        {
+            if (BackgroundMusics.sounds[i].name != soundName)
+            {
+                if (BackgroundMusics.sounds[i].source.volume > 0)
+                {
+                    BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/2;
+                }
+            }
+            else
+            {
+                if (BackgroundMusics.sounds[i].source.volume < 1)
+                {
+                    print("???");
+                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime/2;
+                    PlaySound(AudioGroup.Bgm,soundName);
+                }
+                
+            }
         }
     }
     

@@ -56,8 +56,8 @@ public class BaseBallAttack : BossAbility
     {
         if (ImpactWaveHitBox.playerInRange())
         {
-            PlayerProperty.playerClass.TakeDamage(damageImpactWave);
             PlayerProperty.playerClass.GetKnockOff(transform.position);
+            PlayerProperty.playerClass.TakeDamage(damageImpactWave);
         }
     }
 }

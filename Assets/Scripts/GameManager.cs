@@ -206,6 +206,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverPanel.SetActive(true); // Turn on the game over menu
+        AudioManager.instance.SwitchBgm("");
         Time.timeScale = 0f;
         
         PlayerPrefs.DeleteAll(); // Delete all player data when game is turned off
