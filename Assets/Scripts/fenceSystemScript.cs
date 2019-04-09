@@ -13,7 +13,7 @@ public class fenceSystemScript : MonoBehaviour
     private bool fenceRun1, fenceRun2, fenceRun3, fenceRun4, fenceRun5, fenceRun6;
     private float duration1s0=1, duration1s1=1, duration1s2=1, duration1s3=1, duration1s4=1, duration1s5=1, duration1s6=1;
     private float durationRandom;
-    static public bool GetOutOfAllFences=false;
+    static public bool GetOutOfAllFences=true;
 
     // Start is called before the first frame update
     void Start()

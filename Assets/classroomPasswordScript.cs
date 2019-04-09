@@ -11,7 +11,6 @@ public class classroomPasswordScript : MonoBehaviour
         {
             PasswordUI.SetActive(true);
 
-
         }
     }
 }
