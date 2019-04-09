@@ -75,7 +75,15 @@ public class SecondStageBoss : Enemy
     
     private bool flickerTrigger;
 
-    
+    public override void TakeDamage(float damage)
+    {
+        if (ignoreKnockUpTimeLeft > 0)
+        {
+            return;
+        }
+        base.TakeDamage(damage);
+    }
+
     private void PlayerFlickerWhenTakeDamage()
     {
         if (flickerTrigger)
@@ -139,16 +147,19 @@ public class SecondStageBoss : Enemy
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
             }
-            
-            specialAttackTimeRemains -= Time.deltaTime;
-            if (specialAttackTimeRemains <= 0)
-            {
 
-                if (!AnimationPlaying())
+            if (!AnimationPlaying()) {
+                specialAttackTimeRemains -= Time.deltaTime;
+                if (specialAttackTimeRemains <= 0)
                 {
-                    SpecialAttack();
+
+                    if (!AnimationPlaying())
+                    {
+                        SpecialAttack();
+                    }
                 }
             }
+            
         }
 
         animator.SetFloat("HorizontalVelocity",rb.velocity.x);
@@ -187,10 +198,11 @@ public class SecondStageBoss : Enemy
         {
             if (!IsHitOnAirOrLayDown())
             {
-                rb.velocity = Vector3.zero;
+                // TODO why do I add vector.zero here?
                 FaceBasedOnPlayerPosition();
             }
         }
+
  
     }
 
@@ -232,13 +244,18 @@ public class SecondStageBoss : Enemy
         switch (_enemyCurrentState)
         {
             case EnemyState.Standing:
+                
                 animator.SetBool("Stand",true);
+                specialAttackTimeRemains = specialAttackInterval;    // Can't attack instantly when boss get up from the ground
                 break;
             case EnemyState.GotHitToAir:
                 animator.SetTrigger("HitToAir");
+                animator.SetBool("Stand",false);
                 break;
             case EnemyState.LayOnGround:
                 animator.SetTrigger("LayOnGround");
+                animator.SetBool("Stand",false);
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

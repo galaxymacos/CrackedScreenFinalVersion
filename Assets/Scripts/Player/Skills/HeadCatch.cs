@@ -7,13 +7,26 @@ public class HeadCatch : Skill
     [SerializeField] private EnemyDetector skillHitBox;
     [SerializeField] private int damage;
     [SerializeField] private Vector3 enemyKnockUpForce;
-    
-
+    private bool canRelease;
+    private bool hasReleased;
 
     private bool _tookDamage;
 
     private void Update()
     {
+        if (PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole") && !canRelease)
+        {
+            hasReleased = false;
+            PlayerProperty.controller.canControl = false;
+        }
+        else
+        {
+            if (!hasReleased)
+            {
+                PlayerProperty.controller.canControl = true;
+                hasReleased = true;
+            }
+        }
         if (!_skillNotOnCooldown)
         {
             if (TimePlayed + cooldown <= Time.time)
@@ -49,13 +62,12 @@ public class HeadCatch : Skill
 
                 enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
                 hasSuckEnemy = false;
-
             }
         }
     }
 
     private bool hasSuckEnemy;
-    [SerializeField] private float suckEnemyDuration = 2f;
+    private float suckEnemyDuration = 1.1f;
     [SerializeField] private AnimationClip headCatchAnimationClip;
     [SerializeField] private GameObject explodeParticleEffect;
     [SerializeField] private Transform explodeSpawnPlace;
@@ -68,7 +80,7 @@ public class HeadCatch : Skill
         if (_skillNotOnCooldown) // Check if the skill is on cooldown
         {
             playerController.canControl = false;
-            StartCoroutine(PlayerCanControl(headCatchAnimationClip.length));
+            StartCoroutine(PlayerCanControl(PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).length));
 
             GameManager.Instance.animator.SetTrigger("Black Hole");    // play player catch head animation
 

@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking.NetworkSystem;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     public int atk = 5;
     public float attackRange = 2f;
     public float attackSpeed = 1f; // 1 hit in 1 sec
+    [SerializeField] private GameObject enemySpawner;
 
     private Transform bloodPlace;
 
@@ -90,6 +92,11 @@ public abstract class Enemy : MonoBehaviour
         {
             currentLaySec = maxLaySec;
             extraGravity = originalExtraGravity;
+            // Spawn enemy when standing up
+            if (enemySpawner != null)
+            {
+                enemySpawner.GetComponent<EnemySpawner>().Spawn();
+            }
         }
     }
 
@@ -122,25 +129,15 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        if (HP < 0)
-        {
-            print("The enemy is already dead");
-            return;
-        }
-
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
-        HitPauseTimeRemain = HitPauseTime;
+        GameManager.Instance.HitPauseTimeRemain = HitPauseTime;
+
         if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += extraGravityPerHit;
 
         if (HP <= 0)
         {
             Die();
             // TODO add die pause time
-        }
-        else
-        {
-            HitPauseTimeRemain = HitPauseTime;
-            istimeSlowing = true;
         }
 
         FloatingDamageDisplay(damage);
@@ -196,6 +193,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void GetKnockUp(Vector3 force)
     {
+        print("Enemy is knocked up");
         if (!canKnockUp || HP < 0) return;
         cameraEffect.ShakeForSeconds(0.2f);
 

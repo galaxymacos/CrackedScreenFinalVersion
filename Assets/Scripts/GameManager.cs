@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public bool gameIsOver;
     public bool gameIsPaused;
     public bool isPlayerDying;
+    // 打擊頓幀
+    private bool istimeSlowing;
+    internal float HitPauseTimeRemain;
 
     public List<GameObject> gameObjects; // Including enemy, player, and environment
     public GameObject gameOverPanel; // TODO
@@ -69,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     public bool PlayerDying;
 
-    // Start is called before the first frame update
     private void Start()
     {
         CreatePlayerSaveSpot();
@@ -81,6 +83,18 @@ public class GameManager : MonoBehaviour
         onPlayerDieCallback += RefreshHeartUi;
         
         
+    }
+
+    private void Update() {
+            if (HitPauseTimeRemain > 0)
+            {
+                Time.timeScale = 0.1f;
+                HitPauseTimeRemain -= Time.deltaTime / Time.timeScale;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
     }
 
     public void CreatePlayerSaveSpot()

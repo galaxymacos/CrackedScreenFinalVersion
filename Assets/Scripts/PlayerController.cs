@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         
         if (playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stunned ||
             playerMovement.playerCurrentState == PlayerMovement.PlayerState.KnockUp ||
-            playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block)
+            playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend)
         {
             return;
         }

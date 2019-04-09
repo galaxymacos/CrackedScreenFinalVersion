@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
     
     private bool recoilDirection;
     internal float defendRecoilTimeRemain = 0;
+    internal bool enemyHitPlayerWhenDefend;
 
     public GameObject floatingText;
     public float hp = 200;
@@ -57,12 +58,23 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        if (defendRecoilTimeRemain > 0) {
-            PlayerProperty.animator.SetBool("DefendRecoiling", true);
+        if (!PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend"))
+        {
+            enemyHitPlayerWhenDefend = false;
         }
-        else {
-            PlayerProperty.animator.SetBool("DefendRecoiling", false);
+
+PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDefend);
+        if (enemyHitPlayerWhenDefend)
+        {
+            if (defendRecoilTimeRemain > 0) {
+                PlayerProperty.animator.SetBool("DefendRecoiling", true);
+            }
+            else {
+                PlayerProperty.animator.SetBool("DefendRecoiling", false);
+                PlayerProperty.controller.canControl = true;
+            }
         }
+       
         if (defendRecoilTimeRemain > 0) {
             defendRecoilTimeRemain -= Time.deltaTime;
             if (defendRecoilDirection == Position.Left) {
@@ -200,7 +212,7 @@ public class Player : MonoBehaviour {
 
     // Player debuff
     public bool TakeDamage(int damage) {
-        if (IsPlayerInvincible())
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
         {
             return false;
         }
@@ -217,11 +229,10 @@ public class Player : MonoBehaviour {
         {
             Camera.main.GetComponent<CameraEffect>().StopShaking();
         }
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
             print("block enemy attack");
-            AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"DefendSuccessful");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
-
         }
         else {
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
@@ -243,19 +254,19 @@ public class Player : MonoBehaviour {
     }
 
     public bool GetKnockOff(Vector3 attackPosition) {
-        print("Player is knocked off");
-        if (IsPlayerInvincible())
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
         {
             return false;
         }
-        print("Player is knocked off successfully");
         
 
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
+            
             print("block enemy attack");
-            AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
+            AudioManager.instance.PlaySound(AudioGroup.Character,"DefendSuccessful");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
             defendRecoilTimeRemain = defendRecoilTime;
+            enemyHitPlayerWhenDefend = true;
             if (attackPosition.x > transform.position.x) {
                 defendRecoilDirection = Position.Left;
             }
@@ -285,7 +296,7 @@ public class Player : MonoBehaviour {
             return false;
         }
 
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();

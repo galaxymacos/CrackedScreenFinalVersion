@@ -301,20 +301,38 @@ MonoBehaviour:
     sounds:
     - name: DialogueBoxOpen
       clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      volume: 1
+      pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueBoxClose
       clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      volume: 1
+      pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueLetterPop
       clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Save
+      clip: {fileID: 0}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: PauseGame
+      clip: {fileID: 0}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: ResumeGame
+      clip: {fileID: 0}
+      volume: 1
+      pitch: 1
       loop: 0
       source: {fileID: 0}
   BackgroundMusics:
