@@ -11370,6 +11370,11 @@ PrefabInstance:
       propertyPath: PlayerAnimator
       value: 
       objectReference: {fileID: 764750511}
+    - target: {fileID: 2177889124415726824, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: playerDefend
+      value: 
+      objectReference: {fileID: 1787385816}
     - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: animator

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
         Stand,
         Walk,
         Run,
-        Block,
+        Defend,
         Stunned,
         KnockUp,
         FallDown
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
 
 
                 break;
-            case PlayerState.Block:
+            case PlayerState.Defend:
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Defend");
                 break;
             case PlayerState.Stunned:
@@ -175,7 +175,7 @@ public class PlayerMovement : MonoBehaviour
         if (Math.Abs(horizontalMovement) < Mathf.Epsilon && Math.Abs(verticalMovement) < Mathf.Epsilon && isGrounded &&
             playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.KnockUp)
         {
-            if (playerCurrentState != PlayerState.Block)
+            if (playerCurrentState != PlayerState.Defend)
             {
                 // ChangePlayerState(PlayerState.Stand);
             }
@@ -395,7 +395,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (playerCurrentState != PlayerState.Block && playerCurrentState != PlayerState.Jump)
+            if (playerCurrentState != PlayerState.Defend && playerCurrentState != PlayerState.Jump)
                 ChangePlayerState(PlayerState.Stand);
         }
 
@@ -424,7 +424,7 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Run:
                 variableStayOn = "Run";
                 break;
-            case PlayerState.Block:
+            case PlayerState.Defend:
                 variableStayOn = "Block";
                 break;
             default:

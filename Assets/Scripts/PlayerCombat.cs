@@ -8,14 +8,14 @@ public class PlayerCombat : MonoBehaviour
     private PlayerMovement _playerMovement;
 
     [SerializeField] private InputMaster controls;
-    private readonly float counterAttackActivationDuration = 0.5f;
+    private readonly float counterAttackActivationDuration = 0.3f;
 
     private float counterAttackTimeRemains;
     [SerializeField] private Skill[] playerSkills;
 
     [SerializeField] private GameObject forceUppercutParticleEffect;
     
-
+    
 
     private void OnEnable()
     {
@@ -101,7 +101,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void HandleCounterAttack(InputAction.CallbackContext context)
     {
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block && counterAttackTimeRemains > 0)
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend && counterAttackTimeRemains > 0)
         {
             playerSkills[5].Play();
             counterAttackTimeRemains = 0;
@@ -142,7 +142,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block && counterAttackTimeRemains > 0)
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend && counterAttackTimeRemains > 0)
         {
             counterAttackTimeRemains -= Time.deltaTime;
         }

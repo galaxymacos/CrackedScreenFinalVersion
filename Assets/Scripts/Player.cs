@@ -229,7 +229,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
         {
             Camera.main.GetComponent<CameraEffect>().StopShaking();
         }
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"DefendSuccessful");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
@@ -260,7 +260,8 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
         }
         
 
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
+            
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"DefendSuccessful");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
@@ -295,7 +296,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
             return false;
         }
 
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Block) {
+        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend) {
             print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
