@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DeathUIScript : MonoBehaviour
 {
+    private float noDamageDuration = 1.0f;
+    private bool noDamage = false;
     [SerializeField] GameObject deathUI;
     public void Restart()
     {
@@ -15,5 +17,19 @@ public class DeathUIScript : MonoBehaviour
         fenceScript.death = false;
         deathUI.SetActive(false);
         Time.timeScale = 1f;
+        noDamage = true;
+    }
+    void Update()
+    {
+        if (noDamage)
+        {
+            noDamageDuration = noDamageDuration-= Time.deltaTime;
+            fenceScript.death = false;
+            if (noDamageDuration < 0)
+            {
+                noDamageDuration = 1.0f;
+                noDamage = false;
+            }
+        }   
     }
 }
