@@ -92,10 +92,12 @@ public class PlayerMovement : MonoBehaviour
         switch (newPlayerState)
         {
             case PlayerState.Jump:
+                lastJumpTime = Time.time;
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Jump");
 
                 break;
             case PlayerState.DoubleJump:
+                lastJumpTime = Time.time;
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Double Jump");
                 
                 break;
@@ -282,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckIfPlayerOnGround()
     {
         LayerMask groundLayer = 1 << 11;
-        LayerMask slopeLayer = 1 << 15;
+        
         var position = transform.position;
         var hasHitRightGround = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer);
@@ -290,10 +292,13 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer);
         var hasHitLeftGround = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer);
-        var hasHitSlope = Physics.Raycast(position, Vector3.down,
-            GetComponent<BoxCollider>().size.y / 2 + 0.4f, slopeLayer);
+        LayerMask slopeLayer = 1 << 15;
+        var hasHitSlopeLeft = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
+            GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
+        var hasHitSlopeRight = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
+            GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
 
-        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || hasHitSlope;
+        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0);
         if (isGrounded)
             if (hasKnockUp && rb.velocity.y <= 0) // hasKnockUp TODO is this variable really necessery?
             {
@@ -302,6 +307,10 @@ public class PlayerMovement : MonoBehaviour
                 PlayerProperty.controller.canControl = true;
             }
 
+//        if (hasHitSlope && rb.velocity.y > 0 && playerCurrentState == PlayerState.Jump )
+//        {
+//            ChangePlayerState(PlayerState.Stand);
+//        }
         return isGrounded;
     }
 
@@ -351,6 +360,30 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.parent = other.transform.Find("PlatformNode").transform;
         }
+
+        
+    }
+
+    private float lastJumpTime;
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Slope"))
+        {
+            LayerMask slopeLayer = 1 << 15;
+            var hasHitSlopeLeft = Physics.Raycast(transform.position-new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
+                GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
+            var hasHitSlopeRight = Physics.Raycast(transform.position+new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
+                GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
+            if (hasHitSlopeLeft || hasHitSlopeRight)
+            {
+                if (playerCurrentState != PlayerState.Walk && playerCurrentState != PlayerState.Run && Time.time-lastJumpTime<0.1)
+                {
+                    print("Change player state to stand");
+                    ChangePlayerState(PlayerState.Stand);
+                }
+            }
+        }
     }
 
     [SerializeField] private InputMaster controls;
@@ -399,6 +432,8 @@ public class PlayerMovement : MonoBehaviour
             if (playerCurrentState != PlayerState.Defend && playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.DoubleJump)
             {
                 // Fix a nasty double jump bug
+                if(playerCurrentState!=PlayerState.Stand)
+                print("Second place to change player state to stand");
                 ChangePlayerState(PlayerState.Stand);
             }
         }

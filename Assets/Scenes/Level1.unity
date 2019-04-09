@@ -19204,6 +19204,12 @@ PrefabInstance:
       propertyPath: distance
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8079216515247944638, guid: ed13c5bef03e7e840a81437d03c5f03e,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: ef443044dfbfc7d468c4c2169a333616,
+        type: 2}
     - target: {fileID: 7974115292518626712, guid: ed13c5bef03e7e840a81437d03c5f03e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

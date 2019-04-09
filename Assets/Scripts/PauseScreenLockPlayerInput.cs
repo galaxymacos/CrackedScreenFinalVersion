@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PauseScreenLockPlayerInput : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
 
 
     private void OnEnable()
     {
-        playerController.canControlDialogueBox = false;
+        PlayerProperty.controller.canControlDialogueBox = false;
     }
 
     private void OnDisable()
     {
-        playerController.canControlDialogueBox = true;
+        PlayerProperty.controller.canControlDialogueBox = true;
     }
 }
