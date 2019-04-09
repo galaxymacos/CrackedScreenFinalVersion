@@ -147,16 +147,19 @@ public class SecondStageBoss : Enemy
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
             }
-            
-            specialAttackTimeRemains -= Time.deltaTime;
-            if (specialAttackTimeRemains <= 0)
-            {
 
-                if (!AnimationPlaying())
+            if (!AnimationPlaying()) {
+                specialAttackTimeRemains -= Time.deltaTime;
+                if (specialAttackTimeRemains <= 0)
                 {
-                    SpecialAttack();
+
+                    if (!AnimationPlaying())
+                    {
+                        SpecialAttack();
+                    }
                 }
             }
+            
         }
 
         animator.SetFloat("HorizontalVelocity",rb.velocity.x);
@@ -195,7 +198,7 @@ public class SecondStageBoss : Enemy
         {
             if (!IsHitOnAirOrLayDown())
             {
-                rb.velocity = Vector3.zero;
+                // TODO why do I add vector.zero here?
                 FaceBasedOnPlayerPosition();
             }
         }

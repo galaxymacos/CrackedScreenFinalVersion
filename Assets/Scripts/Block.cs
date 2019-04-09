@@ -5,9 +5,9 @@ using UnityEngine;
 public class Block : Skill
 {
     [SerializeField] private float blockingDuration = 0.3f;
-
-    private void FixedUpdate()
-    {
+    private float blockingDurationLeft;
+    private void Update() {
+        PlayerProperty.animator.SetFloat("DefendTimeRemains", blockingDurationLeft);
         if (!_skillNotOnCooldown)
         {
             if (TimePlayed + cooldown <= Time.time)
@@ -15,14 +15,16 @@ public class Block : Skill
                 _skillNotOnCooldown = true;
             }
         }
-
-        if (_isPlaying)
-        {
-            if (TimePlayed + blockingDuration <= Time.time)
+        
+        if (blockingDurationLeft > 0) {
+            blockingDurationLeft -= Time.deltaTime;
+        
+            if (blockingDurationLeft<=0)
             {
-                EndDefend();
+                    EndDefend();
             }
         }
+       
     }
 
     public void EndDefend()
@@ -41,6 +43,8 @@ public class Block : Skill
             base.Play();
             _skillNotOnCooldown = false; // Skill is on cooldown
             playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Block);
+            blockingDurationLeft = blockingDuration;
+
         }
         else
         {

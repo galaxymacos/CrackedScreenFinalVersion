@@ -122,25 +122,15 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        if (HP < 0)
-        {
-            print("The enemy is already dead");
-            return;
-        }
-
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
-        HitPauseTimeRemain = HitPauseTime;
+        GameManager.Instance.HitPauseTimeRemain = HitPauseTime;
+
         if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += extraGravityPerHit;
 
         if (HP <= 0)
         {
             Die();
             // TODO add die pause time
-        }
-        else
-        {
-            HitPauseTimeRemain = HitPauseTime;
-            istimeSlowing = true;
         }
 
         FloatingDamageDisplay(damage);

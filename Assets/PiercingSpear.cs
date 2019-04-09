@@ -117,11 +117,11 @@ public class PiercingSpear : BossAbility
 
                 if (pierceRight)
                 {
-                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(-2,0,0),new Vector3(30,15,0));
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(-2,0,0),new Vector3(15,15,0));
                 }
                 else
                 {
-                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0),new Vector3(-30,15,0));
+                    PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position-new Vector3(2,0,0),new Vector3(-15,15,0));
                 }
                 PlayerProperty.playerClass.TakeDamage(hitWallDamage);
 
