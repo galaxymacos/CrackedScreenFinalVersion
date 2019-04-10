@@ -30,8 +30,9 @@ public class Arrow : MonoBehaviour
 
     public void HitPlayer()
     {
-        PlayerProperty.playerClass.TakeDamage(damage);
         PlayerProperty.playerClass.GetKnockOff(transform.position);
+        PlayerProperty.playerClass.TakeDamage(damage);
+
         Destroy(gameObject);
     }
 }

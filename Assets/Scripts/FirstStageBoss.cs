@@ -34,10 +34,13 @@ public class FirstStageBoss : Enemy
 
     public float specialAttackInterval = 10f;
     public float specialAttackTimeRemains;
+    
+    
 
     protected override void Start()
     {
         OnChangeEnemyStateCallback += AnimateEnemy;
+        OnChangeEnemyStateCallback += SpawnEnemyWhenStandUp;
         specialAttackTimeRemains = specialAttackInterval;
         base.Start();
     }
@@ -280,6 +283,34 @@ public class FirstStageBoss : Enemy
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    public void SpawnEnemyWhenStandUp(EnemyState enemyState)
+    {
+        if (enemyState == EnemyState.Standing)
+        {
+            if (HP / maxHp > 0.8)
+            {
+                return;
+            }
+            else if (HP / maxHp > 0.5)
+            {
+                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
+                    Quaternion.identity);
+            }
+            else if(HP/maxHp>0.2)
+            {
+                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
+                    Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
+                    Quaternion.identity);
+                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
+                    Quaternion.identity);
+            }
         }
     }
 

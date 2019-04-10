@@ -76,12 +76,15 @@ public class AudioManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            currentBgm = "ChapterOne";
+            currentBgm = "ChapterOneBegin";
+            print("switch to chapter one bgm");
+
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            currentBgm = "ChapterTwo";
+            currentBgm = "ChapterTwoBegin";
         }
+        PlaySound(AudioGroup.Bgm,currentBgm);
     }
 
     private void Update()
@@ -142,9 +145,8 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                if (BackgroundMusics.sounds[i].source.volume < 1)
+                if (BackgroundMusics.sounds[i].source.volume < BackgroundMusics.sounds[i].volume)
                 {
-                    print("???");
                     BackgroundMusics.sounds[i].source.volume += Time.deltaTime/2;
                     PlaySound(AudioGroup.Bgm,soundName);
                 }

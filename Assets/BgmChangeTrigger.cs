@@ -18,7 +18,6 @@ public class BgmChangeTrigger : MonoBehaviour
         if (playerDetector.playerInRange())
         {
             AudioManager.instance.currentBgm = bgmName;
-            print("Set current bgm to tutorial");
         }
     }
 }

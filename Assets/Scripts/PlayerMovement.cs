@@ -299,7 +299,9 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
 
         isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0);
-        if (isGrounded)
+        if (isGrounded) 
+        {
+//            
             if (hasKnockUp && rb.velocity.y <= 0) // hasKnockUp TODO is this variable really necessery?
             {
                 hasKnockUp = false;
@@ -307,6 +309,8 @@ public class PlayerMovement : MonoBehaviour
                 PlayerProperty.controller.canControl = true;
             }
 
+        }
+            
 //        if (hasHitSlope && rb.velocity.y > 0 && playerCurrentState == PlayerState.Jump )
 //        {
 //            ChangePlayerState(PlayerState.Stand);
@@ -356,9 +360,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
+        LayerMask groundLayer = 1 << 11;
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
             transform.parent = other.transform.Find("PlatformNode").transform;
+        }
+        
+        if (other.gameObject.layer == groundLayer)
+        {
+            if (playerCurrentState == PlayerState.Jump || playerCurrentState == PlayerState.DoubleJump && Time.time-lastJumpTime>0.05f)
+            {
+                if (Physics.Raycast(transform.position, Vector3.down,
+                    GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer))
+                {
+                    print("detect ground");
+                    ChangePlayerState(PlayerState.Stand);
+                }
+            }
         }
 
         
@@ -433,7 +451,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 // Fix a nasty double jump bug
                 if(playerCurrentState!=PlayerState.Stand)
-                print("Second place to change player state to stand");
                 ChangePlayerState(PlayerState.Stand);
             }
         }

@@ -86,6 +86,7 @@ public abstract class Enemy : MonoBehaviour
         {
             _enemyCurrentState = enemyState;
             OnChangeEnemyStateCallback?.Invoke(enemyState);
+
         }
 
         if (_enemyCurrentState == EnemyState.Standing)
@@ -93,9 +94,12 @@ public abstract class Enemy : MonoBehaviour
             currentLaySec = maxLaySec;
             extraGravity = originalExtraGravity;
             // Spawn enemy when standing up
+
             if (enemySpawner != null)
             {
                 enemySpawner.GetComponent<EnemySpawner>().Spawn();
+                print("spawn enemy");
+
             }
         }
     }
