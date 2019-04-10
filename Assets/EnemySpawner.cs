@@ -32,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemyToSpawn[i], spawnPlace[i].position, Quaternion.identity);
         }
+        print("Spawn enemy");
         
         enabled = false;
     }

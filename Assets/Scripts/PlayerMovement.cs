@@ -377,7 +377,7 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
             if (hasHitSlopeLeft || hasHitSlopeRight)
             {
-                if (playerCurrentState != PlayerState.Walk && playerCurrentState != PlayerState.Run && Time.time-lastJumpTime<0.1)
+                if (playerCurrentState != PlayerState.Walk && playerCurrentState != PlayerState.Run && Time.time-lastJumpTime>0.04)
                 {
                     print("Change player state to stand");
                     ChangePlayerState(PlayerState.Stand);

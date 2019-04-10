@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 1335410370}
   - component: {fileID: 1335410369}
   - component: {fileID: 1335410368}
-  - component: {fileID: 1335410371}
+  - component: {fileID: 1350652182}
   m_Layer: 0
   m_Name: PiercingSpearHitbox
   m_TagString: Untagged
@@ -331,19 +331,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1335410371
-MonoBehaviour:
+--- !u!82 &1350652182
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335410366}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7b02d43be2bed4d907c652ad7e1eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitWallDamage: 15
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1845743785
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +655,8 @@ GameObject:
   - component: {fileID: 935729184088641516}
   - component: {fileID: 935729184088641518}
   - component: {fileID: 935729184088641519}
+  - component: {fileID: 2084412309}
+  - component: {fileID: 2084412306}
   m_Layer: 0
   m_Name: Abilities
   m_TagString: Untagged
@@ -586,8 +672,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935729184088641517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.34, z: 0}
+  m_LocalScale: {x: 6.793771, y: 1.8328, z: 1.8328}
   m_Children: []
   m_Father: {fileID: 935729184725828524}
   m_RootOrder: 1
@@ -626,6 +712,34 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   warningCircle: {fileID: 100004, guid: 10a7ec2a2783770419a38059c45ea8b3, type: 3}
   volcano: {fileID: 100008, guid: e8ee802c71045d5478061ad7452d3b65, type: 3}
+--- !u!65 &2084412309
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935729184088641517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2084412306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935729184088641517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bd41cd35dd6cf40b876066aef44e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piercingSpearHitBox: {fileID: 1335410369}
+  hitWallDamage: 15
+  piercingHitWall: {fileID: 0}
 --- !u!1 &935729184568718120
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +875,8 @@ GameObject:
   - component: {fileID: 1959094804}
   - component: {fileID: 1959094807}
   - component: {fileID: 8374912006113776559}
-  - component: {fileID: 8374912006113776570}
   m_Layer: 9
-  m_Name: FirstStageBoss 1
+  m_Name: FirstStageBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,30 +981,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyCurrentState: 0
-  extraGravity: 10
-  extraGravityPerHit: 1
-  extraGravityPerKnockUp: 1
   atk: 5
   attackRange: 5
   attackSpeed: 0.3
+  enemySpawner: {fileID: 0}
   canAttack: 1
   canKnockUp: 1
-  canStiff: 0
   canStun: 0
   defense: 1
+  dieSound: {fileID: 994013772}
+  extraGravity: 10
+  extraGravityPerHit: 1
+  extraGravityPerKnockUp: 1
+  HitPauseTime: 0.2
   HP: 200
   isFacingRight: 0
-  maxLaySec: 2
   laySecLeft: 0
   maxHp: 200
+  maxLaySec: 2
   moveSpeed: 10
   nextAttackTime: 0
   stunDuration: 0.5
-  dieSound: {fileID: 994013772}
-  HitPauseTime: 0.2
   autoAttackRange: {fileID: 793323762}
   BossAbilities:
-  - {fileID: 8374912006113776570}
+  - {fileID: 2084412306}
+  - {fileID: 1959094804}
+  - {fileID: 1959094807}
+  - {fileID: 8374912006113776559}
   ignoreKnockUpTime: 3
   moveTimeInARow: 3
   moveTowardsPlayer: 0
@@ -1095,19 +1211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tornado: {fileID: 8891518226970810318, guid: 2ef0a4db0df03d543953855f1e31d654, type: 3}
---- !u!114 &8374912006113776570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935729184725828525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5bd41cd35dd6cf40b876066aef44e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  piercingSpearHitBox: {fileID: 1335410369}
 --- !u!1 &935729185197263187
 GameObject:
   m_ObjectHideFlags: 0
