@@ -27,6 +27,10 @@ public class ContinuousStrike_FirstStageBoss : BossAbility
     public float teleportLimit = 4f;
     public void ContinuousStrike()
     {
+        AudioManager.instance.StopSound(AudioGroup.FirstBoss);
+        
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"SerialAttack");
+
 //        if (continuousStrikeHitBoxScript.playerInRange)
 //        {
 //            Attack();

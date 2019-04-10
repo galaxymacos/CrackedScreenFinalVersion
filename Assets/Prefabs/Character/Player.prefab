@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls:
     m_Asset: {fileID: 11400000, guid: 4ee2467c7408e5646aaebd70ba97ddc8, type: 3}
+  counterAttackActivationDuration: 0.5
   playerSkills:
   - {fileID: 0}
   - {fileID: 0}
@@ -1267,10 +1268,10 @@ MonoBehaviour:
   defendRecoilTime: 0.5
   floatingText: {fileID: 1032005598791896220, guid: a2dcd5457e94b5f4eb00b39a88d522f0,
     type: 3}
-  hp: 30
+  hp: 200
   invincibieTime: 2
   knockUpForce: {x: -3, y: 7, z: 0}
-  maxHp: 30
+  maxHp: 200
   maxRage: 200
   rage: 0
   sprites: {fileID: 5387770269975078840}
@@ -1927,7 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 6.5478573
+  m_Length: 6.5479264
   m_ChildTransform: {fileID: 7330050100368957461}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &7330050098841467356
@@ -2191,7 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 5.236939
+  m_Length: 5.236892
   m_ChildTransform: {fileID: 7330050099622602601}
   m_AttachedIK: {fileID: 7330050100851144587}
 --- !u!1 &7330050099143617042
@@ -2870,7 +2871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 7.687549
+  m_Length: 7.6875706
   m_ChildTransform: {fileID: 7330050100158478485}
   m_AttachedIK: {fileID: 7330050098841467359}
 --- !u!1 &7330050099557368694
@@ -3285,7 +3286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 4.6842637
+  m_Length: 4.684325
   m_ChildTransform: {fileID: 7330050099190339871}
   m_AttachedIK: {fileID: 7330050099624059139}
 --- !u!1 &7330050100093468018
@@ -3926,7 +3927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 10.819269
+  m_Length: 10.819247
   m_ChildTransform: {fileID: 7330050100277525628}
   m_AttachedIK: {fileID: 7330050100368785198}
 --- !u!1 &7330050100507508609

@@ -38,6 +38,7 @@ public class TornadoMaker : BossAbility
         {
             rb.AddForce(new Vector3(horizontalJumpForce, 0, 0),ForceMode.Impulse);
         }
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"TornadoJump");
     }
 
     public void spawnTornado()
@@ -47,6 +48,7 @@ public class TornadoMaker : BossAbility
         {
             GameObject tornadoIns = Instantiate(Tornado, hitInfo.point, Quaternion.identity);
         }
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"TornadoStomp");
         
     }
 

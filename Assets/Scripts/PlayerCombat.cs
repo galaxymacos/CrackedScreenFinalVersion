@@ -145,7 +145,6 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        print(counterAttackTimeRemains);
         if (counterAttackTimeRemains > 0)
         {
             counterAttackTimeRemains -= Time.deltaTime;
