@@ -5,8 +5,10 @@ using UnityEngine.Networking.NetworkSystem;
 
 public abstract class Enemy : MonoBehaviour
 {
+    
     public delegate void OnChangeEnemyState(EnemyState enemyState);
 
+    [SerializeField] internal bool canSummon;
     // State
     public enum EnemyState
     {
@@ -93,14 +95,6 @@ public abstract class Enemy : MonoBehaviour
         {
             currentLaySec = maxLaySec;
             extraGravity = originalExtraGravity;
-            // Spawn enemy when standing up
-
-            if (enemySpawner != null)
-            {
-                enemySpawner.GetComponent<EnemySpawner>().Spawn();
-                print("spawn enemy");
-
-            }
         }
     }
 
@@ -124,6 +118,9 @@ public abstract class Enemy : MonoBehaviour
         ChangeEnemyState(EnemyState.Standing);
 
         nextAttackTime = 0;
+
+        Instantiate(GameManager.Instance.summonCircle, transform.position - new Vector3(0, 1.5f, 0),
+            Quaternion.identity);
     }
 
     public virtual void FixedUpdate()

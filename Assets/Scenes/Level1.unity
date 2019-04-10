@@ -2286,12 +2286,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66baadb4acf5d92418d7890a5443b911, type: 3}
---- !u!4 &638362481 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5222131670749652452, guid: a02d529cfc22d5e44a66cfdca82056a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 5222131671930141279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &641743900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3017368754827805466, guid: 66baadb4acf5d92418d7890a5443b911,
@@ -4138,16 +4132,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8.447202
       objectReference: {fileID: 0}
-    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8354586209864022480, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 063a4d1170377264e8de9b0d0fe6be05, type: 2}
+    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!4 &1289109381 stripped
@@ -5010,16 +5004,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8.447202
       objectReference: {fileID: 0}
-    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8354586209864022480, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 063a4d1170377264e8de9b0d0fe6be05, type: 2}
+    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!1001 &1452650356
@@ -5398,16 +5392,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 8354586209864022480, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f95b3e19977be0049812bd9ffbe86921, type: 2}
+    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!4 &1561404081 stripped
@@ -6560,16 +6554,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.3982139
       objectReference: {fileID: 0}
-    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 8354586209864022480, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f95b3e19977be0049812bd9ffbe86921, type: 2}
+    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!4 &1766913076 stripped
@@ -6993,16 +6987,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 8.447202
       objectReference: {fileID: 0}
-    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8354586209864022480, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 063a4d1170377264e8de9b0d0fe6be05, type: 2}
+    - target: {fileID: 8386633206674771166, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!1001 &1870562177
@@ -8405,11 +8399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2177889124415726827, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+    - target: {fileID: 2177889124953702680, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: skillImage
+      value: 
+      objectReference: {fileID: 1896403670}
     - target: {fileID: 2177889124953702680, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: dashPosition
@@ -8430,16 +8424,6 @@ PrefabInstance:
       propertyPath: uppercutEnemyDetector
       value: 
       objectReference: {fileID: 1660689849}
-    - target: {fileID: 2177889124953702680, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: skillImage
-      value: 
-      objectReference: {fileID: 1896403670}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: place
-      value: 
-      objectReference: {fileID: 638362481}
     - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: skillImage
@@ -8450,32 +8434,6 @@ PrefabInstance:
       propertyPath: skillHitBox
       value: 
       objectReference: {fileID: 85914882}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: damage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: enemyKnockUpForce.x
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: enemyKnockUpForce.y
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: headCatchAnimationClip
-      value: 
-      objectReference: {fileID: 7400000, guid: ab650fea5c07f3a45bbd63f2a010597e, type: 2}
-    - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: explodeParticleEffect
-      value: 
-      objectReference: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
-        type: 3}
     - target: {fileID: 2177889124953702681, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: explodeSpawnPlace
@@ -8491,21 +8449,16 @@ PrefabInstance:
       propertyPath: EnemyDetector
       value: 
       objectReference: {fileID: 842897364}
-    - target: {fileID: 2177889124953702679, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: basicAttackAnimationClip
-      value: 
-      objectReference: {fileID: 7400000, guid: af133abffac06524f801b74833c138e5, type: 2}
-    - target: {fileID: 2177889124953702677, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: EnemyDetector
-      value: 
-      objectReference: {fileID: 1531549709958531857}
     - target: {fileID: 2177889124953702677, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: skillImage
       value: 
       objectReference: {fileID: 323136000}
+    - target: {fileID: 2177889124953702677, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: EnemyDetector
+      value: 
+      objectReference: {fileID: 1531549709958531857}
     - target: {fileID: 2177889124415726825, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8596,24 +8549,6 @@ PrefabInstance:
       propertyPath: PlayerAnimator
       value: 
       objectReference: {fileID: 764750511}
-    - target: {fileID: 2177889124415726824, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: floatingDamage
-      value: 
-      objectReference: {fileID: 4748427393667605385, guid: 753f203dbafc4ff418370ef16adf3996,
-        type: 3}
-    - target: {fileID: 2177889124415726824, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: blood
-      value: 
-      objectReference: {fileID: 876229043633345149, guid: f83d038f018606347b522e0cee5644f5,
-        type: 3}
-    - target: {fileID: 2177889124415726824, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: smallBlood
-      value: 
-      objectReference: {fileID: 876229043633345149, guid: 9d97fa68339a39e45a3977e7cc8750c9,
-        type: 3}
     - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: animator
@@ -8621,49 +8556,14 @@ PrefabInstance:
       objectReference: {fileID: 357391177}
     - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
-      propertyPath: nameText
-      value: 
-      objectReference: {fileID: 1486147974}
-    - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1879391408}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+    - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
-      propertyPath: cannonAttackRange
+      propertyPath: nameText
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: selfDropPanel
-      value: 
-      objectReference: {fileID: 32000673680870167, guid: 4b098efcc353ecc44825602dcbfb2efb,
-        type: 3}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: patrolEnemy
-      value: 
-      objectReference: {fileID: 7280185882751371423, guid: 00adc24f8a7f7b44488b150463ce8f7d,
-        type: 3}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: ArcherEnemy
-      value: 
-      objectReference: {fileID: 8994724862319612634, guid: 5c7ded175517d9140b300279c1aec5c4,
-        type: 3}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: FirstStageBoss
-      value: 
-      objectReference: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
-        type: 3}
-    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: SecondStageBoss
-      value: 
-      objectReference: {fileID: 8481021725361355576, guid: 1f9ad15104c547547bb8e7c336aa315a,
-        type: 3}
+      objectReference: {fileID: 1486147974}
     - target: {fileID: 2177889125111506746, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: TipsPanelAnimator
@@ -19428,6 +19328,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 7.03901
       objectReference: {fileID: 0}
+    - target: {fileID: 7974115292518626712, guid: ed13c5bef03e7e840a81437d03c5f03e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d868fe6e2a49cc14dbc266553fcb0117, type: 2}
     - target: {fileID: 2114664842998977166, guid: ed13c5bef03e7e840a81437d03c5f03e,
         type: 3}
       propertyPath: MoveDirection
@@ -19444,11 +19349,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: ef443044dfbfc7d468c4c2169a333616,
         type: 2}
-    - target: {fileID: 7974115292518626712, guid: ed13c5bef03e7e840a81437d03c5f03e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d868fe6e2a49cc14dbc266553fcb0117, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed13c5bef03e7e840a81437d03c5f03e, type: 3}
 --- !u!1001 &8702584664038784035

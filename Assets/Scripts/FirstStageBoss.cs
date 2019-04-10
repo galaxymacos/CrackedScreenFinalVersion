@@ -288,6 +288,14 @@ public class FirstStageBoss : Enemy
 
     public void SpawnEnemyWhenStandUp(EnemyState enemyState)
     {
+        if (!canSummon)
+        {
+            return;
+        }
+        
+        
+        
+        
         if (enemyState == EnemyState.Standing)
         {
             if (HP / maxHp > 0.8)

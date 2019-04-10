@@ -12,10 +12,17 @@ public class Tornado : MonoBehaviour
 
     [SerializeField] private float existedTime = 3f;
 
+    [SerializeField] private AudioSource tornadoGrowing;
+    [SerializeField] private AudioSource tornadoHasFullyGrown;
+
     private float existedTimeRemains;
     // Start is called before the first frame update
     void Start()
     {
+        if (tornadoGrowing)
+        {
+            tornadoGrowing.Play();
+        }
         existedTimeRemains = existedTime;
     }
 
@@ -28,7 +35,10 @@ public class Tornado : MonoBehaviour
         }
         else
         {
-            FinishGrowing();
+            if (!hasFullyGrown)
+            {
+                FinishGrowing();
+            }
         }
 
         if (hasFullyGrown)
@@ -45,6 +55,15 @@ public class Tornado : MonoBehaviour
     {
         hasFullyGrown = true;
         GetComponent<SpriteRenderer>().color = Color.white;
+        if (tornadoGrowing.isPlaying)
+        {
+            tornadoGrowing.Stop();
+        }
+
+        if (tornadoHasFullyGrown)
+        {
+            tornadoHasFullyGrown.Play();
+        }
         // TODO add tornado turns to full state sound
     }
 

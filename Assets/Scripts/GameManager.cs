@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public Animator animator;
     public PlayerAnimator PlayerAnimator;
     
+    
     //
 
     #region UI
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     internal GameObject lastHitEnemy;
     internal float lastHitEnemyTime;
+    [SerializeField] internal GameObject summonCircle;
 
     #endregion
 

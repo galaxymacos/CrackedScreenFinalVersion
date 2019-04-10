@@ -120,6 +120,8 @@ MonoBehaviour:
   blood: {fileID: 876229043633345149, guid: f83d038f018606347b522e0cee5644f5, type: 3}
   smallBlood: {fileID: 876229043633345149, guid: 9d97fa68339a39e45a3977e7cc8750c9,
     type: 3}
+  summonCircle: {fileID: 1552054899364325813, guid: 0d8c384cd2f24f6458969ccbb4ea431c,
+    type: 3}
   PlayerDying: 0
   isGameOver: 0
 --- !u!114 &2177889124415726822
@@ -204,8 +206,7 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   skillHitBox: {fileID: 0}
   damage: 100
-  enemyKnockUpForce: {x: 1000, y: 600, z: 0}
-  suckEnemyDuration: 2
+  enemyKnockUpForce: {x: 2000, y: 1200, z: 0}
   headCatchAnimationClip: {fileID: 7400000, guid: ab650fea5c07f3a45bbd63f2a010597e,
     type: 2}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
@@ -365,7 +366,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea3f2d7afa1b5c488fc886a63bb3410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonAttackRange: {fileID: 0}
+  selfDropPanel: {fileID: 32000673680870167, guid: 4b098efcc353ecc44825602dcbfb2efb,
+    type: 3}
+  patrolEnemy: {fileID: 7280185882751371423, guid: 00adc24f8a7f7b44488b150463ce8f7d,
+    type: 3}
+  ArcherEnemy: {fileID: 8994724862319612634, guid: 5c7ded175517d9140b300279c1aec5c4,
+    type: 3}
+  FirstStageBoss: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
+    type: 3}
+  SecondStageBoss: {fileID: 8481021725361355576, guid: 1f9ad15104c547547bb8e7c336aa315a,
+    type: 3}
 --- !u!1001 &5722214871409212554
 PrefabInstance:
   m_ObjectHideFlags: 0

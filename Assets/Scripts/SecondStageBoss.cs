@@ -261,4 +261,36 @@ public class SecondStageBoss : Enemy
                 throw new ArgumentOutOfRangeException();
         }
     }
+    
+    public void SpawnEnemyWhenStandUp(EnemyState enemyState)
+    {
+        if (enemyState == EnemyState.Standing)
+        {
+            if (HP / maxHp > 0.8)
+            {
+                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
+                    Quaternion.identity);
+            }
+            else if (HP / maxHp > 0.5)
+            {
+                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
+                    Quaternion.identity);
+            }
+            else if(HP/maxHp>0.2)
+            {
+                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
+                    Quaternion.identity);
+                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
+                    Quaternion.identity);
+            }
+            else
+            {
+                GameObject firstStageBossIns = Instantiate(LevelManager.Instance.FirstStageBoss, transform.position + new Vector3(3, 3),
+                    Quaternion.identity);
+                firstStageBossIns.GetComponent<FirstStageBoss>().canSummon = false;
+                firstStageBossIns.GetComponent<FirstStageBoss>().HP /= 2;
+                firstStageBossIns.GetComponent<FirstStageBoss>().maxHp /= 2;
+            }
+        }
+    }
 }

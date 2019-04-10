@@ -140,15 +140,14 @@ public class AudioManager : MonoBehaviour
             {
                 if (BackgroundMusics.sounds[i].source.volume > 0)
                 {
-                    BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/2;
+                    BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/4;
                 }
             }
             else
             {
                 if (BackgroundMusics.sounds[i].source.volume < BackgroundMusics.sounds[i].volume)
                 {
-                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime/2;
-                    PlaySound(AudioGroup.Bgm,soundName);
+                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime/4;
                 }
                 
             }

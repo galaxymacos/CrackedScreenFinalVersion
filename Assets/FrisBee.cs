@@ -18,6 +18,7 @@ public class FrisBee : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+ 
         rb = GetComponent<Rigidbody>();
         startDirection = (PlayerProperty.playerPosition - transform.position).normalized;
         rb.velocity = startDirection * flySpeed;

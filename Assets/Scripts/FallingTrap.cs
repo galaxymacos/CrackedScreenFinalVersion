@@ -15,18 +15,15 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] private float delayBeforeFalling = 0.5f;
     private float crackingTimeRemains;
 
-    [SerializeField] private AudioClip soundOfIceCracking;
-    [SerializeField] private AudioClip soundOfIceFalling;
+    [SerializeField] private AudioSource soundOfIceCracking;
+    [SerializeField] private AudioSource soundOfIceFalling;
     private AudioSource audioSource;
     private bool isFalling;
     [SerializeField] private float extraForce = 10f;
 
     private void Start()
     {
-        if (soundOfIceFalling == null || soundOfIceCracking == null)
-        {
-            print("There is no sound attached");
-        }
+        
 
         rb = GetComponent<Rigidbody>();
         playerScript = GameManager.Instance.player.GetComponent<Player>();
@@ -55,7 +52,10 @@ public class FallingTrap : MonoBehaviour
 
     public void Play()
     {
-//        AudioManager.instance.PlaySfx("IceCracking"); // TODO add sound to AudioManager
+        if (soundOfIceFalling)
+        {
+            soundOfIceFalling.Play();
+        }
         crackingTimeRemains = delayBeforeFalling;
     }
 
@@ -72,6 +72,10 @@ public class FallingTrap : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") && !hasInteracted)
         {
+            if (soundOfIceCracking)
+            {
+                soundOfIceCracking.Play();
+            }
             Instantiate(snowLotus, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
             hasInteracted = true;
         }
