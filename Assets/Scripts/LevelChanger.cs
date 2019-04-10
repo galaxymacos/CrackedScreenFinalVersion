@@ -18,7 +18,6 @@ public class LevelChanger : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-
     public void FadeToLevel(int levelIndex)
     {
         operation = SceneManager.LoadSceneAsync(levelIndex);

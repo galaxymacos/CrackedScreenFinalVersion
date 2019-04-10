@@ -17,7 +17,8 @@ public class BgmChangeTrigger : MonoBehaviour
     {
         if (playerDetector.playerInRange())
         {
-            AudioManager.instance.currentBgm = bgmName;
+            AudioManager.instance.ChangeBgm(bgmName);
+            enabled = false;
         }
     }
 }

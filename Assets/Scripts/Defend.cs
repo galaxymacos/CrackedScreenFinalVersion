@@ -4,16 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public enum DefendStage
-{
-    HoldShield,
-    Recoil,
-    None
-}
 
 public class Defend : Skill
 {
-    internal DefendStage currentDefendStage;
     [SerializeField] private float blockingDuration = 0.3f;
     private float defendTimeLeft;
     private void Update() {
@@ -64,21 +57,7 @@ public class Defend : Skill
         }
     }
 
-    public void ChangeDefendStage(DefendStage newDefendStage)
-    {
-        switch (newDefendStage)
-        {
-            case DefendStage.HoldShield:
-                break;
-            case DefendStage.Recoil:
-                break;
-            case DefendStage.None:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newDefendStage), newDefendStage, null);
-        }
-        currentDefendStage = newDefendStage;
-    }
+   
 
     public void IsAttack()
     {

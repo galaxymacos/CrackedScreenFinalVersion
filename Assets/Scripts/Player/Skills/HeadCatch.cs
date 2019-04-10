@@ -56,6 +56,7 @@ public class HeadCatch : Skill
                 {
                     enemyPicked.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
                 }
+                AudioManager.instance.PlaySound(AudioGroup.Character,"HeadCatchExplode");
                 enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
                 var explodeEffect = Instantiate(explodeParticleEffect, explodeSpawnPlace.position, explodeSpawnPlace.rotation);
                 explodeEffect.transform.parent = null;
@@ -81,7 +82,7 @@ public class HeadCatch : Skill
         {
             playerController.canControl = false;
             StartCoroutine(PlayerCanControl(PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).length));
-
+            AudioManager.instance.PlaySound(AudioGroup.Character,"HeadCatchPerform");
             GameManager.Instance.animator.SetTrigger("Black Hole");    // play player catch head animation
 
             _skillNotOnCooldown = false;
