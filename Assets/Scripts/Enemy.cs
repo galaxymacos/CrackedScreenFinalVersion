@@ -152,7 +152,7 @@ public abstract class Enemy : MonoBehaviour
     private void BloodParticleEffectDisplay(float damage)
     {
         GameObject bloodTypeToSpawn;
-        var bloodScaleMultiplier = 2f;
+        var bloodScaleMultiplier = 3f;
         if (damage >= 80)
             bloodTypeToSpawn = GameManager.Instance.blood;
         else if (damage > 49)

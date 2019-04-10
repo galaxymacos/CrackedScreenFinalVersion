@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] internal GameObject ArcherEnemy;
     [SerializeField] internal GameObject FirstStageBoss;
     [SerializeField] internal GameObject SecondStageBoss;
+    internal bool piercingPlayer;
     public static LevelManager Instance { get; private set; }
 
     private void Awake()

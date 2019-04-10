@@ -64,6 +64,9 @@ public abstract class Skill : MonoBehaviour
 
     public virtual void Play()
     {
+        if (LevelManager.Instance.piercingPlayer) {    // Can't use ability when enemy is piercing player
+            return;
+        }
         _isPlaying = true;
         TimePlayed = Time.time;
     }

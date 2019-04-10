@@ -48,7 +48,7 @@ MonoBehaviour:
       type: 2}
     sounds:
     - name: DimensionLeapPreparing
-      clip: {fileID: 8300000, guid: d136bd02d947bb64b8a6dd5fe0c5e64a, type: 3}
+      clip: {fileID: 8300000, guid: 987ed211e084d094586efa3e626bfd3a, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: HeadCatchExplode
-      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+    - name: DefendSucceed
+      clip: {fileID: 8300000, guid: 2285461bd0abbc64fb5fbc863a510326, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
-      loop: 0
+      loop: 1
       source: {fileID: 0}
     - name: PierceHitWall
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}

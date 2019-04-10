@@ -50,6 +50,7 @@ public class FirstStageBoss : Enemy
     {
         if (ignoreKnockUpTimeLeft > 0f) return;
         base.GetKnockUp(force);
+        LevelManager.Instance.piercingPlayer = false;
     }
 
     public override void StandUp()
@@ -61,7 +62,9 @@ public class FirstStageBoss : Enemy
     protected override void Die()
     {
         base.Die();
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"Die");
         onFirstStageBossDieCallback?.Invoke();
+        LevelManager.Instance.piercingPlayer = false;
     }
 
     public void LockEnemyMove()
@@ -94,6 +97,7 @@ public class FirstStageBoss : Enemy
                 {
                     rb.velocity = new Vector3(0, rb.velocity.y, 0);
                     animator.SetTrigger("Attack");
+                    AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"BasicAttack");
 
                     nextAttackTime = Time.time + 1 / attackSpeed;
                 }
@@ -135,7 +139,11 @@ public class FirstStageBoss : Enemy
         if (ignoreKnockUpTimeLeft > 0)
             return;
         base.TakeDamage(damage);
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"IsHit");
+        LevelManager.Instance.piercingPlayer = false;
     }
+    
+    
 
     
 

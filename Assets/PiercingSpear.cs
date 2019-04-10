@@ -28,49 +28,48 @@ public class PiercingSpear : BossAbility
     {
         if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear"))
         {
-            if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage && PlayerProperty.playerClass.hp > 0)
+            if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage && PlayerProperty.playerClass.hp > 0 && PlayerProperty.playerClass.invincibleTimeRemains<=0)
             {
                 tookDamageInFirstStage = true;
-                piercingPlayer = true;
+                LevelManager.Instance.piercingPlayer = true;
                 AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitPlayer");
                 PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
                 PlayerProperty.playerClass.TakeDamage(5);
-                PlayerProperty.playerClass.ResetInvincibleTime();
+                PlayerProperty.playerClass.invincibleTimeRemains = 5f;
 //                PlayerProperty.playerClass.GetKnockOff(transform.position);
                 
                 PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
-            if (pierceRight )
+            if (pierceRight)
             {
-                if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
-                {
-                    PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
+                if (LevelManager.Instance.piercingPlayer) {
+                    if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
+                    {
+                        PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
 
-                    PlayerProperty.player.transform.position = transform.position+new Vector3(3,0,0);
+                        PlayerProperty.player.transform.position = transform.position+new Vector3(3,0,0);
 
+                    }    
                 }
+                
                 transform.parent.GetComponent<FirstStageBoss>().Flip(true);
                 rb.AddForce(new Vector3(pierceSpeed,0,0));
-//                if (piercingSpearHitBox.playerInRange())
-                {
-//                    PlayerProperty.player.transform.position += new Vector3(25*Time.fixedDeltaTime,0,0);
-                }
             }
-            else
+            if(!pierceRight)
             {
-                if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
-                {
-                    PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
+                if (LevelManager.Instance.piercingPlayer) {
+                    if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
+                    {
+                        PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
 
-                    PlayerProperty.player.transform.position = transform.position+new Vector3(-3,0,0);
+                        PlayerProperty.player.transform.position = transform.position+new Vector3(-3,0,0);
+                    }
                 }
+                
 
                 transform.parent.GetComponent<FirstStageBoss>().Flip(false);
                 rb.AddForce(new Vector3(-pierceSpeed,0,0));
-//                if (piercingSpearHitBox.playerInRange())
-                {
-//                    PlayerProperty.player.transform.position += new Vector3(-25*Time.fixedDeltaTime,0,0);
-                }
+
             }
         }
     }
@@ -110,11 +109,11 @@ public class PiercingSpear : BossAbility
             AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitWall");
             transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
             print("Hit wall");
-            if (piercingPlayer)
+            if (LevelManager.Instance.piercingPlayer)
             {
-                piercingPlayer = false;
+                LevelManager.Instance.piercingPlayer = false;
                 PlayerProperty.controller.canControl = true;
-
+                PlayerProperty.playerClass.ResetInvincibleTime();
                 if (pierceRight)
                 {
                     PlayerProperty.playerClass.GetKnockOff(PlayerProperty.player.transform.position+new Vector3(-2,0,0),new Vector3(15,15,0));
