@@ -936,7 +936,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254278671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d573a461fddb9f428605d603cbbb154, type: 2}
   m_CullingMode: 0
@@ -5515,7 +5515,7 @@ PrefabInstance:
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.98
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
@@ -5575,62 +5575,62 @@ PrefabInstance:
     - target: {fileID: 32000671916224573, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5519
+      value: 0.049143
       objectReference: {fileID: 0}
     - target: {fileID: 32000671916224573, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 6625889549928318553, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 6625889549928318553, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0115
+      value: 1.0112
       objectReference: {fileID: 0}
     - target: {fileID: 6671748228108268614, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0108
+      value: 1.0111
       objectReference: {fileID: 0}
     - target: {fileID: 6671748228108268614, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 2286316922003607120, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5749
+      value: 1.9733
       objectReference: {fileID: 0}
     - target: {fileID: 2286316922003607120, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 2540736058835152938, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 2540736058835152938, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0115
+      value: 1.0112
       objectReference: {fileID: 0}
     - target: {fileID: 4984641007632625249, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0108
+      value: 1.0111
       objectReference: {fileID: 0}
     - target: {fileID: 4984641007632625249, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.71269774
+      value: 0.1924284
       objectReference: {fileID: 0}
     - target: {fileID: 32000671916224570, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
@@ -8639,6 +8639,30 @@ PrefabInstance:
       propertyPath: selfDropPanel
       value: 
       objectReference: {fileID: 32000673680870167, guid: 4b098efcc353ecc44825602dcbfb2efb,
+        type: 3}
+    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: patrolEnemy
+      value: 
+      objectReference: {fileID: 7280185882751371423, guid: 00adc24f8a7f7b44488b150463ce8f7d,
+        type: 3}
+    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: ArcherEnemy
+      value: 
+      objectReference: {fileID: 8994724862319612634, guid: 5c7ded175517d9140b300279c1aec5c4,
+        type: 3}
+    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: FirstStageBoss
+      value: 
+      objectReference: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
+        type: 3}
+    - target: {fileID: 2177889125576263507, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: SecondStageBoss
+      value: 
+      objectReference: {fileID: 8481021725361355576, guid: 1f9ad15104c547547bb8e7c336aa315a,
         type: 3}
     - target: {fileID: 2177889125111506746, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
