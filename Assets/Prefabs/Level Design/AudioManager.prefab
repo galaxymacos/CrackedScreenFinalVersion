@@ -120,18 +120,24 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Counter Attack
+      clip: {fileID: 8300000, guid: 2f3e1688336f1d9479a1c420ea7199e3, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: HeadCatchPerform
       clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: Defend
+    - name: HeadCatchExplode
       clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: Defend
+    - name: HeadCatchExplode
       clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
       volume: 1
       pitch: 1
@@ -177,7 +183,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: Stomp
+    - name: TornadoStomp
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
@@ -207,13 +213,13 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: Move
+    - name: TornadoJump
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: Move
+    - name: None
       clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
       volume: 1
       pitch: 1
@@ -300,19 +306,19 @@ MonoBehaviour:
       type: 2}
     sounds:
     - name: DialogueBoxOpen
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: d6b4985e63b918949a3ffe921fb677b3, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueBoxClose
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: d6b4985e63b918949a3ffe921fb677b3, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueLetterPop
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: c7bdadbde6447df4abcab4873eede56d, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -324,13 +330,19 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: PauseGame
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: afb6ed254e034ac4098f1e98b0c39b4a, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: ResumeGame
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: afb6ed254e034ac4098f1e98b0c39b4a, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: GameOver
+      clip: {fileID: 8300000, guid: 125da6234e8d7b9478ae153dcf4606b2, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -339,27 +351,39 @@ MonoBehaviour:
     AudioMixerGroup: {fileID: 243928605391016854, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
     sounds:
-    - name: ChapterOne
-      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
-      volume: 1
+    - name: ChapterOneBegin
+      clip: {fileID: 8300000, guid: 9f52750aa06e52143be73d05ddc98a52, type: 3}
+      volume: 0.3
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: ChapterTwo
+    - name: ChapterTwoBegin
       clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
-      volume: 1
+      volume: 0.3
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: ChapterOneFinalBoss
-      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
-      volume: 1
+    - name: ChapterOneBossFight
+      clip: {fileID: 8300000, guid: 40a36eab22a26074a9f11a881e759230, type: 3}
+      volume: 0.3
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: ChapterTwoFinalBoss
+    - name: ChapterTwoBossFight
       clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
-      volume: 1
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: ChapterOneMid
+      clip: {fileID: 8300000, guid: f2804956dfa3d7245bf3ec199011e72e, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: ChapterTwoBossFight
+      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
+      volume: 0.1
       pitch: 1
       loop: 1
       source: {fileID: 0}

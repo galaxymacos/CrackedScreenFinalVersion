@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     private PlayerMovement _playerMovement;
 
     [SerializeField] private InputMaster controls;
-    private readonly float counterAttackActivationDuration = 0.3f;
+    [SerializeField] float counterAttackActivationDuration = 0.5f;
 
     private float counterAttackTimeRemains;
     [SerializeField] private Skill[] playerSkills;
@@ -101,8 +101,11 @@ public class PlayerCombat : MonoBehaviour
 
     public void HandleCounterAttack(InputAction.CallbackContext context)
     {
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend && counterAttackTimeRemains > 0)
+        print("try handling counter attack");
+        if (counterAttackTimeRemains > 0)
         {
+            print("counter attack succeed");
+
             playerSkills[5].Play();
             counterAttackTimeRemains = 0;
         }
@@ -142,7 +145,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (_playerMovement.playerCurrentState == PlayerMovement.PlayerState.Defend && counterAttackTimeRemains > 0)
+        print(counterAttackTimeRemains);
+        if (counterAttackTimeRemains > 0)
         {
             counterAttackTimeRemains -= Time.deltaTime;
         }

@@ -71,25 +71,36 @@ public class AudioManager : MonoBehaviour
     }
 
     internal string currentBgm = "";
+    internal string prevBgm = "";
+
+    public void ChangeBgm(string newBgm) {
+        prevBgm = currentBgm;
+        currentBgm = newBgm;
+    }
 
     private void Start()
     {
+        for (int i = 0; i < soundDictionary[AudioGroup.Bgm].sounds.Length; i++) {
+            PlaySound(AudioGroup.Bgm,soundDictionary[AudioGroup.Bgm].sounds[i].name);
+            soundDictionary[AudioGroup.Bgm].sounds[i].source.volume = 0f;
+        }
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            currentBgm = "ChapterOneBegin";
+            ChangeBgm("ChapterOneBegin");
             print("switch to chapter one bgm");
 
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            currentBgm = "ChapterTwoBegin";
+            ChangeBgm("ChapterTwoBegin");
         }
-        PlaySound(AudioGroup.Bgm,currentBgm);
+
+        
     }
 
     private void Update()
     {
-        SwitchBgm(currentBgm);
+        SwitchBgm();
     }
 
     public void PlaySound(AudioGroup audioGroup, string soundName)
@@ -132,24 +143,22 @@ public class AudioManager : MonoBehaviour
     private string targetBgm;
 
 
-    public void SwitchBgm(string soundName)
+    public void SwitchBgm()
     {
         for (int i = 0; i < BackgroundMusics.sounds.Length; i++)
         {
-            if (BackgroundMusics.sounds[i].name != soundName)
+            if (BackgroundMusics.sounds[i].name == prevBgm)
             {
                 if (BackgroundMusics.sounds[i].source.volume > 0)
                 {
                     BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/4;
                 }
             }
-            else
-            {
-                if (BackgroundMusics.sounds[i].source.volume < BackgroundMusics.sounds[i].volume)
-                {
-                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime/4;
+
+            if (BackgroundMusics.sounds[i].name == currentBgm) {
+                if (BackgroundMusics.sounds[i].source.volume < BackgroundMusics.sounds[i].volume) {
+                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime / 4;
                 }
-                
             }
         }
     }
