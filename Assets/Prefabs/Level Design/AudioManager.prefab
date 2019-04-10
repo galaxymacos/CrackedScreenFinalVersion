@@ -300,19 +300,19 @@ MonoBehaviour:
       type: 2}
     sounds:
     - name: DialogueBoxOpen
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: d6b4985e63b918949a3ffe921fb677b3, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueBoxClose
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: d6b4985e63b918949a3ffe921fb677b3, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DialogueLetterPop
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: c7bdadbde6447df4abcab4873eede56d, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -324,13 +324,19 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: PauseGame
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: afb6ed254e034ac4098f1e98b0c39b4a, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: ResumeGame
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: afb6ed254e034ac4098f1e98b0c39b4a, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: GameOver
+      clip: {fileID: 8300000, guid: 125da6234e8d7b9478ae153dcf4606b2, type: 3}
       volume: 1
       pitch: 1
       loop: 0
