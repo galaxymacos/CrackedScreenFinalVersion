@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5438854329111970602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.74, y: 2.99, z: 0}
+  m_LocalPosition: {x: 0.037, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5438854329331403861}
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5438854329331403863}
   - component: {fileID: 5438854329331403862}
   - component: {fileID: 5438854329331403857}
+  - component: {fileID: 2011474553}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 5438854329331403856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.98, y: -15.88, z: 4.52}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 103.70612, y: 1, z: 13.695}
   m_Children:
   - {fileID: 5438854329111970603}
   - {fileID: 5438854330266105889}
@@ -80,10 +81,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPlace:
   - {fileID: 5438854329111970603}
-  - {fileID: 5438854330266105889}
   enemyToSpawn:
-  - {fileID: 7280185882751371423, guid: 00adc24f8a7f7b44488b150463ce8f7d, type: 3}
-  - {fileID: 8994724862319612634, guid: 5c7ded175517d9140b300279c1aec5c4, type: 3}
+  - {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a, type: 3}
+  barrier: {fileID: 0}
 --- !u!65 &5438854329331403863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,6 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2011474553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438854329331403856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944d1616f9b04b34cbf15855c2513292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmName: ChapterOneBossFight
 --- !u!1 &5438854330266105888
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5438854330266105888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.29, y: 2.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5438854329331403861}
