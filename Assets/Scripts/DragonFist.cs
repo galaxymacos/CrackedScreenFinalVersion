@@ -76,6 +76,7 @@ public class DragonFist : BossAbility
         animator.SetTrigger("DragonFist");
         LevelManager.Instance.isDashingForward = true;
         isDashingRight = PlayerProperty.playerPosition.x > transform.position.x;
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss, "DragonFistDash");
 
     }
 
@@ -83,6 +84,7 @@ public class DragonFist : BossAbility
     {
         LevelManager.Instance.isDashingForward = false;
         hasBumpPlayer = false;
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss, "DragonFistStrike");
         if(isDashingRight && dragonFistHitBoxRight.playerInRange() || !isDashingRight && dragonFistHitBoxLeft.playerInRange())
         {
             if (PlayerProperty.playerClass.GetKnockOff(transform.position, new Vector3(0, dragonFistFlyKnockUpForce, 0))

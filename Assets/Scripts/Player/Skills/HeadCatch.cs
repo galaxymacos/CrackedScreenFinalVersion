@@ -34,36 +34,54 @@ public class HeadCatch : Skill
                 _skillNotOnCooldown = true;
             }
         }
+
+
         
-        if (hasSuckEnemy && suckEnemyDurationLeft > 0)
+        if (suckEnemyDurationLeft > 0)
         {
-            enemyPicked.transform.position = skillHitBox.transform.position;
-
             suckEnemyDurationLeft -= Time.deltaTime;
-            if (suckEnemyDurationLeft <= 0)
+            if (!hasSuckEnemy && suckEnemyDurationLeft<=0)
             {
-                if (enemyPicked == null || !enemyPickedIsHitToAir)
-                {
-                    return;
-                }
-                enemyPicked.GetComponent<Enemy>().enabled = true;
-
-                if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
-                {
-                    enemyPicked.GetComponent<Enemy>().GetKnockUp(enemyKnockUpForce);
-                }
-                else
-                {
-                    enemyPicked.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
-                }
-                AudioManager.instance.PlaySound(AudioGroup.Character,"HeadCatchExplode");
-                enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
-                var explodeEffect = Instantiate(explodeParticleEffect, explodeSpawnPlace.position, explodeSpawnPlace.rotation);
-                explodeEffect.transform.parent = null;
-
-                enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
+                PlayerProperty.animator.SetTrigger("HeadCatchEmpty");
                 hasSuckEnemy = false;
+                print("Didn't absorb anyone");
+                return;
             }
+
+            if (hasSuckEnemy)
+            {
+                enemyPicked.transform.position = skillHitBox.transform.position;
+
+                if (suckEnemyDurationLeft <= 0)
+                {
+                    if (enemyPicked == null || !enemyPickedIsHitToAir)
+                    {
+                        hasSuckEnemy = false;
+                        return;
+                    }
+
+                    enemyPicked.GetComponent<Enemy>().enabled = true;
+
+                    if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
+                    {
+                        enemyPicked.GetComponent<Enemy>().GetKnockUp(enemyKnockUpForce);
+                    }
+                    else
+                    {
+                        enemyPicked.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
+                    }
+                    AudioManager.instance.PlaySound(AudioGroup.Character,"HeadCatchExplode");
+                    enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
+                
+                    // TODO enable headcatch explode effect if necessery
+//                var explodeEffect = Instantiate(explodeParticleEffect, explodeSpawnPlace.position, explodeSpawnPlace.rotation);
+//                explodeEffect.transform.parent = null;
+
+                    enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
+                    hasSuckEnemy = false;
+                }
+            }
+            
         }
     }
 
@@ -87,6 +105,7 @@ public class HeadCatch : Skill
 
             _skillNotOnCooldown = false;
             base.Play();
+            suckEnemyDurationLeft = suckEnemyDuration;
 
             if (!hasSuckEnemy)
             {
@@ -97,7 +116,6 @@ public class HeadCatch : Skill
                     {
                         if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
                         {
-                            suckEnemyDurationLeft = suckEnemyDuration;
                             hasSuckEnemy = true;
                             enemyPickedIsHitToAir = true;
                             enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);

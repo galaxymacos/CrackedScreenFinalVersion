@@ -117,7 +117,7 @@ public class SecondStageBoss : Enemy
                animator.GetCurrentAnimatorStateInfo(0).IsName("DashUppercut") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("HomeRun") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("AirFruitNinja") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("BaseballAttack");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("BaseBallAttack");
     }
 
     public bool IsHitOnAirOrLayDown()
