@@ -30,6 +30,77 @@ Transform:
   m_Father: {fileID: 8481021725361355582}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2073899208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073899209}
+  - component: {fileID: 2073899212}
+  - component: {fileID: 2073899211}
+  - component: {fileID: 2073899210}
+  m_Layer: 0
+  m_Name: DragonFistHitBoxRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073899209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073899208}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.4200134, y: 3.5099945, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4602441305582608991}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2073899212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073899208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.36, y: 13.06, z: 1}
+  m_Center: {x: 3.75, y: 1.32, z: 0}
+--- !u!114 &2073899211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073899208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerToDetect: Player
+--- !u!114 &2073899210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073899208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2111787329
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2201403939228605069
+--- !u!1 &4259944892851707818
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,64 +180,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7734275686605384240}
-  - component: {fileID: 3950206475542617657}
-  - component: {fileID: 175622536155093459}
-  - component: {fileID: 1974126252627906461}
+  - component: {fileID: 6328729289458876667}
+  - component: {fileID: 3491220622684684291}
+  - component: {fileID: 4706029713708786845}
+  - component: {fileID: 7361034337685312229}
   m_Layer: 0
-  m_Name: DragonFistHitBox (1)
+  m_Name: DragonFistHitBoxLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7734275686605384240
+--- !u!4 &6328729289458876667
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201403939228605069}
+  m_GameObject: {fileID: 4259944892851707818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: 4.100006, z: 0}
+  m_LocalPosition: {x: -9.929993, y: 3.5099945, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8481021725361355582}
-  m_RootOrder: 5
+  m_Father: {fileID: 4602441305582608991}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3950206475542617657
+--- !u!65 &3491220622684684291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259944892851707818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.36, y: 13.06, z: 1}
+  m_Center: {x: 3.75, y: 1.32, z: 0}
+--- !u!114 &4706029713708786845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201403939228605069}
+  m_GameObject: {fileID: 4259944892851707818}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerToDetect: Player
---- !u!65 &175622536155093459
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201403939228605069}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.67, y: 12.71, z: 4}
-  m_Center: {x: 6, y: 1.43, z: 0}
---- !u!114 &1974126252627906461
+--- !u!114 &7361034337685312229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201403939228605069}
+  m_GameObject: {fileID: 4259944892851707818}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
@@ -199,8 +270,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5194356563862641732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2647, y: 0.66685, z: 0}
-  m_LocalScale: {x: 0.83929497, y: 0.25394, z: 1}
+  m_LocalPosition: {x: -2.2525, y: 0.66685, z: 0}
+  m_LocalScale: {x: 0.58749807, y: 0.25394, z: 1}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
   m_RootOrder: 9
@@ -241,6 +312,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8480341605412132005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4602441305582608991}
+  - component: {fileID: 8480341605412132006}
+  m_Layer: 9
+  m_Name: DragonFistHitBoxes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4602441305582608991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480341605412132005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2073899209}
+  - {fileID: 6328729289458876667}
+  m_Father: {fileID: 8481021725361355582}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8480341605412132006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480341605412132005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0e49dc7c8c3234a962c780bb798023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8481021724713760885
@@ -704,7 +820,7 @@ Transform:
   - {fileID: 8481021725202103637}
   - {fileID: 1881336951}
   - {fileID: 2652205189285035684}
-  - {fileID: 7734275686605384240}
+  - {fileID: 4602441305582608991}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -907,7 +1023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashingSpeed: 10
   dragonFistFlyKnockUpForce: 37
-  dragonFistHitBox: {fileID: 3950206475542617657}
+  dragonFistHitBoxLeft: {fileID: 4706029713708786845}
+  dragonFistHitBoxRight: {fileID: 2073899211}
   dragonFistDashHitBox: {fileID: 2111787333}
   followHomeRunChance: 0.5
 --- !u!114 &8481021725361355556

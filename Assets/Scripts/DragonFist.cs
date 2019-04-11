@@ -15,7 +15,8 @@ public class DragonFist : BossAbility
 
     [SerializeField] private float dragonFistFlyKnockUpForce = 1000f;
 
-    [SerializeField] private EnemyDetector dragonFistHitBox;
+    [SerializeField] private EnemyDetector dragonFistHitBoxLeft;
+    [SerializeField] private EnemyDetector dragonFistHitBoxRight;
     [SerializeField] private EnemyDetector dragonFistDashHitBox;
 
     [SerializeField] private float followHomeRunChance = 0.5f;
@@ -30,7 +31,6 @@ public class DragonFist : BossAbility
     // Update is called once per frame
     void Update()
     {
-        print("Player in dragon fist range? "+ dragonFistHitBox.playerInRange());
         if (LevelManager.Instance.isDashingForward)
         {
             if (isDashingRight)
@@ -82,9 +82,9 @@ public class DragonFist : BossAbility
     public void DragonFistStrike()
     {
         LevelManager.Instance.isDashingForward = false;
-        if (hasBumpPlayer)
+        hasBumpPlayer = false;
+        if(isDashingRight && dragonFistHitBoxRight.playerInRange() || !isDashingRight && dragonFistHitBoxLeft.playerInRange())
         {
-            hasBumpPlayer = false;
             if (PlayerProperty.playerClass.GetKnockOff(transform.position, new Vector3(0, dragonFistFlyKnockUpForce, 0))
             )
             {
@@ -112,4 +112,7 @@ public class DragonFist : BossAbility
         }
     }
 
+    private void OnDrawGizmos()
+    {
+    }
 }
