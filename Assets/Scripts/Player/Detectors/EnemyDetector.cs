@@ -18,18 +18,24 @@ public class EnemyDetector : MonoBehaviour
         _enemiesInRange = new List<Collider>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer(layerToDetect))
-            _enemiesInRange.Add(other);
+        {
+            if (!_enemiesInRange.Contains(other))
+            {
+                _enemiesInRange.Add(other);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer(layerToDetect))
-
             _enemiesInRange.Remove(other);
     }
+
+ 
 
     public bool playerInRange()
     {

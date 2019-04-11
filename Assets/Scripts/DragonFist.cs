@@ -30,7 +30,8 @@ public class DragonFist : BossAbility
     // Update is called once per frame
     void Update()
     {
-        if (isDashingForward)
+        print("Player in dragon fist range? "+ dragonFistHitBox.playerInRange());
+        if (LevelManager.Instance.isDashingForward)
         {
             if (isDashingRight)
             {
@@ -39,8 +40,13 @@ public class DragonFist : BossAbility
                 {
                     if (!hasBumpPlayer)
                     {
-                        PlayerProperty.playerClass.GetKnockOff(transform.position, new Vector3(20,0,0));
-                        hasBumpPlayer = true;
+                        bool playerIsKnockOff = PlayerProperty.playerClass.GetKnockOff(PlayerProperty.playerPosition-new Vector3(2,0,0), new Vector3(-20,0,0));
+                        if (playerIsKnockOff)
+                        {
+                            PlayerProperty.playerClass.ResetInvincibleTime();
+                            hasBumpPlayer = true;    
+                        }
+                        
                     }
                 }
             }
@@ -51,47 +57,43 @@ public class DragonFist : BossAbility
                 {
                     if (!hasBumpPlayer)
                     {            
-                        PlayerProperty.playerClass.GetKnockOff(transform.position, new Vector3(-20,0,0));
-                        hasBumpPlayer = true;
+                        bool playerIsKnockOff = PlayerProperty.playerClass.GetKnockOff(PlayerProperty.playerPosition+new Vector3(2,0,0), new Vector3(-20,0,0));
+                        if (playerIsKnockOff)
+                        {
+                            PlayerProperty.playerClass.ResetInvincibleTime();
+                            hasBumpPlayer = true;    
+                        }
                     }
                 }
             }
 
             
         }
-
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
-        {
-            isDashingForward = false;
-        }
     }
 
     public override void Play()
     {
         animator.SetTrigger("DragonFist");
-        isDashingForward = true;
+        LevelManager.Instance.isDashingForward = true;
         isDashingRight = PlayerProperty.playerPosition.x > transform.position.x;
 
     }
 
     public void DragonFistStrike()
     {
-        isDashingForward = false;
-        if (dragonFistHitBox.playerInRange())
+        LevelManager.Instance.isDashingForward = false;
+        if (hasBumpPlayer)
         {
+            hasBumpPlayer = false;
             if (PlayerProperty.playerClass.GetKnockOff(transform.position, new Vector3(0, dragonFistFlyKnockUpForce, 0))
             )
             {
+                PlayerProperty.playerClass.TakeDamage(10);
                 Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize/0.7f);
                 GetComponent<SecondStageBoss>().hasEnlargedCameraDragonFist = true;
-            }
-            if (PlayerProperty.playerClass.TakeDamage(10))
-            {
                 PlayerProperty.playerClass.ResetInvincibleTime();    // Player not invincible after it is knocked up by dragon fist
                 animator.SetBool("DragonFistHitPlayer",true);
             }
-            
-
         }
     }
 

@@ -23,6 +23,7 @@ public class SecondStageBoss : Enemy
     protected override void Start()
     {
         OnChangeEnemyStateCallback += AnimateEnemy;
+        OnChangeEnemyStateCallback += SpawnEnemyWhenStandUp;
         specialAttackTimeRemains = specialAttackInterval;
         base.Start();
     }
@@ -36,6 +37,7 @@ public class SecondStageBoss : Enemy
             return;
         }
         base.GetKnockUp(force);
+        LevelManager.Instance.isDashingForward = false;
     }
 
     public override void StandUp()
@@ -82,6 +84,7 @@ public class SecondStageBoss : Enemy
             return;
         }
         base.TakeDamage(damage);
+        LevelManager.Instance.isDashingForward = false;
     }
 
     private void PlayerFlickerWhenTakeDamage()
@@ -133,13 +136,13 @@ public class SecondStageBoss : Enemy
         {
             ignoreKnockUpTimeLeft -= Time.deltaTime;
         }
-        if (_enemyCurrentState == EnemyState.Standing)
+        if (_enemyCurrentState == EnemyState.Standing && !AnimationPlaying())
         {
             FaceBasedOnPlayerPosition();
             
             if (autoAttackRange.playerInRange())
             {
-                if (attackCooldownUp() && !AnimationPlaying())
+                if (attackCooldownUp())
                 {
                     rb.velocity = new Vector3(0,rb.velocity.y,0);
                     animator.SetTrigger("Attack");
@@ -148,16 +151,10 @@ public class SecondStageBoss : Enemy
                 }
             }
 
-            if (!AnimationPlaying()) {
-                specialAttackTimeRemains -= Time.deltaTime;
-                if (specialAttackTimeRemains <= 0)
-                {
-
-                    if (!AnimationPlaying())
-                    {
-                        SpecialAttack();
-                    }
-                }
+            specialAttackTimeRemains -= Time.deltaTime;
+            if (specialAttackTimeRemains <= 0)
+            {
+                SpecialAttack();
             }
             
         }
@@ -182,9 +179,6 @@ public class SecondStageBoss : Enemy
     {
         return Time.time >= nextAttackTime;
     }
-
-    [SerializeField] private EnemyDetector playerInAttackRangeDetector;
-    private bool playerInAttackRange => playerInAttackRangeDetector.playerInRange();
 
     public override void FixedUpdate()
     {
@@ -214,7 +208,7 @@ public class SecondStageBoss : Enemy
     public override void Move()
     {
             
-            if (!playerInAttackRange)
+            if (!autoAttackRange.playerInRange())
             {
                 rb.velocity = new Vector3(PlayerDirectionInPlane().x * moveSpeed,rb.velocity.y,PlayerDirectionInPlane().z*moveSpeed);
             }
@@ -261,35 +255,56 @@ public class SecondStageBoss : Enemy
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
+    private bool[] hasSpawnedEnemy = new bool[4];
+
     public void SpawnEnemyWhenStandUp(EnemyState enemyState)
     {
         if (enemyState == EnemyState.Standing)
         {
             if (HP / maxHp > 0.8)
             {
-                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
-                    Quaternion.identity);
+                if (!hasSpawnedEnemy[0])
+                {
+                    Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
+                        Quaternion.identity);
+                    hasSpawnedEnemy[0] = true;
+                }
+                
             }
-            else if (HP / maxHp > 0.5)
+            else if (HP / maxHp > 0.6 )
             {
-                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
-                    Quaternion.identity);
+                if (!hasSpawnedEnemy[1])
+                {
+                    Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
+                        Quaternion.identity);
+                    hasSpawnedEnemy[1] = true;
+                }
+                
             }
-            else if(HP/maxHp>0.2)
+            else if(HP/maxHp>0.4)
             {
-                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
-                    Quaternion.identity);
-                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
-                    Quaternion.identity);
+                if (!hasSpawnedEnemy[2])
+                {
+                    Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
+                        Quaternion.identity);
+                    Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
+                        Quaternion.identity);
+                    hasSpawnedEnemy[2] = true;    
+                }
+                
             }
             else
             {
-                GameObject firstStageBossIns = Instantiate(LevelManager.Instance.FirstStageBoss, transform.position + new Vector3(3, 3),
-                    Quaternion.identity);
-                firstStageBossIns.GetComponent<FirstStageBoss>().canSummon = false;
-                firstStageBossIns.GetComponent<FirstStageBoss>().HP /= 2;
-                firstStageBossIns.GetComponent<FirstStageBoss>().maxHp /= 2;
+                if (!hasSpawnedEnemy[3])
+                {
+                    GameObject firstStageBossIns = Instantiate(LevelManager.Instance.FirstStageBoss, transform.position + new Vector3(3, 3),
+                        Quaternion.identity);
+                    firstStageBossIns.GetComponent<FirstStageBoss>().canSummon = false;
+                    firstStageBossIns.GetComponent<FirstStageBoss>().HP /= 2;
+                    firstStageBossIns.GetComponent<FirstStageBoss>().maxHp /= 2;
+                    hasSpawnedEnemy[3] = true;    
+                }
+                
             }
         }
     }
