@@ -35,8 +35,8 @@ public class DragonFist : BossAbility
                 transform.Translate(new Vector3(dashingSpeed*Time.deltaTime,0,0));
                 if (dragonFistDashHitBox.playerInRange() && !PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") && PlayerProperty.playerClass.invincibleTimeRemains<=0)
                 {
-                    PlayerProperty.playerClass.GetKnockOff(transform.position);
-                    PlayerProperty.player.transform.position = transform.position + new Vector3(5, 0, 0);
+//                    PlayerProperty.playerClass.GetKnockOff(transform.position);
+//                    PlayerProperty.player.transform.position = transform.position + new Vector3(5, 0, 0);
                 }
             }
             else
@@ -44,9 +44,9 @@ public class DragonFist : BossAbility
                 transform.Translate(new Vector3(-dashingSpeed*Time.deltaTime,0,0));
                 if (dragonFistDashHitBox.playerInRange() && !PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") && PlayerProperty.playerClass.invincibleTimeRemains<=0)
                 {
-                    PlayerProperty.playerClass.GetKnockOff(transform.position);
+//                    PlayerProperty.playerClass.GetKnockOff(transform.position);
 
-                    PlayerProperty.player.transform.position = transform.position + new Vector3(-5, 0, 0);
+//                    PlayerProperty.player.transform.position = transform.position + new Vector3(-5, 0, 0);
                 }
             }
 

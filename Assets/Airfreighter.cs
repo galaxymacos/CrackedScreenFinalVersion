@@ -14,7 +14,7 @@ public class Airfreighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDetector.playerInRange())
+        if (playerDetector && playerDetector.playerInRange())
         {
             GetComponent<FloatingPanel>().enabled = true;
         }

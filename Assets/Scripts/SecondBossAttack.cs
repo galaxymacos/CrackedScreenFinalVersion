@@ -10,28 +10,31 @@ public class SecondBossAttack : MonoBehaviour
     public void BasicAttackHitPlayer(int attackIndex)
     {
         switch (attackIndex) {
-            case 1: 
+            case 0: 
                 AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackFirstStrike");
                 break;
-            case 2: 
+            case 1: 
                 AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackSecondStrike");
                 break;
-            case 3: 
+            case 2: 
                 AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackThirdStrike");
                 break;
         }
+        print(attackIndex);
         if (strikeHitBoxs[attackIndex].playerInRange())
         {
-            if (attackIndex == 5)     // If it is the last strike of the basic attack, deal extra damage and knock up player
+            if (attackIndex == 2)     // If it is the last strike of the basic attack, deal extra damage and knock up player
             {
                 PlayerProperty.playerClass.GetKnockOff(transform.position);
                 PlayerProperty.playerClass.TakeDamage(30);
             }
             else
             {
-                PlayerProperty.playerClass.GetKnockOff(transform.position);
+                var knockedOff = PlayerProperty.playerClass.GetKnockOff(transform.position);
                 PlayerProperty.playerClass.TakeDamage(10);
-                PlayerProperty.playerClass.ResetInvincibleTime();
+                if (knockedOff) {
+                    PlayerProperty.playerClass.ResetInvincibleTime();
+                }
             }
         }
     }
