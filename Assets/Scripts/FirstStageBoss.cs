@@ -294,6 +294,8 @@ public class FirstStageBoss : Enemy
         }
     }
 
+    private bool[] hasSpawnedEnemy = new bool[3];
+    
     public void SpawnEnemyWhenStandUp(EnemyState enemyState)
     {
         if (!canSummon)
@@ -301,31 +303,32 @@ public class FirstStageBoss : Enemy
             return;
         }
         
-        
-        
-        
         if (enemyState == EnemyState.Standing)
         {
-            if (HP / maxHp > 0.8)
+            if (HP / maxHp > 0.9)
             {
                 return;
             }
-            else if (HP / maxHp > 0.5)
+            else if (HP / maxHp > 0.6 && !hasSpawnedEnemy[0])
             {
                 Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
                     Quaternion.identity);
+                hasSpawnedEnemy[0] = true;
             }
-            else if(HP/maxHp>0.2)
+            else if(HP/maxHp>0.3 && hasSpawnedEnemy[1])
             {
                 Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
                     Quaternion.identity);
+                hasSpawnedEnemy[1] = true;
             }
-            else
+            else if(!hasSpawnedEnemy[2])
             {
                 Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
                     Quaternion.identity);
                 Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
                     Quaternion.identity);
+                hasSpawnedEnemy[2] = true;
+
             }
         }
     }

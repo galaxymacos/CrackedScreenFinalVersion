@@ -103,6 +103,9 @@ GameObject:
   - component: {fileID: 2101347083126900571}
   - component: {fileID: 2114664843593601978}
   - component: {fileID: 2114664842998977166}
+  - component: {fileID: 1176103732}
+  - component: {fileID: 1176103728}
+  - component: {fileID: 1176103733}
   m_Layer: 0
   m_Name: Floating Platform
   m_TagString: MovingPlatform
@@ -119,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 2101347083126900575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -382.2, y: 50.3, z: 5.1520424}
-  m_LocalScale: {x: 7.03901, y: 1.2569762, z: 8.4472}
+  m_LocalScale: {x: 10, y: 1, z: 8}
   m_Children:
   - {fileID: 2101347081907387509}
   - {fileID: 5092215515694500369}
@@ -156,10 +159,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0325869093716a43a0b84286954ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: 0
+  MoveDirection: 1
   speed: 5
   distance: 10
   movingInPositiveDir: 0
+--- !u!65 &1176103732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101347083126900575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.97, z: 0}
+--- !u!114 &1176103728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101347083126900575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d600f4beaba0ca4d951fa037f7ecdf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1176103733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101347083126900575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerToDetect: Player
 --- !u!1 &2114664843049628111
 GameObject:
   m_ObjectHideFlags: 0

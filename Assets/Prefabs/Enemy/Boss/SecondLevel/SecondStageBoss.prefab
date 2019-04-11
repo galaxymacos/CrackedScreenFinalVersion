@@ -57,11 +57,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111787329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.39, y: 0.66685, z: 0}
-  m_LocalScale: {x: 0.6217, y: 0.25394, z: 1}
+  m_LocalPosition: {x: -2.22, y: 0.18, z: 0}
+  m_LocalScale: {x: 0.37859365, y: 0.2945704, z: 1.16}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2111787333
 MonoBehaviour:
@@ -101,6 +101,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2201403939228605069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7734275686605384240}
+  - component: {fileID: 3950206475542617657}
+  - component: {fileID: 175622536155093459}
+  - component: {fileID: 1974126252627906461}
+  m_Layer: 0
+  m_Name: DragonFistHitBox (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7734275686605384240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201403939228605069}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.83, y: 4.100006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8481021725361355582}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3950206475542617657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201403939228605069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerToDetect: Player
+--- !u!65 &175622536155093459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201403939228605069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.67, y: 12.71, z: 4}
+  m_Center: {x: 6, y: 1.43, z: 0}
+--- !u!114 &1974126252627906461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201403939228605069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5194356563862641732
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,11 +199,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5194356563862641732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.39, y: 0.66685, z: 0}
-  m_LocalScale: {x: 0.6217, y: 0.25394, z: 1}
+  m_LocalPosition: {x: -3.2647, y: 0.66685, z: 0}
+  m_LocalScale: {x: 0.83929497, y: 0.25394, z: 1}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7990941295812334881
 MonoBehaviour:
@@ -438,7 +509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8481021724903087266
 BoxCollider:
@@ -582,7 +653,6 @@ Transform:
   - {fileID: 8481021724953419184}
   - {fileID: 8481021726719214059}
   - {fileID: 8481021724895831049}
-  - {fileID: 8481021726579908789}
   - {fileID: 8481021725562623366}
   - {fileID: 8481021724903087292}
   - {fileID: 2111787330}
@@ -634,6 +704,7 @@ Transform:
   - {fileID: 8481021725202103637}
   - {fileID: 1881336951}
   - {fileID: 2652205189285035684}
+  - {fileID: 7734275686605384240}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -724,14 +795,10 @@ MonoBehaviour:
   moveTowardsPlayer: 0
   BossAbilities:
   - {fileID: 8481021725361355557}
-  - {fileID: 8481021725361355558}
-  - {fileID: 8481021725361355559}
-  - {fileID: 8481021725361355557}
   ignoreKnockUpTime: 3
   autoAttackRange: {fileID: 7990941295812334881}
   specialAttackInterval: 5
   specialAttackTimeRemains: 0
-  playerInAttackRangeDetector: {fileID: 8481021724903087267}
 --- !u!95 &8481021725361355580
 Animator:
   serializedVersion: 3
@@ -840,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashingSpeed: 10
   dragonFistFlyKnockUpForce: 37
-  dragonFistHitBox: {fileID: 8481021726579908791}
+  dragonFistHitBox: {fileID: 3950206475542617657}
   dragonFistDashHitBox: {fileID: 2111787333}
   followHomeRunChance: 0.5
 --- !u!114 &8481021725361355556
@@ -870,9 +937,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeHitBoxs:
-  - {fileID: 8481021724728752114}
   - {fileID: 8481021726397462206}
-  - {fileID: 8481021725721374420}
+  - {fileID: 8481021726397462206}
+  - {fileID: 8481021726397462206}
 --- !u!82 &874373641
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1001,7 +1068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8481021725562623364
 MonoBehaviour:
@@ -1264,7 +1331,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.9173002, y: 1.1227039, z: 1}
-  m_Center: {x: 2.1474898, y: -1.2431005, z: 0}
+  m_Center: {x: 2.1474898, y: -0.55, z: 0}
 --- !u!114 &8481021726397462200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,77 +1357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerToDetect: Player
---- !u!1 &8481021726579908784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8481021726579908789}
-  - component: {fileID: 8481021726579908791}
-  - component: {fileID: 8481021726579908790}
-  - component: {fileID: 3231047578980571744}
-  m_Layer: 0
-  m_Name: DragonFistHitBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8481021726579908789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8481021726579908784}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7999878, y: 4.100006, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8481021725202103637}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8481021726579908791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8481021726579908784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerToDetect: Player
---- !u!65 &8481021726579908790
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8481021726579908784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 9.67, y: 12.71, z: 4}
-  m_Center: {x: 6, y: 1.43, z: 0}
---- !u!114 &3231047578980571744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8481021726579908784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8481021726719214052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,11 +1435,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8481021725361355582}
     m_Modifications:
-    - target: {fileID: 7055322541224790968, guid: dd8e9284dda50414ead28e98fba663f2,
-        type: 3}
-      propertyPath: m_Name
-      value: CanvasFloatingHp
-      objectReference: {fileID: 0}
     - target: {fileID: 7055322541224790971, guid: dd8e9284dda50414ead28e98fba663f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1548,6 +1539,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055322541224790968, guid: dd8e9284dda50414ead28e98fba663f2,
+        type: 3}
+      propertyPath: m_Name
+      value: CanvasFloatingHp
       objectReference: {fileID: 0}
     - target: {fileID: 7055322541098806673, guid: dd8e9284dda50414ead28e98fba663f2,
         type: 3}
