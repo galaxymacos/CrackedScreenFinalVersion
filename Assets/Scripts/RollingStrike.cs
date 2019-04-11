@@ -34,6 +34,8 @@ public class RollingStrike : BossAbility
 
     public override void Play()
     {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"RollingAttackJump");
+        JumpOnPlayer();
         animator.SetTrigger("RollingStrike");
     }
 
@@ -47,10 +49,10 @@ public class RollingStrike : BossAbility
         }
     }
 
-    public void RollingStrikeInitialized()
-    {
-        JumpOnPlayer();
-    }
+//    public void RollingStrikeInitialized()
+//    {
+//        
+//    }
     public void JumpOnPlayer()
     {
         _rigidbody.AddForce(0,jumpForce,0);

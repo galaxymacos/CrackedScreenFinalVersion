@@ -100,7 +100,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        SwitchBgm();
+        UpdateBgm();
     }
 
     public void PlaySound(AudioGroup audioGroup, string soundName)
@@ -143,7 +143,7 @@ public class AudioManager : MonoBehaviour
     private string targetBgm;
 
 
-    public void SwitchBgm()
+    public void UpdateBgm()
     {
         for (int i = 0; i < BackgroundMusics.sounds.Length; i++)
         {
