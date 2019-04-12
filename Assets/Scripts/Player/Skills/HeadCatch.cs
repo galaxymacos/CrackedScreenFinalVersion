@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HeadCatch : Skill
 {
     [SerializeField] private EnemyDetector skillHitBox;
+    [SerializeField] private EnemyDetector aoeHitBox;
     [SerializeField] private int damage;
     [SerializeField] private Vector3 enemyKnockUpForce;
     private bool canRelease;
@@ -14,6 +16,11 @@ public class HeadCatch : Skill
 
     private void Update()
     {
+//        if (!PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
+//        {
+//            PlayerProperty.hasSuckedEnemy = false;
+//        }
+        
         if (PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole") && !canRelease)
         {
             hasReleased = false;
@@ -40,15 +47,14 @@ public class HeadCatch : Skill
         if (suckEnemyDurationLeft > 0)
         {
             suckEnemyDurationLeft -= Time.deltaTime;
-            if (!hasSuckEnemy && suckEnemyDurationLeft<=0)
+            if (!PlayerProperty.hasSuckedEnemy && suckEnemyDurationLeft<=0)
             {
                 PlayerProperty.animator.SetTrigger("HeadCatchEmpty");
-                hasSuckEnemy = false;
                 print("Didn't absorb anyone");
                 return;
             }
 
-            if (hasSuckEnemy)
+            if (PlayerProperty.hasSuckedEnemy)
             {
                 enemyPicked.transform.position = skillHitBox.transform.position;
 
@@ -56,38 +62,41 @@ public class HeadCatch : Skill
                 {
                     if (enemyPicked == null || !enemyPickedIsHitToAir)
                     {
-                        hasSuckEnemy = false;
+                        PlayerProperty.hasSuckedEnemy = false;
                         return;
                     }
 
                     enemyPicked.GetComponent<Enemy>().enabled = true;
 
-                    if (PlayerProperty.playerPosition.x < enemyPicked.transform.position.x)
+                    foreach (Enemy enemy in aoeHitBox._enemiesInRange.Select(col=>col.gameObject.GetComponent<Enemy>()))
                     {
-                        enemyPicked.GetComponent<Enemy>().GetKnockUp(enemyKnockUpForce);
+                        if (PlayerProperty.playerPosition.x < enemy.transform.position.x)
+                        {
+                            enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockUpForce);
+                        }
+                        else
+                        {
+                            enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
+                        }
+                        enemy.GetComponent<Enemy>().TakeDamage(damage);
                     }
-                    else
-                    {
-                        enemyPicked.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockUpForce.x,enemyKnockUpForce.y,enemyKnockUpForce.z));
-                    }
+                    
+
                     AudioManager.instance.PlaySound(AudioGroup.Character,"HeadCatchExplode");
-                    enemyPicked.GetComponent<Enemy>().TakeDamage(damage);
                 
                     // TODO enable headcatch explode effect if necessery
 //                var explodeEffect = Instantiate(explodeParticleEffect, explodeSpawnPlace.position, explodeSpawnPlace.rotation);
 //                explodeEffect.transform.parent = null;
 
                     enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",false);
-                    hasSuckEnemy = false;
+                    PlayerProperty.hasSuckedEnemy = false;
                 }
             }
             
         }
     }
 
-    private bool hasSuckEnemy;
     private float suckEnemyDuration = 1.1f;
-    [SerializeField] private AnimationClip headCatchAnimationClip;
     [SerializeField] private GameObject explodeParticleEffect;
     [SerializeField] private Transform explodeSpawnPlace;
     private float suckEnemyDurationLeft;
@@ -107,7 +116,7 @@ public class HeadCatch : Skill
             base.Play();
             suckEnemyDurationLeft = suckEnemyDuration;
 
-            if (!hasSuckEnemy)
+            if (!PlayerProperty.hasSuckedEnemy)
             {
                 if (Time.time - GameManager.Instance.lastHitEnemyTime < 0.5f)
                 {
@@ -116,7 +125,7 @@ public class HeadCatch : Skill
                     {
                         if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
                         {
-                            hasSuckEnemy = true;
+                            PlayerProperty.hasSuckedEnemy = true;
                             enemyPickedIsHitToAir = true;
                             enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
                             enemyPicked.GetComponent<Enemy>().enabled = false;
@@ -132,7 +141,7 @@ public class HeadCatch : Skill
                     if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
                     {
                         suckEnemyDurationLeft = suckEnemyDuration;
-                        hasSuckEnemy = true;
+                        PlayerProperty.hasSuckedEnemy = true;
                         enemyPickedIsHitToAir = true;
                         enemyPicked.GetComponent<Animator>().SetBool("isBeingSucked",true);
                         print("is being sucked");
@@ -141,7 +150,7 @@ public class HeadCatch : Skill
                     }  
                 }
                 else {
-                    hasSuckEnemy = false;
+                    PlayerProperty.hasSuckedEnemy = false;
                 }
                    
                     

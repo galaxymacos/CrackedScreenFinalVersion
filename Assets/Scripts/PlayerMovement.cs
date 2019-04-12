@@ -55,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     // Player run property
     private float lastWalkTime;
-    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float horizontalMoveSpeed = 10f;
+    [SerializeField] private float verticalMoveSpeed = 6f;
 
     public PlayerState playerCurrentState;
     public PlayerState playerPreviousState;
@@ -64,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 20f;
 
     private float startCountdown;
-    [SerializeField] private float verticalMoveSpeed = 3f;
 
 
     // Start is called before the first frame update
@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 movement = new Vector3(
-                    horizontalMovement * moveSpeed * Time.fixedDeltaTime,
+                    horizontalMovement * horizontalMoveSpeed * Time.fixedDeltaTime,
                     0,
                     verticalMovement * verticalMoveSpeed * Time.fixedDeltaTime
                 );
@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 
                 movement = new Vector3(
-                    horizontalMovement * moveSpeed * Time.fixedDeltaTime,
+                    horizontalMovement * horizontalMoveSpeed * Time.fixedDeltaTime,
                     0,
                     0
                 );

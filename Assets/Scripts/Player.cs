@@ -212,13 +212,14 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
 
     // Player debuff
     public bool TakeDamage(int damage) {
-        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
+        if (IsPlayerInvincible() || PlayerProperty.hasSuckedEnemy)
         {
             return false;
         }
         else
         {
             invincibleTimeRemains = invincibieTime;
+            PlayerProperty.hasSuckedEnemy = false;
         }
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return false;
@@ -255,9 +256,13 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
     }
 
     public bool GetKnockOff(Vector3 attackPosition) {
-        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))
+        if (IsPlayerInvincible() || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Dash Uppercut") || PlayerProperty.hasSuckedEnemy)
         {
             return false;
+        }
+        else
+        {
+            PlayerProperty.hasSuckedEnemy = false;
         }
         
 
@@ -292,7 +297,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
     }
 
     public bool GetKnockOff(Vector3 attackPosition, Vector3 force) {
-        if (IsPlayerInvincible())
+        if (IsPlayerInvincible() || PlayerProperty.hasSuckedEnemy)
         {
             return false;
         }

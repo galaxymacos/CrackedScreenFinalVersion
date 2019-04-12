@@ -81,7 +81,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPlace:
   - {fileID: 5438854329111970603}
+  - {fileID: 5438854329111970603}
   enemyToSpawn:
+  - {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a, type: 3}
   - {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a, type: 3}
   barrier: {fileID: 0}
 --- !u!65 &5438854329331403863

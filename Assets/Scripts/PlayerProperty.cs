@@ -16,6 +16,8 @@ public class PlayerProperty : MonoBehaviour
     internal static Animator animator;
 
     internal static PlayerController controller;
+
+    internal static bool hasSuckedEnemy;
     
     
     // Start is called before the first frame update

@@ -240,32 +240,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19567c8cfc59b9d4287f24179ee95095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSummon: 0
   _enemyCurrentState: 0
-  extraGravity: 0
-  extraGravityPerHit: 1
-  extraGravityPerKnockUp: 1
   atk: 5
   attackRange: 2
   attackSpeed: 0.3
+  enemySpawner: {fileID: 0}
   canAttack: 1
   canKnockUp: 1
-  canStiff: 0
   canStun: 0
   defense: 1
+  dieSound: {fileID: 2116066300}
+  extraGravity: 0
+  extraGravityPerHit: 1
+  extraGravityPerKnockUp: 1
+  HitPauseTime: 0.2
   HP: 0
   isFacingRight: 0
-  laySec: 2
   laySecLeft: 0
   maxHp: 200
+  maxLaySec: 2
   moveSpeed: 5
   nextAttackTime: 0
   stunDuration: 0.5
-  dieSound: {fileID: 2116066300}
-  HitPauseTime: 0.2
   arrow: {fileID: 2354164066189162369, guid: 1bd5da2a9c2f3584c89234a475964a60, type: 3}
   arrowSpawnPoint: {fileID: 8994724863643017952}
   AttackHitBox: {fileID: 8994724862755921751}
-  dodgingProbability: 0
+  dodgingProbability: 0.4
   dodgingSpeed: 20
   leftLimit: -5
   patrolSpeed: 8
