@@ -10,14 +10,14 @@ public class FloatingPanel : MonoBehaviour
         Vertical
     }
 
-    [SerializeField] private Direction MoveDirection = Direction.Horizontal;
+    [SerializeField] internal Direction MoveDirection = Direction.Horizontal;
     
     [SerializeField] private float speed = 5f;
 
     [SerializeField] private float distance = 10f;
     // Start is called before the first frame update
     private Vector3 originalPos;
-    [SerializeField] private bool movingInPositiveDir;
+    [SerializeField] internal bool movingInPositiveDir;
     private bool playerInRange;
     void Start()
     {

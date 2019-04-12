@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] private int damage = 10;
+    [SerializeField] private Transform arrowPos;
     internal Vector3 flyDirection;
     internal float flySpeed = 20f;
 
@@ -30,7 +31,14 @@ public class Arrow : MonoBehaviour
 
     public void HitPlayer()
     {
-        PlayerProperty.playerClass.GetKnockOff(transform.position);
+        if (flyDirection.x < 0)
+        {
+            PlayerProperty.playerClass.GetKnockOff(PlayerProperty.playerPosition+new Vector3(2,0,0));
+        }
+        else
+        {
+            PlayerProperty.playerClass.GetKnockOff(PlayerProperty.playerPosition+new Vector3(-2,0,0));
+        }
         PlayerProperty.playerClass.TakeDamage(damage);
 
         Destroy(gameObject);

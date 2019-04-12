@@ -361,10 +361,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
         LayerMask groundLayer = 1 << 11;
-        if (other.gameObject.CompareTag("MovingPlatform"))
-        {
-            transform.parent = other.transform.Find("PlatformNode").transform;
-        }
+        
         
         if (other.gameObject.layer == groundLayer)
         {
@@ -386,6 +383,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            FloatingPanel floatingPanel = other.gameObject.GetComponent<FloatingPanel>();
+            if (floatingPanel.MoveDirection == FloatingPanel.Direction.Vertical)
+            {
+                if (!floatingPanel.movingInPositiveDir)
+                {
+                    PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.down;
+                }
+            }
+            
+            PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.parent = other.transform.Find("PlatformNode").transform;
+            ChangePlayerState(PlayerState.Stand);
+        }
+        
         if (other.gameObject.layer == LayerMask.NameToLayer("Slope"))
         {
             LayerMask slopeLayer = 1 << 15;

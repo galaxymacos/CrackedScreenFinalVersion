@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -16,6 +17,17 @@ public class EnemyDetector : MonoBehaviour
             layerToDetect = "Enemy";
         }
         _enemiesInRange = new List<Collider>();
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < _enemiesInRange.Count; i++)
+        {
+            if (!_enemiesInRange[i])
+            {
+                _enemiesInRange.RemoveAt(i);
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)

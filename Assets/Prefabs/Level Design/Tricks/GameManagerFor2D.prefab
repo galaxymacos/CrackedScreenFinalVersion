@@ -205,10 +205,9 @@ MonoBehaviour:
   cooldown: 2
   skillImage: {fileID: 0}
   skillHitBox: {fileID: 0}
+  aoeHitBox: {fileID: 0}
   damage: 100
   enemyKnockUpForce: {x: 1600, y: 1200, z: 0}
-  headCatchAnimationClip: {fileID: 7400000, guid: ab650fea5c07f3a45bbd63f2a010597e,
-    type: 2}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
   explodeSpawnPlace: {fileID: 0}

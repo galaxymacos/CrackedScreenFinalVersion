@@ -134,10 +134,13 @@ public class HeadCatch : Skill
                     }
 
                 }
-                var enemies = skillHitBox._enemiesInRange;
+                List<Collider> enemies = skillHitBox._enemiesInRange;
                 if (enemies.Count > 0)
                 {
-                    enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
+                    if (enemies[Random.Range(0, enemies.Count - 1)])
+                    {
+                        enemyPicked = enemies[Random.Range(0, enemies.Count - 1)].gameObject;
+                    }
                     if (enemyPicked.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HitToAir"))
                     {
                         suckEnemyDurationLeft = suckEnemyDuration;
