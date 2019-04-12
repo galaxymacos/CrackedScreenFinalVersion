@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 2114664843593601978}
   - component: {fileID: 2114664842998977166}
   - component: {fileID: 1176103732}
-  - component: {fileID: 1176103728}
   - component: {fileID: 1176103733}
   m_Layer: 0
   m_Name: Floating Platform
@@ -176,18 +175,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.97, z: 0}
---- !u!114 &1176103728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101347083126900575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d600f4beaba0ca4d951fa037f7ecdf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1176103733
 MonoBehaviour:
   m_ObjectHideFlags: 0

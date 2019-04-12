@@ -300,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
         var hasHitSlopeRight = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
 
-        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0);     //TODO reverse this
+        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0 || (transform.parent && transform.parent.name == "PlatformNode"));     //TODO reverse this
         if (isGrounded) 
         {
 //            
