@@ -910,7 +910,7 @@ MonoBehaviour:
   stunDuration: 0.5
   moveTowardsPlayer: 0
   BossAbilities:
-  - {fileID: 8481021725361355557}
+  - {fileID: 8481021725361355559}
   ignoreKnockUpTime: 3
   autoAttackRange: {fileID: 7990941295812334881}
   specialAttackInterval: 5
@@ -1552,6 +1552,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8481021725361355582}
     m_Modifications:
+    - target: {fileID: 7055322541224790968, guid: dd8e9284dda50414ead28e98fba663f2,
+        type: 3}
+      propertyPath: m_Name
+      value: CanvasFloatingHp
+      objectReference: {fileID: 0}
     - target: {fileID: 7055322541224790971, guid: dd8e9284dda50414ead28e98fba663f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1656,11 +1661,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7055322541224790968, guid: dd8e9284dda50414ead28e98fba663f2,
-        type: 3}
-      propertyPath: m_Name
-      value: CanvasFloatingHp
       objectReference: {fileID: 0}
     - target: {fileID: 7055322541098806673, guid: dd8e9284dda50414ead28e98fba663f2,
         type: 3}

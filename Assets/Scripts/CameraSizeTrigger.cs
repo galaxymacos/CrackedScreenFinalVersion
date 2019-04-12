@@ -8,7 +8,11 @@ public class CameraSizeTrigger : MonoBehaviour
     private bool hasInteracted;
     private void Start()
     {
-        GetComponent<MeshRenderer>().enabled = false;
+        if (GetComponent<MeshCollider>())
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+            
+        }
     }
 
     private void OnTriggerEnter(Collider other)
