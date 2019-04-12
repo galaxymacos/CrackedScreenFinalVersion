@@ -141,7 +141,18 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
         }
+
+//
+        if (playerCurrentState == PlayerState.DoubleJump && isGrounded && Time.time - lastJumpTime>0.1f)
+        {
+            ChangePlayerState(PlayerState.Stand);
+        }
         
+        if (playerCurrentState == PlayerState.Jump && isGrounded && Time.time - lastJumpTime>0.1f)
+        {
+            ChangePlayerState(PlayerState.Stand);
+        }
+
     }
 
     private void FixedUpdate()
@@ -246,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerProperty.playerClass.isPlayerUsingAbility())
             return;
+        lastJumpTime = Time.time;
         if (isGrounded)
         {
             ResetVerticalVelocity();
@@ -263,16 +275,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void FallDown()
-    {
-        var playerVelocity = rb.velocity;
-//        if (rb.velocity.y > Mathf.Epsilon)
-//        {
-            playerVelocity = new Vector3(playerVelocity.x, playerVelocity.y - dropdownSpeed * Time.fixedDeltaTime,
-                playerVelocity.z);
-            rb.velocity = playerVelocity;
-//        }
-    }
 
     private void ResetVerticalVelocity()
     {
@@ -298,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
         var hasHitSlopeRight = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
 
-        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0);
+        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0);     //TODO reverse this
         if (isGrounded) 
         {
 //            
