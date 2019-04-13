@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PiercingSpear : BossAbility
 {
-    private float pierceSpeed = 200f;
+    [SerializeField] private float pierceSpeed = 1200f;
     private bool pierceRight;
     private bool isPiercing;
     private Rigidbody rb;
@@ -16,7 +16,6 @@ public class PiercingSpear : BossAbility
     private bool isTouchingWall;
     internal bool piercingPlayer;
     [SerializeField] private int hitWallDamage = 15;
-    [SerializeField] private AudioSource piercingHitWall;
 
   
 
@@ -100,15 +99,10 @@ public class PiercingSpear : BossAbility
         {
             tookDamageInFirstStage = false;
             isTouchingWall = true;
-            
-            if (piercingHitWall !=null &&piercingHitWall.clip != null)
-            {
-                piercingHitWall.Play();
-            }
+ 
             AudioManager.instance.StopSound(AudioGroup.FirstBoss);
             AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitWall");
             transform.parent.GetComponent<Animator>().SetTrigger("PiercingSpearHitWall");
-            print("Hit wall");
             if (LevelManager.Instance.piercingPlayer)
             {
                 LevelManager.Instance.piercingPlayer = false;
