@@ -3,6 +3,7 @@ using System.Globalization;
 using TMPro;
 using UnityEditor.U2D;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 public enum Position {
     Left, Right, Up, Down
@@ -223,7 +224,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
         }
         lastTimeTakeDamage = Time.time;
         if (GameManager.Instance.PlayerDying) return false;
-        DimensionLeapParticleEffect.SetActive(false);
+        PlayerProperty.controller.HandleTransformRelease(new InputAction.CallbackContext());
         PlayerProperty.controller.transferStoragePowerFull = false;
 
         if (Camera.main.GetComponent<CameraEffect>().isShaking)
@@ -282,7 +283,8 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
             return false;
             
         }
-        DimensionLeapParticleEffect.SetActive(false);
+        PlayerProperty.controller.HandleTransformRelease(new InputAction.CallbackContext());
+
         lastTimeKnockOff = Time.time;
         if (hp <= 0) return false;
         rb.velocity = Vector3.zero;
@@ -321,6 +323,8 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
 
         lastTimeKnockOff = Time.time;
         if (hp <= 0) return false;
+        PlayerProperty.controller.HandleTransformRelease(new InputAction.CallbackContext());
+
         rb.velocity = Vector3.zero;
         PlayerProperty.controller.canControl = false;
         if (attackPosition.x < transform.position.x)

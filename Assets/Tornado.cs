@@ -55,9 +55,12 @@ public class Tornado : MonoBehaviour
     {
         hasFullyGrown = true;
         GetComponent<SpriteRenderer>().color = Color.white;
-        if (tornadoGrowing.isPlaying)
+        if (tornadoGrowing)
         {
-            tornadoGrowing.Stop();
+            if (tornadoGrowing.isPlaying)
+            {
+                tornadoGrowing.Stop();
+            }
         }
 
         if (tornadoHasFullyGrown)

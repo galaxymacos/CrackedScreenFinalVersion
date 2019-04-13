@@ -318,7 +318,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        print(isGrounded);
         return isGrounded;
     }
 

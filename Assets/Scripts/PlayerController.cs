@@ -91,11 +91,14 @@ public class PlayerController : MonoBehaviour
     {
         if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand && !GameManager.Instance.is3D)
         {
+            print("??");
+            canControl = false;
             dimensionLeapParticleEffect.SetActive(true);
             AudioManager.instance.PlaySound(AudioGroup.Character, "DimensionLeapPreparing");
             Time.timeScale = 0.5f;
             _cameraEffect.StartShaking(0.1f); // Keep shaking
             isTransforming = true;
+//            canControl = false;
         }
     }
 
@@ -103,6 +106,10 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransformRelease(InputAction.CallbackContext context)
     {
+        print("Headle transform release");
+        if (!isTransforming)
+            return;
+        canControl = true;
         dimensionLeapParticleEffect.SetActive(false);
         AudioManager.instance.StopSound(AudioGroup.Character);
         isTransforming = false;
@@ -130,10 +137,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!canControl)
-        {
-//            AudioManager.instance.StopSound(AudioGroup.Character);
-        }
+        print(isTransforming);
         if (!GameManager.Instance.is3D)
         {
             float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
@@ -155,12 +159,11 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
-        if (!canControl)
+        print("Can player awake? "+canAwake);
+        if (canAwake)
         {
-            return;
+            CheckIfPlayerAwakes();
         }
-        if (canAwake) CheckIfPlayerAwakes();
 
     }
 
@@ -173,12 +176,14 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfPlayerAwakes()
     {
-        if (canControl)
+        if (isTransforming)
         {
-
-
-            if (isTransforming)
-                powerAccumulateTime += Time.deltaTime / Time.timeScale;
+            print("add power accumulate time");
+            powerAccumulateTime += Time.deltaTime / Time.timeScale;
+        }
+        if (canControl) 
+        {
+   
             if (powerAccumulateTime > enter3DWorldDuration)
             {
                 transferStoragePowerFull = true;

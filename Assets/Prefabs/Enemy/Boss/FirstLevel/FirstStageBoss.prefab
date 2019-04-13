@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   piercingSpearHitBox: {fileID: 1335410369}
-  hitWallDamage: 15
+  hitWallDamage: 35
   piercingHitWall: {fileID: 0}
 --- !u!1 &935729184568718120
 GameObject:
@@ -982,9 +982,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSummon: 1
   _enemyCurrentState: 0
-  atk: 5
+  atk: 15
   attackRange: 5
-  attackSpeed: 0.3
+  attackSpeed: 0.5
   enemySpawner: {fileID: 0}
   canAttack: 1
   canKnockUp: 1
@@ -992,13 +992,13 @@ MonoBehaviour:
   defense: 1
   dieSound: {fileID: 994013772}
   extraGravity: 10
-  extraGravityPerHit: 1
+  extraGravityPerHit: 2
   extraGravityPerKnockUp: 1
   HitPauseTime: 0.2
-  HP: 200
+  HP: 0
   isFacingRight: 0
   laySecLeft: 0
-  maxHp: 200
+  maxHp: 600
   maxLaySec: 2
   moveSpeed: 10
   nextAttackTime: 0
@@ -1006,6 +1006,9 @@ MonoBehaviour:
   autoAttackRange: {fileID: 793323762}
   BossAbilities:
   - {fileID: 2084412306}
+  - {fileID: 1959094804}
+  - {fileID: 1959094807}
+  - {fileID: 8374912006113776559}
   ignoreKnockUpTime: 3
   moveTimeInARow: 3
   moveTowardsPlayer: 0
