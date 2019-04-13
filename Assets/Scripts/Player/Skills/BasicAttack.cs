@@ -50,13 +50,13 @@ public class BasicAttack : Skill
                         break;
                     HasAttackedOneEnemy = true;
                     enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    if (enemy.transform.position.x>transform.position.x)
+                    if (enemy.transform.position.x<transform.position.x)
                     {
-                        enemy.GetComponent<Rigidbody>().AddForce(enemyKnockdownForce);                        
+                        enemy.GetComponent<Enemy>().GetKnockUp(enemyKnockdownForce);
                     }
                     else
                     {
-                        enemy.GetComponent<Rigidbody>().AddForce(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));                        
+                        enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));                        
 
                     }
                     enemy.GetComponent<Enemy>().TakeDamage(damage);

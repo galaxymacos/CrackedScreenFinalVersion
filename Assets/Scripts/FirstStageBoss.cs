@@ -109,7 +109,7 @@ public class FirstStageBoss : Enemy
 
             }
         }
-        if (!animationPlaying() && _enemyCurrentState != EnemyState.LayOnGround)
+        if (!animationPlaying() && !IsHitOnAirOrLayDown())
         {
             ReleaseEnemyMove();
             ChangeFacing(rb.velocity.x);
@@ -130,7 +130,13 @@ public class FirstStageBoss : Enemy
 
     public bool CanMove()
     {
-        return !isStiffed && !animationPlaying();
+        return !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing && !IsHitOnAirOrLayDown();
+    }
+    
+    public bool IsHitOnAirOrLayDown()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("HitToAir") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("LayDown");
     }
 
     
@@ -149,6 +155,7 @@ public class FirstStageBoss : Enemy
 
     private void ChangeFacing(float horizontalSpeed)
     {
+        print("Change facing");
         if (horizontalSpeed > 0) Flip(true);
 
         if (horizontalSpeed < 0) Flip(false);

@@ -164,7 +164,8 @@ public class SecondStageBoss : Enemy
 
     public bool CanMove()
     {
-        return !isStiffed && !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing && !IsHitOnAirOrLayDown();
+
+        return  !AnimationPlaying() && _enemyCurrentState == EnemyState.Standing && !IsHitOnAirOrLayDown();
     }
 
     private void SpecialAttack()
@@ -185,6 +186,7 @@ public class SecondStageBoss : Enemy
         base.FixedUpdate();
         if (CanMove())
         {
+
             Move();
             FaceBasedOnMoveDirection();
         }
@@ -193,7 +195,7 @@ public class SecondStageBoss : Enemy
             if (!IsHitOnAirOrLayDown())
             {
                 // TODO why do I add vector.zero here?
-                FaceBasedOnPlayerPosition();
+//                FaceBasedOnPlayerPosition();    
             }
         }
 
