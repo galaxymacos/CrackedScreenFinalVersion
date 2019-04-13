@@ -126,19 +126,19 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: HeadCatchPerform
-      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      clip: {fileID: 8300000, guid: fcef82cc3df525840a2c28f13a59b919, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: HeadCatchExplode
-      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      clip: {fileID: 8300000, guid: 003563672aa2a4242ba6d6d9fe827c90, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DefendSucceed
-      clip: {fileID: 8300000, guid: 2285461bd0abbc64fb5fbc863a510326, type: 3}
+      clip: {fileID: 8300000, guid: 949a9c6be37f197499b9763285f386b2, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
       loop: 1
       source: {fileID: 0}
     - name: PierceHitWall
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 5ee84b0a172065046bc8e037d06db3fc, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: PierceHitPlayer
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 1543beeff89e01c4cafd4c929b57d898, type: 3}
       volume: 1
       pitch: 1
       loop: 0
