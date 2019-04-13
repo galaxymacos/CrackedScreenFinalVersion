@@ -184,19 +184,19 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: TornadoStomp
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: a980512385d73fd4fa90e265daea1028, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: PrepareToTornadoJump
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 7b5b58be102a36948b7f6915f9b3d16d, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: BasicAttack
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 8a68f6ecd10d2e542a82fa86c145978c, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
       type: 2}
     sounds:
     - name: Attack
-      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+      clip: {fileID: 8300000, guid: 8a68f6ecd10d2e542a82fa86c145978c, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -260,13 +260,13 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: DragonFist
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: 176b277e922a8674c8c2dc6b34cea95f, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: BaseBallStrike
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: 386fa57a8e1583c4c969a880e8e7fa7b, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -284,13 +284,13 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: BaseballImpactWave
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: dd98c2fe7fe121d42b63838e0e0296a4, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: Jump
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: ad87497a0ecceb741943406853424a0c, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Save
-      clip: {fileID: 0}
+      clip: {fileID: 8300000, guid: e5aa95b1fc5f97446991a42cbfa966c9, type: 3}
       volume: 1
       pitch: 1
       loop: 0
