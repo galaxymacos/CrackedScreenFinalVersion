@@ -130,6 +130,10 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        if (isDead)
+        {
+            return;
+        }
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         GameManager.Instance.HitPauseTimeRemain = HitPauseTime;
 
@@ -194,7 +198,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void GetKnockUp(Vector3 force)
     {
-        if (!canKnockUp || HP < 0) return;
+        if (!canKnockUp || isDead) return;
         cameraEffect.ShakeForSeconds(0.2f);
 
         if (_enemyCurrentState == EnemyState.LayOnGround) currentLaySec -= 0.5f;

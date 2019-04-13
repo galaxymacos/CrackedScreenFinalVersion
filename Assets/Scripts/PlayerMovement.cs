@@ -146,11 +146,14 @@ public class PlayerMovement : MonoBehaviour
         if (playerCurrentState == PlayerState.DoubleJump && isGrounded && Time.time - lastJumpTime>0.1f)
         {
             ChangePlayerState(PlayerState.Stand);
+            print("Change player state to stand place 1");
         }
         
         if (playerCurrentState == PlayerState.Jump && isGrounded && Time.time - lastJumpTime>0.1f)
         {
             ChangePlayerState(PlayerState.Stand);
+            print("Change player state to stand place 2");
+
         }
 
     }
@@ -189,10 +192,7 @@ public class PlayerMovement : MonoBehaviour
         if (Math.Abs(horizontalMovement) < Mathf.Epsilon && Math.Abs(verticalMovement) < Mathf.Epsilon && isGrounded &&
             playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.KnockUp)
         {
-            if (playerCurrentState != PlayerState.Defend)
-            {
-                // ChangePlayerState(PlayerState.Stand);
-            }
+
 
             return;
         }
@@ -285,6 +285,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckIfPlayerOnGround()
     {
+        
         LayerMask groundLayer = 1 << 11;
         
         var position = transform.position;
@@ -294,13 +295,18 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer);
         var hasHitLeftGround = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer);
+        
+        
+        
         LayerMask slopeLayer = 1 << 15;
         var hasHitSlopeLeft = Physics.Raycast(position-new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
         var hasHitSlopeRight = Physics.Raycast(position+new Vector3(GetComponent<BoxCollider>().size.x/2,0,0), Vector3.down,
             GetComponent<BoxCollider>().size.y / 2+0.4f, slopeLayer);
 
-        isGrounded = (hasHitRightGround || hasHitLeftGround || hasHitCenterGround) && rb.velocity.y <= 0 || ((hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0 || (transform.parent && transform.parent.name == "PlatformNode"));     //TODO reverse this
+        isGrounded = (hasHitRightGround &&!PlayerHasWallAtRight() || hasHitLeftGround&&!PlayerHasWallAtLeft() || hasHitCenterGround) && Math.Abs(rb.velocity.y) < 0.1f  ||
+                     (hasHitSlopeLeft || hasHitSlopeRight) && rb.velocity.y<=0 || 
+                     transform.parent && transform.parent.name == "PlatformNode";     //TODO reverse this
         if (isGrounded) 
         {
 //            
@@ -312,11 +318,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-            
-//        if (hasHitSlope && rb.velocity.y > 0 && playerCurrentState == PlayerState.Jump )
-//        {
-//            ChangePlayerState(PlayerState.Stand);
-//        }
+        print(isGrounded);
         return isGrounded;
     }
 
@@ -372,8 +374,10 @@ public class PlayerMovement : MonoBehaviour
                 if (Physics.Raycast(transform.position, Vector3.down,
                     GetComponent<BoxCollider>().size.y / 2+0.1f, groundLayer))
                 {
-                    print("detect ground");
+         
                     ChangePlayerState(PlayerState.Stand);
+                    print("Change player state to stand place 3");
+
                 }
             }
         }
@@ -399,6 +403,8 @@ public class PlayerMovement : MonoBehaviour
             PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.parent = other.transform.Find("PlatformNode").transform;
             ChangePlayerState(PlayerState.Stand);
+            print("Change player state to stand place 4");
+
         }
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Slope"))
@@ -412,8 +418,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (playerCurrentState != PlayerState.Walk && playerCurrentState != PlayerState.Run && Time.time-lastJumpTime>0.04)
                 {
-                    print("Change player state to stand");
                     ChangePlayerState(PlayerState.Stand);
+                    print("Change player state to stand place 5");
+
                 }
             }
         }
@@ -465,8 +472,12 @@ public class PlayerMovement : MonoBehaviour
             if (playerCurrentState != PlayerState.Defend && playerCurrentState != PlayerState.Jump && playerCurrentState != PlayerState.DoubleJump)
             {
                 // Fix a nasty double jump bug
-                if(playerCurrentState!=PlayerState.Stand)
-                ChangePlayerState(PlayerState.Stand);
+                if (playerCurrentState != PlayerState.Stand)
+                {
+                    print("Change player state to stand place 7");
+                    ChangePlayerState(PlayerState.Stand);
+
+                }
             }
         }
 

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1280829804081652807}
   - component: {fileID: 1280829804081652858}
   - component: {fileID: 1280829804081652859}
-  - component: {fileID: 1700084213}
   - component: {fileID: 1700084214}
   - component: {fileID: 1176459082}
   - component: {fileID: 1176459081}
+  - component: {fileID: 6937723321698841257}
   m_Layer: 0
   m_Name: SavePoint
   m_TagString: Untagged
@@ -64,26 +64,6 @@ MonoBehaviour:
   playerInRange: 0
   autoInteract: 1
   hasBeenInteracted: 0
---- !u!114 &1700084213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280829804081652860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17af5108cd229f44199a09d44167374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  autoInteract: 1
-  hasBeenInteracted: 0
-  dialogues:
-  - name: Save Point
-    sentences:
-    - Game process has been saved
-  currentDialogue: 0
 --- !u!114 &1700084214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +143,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6937723321698841257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280829804081652860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4263846687dae4eab7f8f072c28628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tip: Progress is saved
