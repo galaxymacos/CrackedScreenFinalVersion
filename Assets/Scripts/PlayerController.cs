@@ -137,7 +137,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        print(isTransforming);
         if (!GameManager.Instance.is3D)
         {
             float rage = Mathf.Clamp(PlayerProperty.playerClass.maxRage * (powerAccumulateTime / enter3DWorldDuration), 0,
@@ -159,7 +158,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        print("Can player awake? "+canAwake);
         if (canAwake)
         {
             CheckIfPlayerAwakes();

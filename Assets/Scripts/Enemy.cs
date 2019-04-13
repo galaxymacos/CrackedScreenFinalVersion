@@ -137,7 +137,7 @@ public abstract class Enemy : MonoBehaviour
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         GameManager.Instance.HitPauseTimeRemain = HitPauseTime;
 
-        if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += extraGravityPerHit;
+        if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += damage/4;
 
         if (HP <= 0)
         {
@@ -221,13 +221,20 @@ public abstract class Enemy : MonoBehaviour
         if (AnimationPlaying() || _enemyCurrentState == EnemyState.LayOnGround) // Can't change facing when boss is using its ability
             return;
         if (PlayerIsAtRight())
+        {
+            print("facing right");
             Flip(true);
+        }
         else
+        {
+            print("facing left");
             Flip(false);
+        }
     }
 
     public void FaceBasedOnMoveDirection()
     {
+        print("Face based on move direction");
         if (rb.velocity.x > 0)
             Flip(true);
         else

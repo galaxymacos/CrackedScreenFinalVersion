@@ -8425,6 +8425,16 @@ PrefabInstance:
       propertyPath: EnemyDetector
       value: 
       objectReference: {fileID: 842897364}
+    - target: {fileID: 2177889124953702679, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: enemyKnockdownForce.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177889124953702679, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: enemyKnockdownForce.y
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 2177889124953702677, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: skillImage
