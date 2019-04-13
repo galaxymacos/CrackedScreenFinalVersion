@@ -8,8 +8,22 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject startArm;
     [SerializeField] GameObject optionArm;
     [SerializeField] GameObject QuitArm;
+    [SerializeField] AudioClip clickSound;
+    private AudioSource souce;
+
+    private void Start()
+    {
+        souce = GetComponent<AudioSource>();
+    }
+
+    public void OptionMenuQuit()
+    {
+        souce.Play();
+    }
+
     public void PlayGame()
     {
+        souce.Play();
         startArm.SetActive(true);
         optionArm.SetActive(false);
         QuitArm.SetActive(false);
@@ -18,6 +32,7 @@ public class MainMenu : MonoBehaviour
 
     public void OptionArm()
     {
+        souce.Play();
         startArm.SetActive(false);
         optionArm.SetActive(true);
         QuitArm.SetActive(false);
@@ -25,6 +40,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        souce.Play();
         startArm.SetActive(false);
         optionArm.SetActive(false);
         QuitArm.SetActive(true);
