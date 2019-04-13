@@ -222,19 +222,16 @@ public abstract class Enemy : MonoBehaviour
             return;
         if (PlayerIsAtRight())
         {
-            print("facing right");
             Flip(true);
         }
         else
         {
-            print("facing left");
             Flip(false);
         }
     }
 
     public void FaceBasedOnMoveDirection()
     {
-        print("Face based on move direction");
         if (rb.velocity.x > 0)
             Flip(true);
         else

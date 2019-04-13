@@ -155,7 +155,6 @@ public class FirstStageBoss : Enemy
 
     private void ChangeFacing(float horizontalSpeed)
     {
-        print("Change facing");
         if (horizontalSpeed > 0) Flip(true);
 
         if (horizontalSpeed < 0) Flip(false);
