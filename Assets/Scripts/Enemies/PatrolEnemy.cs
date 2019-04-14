@@ -84,7 +84,7 @@ namespace Enemies
             {
                 if (PlayerInRange())
                 {
-                    if (Time.time >= nextAttackTime)
+                    if (Time.time >= nextAttackTime && canAttack)
                     {
                         animator.SetTrigger("Attack");
                         attackSound.Play();

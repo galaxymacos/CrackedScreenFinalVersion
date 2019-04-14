@@ -7,10 +7,10 @@ public class CannotSeeInGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        var meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer meshRenderer in meshRenderers)
         {
-            spriteRenderer.enabled = false;
+            meshRenderer.enabled = false;
         }
     }
 }

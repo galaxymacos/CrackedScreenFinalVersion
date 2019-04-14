@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8090117180591222079}
   - component: {fileID: 8974445722305453264}
   - component: {fileID: 4726545668960628971}
+  - component: {fileID: 8677970472037430170}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -159,3 +160,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   arrowPos: {fileID: 7553904553729729118}
+--- !u!114 &8677970472037430170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354164066189162369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09efce7922f0cf644ac0b1681571a5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

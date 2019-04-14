@@ -84,7 +84,12 @@ public class AudioManager : MonoBehaviour
             PlaySound(AudioGroup.Bgm,soundDictionary[AudioGroup.Bgm].sounds[i].name);
             soundDictionary[AudioGroup.Bgm].sounds[i].source.volume = 0f;
         }
-        if (SceneManager.GetActiveScene().name == "Level1")
+
+        if (SceneManager.GetActiveScene().name == "LevelTutorial")
+        {
+            ChangeBgm("Tutorial");
+        }
+        else if (SceneManager.GetActiveScene().name == "Level1")
         {
             ChangeBgm("ChapterOneBegin");
             print("switch to chapter one bgm");

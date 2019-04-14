@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
 //        AudioManager.instance.StopAllSfx();
         dialogues = _dialogues;
         animator.SetBool("isOpen", true);
+        AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueBoxOpen");
         // Pause the game if dialogue is playing
         Time.timeScale = 0f;
 
@@ -102,6 +103,7 @@ public class DialogueManager : MonoBehaviour
     {
         playerController.canControl = true;
         Time.timeScale = 1f;
+        AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueBoxClose");
         currentDialogue = 0;
         _dialogueStarted = false;
         animator.SetBool("isOpen", false);

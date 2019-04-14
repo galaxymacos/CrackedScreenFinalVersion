@@ -226,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259871229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5222131670480362695}
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1350,7 +1350,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5222131670480362693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,14 +2322,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099047690479}
-  m_LocalRotation: {x: 0, y: 0, z: 0.14392805, w: 0.98958814}
+  m_LocalRotation: {x: 0, y: 0, z: 0.1439284, w: 0.98958814}
   m_LocalPosition: {x: 0.13820948, y: 0.95279104, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7330050099622602601}
   m_Father: {fileID: 7330050098788442917}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5056.55}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2536.55}
 --- !u!114 &7330050099047690449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,7 +2343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 5.2369394
+  m_Length: 5.236864
   m_ChildTransform: {fileID: 7330050099622602601}
   m_AttachedIK: {fileID: 7330050100851144587}
 --- !u!1 &7330050099143617042
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec17ceaa560940e9bf0dbeafc3a1971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpriteMesh: {fileID: 11400000, guid: 85058605b4465154fa3702a594bf6636, type: 2}
+  m_SpriteMesh: {fileID: 11400000, guid: 1caf6f6c03a11fc4bb14a62d8cfe5f76, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -3001,7 +3001,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099537654371}
-  m_LocalRotation: {x: 0, y: 0, z: 0.058928523, w: 0.9982622}
+  m_LocalRotation: {x: 0, y: 0, z: 0.058928594, w: 0.9982622}
   m_LocalPosition: {x: 6.2356, y: 0.21033049, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3022,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 7.687549
+  m_Length: 7.6875615
   m_ChildTransform: {fileID: 7330050100158478485}
   m_AttachedIK: {fileID: 7330050098841467359}
 --- !u!1 &7330050099557368694
@@ -3416,14 +3416,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099906130274}
-  m_LocalRotation: {x: 0, y: 0, z: 0.097762085, w: 0.9952098}
+  m_LocalRotation: {x: 0, y: 0, z: 0.09776194, w: 0.9952099}
   m_LocalPosition: {x: 0.26471472, y: 0.4769037, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7330050099190339871}
   m_Father: {fileID: 7330050098788442917}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -283668.78}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -282228.78}
 --- !u!114 &7330050099906130276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3775,7 +3775,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050100232288996}
-  m_LocalRotation: {x: 0, y: 0, z: -0.025272192, w: 0.99968064}
+  m_LocalRotation: {x: 0, y: 0, z: -0.025277235, w: 0.99968046}
   m_LocalPosition: {x: 6.196669, y: 0.11637926, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4078,7 +4078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 10.819212
+  m_Length: 10.8192425
   m_ChildTransform: {fileID: 7330050100277525628}
   m_AttachedIK: {fileID: 7330050100368785198}
 --- !u!1 &7330050100507508609
@@ -4126,7 +4126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec17ceaa560940e9bf0dbeafc3a1971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpriteMesh: {fileID: 0}
+  m_SpriteMesh: {fileID: 11400000, guid: 3f5c84a05d7b20b4295b6ebb08e26cf5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
