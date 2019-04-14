@@ -16,6 +16,8 @@ public class DeathUIScript : MonoBehaviour
     {
         fenceScript.death = false;
         deathUI.SetActive(false);
+        print("Set time scale to 1");
+
         Time.timeScale = 1f;
         noDamage = true;
     }

@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Airborne Slash
-  cooldown: 0.5
+  cooldown: 0.9
   skillImage: {fileID: 0}
   damage: 10
   EnemyDetector: {fileID: 0}
@@ -200,12 +200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Gravitational Black Hole
-  cooldown: 2
+  cooldown: 5
   skillImage: {fileID: 0}
   skillHitBox: {fileID: 0}
   aoeHitBox: {fileID: 0}
   damage: 100
-  enemyKnockUpForce: {x: 800, y: 800, z: 0}
+  enemyKnockUpForce: {x: 2000, y: 1200, z: 0}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
   explodeSpawnPlace: {fileID: 0}
@@ -391,11 +391,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelChanger
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859199079781104991, guid: a0b7d317aa0410643a77de5b042c0b0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5859199079781104985, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}

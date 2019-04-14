@@ -115,6 +115,8 @@ public class PlayerController : MonoBehaviour
         isTransforming = false;
         powerAccumulateTime = 0;
         _cameraEffect.StopShaking();
+        print("Set time scale to 1");
+
         Time.timeScale = 1f;
         print(transferStoragePowerFull);
         if (transferStoragePowerFull)
