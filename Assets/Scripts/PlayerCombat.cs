@@ -132,7 +132,7 @@ public class PlayerCombat : MonoBehaviour
 
     private bool CanPlayerPerformDashUpperAttack() {
         DashUpper dashUpper = FindObjectOfType<DashUpper>();
-        return (PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") || PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Blackhole"))  && dashUpper._skillNotOnCooldown;
+        return (PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack") || PlayerProperty.hasSuckedEnemy)  && dashUpper._skillNotOnCooldown;
     }
 
     private bool CanPlayerPerformAirAttack()

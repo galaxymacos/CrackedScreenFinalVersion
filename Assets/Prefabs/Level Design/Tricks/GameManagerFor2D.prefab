@@ -205,7 +205,7 @@ MonoBehaviour:
   skillHitBox: {fileID: 0}
   aoeHitBox: {fileID: 0}
   damage: 100
-  enemyKnockUpForce: {x: 1600, y: 1200, z: 0}
+  enemyKnockUpForce: {x: 800, y: 800, z: 0}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
   explodeSpawnPlace: {fileID: 0}
@@ -269,9 +269,8 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   damage: 10
   EnemyDetector: {fileID: 0}
-  basicAttackAnimationClip: {fileID: 7400000, guid: af133abffac06524f801b74833c138e5,
-    type: 2}
-  enemyKnockdownForce: {x: 100, y: 100, z: 0}
+  clip: {fileID: 7400000, guid: af133abffac06524f801b74833c138e5, type: 2}
+  enemyKnockdownForce: {x: 400, y: 900, z: 0}
   stiffTimeWhenHit: 0.3
 --- !u!1 &2177889125111506749
 GameObject:
