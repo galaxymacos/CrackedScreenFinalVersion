@@ -126,19 +126,19 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: HeadCatchPerform
-      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      clip: {fileID: 8300000, guid: fcef82cc3df525840a2c28f13a59b919, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: HeadCatchExplode
-      clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
+      clip: {fileID: 8300000, guid: 003563672aa2a4242ba6d6d9fe827c90, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: DefendSucceed
-      clip: {fileID: 8300000, guid: 2285461bd0abbc64fb5fbc863a510326, type: 3}
+      clip: {fileID: 8300000, guid: 949a9c6be37f197499b9763285f386b2, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -172,13 +172,13 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Pierce
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 7f08f148695324a42b580cf360802aed, type: 3}
       volume: 1
       pitch: 1
       loop: 1
       source: {fileID: 0}
     - name: PierceHitWall
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 5ee84b0a172065046bc8e037d06db3fc, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -202,13 +202,13 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Move
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 6a62423ccfc6ded4fafb9ba7312fa5b1, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: PierceHitPlayer
-      clip: {fileID: 8300000, guid: 71e1a44127a647c49ab2c1554f880422, type: 3}
+      clip: {fileID: 8300000, guid: 1543beeff89e01c4cafd4c929b57d898, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: HomeRunPrepare
-      clip: {fileID: 8300000, guid: dd98c2fe7fe121d42b63838e0e0296a4, type: 3}
+      clip: {fileID: 8300000, guid: 0103da3f2110bd04ca00bec9934d0403, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -272,13 +272,13 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: HomeRunStrike
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: 6dccb3bd23417654cb51270d711c321e, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: Move
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: 6a62423ccfc6ded4fafb9ba7312fa5b1, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: HugeSlashToGround
-      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      clip: {fileID: 8300000, guid: 492831c6666366844b7a42d3729f8b00, type: 3}
       volume: 1
       pitch: 1
       loop: 0
