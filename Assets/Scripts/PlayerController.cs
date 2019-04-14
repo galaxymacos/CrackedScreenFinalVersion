@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement(InputAction.CallbackContext context)
     {
-        if (LevelManager.Instance.piercingPlayer || !canControl) {    // Can't move when the player is being pierced
+        if (LevelManager.Instance.piercingPlayer) {    // Can't move when the player is being pierced
             
             return;
         }

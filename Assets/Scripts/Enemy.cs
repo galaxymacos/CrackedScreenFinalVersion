@@ -52,7 +52,7 @@ public abstract class Enemy : MonoBehaviour
     public float HitPauseTime = 0.2f; // The game stop for this second when the enemy is attacked to increase hit feel
     private float HitPauseTimeRemain; // The game stop for this second when the enemy is attacked to increase hit feel
 
-    public float HP;
+    internal float HP;
 
     internal bool isDead;
 
