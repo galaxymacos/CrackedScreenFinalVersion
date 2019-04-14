@@ -737,10 +737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd41cd35dd6cf40b876066aef44e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pierceSpeed: 1200
+  pierceSpeed: 200
   piercingSpearHitBox: {fileID: 1335410369}
   hitWallDamage: 35
-  piercingHitWall: {fileID: 0}
 --- !u!1 &935729184568718120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,9 +1006,6 @@ MonoBehaviour:
   autoAttackRange: {fileID: 793323762}
   BossAbilities:
   - {fileID: 2084412306}
-  - {fileID: 1959094804}
-  - {fileID: 1959094807}
-  - {fileID: 8374912006113776559}
   ignoreKnockUpTime: 3
   moveTimeInARow: 3
   moveTowardsPlayer: 0

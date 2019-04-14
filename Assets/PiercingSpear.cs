@@ -9,7 +9,6 @@ public class PiercingSpear : BossAbility
     private bool isPiercing;
     private Rigidbody rb;
 
-    internal bool tookDamageInFirstStage;
 
     [SerializeField] private EnemyDetector piercingSpearHitBox;
     
@@ -27,9 +26,9 @@ public class PiercingSpear : BossAbility
     {
         if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear"))
         {
-            if (piercingSpearHitBox.playerInRange() && !tookDamageInFirstStage && PlayerProperty.playerClass.hp > 0 && PlayerProperty.playerClass.invincibleTimeRemains<=0)
+            if (piercingSpearHitBox.playerInRange()  && PlayerProperty.playerClass.hp > 0 && PlayerProperty.playerClass.invincibleTimeRemains<=0)
             {
-                tookDamageInFirstStage = true;
+
                 LevelManager.Instance.piercingPlayer = true;
                 AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"PierceHitPlayer");
                 PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
@@ -45,8 +44,8 @@ public class PiercingSpear : BossAbility
                     if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
-
-                        PlayerProperty.player.transform.position = transform.position+new Vector3(3,0,0);
+                        print("player is knocked off");
+                        PlayerProperty.player.transform.position = transform.position+new Vector3(3,1,0);
 
                     }    
                 }
@@ -60,8 +59,8 @@ public class PiercingSpear : BossAbility
                     if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
-
-                        PlayerProperty.player.transform.position = transform.position+new Vector3(-3,0,0);
+                        print("player is knocked off");
+                        PlayerProperty.player.transform.position = transform.position+new Vector3(-3,1,0);
                     }
                 }
                 
@@ -97,7 +96,7 @@ public class PiercingSpear : BossAbility
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Wall") && !isTouchingWall)
         {
-            tookDamageInFirstStage = false;
+
             isTouchingWall = true;
  
             AudioManager.instance.StopSound(AudioGroup.FirstBoss);

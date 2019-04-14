@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public void HandleMovement(InputAction.CallbackContext context)
     {
         if (LevelManager.Instance.piercingPlayer) {    // Can't move when the player is being pierced
+            
             return;
         }
         Vector2 moveAxis = context.ReadValue<Vector2>();

@@ -50,6 +50,8 @@ public class FirstStageBoss : Enemy
     {
         if (ignoreKnockUpTimeLeft > 0f) return;
         base.GetKnockUp(force);
+        AudioManager.instance.StopSound(AudioGroup.FirstBoss);
+        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"IsHit");
         LevelManager.Instance.piercingPlayer = false;
     }
 
@@ -77,23 +79,14 @@ public class FirstStageBoss : Enemy
         isplayingAnimation = false;
     }
 
-
-    private bool animationPlaying()
-    {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("TornadoMaker")||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear");
-    }
-
+    
     public override void InteractWithPlayer()
     {
         if (ignoreKnockUpTimeLeft > 0) ignoreKnockUpTimeLeft -= Time.deltaTime;
         if (_enemyCurrentState == EnemyState.Standing)
         {
             if (autoAttackRange.playerInRange())
-                if (attackCooldownUp() && !animationPlaying())
+                if (attackCooldownUp() && !AnimationPlaying())
                 {
                     rb.velocity = new Vector3(0, rb.velocity.y, 0);
                     animator.SetTrigger("Attack");
@@ -103,13 +96,13 @@ public class FirstStageBoss : Enemy
                 }
 
             specialAttackTimeRemains -= Time.deltaTime;
-            if (specialAttackTimeRemains <= 0 && !animationPlaying())
+            if (specialAttackTimeRemains <= 0 && !AnimationPlaying())
             {
                 SpecialAttack();
 
             }
         }
-        if (!animationPlaying() && !IsHitOnAirOrLayDown())
+        if (!AnimationPlaying() && !IsHitOnAirOrLayDown())
         {
             ReleaseEnemyMove();
             ChangeFacing(rb.velocity.x);
@@ -144,8 +137,9 @@ public class FirstStageBoss : Enemy
     {
         if (ignoreKnockUpTimeLeft > 0)
             return;
+        
         base.TakeDamage(damage);
-        AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"IsHit");
+        
         LevelManager.Instance.piercingPlayer = false;
     }
     
@@ -212,6 +206,7 @@ public class FirstStageBoss : Enemy
         if (CanMove() && _enemyCurrentState == EnemyState.Standing)
         {
             Move();
+            print("move");
         }
     }
 
@@ -248,11 +243,12 @@ public class FirstStageBoss : Enemy
     ///  This method needs to be updated when new attack ability is added in animator
     /// </summary>
     /// <returns></returns>
-    public override bool AnimationPlaying()
-    {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
+    public override bool AnimationPlaying(){
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("RollingAttack") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("ContinuousStrike") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+               animator.GetCurrentAnimatorStateInfo(0).IsName("TornadoMaker")||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear");
     }
 
     private Vector3 PlayerDirectionInPlane()
