@@ -30,7 +30,7 @@ public abstract class Enemy : MonoBehaviour
 
     private CameraEffect cameraEffect;
 
-    [SerializeField] private bool canAttack = true;
+    [SerializeField] internal bool canAttack = true;
     [SerializeField] private bool canKnockUp;
 
 

@@ -28,6 +28,7 @@ public class TipsTriggerByCollision : MonoBehaviour
             TipsManager.Instance.PanelStartTime = Time.time;
             TipsManager.Instance.tipsPanelText.text = tip;
             TipsManager.Instance.TipsPanelAnimator.SetBool("isOpen", true);
+            AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueLetterPop");
         }
     }
 
@@ -36,6 +37,8 @@ public class TipsTriggerByCollision : MonoBehaviour
         if (PanelIsOpen && !PanelAbandoned && Time.time - TipsManager.Instance.PanelStartTime > TipsManager.Instance.tipsDisplayDuration)
         {
             TipsManager.Instance.TipsPanelAnimator.SetBool("isOpen", false);
+            AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueLetterPop");
+
             PanelAbandoned = true;
         }
     }

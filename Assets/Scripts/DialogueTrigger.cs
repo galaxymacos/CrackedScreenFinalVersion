@@ -33,9 +33,6 @@ public class DialogueTrigger : Interactable
         {
             return;            
         }
-        else
-        {
-        }
         if (!DialogueManager.Instance._dialogueStarted && currentDialogue < dialogues.Length)
         {
             DialogueManager.Instance.StartDialogue(dialogues);
