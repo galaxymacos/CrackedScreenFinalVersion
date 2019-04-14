@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,12 +33,13 @@ public class DialogueManager : MonoBehaviour
         playerController = GameManager.Instance.player.GetComponent<PlayerController>();
     }
 
-
     public void StartDialogue(Dialogue[] _dialogues)
     {
         currentDialogueHasDisplayed = false;
         playerController.canControl = false;
-//        AudioManager.instance.StopAllSfx();
+        PlayerProperty.movementClass.ChangePlayerState(PlayerMovement.PlayerState.Stand);
+        PlayerProperty.controller.verticalMovement = 0;
+        PlayerProperty.controller.horizontalMovement = 0;
         dialogues = _dialogues;
         animator.SetBool("isOpen", true);
         AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueBoxOpen");
@@ -102,6 +104,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         playerController.canControl = true;
+        print("Set time scale to 1f");
         Time.timeScale = 1f;
         AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueBoxClose");
         currentDialogue = 0;

@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement(InputAction.CallbackContext context)
     {
-        if (LevelManager.Instance.piercingPlayer) {    // Can't move when the player is being pierced
+        if (LevelManager.Instance.piercingPlayer || !canControl) {    // Can't move when the player is being pierced
             
             return;
         }
@@ -115,6 +115,8 @@ public class PlayerController : MonoBehaviour
         isTransforming = false;
         powerAccumulateTime = 0;
         _cameraEffect.StopShaking();
+        print("Set time scale to 1");
+
         Time.timeScale = 1f;
         print(transferStoragePowerFull);
         if (transferStoragePowerFull)

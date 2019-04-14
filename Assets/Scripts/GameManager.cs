@@ -86,7 +86,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void Update() {
+    private void Update()
+    {
+        if (!DialogueManager.Instance._dialogueStarted)
+        {
             if (HitPauseTimeRemain > 0)
             {
                 Time.timeScale = 0.1f;
@@ -95,7 +98,9 @@ public class GameManager : MonoBehaviour
             else
             {
                 Time.timeScale = 1f;
-            }
+            }    
+        }
+        
     }
 
     public void CreatePlayerSaveSpot()
