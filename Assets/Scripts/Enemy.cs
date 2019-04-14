@@ -119,8 +119,6 @@ public abstract class Enemy : MonoBehaviour
 
         nextAttackTime = 0;
 
-        Instantiate(GameManager.Instance.summonCircle, transform.position - new Vector3(0, 1.5f, 0),
-            Quaternion.identity);
     }
 
     public virtual void FixedUpdate()

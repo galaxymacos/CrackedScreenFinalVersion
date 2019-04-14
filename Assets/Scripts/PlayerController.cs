@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransformRelease(InputAction.CallbackContext context)
     {
-        print("Headle transform release");
         if (!isTransforming)
             return;
         canControl = true;
@@ -116,6 +115,7 @@ public class PlayerController : MonoBehaviour
         powerAccumulateTime = 0;
         _cameraEffect.StopShaking();
         Time.timeScale = 1f;
+        print(transferStoragePowerFull);
         if (transferStoragePowerFull)
         {
             dimensionLeapSucceedParticleEffect.SetActive(true);
@@ -176,17 +176,11 @@ public class PlayerController : MonoBehaviour
     {
         if (isTransforming)
         {
-            print("add power accumulate time");
             powerAccumulateTime += Time.deltaTime / Time.timeScale;
         }
-        if (canControl) 
+        if (powerAccumulateTime > enter3DWorldDuration)
         {
-   
-            if (powerAccumulateTime > enter3DWorldDuration)
-            {
-                transferStoragePowerFull = true;
-            }
-
+            transferStoragePowerFull = true;
         }
     }
 

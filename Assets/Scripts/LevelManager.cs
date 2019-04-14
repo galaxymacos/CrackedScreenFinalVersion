@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] internal GameObject ArcherEnemy;
     [SerializeField] internal GameObject FirstStageBoss;
     [SerializeField] internal GameObject SecondStageBoss;
+    [SerializeField] internal GameObject SummonCircleMeleeEnemy;
+    [SerializeField] internal GameObject SummonCircleArcherEnemy;
+    [SerializeField] internal GameObject SummonCircleFirstStageBoss;
+    [SerializeField] internal GameObject SummonCircleSecondStageBoss;
 
     internal bool isDashingForward;
 

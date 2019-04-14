@@ -317,21 +317,27 @@ public class FirstStageBoss : Enemy
             }
             else if (HP / maxHp > 0.6 && !hasSpawnedEnemy[0])
             {
-                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
+                Instantiate(LevelManager.Instance.SummonCircleMeleeEnemy, transform.position + new Vector3(3, 3),
                     Quaternion.identity);
                 hasSpawnedEnemy[0] = true;
+                specialAttackInterval /= 0.7f;
+                attackSpeed *= 1.5f;
+                moveSpeed *= 1.5f;
             }
             else if(HP/maxHp>0.3 && hasSpawnedEnemy[1])
             {
-                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
+                Instantiate(LevelManager.Instance.SummonCircleArcherEnemy, transform.position + new Vector3(-3, 3),
                     Quaternion.identity);
                 hasSpawnedEnemy[1] = true;
+                specialAttackInterval /= 0.5f;
+                attackSpeed *= 1.3f;
+                moveSpeed *= 1.5f;
             }
             else if(!hasSpawnedEnemy[2])
             {
-                Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
+                Instantiate(LevelManager.Instance.SummonCircleArcherEnemy, transform.position + new Vector3(3, 3),
                     Quaternion.identity);
-                Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
+                Instantiate(LevelManager.Instance.SummonCircleMeleeEnemy, transform.position + new Vector3(-3, 3),
                     Quaternion.identity);
                 hasSpawnedEnemy[2] = true;
 

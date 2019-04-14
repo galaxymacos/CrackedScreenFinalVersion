@@ -61,7 +61,7 @@ public class SecondStageBoss : Enemy
         
         if (ignoreKnockUpTimeLeft>0)
         {
-            PlayerFlickerWhenTakeDamage();
+            FlickerWhenTakeDamage();
 
         }
         else
@@ -71,7 +71,7 @@ public class SecondStageBoss : Enemy
                 sr.enabled = true;
             }
         }
-        
+        RageWhenWifeDies();
 
     }
     
@@ -87,7 +87,7 @@ public class SecondStageBoss : Enemy
         LevelManager.Instance.isDashingForward = false;
     }
 
-    private void PlayerFlickerWhenTakeDamage()
+    private void FlickerWhenTakeDamage()
     {
         if (flickerTrigger)
         {
@@ -116,8 +116,9 @@ public class SecondStageBoss : Enemy
                animator.GetCurrentAnimatorStateInfo(0).IsName("RollingStrike") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("DashUppercut") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("HomeRun") ||
-               animator.GetCurrentAnimatorStateInfo(0).IsName("AirFruitNinja") ||
+               animator.GetCurrentAnimatorStateInfo(0).IsName("DragonFist") ||
                animator.GetCurrentAnimatorStateInfo(0).IsName("BaseBallAttack");
+
     }
 
     public bool IsHitOnAirOrLayDown()
@@ -152,6 +153,7 @@ public class SecondStageBoss : Enemy
             }
 
             specialAttackTimeRemains -= Time.deltaTime;
+            print(specialAttackTimeRemains);
             if (specialAttackTimeRemains <= 0)
             {
                 SpecialAttack();
@@ -258,6 +260,7 @@ public class SecondStageBoss : Enemy
         }
     }
     private bool[] hasSpawnedEnemy = new bool[4];
+    private GameObject wife;
 
     public void SpawnEnemyWhenStandUp(EnemyState enemyState)
     {
@@ -267,7 +270,7 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[0])
                 {
-                    Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(3, 3),
+                    Instantiate(LevelManager.Instance.SummonCircleMeleeEnemy, transform.position + new Vector3(3, 3),
                         Quaternion.identity);
                     hasSpawnedEnemy[0] = true;
                 }
@@ -277,9 +280,12 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[1])
                 {
-                    Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(-3, 3),
+                    Instantiate(LevelManager.Instance.SummonCircleArcherEnemy, transform.position + new Vector3(-3, 3),
                         Quaternion.identity);
                     hasSpawnedEnemy[1] = true;
+                    specialAttackInterval /= 0.7f;
+                    attackSpeed *= 1.1f;
+                    moveSpeed *= 1.1f;
                 }
                 
             }
@@ -287,11 +293,14 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[2])
                 {
-                    Instantiate(LevelManager.Instance.ArcherEnemy, transform.position + new Vector3(3, 3),
+                    Instantiate(LevelManager.Instance.SummonCircleArcherEnemy, transform.position + new Vector3(3, 3),
                         Quaternion.identity);
-                    Instantiate(LevelManager.Instance.patrolEnemy, transform.position + new Vector3(-3, 3),
+                    Instantiate(LevelManager.Instance.SummonCircleMeleeEnemy, transform.position + new Vector3(-3, 3),
                         Quaternion.identity);
                     hasSpawnedEnemy[2] = true;    
+                    specialAttackInterval /= 0.5f;
+                    attackSpeed *= 1.2f;
+                    moveSpeed *= 1.2f;
                 }
                 
             }
@@ -299,15 +308,23 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[3])
                 {
-                    GameObject firstStageBossIns = Instantiate(LevelManager.Instance.FirstStageBoss, transform.position + new Vector3(3, 3),
+                    wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
                         Quaternion.identity);
-                    firstStageBossIns.GetComponent<FirstStageBoss>().canSummon = false;
-                    firstStageBossIns.GetComponent<FirstStageBoss>().HP /= 2;
-                    firstStageBossIns.GetComponent<FirstStageBoss>().maxHp /= 2;
-                    hasSpawnedEnemy[3] = true;    
+                    hasSpawnedEnemy[3] = true;
+                    
                 }
                 
             }
+        }
+    }
+
+    private bool isRage;
+    public void RageWhenWifeDies()
+    {
+        if (hasSpawnedEnemy[3] && !wife && !isRage)
+        {
+            isRage = true;
+            specialAttackInterval = 0.1f;
         }
     }
 }

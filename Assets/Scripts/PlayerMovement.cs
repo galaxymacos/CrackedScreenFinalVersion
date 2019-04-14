@@ -473,7 +473,6 @@ public class PlayerMovement : MonoBehaviour
                 // Fix a nasty double jump bug
                 if (playerCurrentState != PlayerState.Stand)
                 {
-                    print("Change player state to stand place 7");
                     ChangePlayerState(PlayerState.Stand);
 
                 }

@@ -120,8 +120,6 @@ MonoBehaviour:
   blood: {fileID: 876229043633345149, guid: f83d038f018606347b522e0cee5644f5, type: 3}
   smallBlood: {fileID: 876229043633345149, guid: 9d97fa68339a39e45a3977e7cc8750c9,
     type: 3}
-  summonCircle: {fileID: 1552054899364325813, guid: 0d8c384cd2f24f6458969ccbb4ea431c,
-    type: 3}
   PlayerDying: 0
   isGameOver: 0
 --- !u!114 &2177889124415726822
@@ -374,6 +372,14 @@ MonoBehaviour:
   FirstStageBoss: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
     type: 3}
   SecondStageBoss: {fileID: 8481021725361355576, guid: 1f9ad15104c547547bb8e7c336aa315a,
+    type: 3}
+  SummonCircleMeleeEnemy: {fileID: 1552054899364325813, guid: 5757c1ccc323781488811ce5c6afab9e,
+    type: 3}
+  SummonCircleArcherEnemy: {fileID: 1552054899364325813, guid: 86dbbd389a2b1454c9abab8e1894807f,
+    type: 3}
+  SummonCircleFirstStageBoss: {fileID: 1552054899364325813, guid: 0d8c384cd2f24f6458969ccbb4ea431c,
+    type: 3}
+  SummonCircleSecondStageBoss: {fileID: 1552054899364325813, guid: 4aff9fca27d71944ba039b79914f2adf,
     type: 3}
 --- !u!1001 &5722214871409212554
 PrefabInstance:

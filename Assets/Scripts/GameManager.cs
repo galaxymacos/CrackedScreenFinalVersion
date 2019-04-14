@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
 
     internal GameObject lastHitEnemy;
     internal float lastHitEnemyTime;
-    [SerializeField] internal GameObject summonCircle;
 
     #endregion
 
