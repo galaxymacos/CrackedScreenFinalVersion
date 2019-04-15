@@ -104,6 +104,10 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Attack:
                 break;
             case PlayerState.Stand:
+                if (playerPreviousState == PlayerState.FallDown)
+                {
+                    rb.velocity = Vector3.zero;
+                }
                 break;
             case PlayerState.Walk:
 //                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
@@ -325,38 +329,54 @@ public class PlayerMovement : MonoBehaviour
 
     private bool PlayerHasWallAtRight()
     {
-        
-        LayerMask wallLayer = 1 << 14;
+        bool ishittingWall = false;
         var position = transform.position;
-        var hasHitRightWallFoot = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        var hasHitRightWallBody = Physics.Raycast(position, Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        var hasHitRightWallHead = Physics.Raycast(position+new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.right, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        
-        return hasHitRightWallFoot || hasHitRightWallBody || hasHitRightWallHead;
+        var boxCollider = GetComponent<BoxCollider>();
+        var originalPosition = boxCollider.size.y / 2;
+        var difference = 2 * originalPosition/20;
+        LayerMask wallLayer = 1 << 14;
+        for (int i = 0; i < 20; i++)
+        {
+            if (Physics.Raycast(position - new Vector3(0, originalPosition - i * difference, 0), Vector3.right,
+                GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+                wallLayer))
+            {
+                ishittingWall = true;
+                break;
+            }
+        }
+
+        return ishittingWall;
     }
 
     private bool PlayerHasWallAtLeft()
     {
-        LayerMask wallLayer = 1 << 14;
+        bool ishittingWall = false;
         var position = transform.position;
-        var hasHitLeftWallFoot = Physics.Raycast(position-new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        var hasHitLeftWallBody = Physics.Raycast(position, Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        var hasHitLeftWallHead = Physics.Raycast(position+new Vector3(0,GetComponent<BoxCollider>().size.y/2,0), Vector3.left, GetComponent<BoxCollider>().size.x / 2 + 0.01f,
-            wallLayer);
-        return hasHitLeftWallFoot || hasHitLeftWallBody || hasHitLeftWallHead;
+        var boxCollider = GetComponent<BoxCollider>();
+        var originalPosition = boxCollider.size.y / 2;
+        var difference = 2 * originalPosition/20;
+        LayerMask wallLayer = 1 << 14;
+        for (int i = 0; i < 20; i++)
+        {
+            if (Physics.Raycast(position - new Vector3(0, originalPosition - i * difference, 0), Vector3.left,
+                GetComponent<BoxCollider>().size.x / 2 + 0.01f,
+                wallLayer))
+            {
+                ishittingWall = true;
+                break;
+            }
+        }
+
+        return ishittingWall;
     }
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("MovingPlatform"))
-        {
-            transform.parent = null;
-        }
+//        if (other.gameObject.CompareTag("MovingPlatform"))
+//        {
+//            transform.parent = null;
+//        }
         if (other.gameObject.layer == LayerMask.NameToLayer("Slope"))
             if (rb.velocity.y > 0)
                 isGrounded = false;
@@ -389,23 +409,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("MovingPlatform"))
-        {
-            FloatingPanel floatingPanel = other.gameObject.GetComponent<FloatingPanel>();
-            if (floatingPanel.MoveDirection == FloatingPanel.Direction.Vertical)
-            {
-                if (!floatingPanel.movingInPositiveDir)
-                {
-                    PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.down;
-                }
-            }
-            
-            PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            transform.parent = other.transform.Find("PlatformNode").transform;
-            ChangePlayerState(PlayerState.Stand);
-            print("Change player state to stand place 4");
-
-        }
+//        if (other.gameObject.CompareTag("MovingPlatform"))
+//        {
+//            FloatingPanel floatingPanel = other.gameObject.GetComponent<FloatingPanel>();
+//            if (floatingPanel.MoveDirection == FloatingPanel.Direction.Vertical)
+//            {
+//                if (!floatingPanel.movingInPositiveDir)
+//                {
+//                    PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.down;
+//                }
+//            }
+//            
+//            PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//            transform.parent = other.transform.Find("PlatformNode").transform;
+//            ChangePlayerState(PlayerState.Stand);
+//            print("Change player state to stand place 4");
+//        }
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Slope"))
         {

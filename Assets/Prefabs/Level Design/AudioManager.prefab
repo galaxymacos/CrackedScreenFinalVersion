@@ -140,7 +140,13 @@ MonoBehaviour:
     - name: DefendSucceed
       clip: {fileID: 8300000, guid: 949a9c6be37f197499b9763285f386b2, type: 3}
       volume: 0.7
-      pitch: 0.5
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Die
+      clip: {fileID: 8300000, guid: 5c6ee7dd0ce1ce44e9073381a6bc4ec0, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       source: {fileID: 0}
   FirstBossSounds:
@@ -301,6 +307,24 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: BasicAttackFirstStrike
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: BasicAttackSecondStrike
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: BasicAttackThirdStrike
+      clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   UiSounds:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
@@ -371,6 +395,18 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: ChapterTwoBossFight
       clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: Tutorial
+      clip: {fileID: 8300000, guid: 17cc3352b85090c4fad830b14b12010e, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: ChapterOneMid
+      clip: {fileID: 8300000, guid: f2804956dfa3d7245bf3ec199011e72e, type: 3}
       volume: 0.1
       pitch: 1
       loop: 1

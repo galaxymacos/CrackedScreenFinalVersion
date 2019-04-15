@@ -170,8 +170,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump(InputAction.CallbackContext context)
     {
-        playerMovement.Jump();
-        playerMovement.isGliding = true;
+        if (canControl)
+        {
+            playerMovement.Jump();
+            playerMovement.isGliding = true;    
+        }
+        
     }
 
 

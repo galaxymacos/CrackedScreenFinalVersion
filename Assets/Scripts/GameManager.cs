@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!DialogueManager.Instance._dialogueStarted)
+        if (!DialogueManager.Instance._dialogueStarted && !gameIsPaused)
         {
             if (HitPauseTimeRemain > 0)
             {
