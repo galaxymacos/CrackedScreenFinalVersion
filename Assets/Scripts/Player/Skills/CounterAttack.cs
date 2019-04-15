@@ -13,7 +13,7 @@ namespace Skills
 
         [SerializeField] private Vector3 enemyKnockdownForce;
 
-        private void Start()
+        public override void Start()
         {
             base.Start();
             playerProperty = GameManager.Instance.player.GetComponent<Player>();
@@ -40,7 +40,7 @@ namespace Skills
             {
                 print("Slash");
 
-                if (enemy == null)
+                if (!enemy || !enemy.GetComponent<Enemy>())
                 {
                     continue;
                 }
