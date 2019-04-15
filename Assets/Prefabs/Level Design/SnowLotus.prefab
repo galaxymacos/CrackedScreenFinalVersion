@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5452447272451331472}
   - component: {fileID: 2728351374638816759}
   - component: {fileID: 3972806724555981579}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: SnowLotus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d69f01f374e704588cbc10da4b73f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleIncreaseSpeed: 1
-  existDuration: 1
+  scaleIncreaseSpeed: 3
+  existDuration: 0.3

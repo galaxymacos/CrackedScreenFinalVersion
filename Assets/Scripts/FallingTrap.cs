@@ -76,8 +76,9 @@ public class FallingTrap : MonoBehaviour
             {
                 soundOfIceCracking.Play();
             }
-            Instantiate(snowLotus, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+            Instantiate(snowLotus, transform.position+ new Vector3(0,1,0), Quaternion.identity);
             hasInteracted = true;
+            Destroy(gameObject);
         }
     }
 }

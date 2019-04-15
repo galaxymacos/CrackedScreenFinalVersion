@@ -7,6 +7,7 @@ public class SelfDropPanel : MonoBehaviour
     private GameObject AnotherSelfDropPanel;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
+    private Transform originalTransform;
     [Tooltip("Panel drops after touching player for ? seconds")]
     [SerializeField,Range(0,10)] private float dropDelay = 2f;
     private float dropTimeRemains;
@@ -28,6 +29,7 @@ public class SelfDropPanel : MonoBehaviour
         originalX = transform.position.x;
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+        originalTransform = transform;
     }
 
     private void Update()
@@ -58,7 +60,8 @@ public class SelfDropPanel : MonoBehaviour
                 if (disappearTime <= 0)
                 {
                     print("spawning another self drop panel");
-                    Instantiate(AnotherSelfDropPanel, originalPosition, Quaternion.identity);
+                    var newPanel = Instantiate(AnotherSelfDropPanel, originalPosition, originalRotation);
+                    newPanel.transform.localScale = originalTransform.localScale;
                     Destroy(gameObject);
                 }
             }

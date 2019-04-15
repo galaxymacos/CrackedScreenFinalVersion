@@ -6,9 +6,9 @@ public class SnowLotus : MonoBehaviour
 {
     private float scaleMultiplier = 1f;
 
-    [SerializeField] private float scaleIncreaseSpeed = 1f;
+    [SerializeField] private float scaleIncreaseSpeed = 2f;
 
-    [SerializeField] private float existDuration = 1f;
+    [SerializeField] private float existDuration = 0.5f;
 
     private AudioSource audioSource;
     // Start is called before the first frame update
@@ -22,5 +22,6 @@ public class SnowLotus : MonoBehaviour
     void Update()
     {
         transform.localScale *= scaleMultiplier + scaleIncreaseSpeed * Time.deltaTime;
+        transform.Translate(0,Time.deltaTime*1f,0);
     }
 }
