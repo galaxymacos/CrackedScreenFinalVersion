@@ -10,6 +10,7 @@ public class ArcherEnemy : Enemy
     [SerializeField] private Transform arrowSpawnPoint;
 
     [SerializeField] private EnemyDetector AttackHitBox;
+    [SerializeField] private bool canMove;
 
 
     private bool chargeNextAttack;
