@@ -224,8 +224,9 @@ MonoBehaviour:
   - name: Galaxymaxx
     sentences:
     - Dash uppercut is an essential ability to airborne enemy
-    - You can press "D" to perform a normal attack
-    - Go try it!
+    - 'You can press "D" to use it '
+    - But keep in mind that those powerful ability has a cooldown, which means that
+      you can't use it as many as you wish
   currentDialogue: 0
 --- !u!114 &85914882 stripped
 MonoBehaviour:
@@ -775,6 +776,16 @@ PrefabInstance:
     - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
         type: 3}
       propertyPath: BackgroundMusics.sounds.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
+        type: 3}
+      propertyPath: CharacterSounds.sounds.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
+        type: 3}
+      propertyPath: CharacterSounds.sounds.Array.data[6].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2253,6 +2264,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21baa2f7fbd390f4296a772ff3b05a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &849905899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_Name
+      value: SavePoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -401.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.85377
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89647d793fda69c4c9d8e9816e9ad311, type: 3}
 --- !u!4 &904605480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
@@ -2459,121 +2539,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 926701516}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &935911294
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2092072202}
-    m_Modifications:
-    - target: {fileID: 7795580186867017309, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_Name
-      value: JumpTip (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 69.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.965662
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 17.447079
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 21.045
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795580186867017308, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-        type: 3}
-      propertyPath: tip
-      value: Press space to jump
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7795580186867017249, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a, type: 3}
-    - {fileID: 7795580186867017308, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a, type: 3}
---- !u!4 &935911295 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 935911294}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &935911296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7795580186867017309, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 935911294}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &935911297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935911296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17af5108cd229f44199a09d44167374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  autoInteract: 1
-  hasBeenInteracted: 0
-  dialogues:
-  - name: Galaxymaxx
-    sentences:
-    - Now it is time to kick some enemies's ass
-    - You can press "A" to perform a normal attack
-    - Go try it!
-  currentDialogue: 0
 --- !u!114 &972005979 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 981340035071766313, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
@@ -4520,7 +4485,6 @@ Transform:
   - {fileID: 1507419104}
   - {fileID: 719356733}
   - {fileID: 920788990}
-  - {fileID: 935911295}
   - {fileID: 2110983488}
   - {fileID: 80446371}
   - {fileID: 289449188}
@@ -4542,7 +4506,7 @@ PrefabInstance:
     - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.03
+      value: 69.25
       objectReference: {fileID: 0}
     - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
         type: 3}
@@ -4577,7 +4541,7 @@ PrefabInstance:
     - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7795580186867017251, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
         type: 3}
@@ -4817,6 +4781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 981340035894028215, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3048a9fa1b7d84248a4bdfb3949188f3, type: 3}
