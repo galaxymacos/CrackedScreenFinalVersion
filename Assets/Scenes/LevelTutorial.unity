@@ -4647,6 +4647,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 981340036610036150, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23,
+        type: 3}
+    - target: {fileID: 981340035339948368, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23,
+        type: 3}
     - target: {fileID: 981340036400614394, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5005,6 +5017,11 @@ PrefabInstance:
       propertyPath: tipsPanelText
       value: 
       objectReference: {fileID: 1987795808}
+    - target: {fileID: 2177889124473127381, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e26aa6299fe9a1438519a0a4f4d273e, type: 3}
 --- !u!1001 &5222131671930141279
