@@ -9,6 +9,7 @@ public class SecondBossAttack : MonoBehaviour
 
     public void BasicAttackHitPlayer(int attackIndex)
     {
+        
         switch (attackIndex) {
             case 0: 
                 AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackFirstStrike");
