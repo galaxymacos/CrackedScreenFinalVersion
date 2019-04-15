@@ -8,9 +8,12 @@ public class finalPuzzleFixBug : MonoBehaviour
     [SerializeField] GameObject finalPuzzleUI;
     [SerializeField] GameObject saveUI;
     [SerializeField] GameObject FadeInUI;
+    [SerializeField] GameObject EndImageUI;
     [SerializeField] public InputField bugFixedInput;
     [SerializeField] public Image whiteFade;
     public bool bugFixedCorrect = false;
+    private bool startTofadeIn = false;
+    private float fadeInDuration = 2.0f;
 
     private void Start()
     {
@@ -35,12 +38,13 @@ public class finalPuzzleFixBug : MonoBehaviour
 
     public void Confirm()
     {
-        if (bugFixedInput.text == "canGoTo3dWorld=false;")
+        if (bugFixedInput.text == "canGoTo3DWorld=false;")
         {
             bugFixedCorrect = true;
             Debug.Log("Bug Has Been Fiexed");
             FadeInUI.SetActive(true);
             fadeIn();
+            startTofadeIn = true;
         }
     }
     public void SaveScripBotton()
@@ -57,5 +61,18 @@ public class finalPuzzleFixBug : MonoBehaviour
     void fadeOut()
     {
         whiteFade.CrossFadeAlpha(0, 2, false);
+    }
+
+    private void Update()
+    {
+        if (startTofadeIn)
+        {
+            fadeInDuration -= Time.deltaTime;
+            if (fadeInDuration < 0)
+            {
+                EndImageUI.SetActive(true);
+                fadeOut();
+            }
+        }
     }
 }
