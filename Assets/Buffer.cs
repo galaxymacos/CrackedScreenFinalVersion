@@ -6,9 +6,16 @@ using UnityEngine;
 public class Buffer : MonoBehaviour
 {
     private float lastTouchTime;
+    private EnemyDetector playerDetector;
+
+    private void Start()
+    {
+        playerDetector = transform.parent.GetComponent<EnemyDetector>();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject == PlayerProperty.player)
+        if (other.gameObject == PlayerProperty.player && playerDetector.playerInRange())
         {
             
             PlayerProperty.player.transform.SetParent(transform.parent.Find("PlatformNode"));
