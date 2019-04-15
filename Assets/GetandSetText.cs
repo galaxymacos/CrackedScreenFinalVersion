@@ -11,7 +11,7 @@ public class GetandSetText : MonoBehaviour
 
  public void Confirm()
     {
-        if (password.text == "100")
+        if (password.text == "YOURTEAMDESERVE100")
         {
             passwordCorrect = true;
             keyPadUI.SetActive(false);
