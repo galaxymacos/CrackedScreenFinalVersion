@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class EnemyDetector : MonoBehaviour
 {
-    internal List<Collider> _enemiesInRange;
+    internal List<GameObject> _enemiesInRange;
 
     [SerializeField] private string layerToDetect;
 
@@ -16,7 +16,7 @@ public class EnemyDetector : MonoBehaviour
         {
             layerToDetect = "Enemy";
         }
-        _enemiesInRange = new List<Collider>();
+        _enemiesInRange = new List<GameObject>();
     }
 
     private void Update()
@@ -34,9 +34,9 @@ public class EnemyDetector : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer(layerToDetect))
         {
-            if (!_enemiesInRange.Contains(other))
+            if (!_enemiesInRange.Contains(other.gameObject))
             {
-                _enemiesInRange.Add(other);
+                _enemiesInRange.Add(other.gameObject);
             }
         }
     }
@@ -44,7 +44,7 @@ public class EnemyDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer(layerToDetect))
-            _enemiesInRange.Remove(other);
+            _enemiesInRange.Remove(other.gameObject);
     }
 
  

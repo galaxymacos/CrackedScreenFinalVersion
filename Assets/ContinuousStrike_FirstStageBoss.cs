@@ -35,9 +35,9 @@ public class ContinuousStrike_FirstStageBoss : BossAbility
 //        {
 //            Attack();
 //        }
-        foreach (Collider col in hitbox._enemiesInRange)
+        foreach (GameObject col in hitbox._enemiesInRange)
         {
-            if (col.gameObject == PlayerProperty.player)
+            if (col == PlayerProperty.player)
             {
                 GetComponent<Enemy>().Attack();
                 break;

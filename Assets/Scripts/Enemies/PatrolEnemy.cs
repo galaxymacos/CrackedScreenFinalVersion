@@ -52,9 +52,9 @@ namespace Enemies
 
         private bool PlayerInRange()
         {
-            foreach (Collider col in AttackHitBox._enemiesInRange)
+            foreach (GameObject col in AttackHitBox._enemiesInRange)
             {
-                if (col.gameObject == PlayerProperty.player)
+                if (col == PlayerProperty.player)
                 {
                     return true;
                 }

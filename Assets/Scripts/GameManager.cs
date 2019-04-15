@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         int backOrder = 69999;
         bool displayingFrontOrder = true;
         damageNums = new List<GameObject>();
-        print("Spawn damage text");
+        damageNums.Clear();
         if (damage < 10)
         {
             damageNums.Add(Instantiate(nums[damage], position, Quaternion.identity));
@@ -120,21 +120,21 @@ public class GameManager : MonoBehaviour
         else if (damage < 100)
         {
             int NumInTen = damage / 10;
-            damageNums.Add(Instantiate(nums[NumInTen], position + new Vector3(-0.38f, 0), Quaternion.identity));
+            damageNums.Add(Instantiate(nums[NumInTen], position + new Vector3(-0.38f, 0.07f), Quaternion.identity));
             
             int NumInOne = damage % 10;
-            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.38f,0), Quaternion.identity));
+            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.38f,-0.07f), Quaternion.identity));
         }
         else
         {
             int NumInHundred = damage / 100;
-            damageNums.Add(Instantiate(nums[NumInHundred], position + new Vector3(-0.76f, 0), Quaternion.identity));
+            damageNums.Add(Instantiate(nums[NumInHundred], position + new Vector3(-0.76f, 0.07f), Quaternion.identity));
             
             int NumInTen = (damage%100) / 10;
             damageNums.Add(Instantiate(nums[NumInTen], position, Quaternion.identity));
             
             int NumInOne = damage % 10;
-            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.76f,0), Quaternion.identity));
+            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.76f,0.07f), Quaternion.identity));
         }
 
         foreach (GameObject damageNum in damageNums)
@@ -150,6 +150,10 @@ public class GameManager : MonoBehaviour
             }
 
             displayingFrontOrder = !displayingFrontOrder;
+
+            if (damage >= 100)
+            {
+            }
         }
     }
 

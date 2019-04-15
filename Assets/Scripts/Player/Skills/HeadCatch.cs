@@ -134,7 +134,7 @@ public class HeadCatch : Skill
                     }
 
                 }
-                List<Collider> enemies = skillHitBox._enemiesInRange;
+                List<GameObject> enemies = skillHitBox._enemiesInRange;
                 if (enemies.Count > 0)
                 {
                     if (enemies[Random.Range(0, enemies.Count - 1)])

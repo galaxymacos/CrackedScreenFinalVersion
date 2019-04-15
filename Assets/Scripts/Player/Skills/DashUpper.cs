@@ -46,8 +46,8 @@ public class DashUpper : Skill
             {
                 rb.MovePosition(new Vector3(dashSpeed * Time.fixedDeltaTime, 0) * playerController.facingOffset +
                                 rb.transform.position);
-                List<Collider> enemies = dashEnemyDetector._enemiesInRange;
-                foreach (Collider enemy in enemies) // Push enemies back
+                List<GameObject> enemies = dashEnemyDetector._enemiesInRange;
+                foreach (GameObject enemy in enemies) // Push enemies back
                 {
                     if (enemy == null || enemy.GetComponent<Enemy>()._enemyCurrentState == Enemy.EnemyState.LayOnGround) continue;
                     enemy.GetComponent<Enemy>().ForceMove(new Vector3(dashSpeed * Time.fixedDeltaTime, 0) * playerController.facingOffset);
@@ -65,7 +65,7 @@ public class DashUpper : Skill
 
                 rb.velocity = Vector3.zero;
                 // Activate the airborne indicator in child object
-                List<Collider> enemies = uppercutEnemyDetector._enemiesInRange;
+                List<GameObject> enemies = uppercutEnemyDetector._enemiesInRange;
                 foreach (var enemy in enemies)
                 {
                     if(enemy==null || enemy.GetComponent<Enemy>()._enemyCurrentState == Enemy.EnemyState.LayOnGround)

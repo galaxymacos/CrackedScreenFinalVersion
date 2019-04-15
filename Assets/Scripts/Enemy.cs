@@ -128,6 +128,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        damage = Random.Range(damage * 8 / 10, damage * 12 / 10);
         if (isDead)
         {
             return;
