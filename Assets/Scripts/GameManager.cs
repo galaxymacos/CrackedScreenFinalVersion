@@ -104,26 +104,52 @@ public class GameManager : MonoBehaviour
     }
     
     [SerializeField] private GameObject[] nums;
+    private List<GameObject> damageNums;
 
-    
     public void SpawnText(int damage,Vector3 position)
     {
+        int frontOrder = 70000;
+        int backOrder = 69999;
+        bool displayingFrontOrder = true;
+        damageNums = new List<GameObject>();
         print("Spawn damage text");
         if (damage < 10)
         {
-            var num = Instantiate(nums[damage], position, Quaternion.identity);
-            num.transform.SetParent(null);
+            damageNums.Add(Instantiate(nums[damage], position, Quaternion.identity));
         }
         else if (damage < 100)
         {
             int NumInTen = damage / 10;
-            var num1 = Instantiate(nums[NumInTen], position+new Vector3(-0.1f,0), Quaternion.identity);
+            damageNums.Add(Instantiate(nums[NumInTen], position + new Vector3(-0.38f, 0), Quaternion.identity));
             
             int NumInOne = damage % 10;
-            var num2 = Instantiate(nums[NumInOne], position+new Vector3(0.1f,0), Quaternion.identity);
+            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.38f,0), Quaternion.identity));
+        }
+        else
+        {
+            int NumInHundred = damage / 100;
+            damageNums.Add(Instantiate(nums[NumInHundred], position + new Vector3(-0.76f, 0), Quaternion.identity));
+            
+            int NumInTen = (damage%100) / 10;
+            damageNums.Add(Instantiate(nums[NumInTen], position, Quaternion.identity));
+            
+            int NumInOne = damage % 10;
+            damageNums.Add(Instantiate(nums[NumInOne], position+new Vector3(0.76f,0), Quaternion.identity));
+        }
 
-            num1.transform.SetParent(null);
-            num2.transform.SetParent(null);
+        foreach (GameObject damageNum in damageNums)
+        {
+            damageNum.transform.SetParent(null);
+            if (displayingFrontOrder)
+            {
+                damageNum.GetComponent<SpriteRenderer>().sortingOrder = frontOrder;
+            }
+            else
+            {
+                damageNum.GetComponent<SpriteRenderer>().sortingOrder = backOrder;
+            }
+
+            displayingFrontOrder = !displayingFrontOrder;
         }
     }
 

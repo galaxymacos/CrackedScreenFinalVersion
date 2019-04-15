@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloatingNum : MonoBehaviour
 {
-    [SerializeField] private float floatingSpeed;
+    [SerializeField] private float floatingSpeed = 2f;
 
     [SerializeField] private float existTime = 1f;
 
