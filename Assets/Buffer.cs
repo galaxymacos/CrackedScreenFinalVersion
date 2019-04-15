@@ -27,7 +27,7 @@ public class Buffer : MonoBehaviour
     
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject == PlayerProperty.player && Time.time-lastTouchTime>0.2f)
+        if (other.gameObject == PlayerProperty.player && Time.time-lastTouchTime>0.05f)
         {
             print("set player parent to null");
             PlayerProperty.player.transform.SetParent(null);

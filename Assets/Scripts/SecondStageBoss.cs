@@ -308,6 +308,7 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[3])
                 {
+                    GetComponent<DialogueTrigger>().enabled = true;
                     wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
                         Quaternion.identity);
                     hasSpawnedEnemy[3] = true;

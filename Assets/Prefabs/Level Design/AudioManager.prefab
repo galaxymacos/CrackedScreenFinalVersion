@@ -85,8 +85,8 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: Defend
       clip: {fileID: 8300000, guid: afeb0612bc95d1f49b23acddf45a0150, type: 3}
-      volume: 0.7
-      pitch: 0.5
+      volume: 1
+      pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: PlayerHurt
@@ -265,7 +265,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: DragonFist
+    - name: DragonFistDash
       clip: {fileID: 8300000, guid: 176b277e922a8674c8c2dc6b34cea95f, type: 3}
       volume: 1
       pitch: 1
@@ -301,25 +301,25 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: HugeSlashToGround
+    - name: DragonFistStrike
       clip: {fileID: 8300000, guid: 492831c6666366844b7a42d3729f8b00, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: BasicAttackFirstStrike
+    - name: RollingAttackHitGround
       clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: BasicAttackSecondStrike
+    - name: HomeRunPowerStorage
       clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: BasicAttackThirdStrike
+    - name: RollingAttackJump
       clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
       volume: 1
       pitch: 1
@@ -394,8 +394,8 @@ MonoBehaviour:
       loop: 1
       source: {fileID: 0}
     - name: ChapterTwoBossFight
-      clip: {fileID: 8300000, guid: 482b936633f4aa044abd53b6b108c5a5, type: 3}
-      volume: 0.1
+      clip: {fileID: 8300000, guid: 50db4b3340c4ac54ea83139bdead9eae, type: 3}
+      volume: 0.2
       pitch: 1
       loop: 1
       source: {fileID: 0}
@@ -407,6 +407,18 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: ChapterOneMid
       clip: {fileID: 8300000, guid: f2804956dfa3d7245bf3ec199011e72e, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: BaJianShenQu
+      clip: {fileID: 8300000, guid: 4a9daf25d4aac7c47bfe44eed80857a0, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: "Tutorial\uFF1F"
+      clip: {fileID: 8300000, guid: 17cc3352b85090c4fad830b14b12010e, type: 3}
       volume: 0.1
       pitch: 1
       loop: 1

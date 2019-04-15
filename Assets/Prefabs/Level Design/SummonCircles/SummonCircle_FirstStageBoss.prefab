@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1552054899364325818}
   - component: {fileID: 5556673357532715177}
   - component: {fileID: 6354194024706192241}
+  - component: {fileID: 6488508426494082558}
+  - component: {fileID: 6841964219857752381}
   m_Layer: 20
   m_Name: SummonCircle_FirstStageBoss
   m_TagString: Untagged
@@ -227,6 +229,39 @@ MonoBehaviour:
   summonPlace: {fileID: 2139979608523365693}
   enemyType: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
     type: 3}
+--- !u!114 &6488508426494082558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552054899364325813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec626c334560dce439833ebcc98219dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.3
+--- !u!114 &6841964219857752381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552054899364325813}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17af5108cd229f44199a09d44167374c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 1
+  autoInteract: 1
+  hasBeenInteracted: 0
+  dialogues:
+  - name: Du Meng
+    sentences:
+    - None shall pass!
+  currentDialogue: 0
 --- !u!1 &5259737673801250213
 GameObject:
   m_ObjectHideFlags: 0
