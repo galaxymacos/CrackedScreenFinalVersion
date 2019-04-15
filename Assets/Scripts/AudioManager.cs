@@ -74,16 +74,15 @@ public class AudioManager : MonoBehaviour
     internal string prevBgm = "";
 
     public void ChangeBgm(string newBgm) {
+        StopSound(AudioGroup.Bgm);
+        StartAllBackgroundSounds();
         prevBgm = currentBgm;
         currentBgm = newBgm;
     }
 
     private void Start()
     {
-        for (int i = 0; i < soundDictionary[AudioGroup.Bgm].sounds.Length; i++) {
-            PlaySound(AudioGroup.Bgm,soundDictionary[AudioGroup.Bgm].sounds[i].name);
-            soundDictionary[AudioGroup.Bgm].sounds[i].source.volume = 0f;
-        }
+        StartAllBackgroundSounds();
 
         if (SceneManager.GetActiveScene().name == "LevelTutorial")
         {
@@ -99,8 +98,15 @@ public class AudioManager : MonoBehaviour
         {
             ChangeBgm("ChapterTwoBegin");
         }
+    }
 
-        
+    private void StartAllBackgroundSounds()
+    {
+        for (int i = 0; i < soundDictionary[AudioGroup.Bgm].sounds.Length; i++)
+        {
+            PlaySound(AudioGroup.Bgm, soundDictionary[AudioGroup.Bgm].sounds[i].name);
+            soundDictionary[AudioGroup.Bgm].sounds[i].source.volume = 0f;
+        }
     }
 
     private void Update()

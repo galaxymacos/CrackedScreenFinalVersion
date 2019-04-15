@@ -146,12 +146,12 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
         blood.transform.SetParent(null);
     }
 
-    private void ShowFloatingDamage(int damage, Transform playerTransform)
-    {
-        var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
-            Quaternion.identity);
-        floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
-    }
+//    private void ShowFloatingDamage(int damage, Transform playerTransform)
+//    {
+//        var floatingDamage = Instantiate(floatingText, playerTransform.position + new Vector3(0, 2, 0),
+//            Quaternion.identity);
+//        floatingDamage.GetComponent<TextMesh>().text = damage.ToString();
+//    }
 
     public bool isPlayerUsingAbility()
     {
@@ -240,14 +240,10 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
         else {
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
-            var playerTransform = transform;
-            ShowFloatingDamage(damage, playerTransform);
             BloodParticleEffectDisplay(damage);
             FloatingDamageDisplay(damage);
             if (hp <= 0)
             {
-//                _playerMovement.ApplyGravity();
-                
                 GameManager.Instance.PlayerAnimator.PlayerStartDying();
             }
         }

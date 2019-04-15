@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1312498119909314908}
   - component: {fileID: 264152828791442204}
   - component: {fileID: 1941824796868463062}
+  - component: {fileID: 1533843743817215774}
   m_Layer: 11
   m_Name: Plane (3)
   m_TagString: Untagged
@@ -92,6 +93,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1533843743817215774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276436804686478078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72be00feaee647458413231d258171e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1775421038967286236
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +163,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0473fe42f4a87044b2e830869d02120, type: 2}
+  - {fileID: 2100000, guid: 3d271a761fdfa764aa0c2de9fb63e02b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -651,7 +664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveDirection: 0
   speed: 5
-  distance: 10
+  distance: 100
+  movingInPositiveDir: 1
 --- !u!114 &8630277639646772529
 MonoBehaviour:
   m_ObjectHideFlags: 0
