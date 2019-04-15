@@ -30,7 +30,7 @@ public class SavePoint : Interactable
         float z = float.Parse(encryptedConponent[2]);
         Vector3 playerLastCoordinate = new Vector3(x, y, z);
         GameManager.Instance.player.transform.position = playerLastCoordinate;
+        PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Stand);
-        print("Change player state when respawning");
     }
 }

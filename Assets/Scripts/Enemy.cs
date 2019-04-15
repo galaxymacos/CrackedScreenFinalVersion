@@ -135,7 +135,7 @@ public abstract class Enemy : MonoBehaviour
         HP -= Mathf.Clamp(damage - defense, 0, Mathf.Infinity);
         GameManager.Instance.HitPauseTimeRemain = HitPauseTime;
 
-        if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += damage/4;
+        if (_enemyCurrentState == EnemyState.GotHitToAir) extraGravity += damage/8;
 
         if (HP <= 0)
         {

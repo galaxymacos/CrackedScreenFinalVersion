@@ -26,7 +26,7 @@ public class PiercingSpear : BossAbility
     {
         if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("PiercingSpear"))
         {
-            if (piercingSpearHitBox.playerInRange()  && PlayerProperty.playerClass.hp > 0 && PlayerProperty.playerClass.invincibleTimeRemains<=0)
+            if (piercingSpearHitBox.playerInRange()  && !GameManager.Instance.PlayerDying && PlayerProperty.playerClass.invincibleTimeRemains<=0)
             {
 
                 LevelManager.Instance.piercingPlayer = true;
@@ -41,7 +41,7 @@ public class PiercingSpear : BossAbility
             if (pierceRight)
             {
                 if (LevelManager.Instance.piercingPlayer) {
-                    if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
+                    if (piercingSpearHitBox.playerInRange() && !GameManager.Instance.PlayerDying)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
                         print("player is knocked off");
@@ -56,7 +56,7 @@ public class PiercingSpear : BossAbility
             if(!pierceRight)
             {
                 if (LevelManager.Instance.piercingPlayer) {
-                    if (piercingSpearHitBox.playerInRange() && PlayerProperty.playerClass.hp > 0)
+                    if (piercingSpearHitBox.playerInRange() &&  !GameManager.Instance.PlayerDying)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
                         print("player is knocked off");
