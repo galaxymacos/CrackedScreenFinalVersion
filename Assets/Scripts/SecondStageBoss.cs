@@ -308,9 +308,10 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[3])
                 {
+                    
+                    
                     GetComponent<DialogueTrigger>().enabled = true;
-                    wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
-                        Quaternion.identity);
+                    StartCoroutine("InstantiateWife", 1);
                     hasSpawnedEnemy[3] = true;
                     
                 }
@@ -322,10 +323,16 @@ public class SecondStageBoss : Enemy
     private bool isRage;
     public void RageWhenWifeDies()
     {
-        if (hasSpawnedEnemy[3] && !wife && !isRage)
-        {
-            isRage = true;
-            specialAttackInterval = 0.1f;
-        }
+//        if (hasSpawnedEnemy[3] && !wife && !isRage)
+//        {
+//            isRage = true;
+//            specialAttackInterval = 0.1f;
+//        }
+    }
+
+    public void InstantiateWife()
+    {
+        wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
+            Quaternion.identity);
     }
 }
