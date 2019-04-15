@@ -16,10 +16,6 @@ public class DashUpper : Skill
     [SerializeField] private EnemyDetector dashEnemyDetector;
     [SerializeField] private EnemyDetector uppercutEnemyDetector;
 
-    [Tooltip("How long can the enemy move again if it is hit by dash")] [SerializeField]
-    private float stiffTimePhaseOne = 0.3f;
-
-
     private bool _tookDamagePhaseOne;
     private bool _tookDamagePhaseTwo;
     private Vector3 _originalEnemyKnockDownForce;
