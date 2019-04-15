@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 1552054899364325818}
   - component: {fileID: 5556673357532715177}
   - component: {fileID: 6354194024706192241}
+  - component: {fileID: 6488508426494082558}
+  - component: {fileID: 6841964219857752381}
   m_Layer: 20
-  m_Name: SummonCircle_SecondStageBoss
+  m_Name: SummonCircle_FirstStageBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 362fe4ffc59802949881fd124f488fe9, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 1552054899364325813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 498d5bb6eebbe684ba4d4088b900ff36, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0fdc00c83a7e3c647b86c39aad7c010d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,7 +128,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: adfa65e8a5d40694bb14a2e2fe081e8c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -225,8 +227,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   summonPlace: {fileID: 2139979608523365693}
-  enemyType: {fileID: 8481021725361355576, guid: 1f9ad15104c547547bb8e7c336aa315a,
+  enemyType: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
     type: 3}
+--- !u!114 &6488508426494082558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552054899364325813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec626c334560dce439833ebcc98219dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6841964219857752381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552054899364325813}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17af5108cd229f44199a09d44167374c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 1
+  autoInteract: 1
+  hasBeenInteracted: 0
+  dialogues:
+  - name: Du Meng
+    sentences:
+    - None shall pass!
+  currentDialogue: 0
 --- !u!1 &5259737673801250213
 GameObject:
   m_ObjectHideFlags: 0
