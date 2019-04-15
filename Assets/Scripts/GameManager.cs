@@ -102,6 +102,30 @@ public class GameManager : MonoBehaviour
         }
         
     }
+    
+    [SerializeField] private GameObject[] nums;
+
+    
+    public void SpawnText(int damage,Vector3 position)
+    {
+        print("Spawn damage text");
+        if (damage < 10)
+        {
+            var num = Instantiate(nums[damage], position, Quaternion.identity);
+            num.transform.SetParent(null);
+        }
+        else if (damage < 100)
+        {
+            int NumInTen = damage / 10;
+            var num1 = Instantiate(nums[NumInTen], position+new Vector3(-1,0), Quaternion.identity);
+            
+            int NumInOne = damage % 10;
+            var num2 = Instantiate(nums[NumInOne], position+new Vector3(1,0), Quaternion.identity);
+
+            num1.transform.SetParent(null);
+            num2.transform.SetParent(null);
+        }
+    }
 
     public void CreatePlayerSaveSpot()
     {

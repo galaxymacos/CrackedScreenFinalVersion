@@ -56,7 +56,7 @@ public class ArcherEnemy : Enemy
     
 
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
         if (dodging) return;
         if ( !animator.GetCurrentAnimatorStateInfo(0).IsName("isBeingSucked") && DodgingSucceed()) return;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicAttack : Skill
 {
-            [SerializeField] private float damage = 10f;
+            [SerializeField] private int damage = 10;
         public EnemyDetector EnemyDetector;
         public AnimationClip clip;
         

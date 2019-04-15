@@ -4,7 +4,7 @@ namespace Skills
 {
     public class AirborneSlash : Skill
     {
-        [SerializeField] private float damage = 10f;
+        [SerializeField] private int damage = 10;
         public EnemyDetector EnemyDetector;
 
         public Vector3 enemyKnockdownForce;

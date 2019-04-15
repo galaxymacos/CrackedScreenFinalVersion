@@ -5,7 +5,7 @@ namespace Skills
 {
     public class CounterAttack : Skill
     {
-        [SerializeField] private float damage = 10f;
+        [SerializeField] private int damage = 10;
         public EnemyDetector EnemyDetector;
         private Player playerProperty;
         [SerializeField] private float stiffTimeWhenHit = 1f;

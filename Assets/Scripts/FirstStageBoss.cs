@@ -133,7 +133,7 @@ public class FirstStageBoss : Enemy
     }
 
     
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
         if (ignoreKnockUpTimeLeft > 0)
             return;

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2222649249070466247}
+  - component: {fileID: 8896075606135339729}
   m_Layer: 9
   m_Name: TextDamageContainer
   m_TagString: Untagged
@@ -31,6 +32,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8896075606135339729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748427393667605385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e533b3056f9b94986b7795c666e789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nums:
+  - {fileID: 1642255054584966573, guid: 275528992f10bb643b2e02acc98c491b, type: 3}
+  - {fileID: 2658491564922781709, guid: 6854479a0ecf88a479b0b3d4d1fcf674, type: 3}
+  - {fileID: 2519743477221176625, guid: b341bb29f5ad1f248b7648edf043721a, type: 3}
+  - {fileID: 1089281275030841429, guid: 6fbd3d89c127e7f43b3e74b2be1801e5, type: 3}
+  - {fileID: 3651167945802065758, guid: a4be054354716444ba3d70588c8872d1, type: 3}
+  - {fileID: 8139922660708873821, guid: de8c9fac7def9b94980a73ae6f67bfa2, type: 3}
+  - {fileID: 2245767016165222234, guid: 3d7e5378c8d0b1e47967b1d88a5d60c4, type: 3}
+  - {fileID: 6902843056459954684, guid: 5e62c3d6930a86140a0fb7fb4b338272, type: 3}
+  - {fileID: 5913619669138584950, guid: 361402a7d81a4fc46a1f5ea570424296, type: 3}
+  - {fileID: 7969361518741882320, guid: 8cfafa2bfabfbb447bc669c5153de0a5, type: 3}
 --- !u!1 &7585023171942371324
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +178,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 6184688
-  m_fontColor: {r: 0.9433962, g: 0.3693485, b: 0.3693485, a: 1}
+    rgba: 4284901119
+  m_fontColor: {r: 1, g: 0.4009434, b: 0.4009434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -54,7 +54,7 @@ public class PendulumEnemy : Enemy
         return;
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
         print("pendulum took damage");

@@ -126,7 +126,7 @@ public abstract class Enemy : MonoBehaviour
         GetComponent<Rigidbody>().velocity += new Vector3(0, -extraGravity) * Time.fixedDeltaTime;
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
         if (isDead)
         {
@@ -143,7 +143,8 @@ public abstract class Enemy : MonoBehaviour
             // TODO add die pause time
         }
 
-        FloatingDamageDisplay(damage);
+        GameManager.Instance.SpawnText(damage,transform.position + new Vector3(0, 1.5f));
+//        FloatingDamageDisplay(damage);
 
         BloodParticleEffectDisplay(damage);
 

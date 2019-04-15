@@ -77,7 +77,7 @@ public class SecondStageBoss : Enemy
     
     private bool flickerTrigger;
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
         if (ignoreKnockUpTimeLeft > 0)
         {
