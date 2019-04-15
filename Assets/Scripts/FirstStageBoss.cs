@@ -206,7 +206,6 @@ public class FirstStageBoss : Enemy
         if (CanMove() && _enemyCurrentState == EnemyState.Standing)
         {
             Move();
-            print("move");
         }
     }
 

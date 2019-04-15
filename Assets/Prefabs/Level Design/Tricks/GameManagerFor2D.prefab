@@ -121,6 +121,17 @@ MonoBehaviour:
   smallBlood: {fileID: 876229043633345149, guid: 9d97fa68339a39e45a3977e7cc8750c9,
     type: 3}
   PlayerDying: 0
+  nums:
+  - {fileID: 1642255054584966573, guid: 275528992f10bb643b2e02acc98c491b, type: 3}
+  - {fileID: 2658491564922781709, guid: 6854479a0ecf88a479b0b3d4d1fcf674, type: 3}
+  - {fileID: 2519743477221176625, guid: b341bb29f5ad1f248b7648edf043721a, type: 3}
+  - {fileID: 1089281275030841429, guid: 6fbd3d89c127e7f43b3e74b2be1801e5, type: 3}
+  - {fileID: 3651167945802065758, guid: a4be054354716444ba3d70588c8872d1, type: 3}
+  - {fileID: 8139922660708873821, guid: de8c9fac7def9b94980a73ae6f67bfa2, type: 3}
+  - {fileID: 2245767016165222234, guid: 3d7e5378c8d0b1e47967b1d88a5d60c4, type: 3}
+  - {fileID: 6902843056459954684, guid: 5e62c3d6930a86140a0fb7fb4b338272, type: 3}
+  - {fileID: 5913619669138584950, guid: 361402a7d81a4fc46a1f5ea570424296, type: 3}
+  - {fileID: 7969361518741882320, guid: 8cfafa2bfabfbb447bc669c5153de0a5, type: 3}
   isGameOver: 0
 --- !u!114 &2177889124415726822
 MonoBehaviour:
@@ -205,7 +216,7 @@ MonoBehaviour:
   skillHitBox: {fileID: 0}
   aoeHitBox: {fileID: 0}
   damage: 100
-  enemyKnockUpForce: {x: 2000, y: 1200, z: 0}
+  enemyKnockUpForce: {x: 1600, y: 800, z: 0}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
   explodeSpawnPlace: {fileID: 0}
@@ -235,7 +246,6 @@ MonoBehaviour:
   dashSpeed: 20
   dashEnemyDetector: {fileID: 0}
   uppercutEnemyDetector: {fileID: 0}
-  stiffTimePhaseOne: 0.5
 --- !u!114 &2177889124953702678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,6 +401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859199079781104991, guid: a0b7d317aa0410643a77de5b042c0b0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5859199079781104985, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}

@@ -241,7 +241,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
             AudioManager.instance.PlaySound(AudioGroup.Character,"PlayerHurt");
             ChangeHpTo(hp - damage);
             BloodParticleEffectDisplay(damage);
-            FloatingDamageDisplay(damage);
+            GameManager.Instance.SpawnText(damage,transform.position+new Vector3(0,1,0));
             if (hp <= 0)
             {
                 GameManager.Instance.PlayerAnimator.PlayerStartDying();

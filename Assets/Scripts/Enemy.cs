@@ -144,6 +144,7 @@ public abstract class Enemy : MonoBehaviour
         }
 
         GameManager.Instance.SpawnText(damage,transform.position + new Vector3(0, 1.5f));
+        
 //        FloatingDamageDisplay(damage);
 
         BloodParticleEffectDisplay(damage);
