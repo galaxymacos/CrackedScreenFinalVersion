@@ -7,8 +7,16 @@ public class finalPuzzleFixBug : MonoBehaviour
 {
     [SerializeField] GameObject finalPuzzleUI;
     [SerializeField] GameObject saveUI;
+    [SerializeField] GameObject FadeInUI;
     [SerializeField] public InputField bugFixedInput;
+    [SerializeField] public Image whiteFade;
     public bool bugFixedCorrect = false;
+
+    private void Start()
+    {
+        whiteFade.canvasRenderer.SetAlpha(0.0f);
+     
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -31,6 +39,8 @@ public class finalPuzzleFixBug : MonoBehaviour
         {
             bugFixedCorrect = true;
             Debug.Log("Bug Has Been Fiexed");
+            FadeInUI.SetActive(true);
+            fadeIn();
         }
     }
     public void SaveScripBotton()
@@ -40,5 +50,12 @@ public class finalPuzzleFixBug : MonoBehaviour
         Confirm();
     }
 
-
+    void fadeIn()
+    {
+        whiteFade.CrossFadeAlpha(1, 2, false);
+    }
+    void fadeOut()
+    {
+        whiteFade.CrossFadeAlpha(0, 2, false);
+    }
 }
