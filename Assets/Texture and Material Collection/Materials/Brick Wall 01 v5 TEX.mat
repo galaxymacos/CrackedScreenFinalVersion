@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Brick Wall 01 v3 MAT Unlit
+  m_Name: Brick Wall 01 v5 TEX
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,16 +19,9 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 8f4ed2755071af740a36082e2ded196f, type: 3}
-        m_Scale: {x: 10, y: 10}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fc2f5a6fb462c024a9b35e7ac31cb4ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 137f976b83ab80e45b5d5093c7edcb5b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Shininess: 0.043239515
-    m_Colors:
-    - _Color: {r: 0.42308977, g: 0.6252378, b: 0.79850745, a: 1}
-    - _SpecColor: {r: 0.8731343, g: 0.8731343, b: 0.8731343, a: 1}
+    m_Floats: []
+    m_Colors: []

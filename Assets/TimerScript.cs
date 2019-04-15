@@ -7,6 +7,7 @@ public class TimerScript : MonoBehaviour
 {
     [SerializeField] private Text uiText;
     [SerializeField] private float maintimer;
+    static public bool timerTriggered = false;
 
     private float timer;
     private bool canCount = true;
@@ -21,20 +22,24 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
-        if (timer >= 0.0f && canCount)
+        if (timerTriggered)
         {
-            timer -= Time.deltaTime;
-            seconds = (int)(timer % 60);
-            minutes = (int)(timer / 60) % 60;
-            uiText.text = string.Format("{0:0}:{1:0}", minutes, seconds);
-        }   
-        else if (timer <= 0.0f && !doOnce)
-        {
-            canCount = false;
-            doOnce = true;
-            uiText.text = "0.00";
-            timer = 0.0f;
+            if (timer >= 0.0f && canCount)
+            {
+                timer -= Time.deltaTime;
+                seconds = (int)(timer % 60);
+                minutes = (int)(timer / 60) % 60;
+                uiText.text = string.Format("{0:0}:{1:0}", minutes, seconds);
+            }
+            else if (timer <= 0.0f && !doOnce)
+            {
+                canCount = false;
+                doOnce = true;
+                uiText.text = "0.00";
+                timer = 0.0f;
+            }
         }
+           
     }
 
 

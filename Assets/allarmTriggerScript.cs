@@ -13,6 +13,7 @@ public class allarmTriggerScript : MonoBehaviour
             souce.Play();
             timerUI.SetActive(true);
             fenceSystemScript.GetOutOfAllFences = false;
+            TimerScript.timerTriggered = true;
         }
     }
 

@@ -498,8 +498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Now, stand up, go to the back Corner of your real classroom, then find
-    out the password... '
+  m_Text: Go back to your classroom and find out the password...
 --- !u!222 &29252755
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5225,12 +5224,12 @@ PrefabInstance:
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 98.34
+      value: 80.85
       objectReference: {fileID: 0}
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.33
+      value: 67.55
       objectReference: {fileID: 0}
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
@@ -30605,7 +30604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 26537224}
-  maintimer: 300
+  maintimer: 600
 --- !u!1001 &2125418874
 PrefabInstance:
   m_ObjectHideFlags: 0
