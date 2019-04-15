@@ -12,7 +12,10 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameManager.Instance.is3D)
+        {
+            GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x,GetComponent<BoxCollider>().size.y,1);
+        }
     }
 
     // Update is called once per frame

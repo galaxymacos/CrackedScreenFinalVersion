@@ -8,7 +8,7 @@ public class Buffer : MonoBehaviour
     private float lastTouchTime;
     private EnemyDetector playerDetector;
 
-    private void Start()
+    private void Start() 
     {
         playerDetector = transform.parent.GetComponent<EnemyDetector>();
     }
