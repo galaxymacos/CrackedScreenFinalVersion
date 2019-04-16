@@ -1332,7 +1332,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 236d1b1a270e47f48b0f45a6c3c353e7, type: 3}
+    m_Font: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
@@ -2416,10 +2416,10 @@ RectTransform:
   m_Father: {fileID: 981340035894028214}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00085449, y: 0.00001049}
-  m_SizeDelta: {x: 1066.7, y: 245}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.001953125, y: 0.000015258789}
+  m_SizeDelta: {x: 0.0050049, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &981340035825729668
 CanvasRenderer:
@@ -2550,7 +2550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &981340035894028214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3291,6 +3291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981340036270960027}
+  - component: {fileID: 741544652}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -3319,6 +3320,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &741544652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981340036270960024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b05037c52b3b287438d9b78a1987a7b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &981340036394148135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,7 +3704,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 236d1b1a270e47f48b0f45a6c3c353e7, type: 3}
+    m_Font: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23, type: 3}
     m_FontSize: 68
     m_FontStyle: 0
     m_BestFit: 1
