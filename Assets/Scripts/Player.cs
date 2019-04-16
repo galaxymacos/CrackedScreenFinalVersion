@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Globalization;
 using TMPro;
-using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.Experimental.Input;
 
