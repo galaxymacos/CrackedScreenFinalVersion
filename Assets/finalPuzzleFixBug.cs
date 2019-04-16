@@ -8,9 +8,11 @@ public class finalPuzzleFixBug : MonoBehaviour
     [SerializeField] GameObject finalPuzzleUI;
     [SerializeField] GameObject saveUI;
     [SerializeField] GameObject FadeInUI;
+    [SerializeField] GameObject FadeOutUI;
     [SerializeField] GameObject EndImageUI;
     [SerializeField] public InputField bugFixedInput;
     [SerializeField] public Image whiteFade;
+    [SerializeField] public Image whiteFadeOut;
     public bool bugFixedCorrect = false;
     private bool startTofadeIn = false;
     private float fadeInDuration = 2.0f;
@@ -18,6 +20,8 @@ public class finalPuzzleFixBug : MonoBehaviour
     private void Start()
     {
         whiteFade.canvasRenderer.SetAlpha(0.0f);
+        whiteFadeOut.canvasRenderer.SetAlpha(1.0f);
+
      
     }
 
@@ -43,7 +47,7 @@ public class finalPuzzleFixBug : MonoBehaviour
             bugFixedCorrect = true;
             Debug.Log("Bug Has Been Fiexed");
             FadeInUI.SetActive(true);
-            fadeIn();
+             fadeIn();
             startTofadeIn = true;
         }
     }
@@ -60,7 +64,7 @@ public class finalPuzzleFixBug : MonoBehaviour
     }
     void fadeOut()
     {
-        whiteFade.CrossFadeAlpha(0, 2, false);
+        whiteFadeOut.CrossFadeAlpha(0, 2, false);
     }
 
     private void Update()
@@ -69,8 +73,9 @@ public class finalPuzzleFixBug : MonoBehaviour
         {
             fadeInDuration -= Time.deltaTime;
             if (fadeInDuration < 0)
-            {
-                EndImageUI.SetActive(true);
+            { 
+               EndImageUI.SetActive(true);
+                FadeOutUI.SetActive(true);
                 fadeOut();
             }
         }
