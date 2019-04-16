@@ -2214,14 +2214,24 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23,
+      objectReference: {fileID: 12800000, guid: 5545f811ab36c4f4da546b1f1c07c530,
         type: 3}
     - target: {fileID: 981340035339948368, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 67943d71827eefd42b9b2530fe03bd23,
+      objectReference: {fileID: 12800000, guid: 5545f811ab36c4f4da546b1f1c07c530,
         type: 3}
+    - target: {fileID: 981340035339948368, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 981340035339948368, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 981340036400614394, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
       propertyPath: m_LocalPosition.x
