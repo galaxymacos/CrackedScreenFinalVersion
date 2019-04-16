@@ -90,6 +90,18 @@ public class PlayerController : MonoBehaviour
 
     public void HandleTransform(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.hasDimensionLeap)
+        {
+            if (GameManager.Instance.dimensionLeapLastRunTime + GameManager.Instance.dimensionLeapCooldown > Time.time)
+            {
+                print("transform in cooldown");
+                GameManager.Instance.hpBarShakeAnimator.SetTrigger("HpBarShake");
+                AudioManager.instance.PlaySound(AudioGroup.Ui,"Error");
+                return;
+            }
+        }
+        
+        
         if (canAwake && canControl && playerMovement.playerCurrentState == PlayerMovement.PlayerState.Stand && !GameManager.Instance.is3D)
         {
             print("??");
@@ -103,7 +115,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool isTransforming;
+    internal bool isTransforming;
 
     public void HandleTransformRelease(InputAction.CallbackContext context)
     {
@@ -151,6 +163,8 @@ public class PlayerController : MonoBehaviour
             PlayerProperty.playerClass.ChangeRageTo(PlayerProperty.playerClass.rage-10*Time.deltaTime);    // TODO change to rageLoseSpeed
             if (PlayerProperty.playerClass.rage <= 0)
             {
+                GameManager.Instance.hasDimensionLeap = true;
+                GameManager.Instance.dimensionLeapLastRunTime = Time.time;
                 GameManager.Instance.OnSceneChangeCallback.Invoke(false);
             }
         }

@@ -308,8 +308,6 @@ public class SecondStageBoss : Enemy
             {
                 if (!hasSpawnedEnemy[3])
                 {
-                    
-                    
                     GetComponent<DialogueTrigger>().enabled = true;
                     StartCoroutine("InstantiateWife", 1);
                     hasSpawnedEnemy[3] = true;

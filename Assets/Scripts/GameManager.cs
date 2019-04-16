@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
 
     internal OnSceneChange OnSceneChangeCallback;
 
+    internal float dimensionLeapLastRunTime;
+    [SerializeField] internal float dimensionLeapCooldown = 10f;
+    internal bool hasDimensionLeap;
     [SerializeField] internal InputMaster controls;
+    [SerializeField] internal Animator hpBarShakeAnimator;
 
 
     private const string _playerSaveCoordinate = "PlayerLastCoordinate";
@@ -88,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!DialogueManager.Instance._dialogueStarted && !gameIsPaused && !Instance.gameOverPanel.activeSelf)
+        if (!DialogueManager.Instance._dialogueStarted && !gameIsPaused && !Instance.gameOverPanel.activeSelf && !PlayerProperty.controller.isTransforming)
         {
             if (HitPauseTimeRemain > 0)
             {
