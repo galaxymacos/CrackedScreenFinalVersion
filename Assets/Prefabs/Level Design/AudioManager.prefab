@@ -235,12 +235,6 @@ MonoBehaviour:
     AudioMixerGroup: {fileID: 243997608732459714, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
     sounds:
-    - name: Attack
-      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      source: {fileID: 0}
     - name: RollingAttackJump
       clip: {fileID: 8300000, guid: ad87497a0ecceb741943406853424a0c, type: 3}
       volume: 1
@@ -273,12 +267,6 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: BaseBallStrike
       clip: {fileID: 8300000, guid: 386fa57a8e1583c4c969a880e8e7fa7b, type: 3}
-      volume: 1
-      pitch: 1
-      loop: 0
-      source: {fileID: 0}
-    - name: HomeRunStrike
-      clip: {fileID: 8300000, guid: 6dccb3bd23417654cb51270d711c321e, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -321,6 +309,24 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: RollingAttackJump
       clip: {fileID: 8300000, guid: 305953af31f174c4bae157bff5725e66, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: FirstStrike
+      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: SecondStrike
+      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: ThirdStrike
+      clip: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
       volume: 1
       pitch: 1
       loop: 0

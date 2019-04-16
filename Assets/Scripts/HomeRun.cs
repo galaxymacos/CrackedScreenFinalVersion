@@ -29,4 +29,9 @@ public class HomeRun : MonoBehaviour {
     {
         Camera.main.GetComponent<CameraEffect>().EnlargeCamera(Camera.main.orthographicSize*0.7f);
     }
+
+    public void PlayHomeRunPrepareSound()
+    {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"HomeRunPrepare");
+    }
 }

@@ -49,6 +49,7 @@ public class SecondStageBoss : Enemy
     protected override void Die()
     {
         base.Die();
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"Death");
         OnBossDieCallback?.Invoke();
 //        BroadcastMessage("OnSecondBossDie");
 
