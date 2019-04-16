@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc14838b3aacb445b629b164804e6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dimensionLeapCooldown: 8
   controls:
     m_Asset: {fileID: 11400000, guid: 4ee2467c7408e5646aaebd70ba97ddc8, type: 3}
+  hpBarShakeAnimator: {fileID: 0}
   gameIsOver: 0
   gameIsPaused: 0
   isPlayerDying: 0
