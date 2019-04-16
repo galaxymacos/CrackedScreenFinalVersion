@@ -60,7 +60,7 @@ MonoBehaviour:
       loop: 0
       source: {fileID: 0}
     - name: Walk
-      clip: {fileID: 8300000, guid: 5b913e342d633104888664e50c420e5c, type: 3}
+      clip: {fileID: 8300000, guid: 63fed0c663e351c45b8867960197ffa1, type: 3}
       volume: 1
       pitch: 1
       loop: 0
@@ -367,6 +367,12 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: GameOver
       clip: {fileID: 8300000, guid: 125da6234e8d7b9478ae153dcf4606b2, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: Error
+      clip: {fileID: 8300000, guid: 8d6bae458a6f21547a9eeef7ecbc0225, type: 3}
       volume: 1
       pitch: 1
       loop: 0
