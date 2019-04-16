@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
@@ -26064,6 +26064,10 @@ PrefabInstance:
     - target: {fileID: 187916, guid: 19ab3527e88613c4693fac89a5c6dc86, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 187916, guid: 19ab3527e88613c4693fac89a5c6dc86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 432548, guid: 19ab3527e88613c4693fac89a5c6dc86, type: 3}
       propertyPath: m_LocalPosition.x
