@@ -48,7 +48,6 @@ public class EnemySpawner : MonoBehaviour
             var enemyIns = Instantiate(enemyToSpawn[i], spawnPlace[i].position, Quaternion.identity);
             enemyAlreadySpawned.Add(enemyIns);
         }
-        print("Spawn enemy");
         hasSpawned = true;
 
     }
@@ -62,7 +61,6 @@ public class EnemySpawner : MonoBehaviour
                 return false;
             }
         }
-
         return true;
     }
 }
