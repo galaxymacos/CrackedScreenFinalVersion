@@ -20211,6 +20211,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_MinSize
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 981340035339948368, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Long Long time ago... '
+      objectReference: {fileID: 0}
     - target: {fileID: 981340036400614394, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20319,7 +20324,7 @@ PrefabInstance:
     - target: {fileID: 981340035894028215, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 981340035825729666, guid: 3048a9fa1b7d84248a4bdfb3949188f3,
         type: 3}
