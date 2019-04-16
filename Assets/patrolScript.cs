@@ -14,7 +14,7 @@ public class patrolScript : MonoBehaviour
     private int targetPontIndex=0;
     private float minDistance = 0.1f;
     private int lastwaypointIndex;
-    private float movementSpeed = 0.2f;
+    private float movementSpeed = 0.1f;
     private float rotationSpeed = 0.2f;
     private bool checkAttack = false;
     private float attackDuration = 1.0f;
