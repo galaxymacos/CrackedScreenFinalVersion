@@ -22,7 +22,7 @@ public abstract class Interactable : MonoBehaviour
             {
                 Interact();
             }
-            else if (hasBeenInteracted && Input.anyKeyDown)
+            else if (hasBeenInteracted && Input.GetKeyDown(KeyCode.E))
             {
                 Interact();
             }

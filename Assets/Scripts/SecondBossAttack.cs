@@ -9,18 +9,6 @@ public class SecondBossAttack : MonoBehaviour
 
     public void BasicAttackHitPlayer(int attackIndex)
     {
-        
-        switch (attackIndex) {
-            case 0: 
-                AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackFirstStrike");
-                break;
-            case 1: 
-                AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackSecondStrike");
-                break;
-            case 2: 
-                AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackThirdStrike");
-                break;
-        }
         print(attackIndex);
         if (strikeHitBoxs[attackIndex].playerInRange())
         {
@@ -38,5 +26,19 @@ public class SecondBossAttack : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlayFirstStrikeSound()
+    {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"FirstStrike");
+    }
+    
+    public void PlaySecondStrikeSound()
+    {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"SecondStrike");
+    }
+    public void PlayThirdStrikeSound()
+    {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"ThirdStrike");
     }
 }
