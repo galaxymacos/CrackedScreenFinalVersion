@@ -71,7 +71,7 @@ public class SecondStageBoss : Enemy
                 sr.enabled = true;
             }
         }
-        RageWhenWifeDies();
+        RageMode();
 
     }
     
@@ -319,18 +319,24 @@ public class SecondStageBoss : Enemy
     }
 
     private bool isRage;
-    public void RageWhenWifeDies()
+    public void RageMode()
     {
-//        if (hasSpawnedEnemy[3] && !wife && !isRage)
-//        {
-//            isRage = true;
-//            specialAttackInterval = 0.1f;
-//        }
+        if (HP < maxHp && isRage)
+        {
+            HP += 30 * Time.deltaTime;
+            if (HP >= maxHp)
+            {
+                HP = maxHp;
+                isRage = false;
+            }
+        }
+        
     }
 
     public void InstantiateWife()
     {
         wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
             Quaternion.identity);
+        isRage = true;
     }
 }

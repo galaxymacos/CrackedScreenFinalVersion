@@ -41,6 +41,7 @@ public class RollingStrike : BossAbility
 
     public void HitPlayerIfItIsInHitBox()
     {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss, "HitGround");
         startJumping = false;
         if (RollingStrikeHitBoxPlayerDetector.playerInRange())
         {

@@ -15,6 +15,7 @@ public class HomeRun : MonoBehaviour {
     }
 
     public void HomeRunHitPlayer() {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"DragonFistStrike");
         print("Home run hits player");
         animator.SetBool("DragonFistHitPlayer",false);
         if (homeRunHitBox.playerInRange())
