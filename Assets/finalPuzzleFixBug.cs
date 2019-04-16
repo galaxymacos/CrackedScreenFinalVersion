@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class finalPuzzleFixBug : MonoBehaviour
 {
@@ -77,6 +78,10 @@ public class finalPuzzleFixBug : MonoBehaviour
                EndImageUI.SetActive(true);
                 FadeOutUI.SetActive(true);
                 fadeOut();
+                if (fadeInDuration < -5)
+                {
+                    SceneManager.LoadScene("StartMenu");
+                }
             }
         }
     }

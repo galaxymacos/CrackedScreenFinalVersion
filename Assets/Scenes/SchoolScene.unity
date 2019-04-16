@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
@@ -2230,7 +2230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &193055621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4683,6 +4683,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873423714788, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
 --- !u!1 &384278600
@@ -5318,7 +5323,7 @@ PrefabInstance:
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -31.378
+      value: -31.69
       objectReference: {fileID: 0}
     - target: {fileID: 4422653403574655411, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
@@ -5835,6 +5840,11 @@ PrefabInstance:
       propertyPath: m_WalkSpeed
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4422653403563733107, guid: 802ecd06bcdc0c749bd921ed804e5c13,
+        type: 3}
+      propertyPath: m_UseFovKick
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4422653403780353631, guid: 802ecd06bcdc0c749bd921ed804e5c13,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5859,6 +5869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.2410257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422653403568631891, guid: 802ecd06bcdc0c749bd921ed804e5c13,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 802ecd06bcdc0c749bd921ed804e5c13, type: 3}
@@ -15826,6 +15841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ceiling lamp (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 199274, guid: c8aaab68d6f8d86488ca65f33082f0aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 478798, guid: c8aaab68d6f8d86488ca65f33082f0aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.84
@@ -16031,6 +16050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420873423714788, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
@@ -28322,6 +28346,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2430420873423714788, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
 --- !u!1 &1968395604
@@ -29487,6 +29516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ceiling lamp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 199274, guid: c8aaab68d6f8d86488ca65f33082f0aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 478798, guid: c8aaab68d6f8d86488ca65f33082f0aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.485
@@ -30522,7 +30555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2076713333
 Transform:
   m_ObjectHideFlags: 0
@@ -31915,6 +31948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430420873423714788, guid: 2df07a877452a6b49832cb5f437fd83a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df07a877452a6b49832cb5f437fd83a, type: 3}
