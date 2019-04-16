@@ -231,7 +231,6 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
             Camera.main.GetComponent<CameraEffect>().StopShaking();
         }
         if (PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend")) {
-            print("block enemy attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"DefendSucceed");
             GameManager.Instance.player.GetComponent<PlayerCombat>().EnterCounterAttackMode();
             return false;

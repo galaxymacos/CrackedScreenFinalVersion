@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1552054899364325819}
   - component: {fileID: 1552054899364325818}
   - component: {fileID: 5556673357532715177}
-  - component: {fileID: 6354194024706192241}
   - component: {fileID: 6488508426494082558}
   - component: {fileID: 6841964219857752381}
   m_Layer: 20
@@ -214,21 +213,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6354194024706192241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552054899364325813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f3790bd61e0fe44917d367f08b1bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  summonPlace: {fileID: 2139979608523365693}
-  enemyType: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
-    type: 3}
 --- !u!114 &6488508426494082558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec626c334560dce439833ebcc98219dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  summonPlace: {fileID: 2139979608523365693}
+  enemyType: {fileID: 935729184725828525, guid: 4349620ea809d10458683b9c9fc8ae4a,
+    type: 3}
 --- !u!114 &6841964219857752381
 MonoBehaviour:
   m_ObjectHideFlags: 0

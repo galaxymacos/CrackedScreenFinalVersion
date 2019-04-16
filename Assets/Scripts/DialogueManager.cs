@@ -104,7 +104,6 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         playerController.canControl = true;
-        print("Set time scale to 1f");
         Time.timeScale = 1f;
         AudioManager.instance.PlaySound(AudioGroup.Ui,"DialogueBoxClose");
         currentDialogue = 0;

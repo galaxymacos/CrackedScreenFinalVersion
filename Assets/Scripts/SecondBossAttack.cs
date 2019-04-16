@@ -9,7 +9,6 @@ public class SecondBossAttack : MonoBehaviour
 
     public void BasicAttackHitPlayer(int attackIndex)
     {
-        print(attackIndex);
         if (strikeHitBoxs[attackIndex].playerInRange())
         {
             if (attackIndex == 2)     // If it is the last strike of the basic attack, deal extra damage and knock up player

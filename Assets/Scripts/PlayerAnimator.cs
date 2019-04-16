@@ -14,7 +14,6 @@ public class PlayerAnimator : MonoBehaviour
 
     public void LockPlayerControl()
     {
-        print("Lock player control");
         playerController.canControl = false;
     }
 

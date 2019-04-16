@@ -84,6 +84,15 @@ public class SecondStageBoss : Enemy
         {
             return;
         }
+
+        if ((HP-damage) / maxHp < 0.3 && !hasSpawnedEnemy[3])
+        {
+            ignoreKnockUpTimeLeft = 3f;
+            hasSpawnedEnemy[3] = true;
+            GetComponent<DialogueTrigger>().enabled = true;
+            StartCoroutine("InstantiateWife");
+            return;
+        }
         base.TakeDamage(damage);
         LevelManager.Instance.isDashingForward = false;
     }
@@ -154,7 +163,6 @@ public class SecondStageBoss : Enemy
             }
 
             specialAttackTimeRemains -= Time.deltaTime;
-            print(specialAttackTimeRemains);
             if (specialAttackTimeRemains <= 0)
             {
                 SpecialAttack();
@@ -305,17 +313,16 @@ public class SecondStageBoss : Enemy
                 }
                 
             }
-            else
-            {
-                if (!hasSpawnedEnemy[3])
-                {
-                    GetComponent<DialogueTrigger>().enabled = true;
-                    StartCoroutine("InstantiateWife", 1);
-                    hasSpawnedEnemy[3] = true;
-                    
-                }
-                
-            }
+//            else
+//            {
+//                if (!hasSpawnedEnemy[3])
+//                {
+//                    
+//                    hasSpawnedEnemy[3] = true;
+//                    
+//                }
+//                
+//            }
         }
     }
 
@@ -334,8 +341,9 @@ public class SecondStageBoss : Enemy
         
     }
 
-    public void InstantiateWife()
-    {
+     IEnumerator InstantiateWife()
+     {
+         yield return new WaitForSeconds(1);
         wife = Instantiate(LevelManager.Instance.SummonCircleFirstStageBoss, transform.position + new Vector3(3, 3),
             Quaternion.identity);
         isRage = true;

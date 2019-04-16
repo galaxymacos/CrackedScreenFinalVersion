@@ -25,7 +25,6 @@ namespace Skills
             PlayerProperty.playerClass.defendRecoilTimeRemain = 0;
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
-            print("set counter attack trigger");
             AudioManager.instance.PlaySound(AudioGroup.Character,"Counter Attack");
             
         }
@@ -38,7 +37,6 @@ namespace Skills
             var enemies = EnemyDetector._enemiesInRange;
             foreach (var enemy in enemies)
             {
-                print("Slash");
 
                 if (!enemy || !enemy.GetComponent<Enemy>())
                 {

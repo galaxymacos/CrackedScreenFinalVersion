@@ -215,7 +215,6 @@ public class GameManager : MonoBehaviour
         else
         {
             is3D = false;
-            print("Change to 2D scene");
             foreach (LiveObject liveObject in liveObjects)
             {
                 if (liveObject != null)

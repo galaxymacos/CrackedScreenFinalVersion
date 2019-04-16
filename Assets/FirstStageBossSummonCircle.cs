@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstStageBossSummonCircle : MonoBehaviour
+public class FirstStageBossSummonCircle : SummonCircle
 {
 
 
@@ -15,5 +15,16 @@ public class FirstStageBossSummonCircle : MonoBehaviour
     {
         GetComponent<DialogueTrigger>().enabled = true;
 
+    }
+    
+    public override void Update()
+    {
+        if (!enemy && hasSummoned)
+        {
+            var secondBossRock = GameObject.Find("SecondBossRock");
+            secondBossRock.GetComponent<SecondBossGate>().firstBossDie = true;
+            print("set first boss die = true");
+            Destroy(gameObject);
+        }
     }
 }

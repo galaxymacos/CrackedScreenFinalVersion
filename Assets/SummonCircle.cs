@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class SummonCircle : MonoBehaviour
 {
-    [SerializeField] private Transform summonPlace;
+    [SerializeField] internal Transform summonPlace;
 
-    [SerializeField] private GameObject enemyType;
+    [SerializeField] internal GameObject enemyType;
     // Start is called before the first frame update
     internal GameObject enemy;
-    private bool hasSummoned;
+    internal bool hasSummoned;
 
-    public void Summon()
+    public virtual void Summon()
     {
         hasSummoned = true;
         if (enemyType)
@@ -21,7 +21,7 @@ public class SummonCircle : MonoBehaviour
         }
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (!enemy && hasSummoned)
         {
