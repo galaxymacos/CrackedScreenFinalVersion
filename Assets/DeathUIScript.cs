@@ -10,7 +10,7 @@ public class DeathUIScript : MonoBehaviour
     [SerializeField] GameObject deathUI;
     public void Restart()
     {
-        SceneManager.LoadSceneAsync("SchoolScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("StartMenu");
     }
     public void Continue()
     {
