@@ -377,6 +377,12 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: LaunchAttackWarning
+      clip: {fileID: 8300000, guid: fe2770fea3858c740b2bf58ff4f32251, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   BackgroundMusics:
     AudioMixerGroup: {fileID: 243928605391016854, guid: b80431ec521b1a24f9e58422946661dc,
       type: 2}
