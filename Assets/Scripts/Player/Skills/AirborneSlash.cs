@@ -27,7 +27,6 @@ namespace Skills
 
         public override void Play()
         {
-            print("play air slash");
             if (_skillNotOnCooldown)
             {
                 GameManager.Instance.animator.SetTrigger(airSlash);
@@ -37,10 +36,7 @@ namespace Skills
                 AudioManager.instance.PlaySound(AudioGroup.Character, "Air Slash");
                 AirSlashStrike();
             }
-            else
-            {
-                print("Skill is on cooldown");
-            }
+
         }
 
 //        public void CreateAirborneSlashCollider(bool isFacingRight)
@@ -54,7 +50,6 @@ namespace Skills
             
             foreach (var enemy in enemies)
             {
-                print(enemy.name);
                 if (enemy == null)
                     continue;
                 enemy.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -67,7 +62,6 @@ namespace Skills
 
                     enemy.GetComponent<Enemy>().GetKnockUp(new Vector3(-enemyKnockdownForce.x,enemyKnockdownForce.y,enemyKnockdownForce.z));
                 }
-                print("airborne slash hits enemy");
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
             }
         }

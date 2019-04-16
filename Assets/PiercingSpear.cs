@@ -59,7 +59,6 @@ public class PiercingSpear : BossAbility
                     if (piercingSpearHitBox.playerInRange() &&  !GameManager.Instance.PlayerDying)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
-                        print("player is knocked off");
                         PlayerProperty.player.transform.position = transform.position+new Vector3(-3,1,0);
                     }
                 }

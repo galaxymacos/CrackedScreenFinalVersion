@@ -101,10 +101,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void HandleCounterAttack(InputAction.CallbackContext context)
     {
-        print("try handling counter attack");
         if (counterAttackTimeRemains > 0)
         {
-            print("counter attack succeed");
 
             playerSkills[5].Play();
             counterAttackTimeRemains = 0;

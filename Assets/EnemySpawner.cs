@@ -44,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnPlace.Length; i++)
         {
-            print("Spawn enemy");
             var enemyIns = Instantiate(enemyToSpawn[i], spawnPlace[i].position, Quaternion.identity);
             enemyAlreadySpawned.Add(enemyIns);
         }

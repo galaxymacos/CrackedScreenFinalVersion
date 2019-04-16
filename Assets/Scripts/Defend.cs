@@ -32,7 +32,6 @@ public class Defend : Skill
 
     public void EndDefend()
     {
-        print("End defend");
         PlayerProperty.controller.canControl = true;
         playerMovement.ChangePlayerState(PlayerMovement.PlayerState.Stand);
         _isPlaying = false;
