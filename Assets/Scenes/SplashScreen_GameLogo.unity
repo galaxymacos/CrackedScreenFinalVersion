@@ -363,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 5859199079781104991, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859199079781104985, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}
@@ -420,6 +420,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5859199081091750478, guid: a0b7d317aa0410643a77de5b042c0b0e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.4000244
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859199081091750478, guid: a0b7d317aa0410643a77de5b042c0b0e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.699951
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b7d317aa0410643a77de5b042c0b0e, type: 3}
 --- !u!1 &1748044600
@@ -470,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -555,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.8, y: -2.5}
+  m_AnchoredPosition: {x: -11.799988, y: -2.5}
   m_SizeDelta: {x: 69.6, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860684079

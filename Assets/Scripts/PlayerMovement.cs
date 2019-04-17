@@ -139,11 +139,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerCurrentState == PlayerState.Run)
         {
-            AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+            if (!DialogueManager.Instance._dialogueStarted)
+            {
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
+            }
         }
         else if (playerCurrentState == PlayerState.Walk)
         {
-            AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+            if (!DialogueManager.Instance._dialogueStarted)
+            {
+                AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
+            }
         }
 
 //

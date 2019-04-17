@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DashUpper : Skill
 {
-    [SerializeField] private float phaseOneDuration = 0.3f;
-    [SerializeField] private float phaseTwoDuration = 0.5f;
+    [SerializeField] private float phaseOneDuration = 0.15f;
+    [SerializeField] private float phaseTwoDuration = 0.43f;
     [SerializeField] private Transform dashPosition;
     [SerializeField] private float dashRadius;
     [SerializeField] private Transform uppercutPosition;
@@ -15,6 +15,7 @@ public class DashUpper : Skill
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private EnemyDetector dashEnemyDetector;
     [SerializeField] private EnemyDetector uppercutEnemyDetector;
+    [SerializeField] private AnimationClip clip;
 
     private bool _tookDamagePhaseOne;
     private bool _tookDamagePhaseTwo;
@@ -80,7 +81,7 @@ public class DashUpper : Skill
                     }
                 }
 
-                StartCoroutine(PlayerCanControl(phaseTwoDuration));
+//                StartCoroutine(PlayerCanControl(phaseTwoDuration));
             }
         }
     }
@@ -92,6 +93,7 @@ public class DashUpper : Skill
             AudioManager.instance.PlaySound(AudioGroup.Character,"Dash");
             GameManager.Instance.animator.SetTrigger("Dash Uppercut");
             playerController.canControl = false;
+            StartCoroutine(PlayerCanControl(clip.length));
 
             base.Play();
             _tookDamagePhaseOne = false;

@@ -38,4 +38,10 @@ public class DashUppercutParticleSystemController : MonoBehaviour
 
         timeRemainToDisappear = timeToDisappear;
     }
+
+    public void DisableDashUppercutParticleEffect()
+    {        
+        dashUppercutParticleEffectRight.SetActive(false);
+
+    }
 }

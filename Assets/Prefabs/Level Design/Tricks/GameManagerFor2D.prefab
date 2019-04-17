@@ -248,6 +248,7 @@ MonoBehaviour:
   dashSpeed: 20
   dashEnemyDetector: {fileID: 0}
   uppercutEnemyDetector: {fileID: 0}
+  clip: {fileID: 7400000, guid: f62ced49fefcf474886157817d6b6452, type: 2}
 --- !u!114 &2177889124953702678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,12 +403,7 @@ PrefabInstance:
     - target: {fileID: 5859199079781104991, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}
       propertyPath: m_Name
-      value: LevelChanger
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859199079781104991, guid: a0b7d317aa0410643a77de5b042c0b0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Level Curtain
       objectReference: {fileID: 0}
     - target: {fileID: 5859199079781104985, guid: a0b7d317aa0410643a77de5b042c0b0e,
         type: 3}

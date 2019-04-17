@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogueHasDisplayed = false;
         playerController.canControl = false;
-        PlayerProperty.movementClass.ChangePlayerState(PlayerMovement.PlayerState.Stand);
+//        PlayerProperty.movementClass.ChangePlayerState(PlayerMovement.PlayerState.Stand);
         PlayerProperty.controller.verticalMovement = 0;
         PlayerProperty.controller.horizontalMovement = 0;
         dialogues = _dialogues;
