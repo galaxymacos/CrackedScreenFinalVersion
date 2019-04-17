@@ -26,6 +26,8 @@ public class PlayerAnimator : MonoBehaviour
     public void PlayerStartDying()
     {
         playerController.canControl = false;
+        PlayerProperty.controller.horizontalMovement = 0;
+        PlayerProperty.controller.verticalMovement = 0;
         if (!GameManager.Instance.PlayerDying)
         {
             GameManager.Instance.PlayerDying = true;
