@@ -92,6 +92,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerDying)
+        {
+            PlayerProperty.controller.canControl = false;
+        }
         if (!DialogueManager.Instance._dialogueStarted && !gameIsPaused && !Instance.gameOverPanel.activeSelf && !PlayerProperty.controller.isTransforming)
         {
             if (HitPauseTimeRemain > 0)

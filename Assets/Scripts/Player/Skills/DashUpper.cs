@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DashUpper : Skill
 {
-    [SerializeField] private float phaseOneDuration = 0.3f;
-    [SerializeField] private float phaseTwoDuration = 0.5f;
+    [SerializeField] private float phaseOneDuration = 0.15f;
+    [SerializeField] private float phaseTwoDuration = 0.43f;
     [SerializeField] private Transform dashPosition;
     [SerializeField] private float dashRadius;
     [SerializeField] private Transform uppercutPosition;
