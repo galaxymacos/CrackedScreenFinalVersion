@@ -1421,7 +1421,7 @@ MonoBehaviour:
   hp: 200
   invincibieTime: 2
   knockUpForce: {x: -3, y: 7, z: 0}
-  maxHp: 100
+  maxHp: 200
   maxRage: 200
   rage: 0
   threeDimensionParticleSystem: {fileID: 259871229}
@@ -4400,6 +4400,7 @@ MonoBehaviour:
   damage: 10
   EnemyDetector: {fileID: 299355947}
   stiffTimeWhenHit: 1
+  clip: {fileID: 0}
   enemyKnockdownForce: {x: 500, y: 1000, z: 0}
 --- !u!114 &643297656
 MonoBehaviour:
