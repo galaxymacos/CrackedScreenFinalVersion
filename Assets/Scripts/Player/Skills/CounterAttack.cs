@@ -9,6 +9,7 @@ namespace Skills
         public EnemyDetector EnemyDetector;
         private Player playerProperty;
         [SerializeField] private float stiffTimeWhenHit = 1f;
+        [SerializeField] private AnimationClip clip;
 
 
         [SerializeField] private Vector3 enemyKnockdownForce;
@@ -26,7 +27,8 @@ namespace Skills
             base.Play();
             GameManager.Instance.animator.SetTrigger("Counter Attack");
             AudioManager.instance.PlaySound(AudioGroup.Character,"Counter Attack");
-            
+            PlayerProperty.playerClass.invincibleTimeRemains = clip.length;
+
         }
 
         /// <summary>

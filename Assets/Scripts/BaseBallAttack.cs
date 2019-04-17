@@ -19,15 +19,12 @@ public class BaseBallAttack : BossAbility
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public override void Play()
     {
         animator.SetTrigger("BaseballAttack");
+        
     }
 
     private void MoveParticleEffect(float distance)
@@ -37,6 +34,8 @@ public class BaseBallAttack : BossAbility
 
     public void DealDamageInStrikeHitBoxFront()
     {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BaseballImpactWave");
+
         if (StrikeHitBoxFront.playerInRange())
         {
             PlayerProperty.playerClass.TakeDamage(damageStrikeFront);
@@ -54,6 +53,8 @@ public class BaseBallAttack : BossAbility
 
     public void DealDamageInImpactWaveHitBox()
     {
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BaseballImpactWave");
+
         if (ImpactWaveHitBox.playerInRange())
         {
             PlayerProperty.playerClass.GetKnockOff(transform.position);
