@@ -9,11 +9,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject optionArm;
     [SerializeField] GameObject QuitArm;
     [SerializeField] AudioClip clickSound;
+    private LevelChanger levelChanger;
     private AudioSource souce;
 
     private void Start()
     {
         souce = GetComponent<AudioSource>();
+        levelChanger = GameObject.Find("Level Curtain").GetComponent<LevelChanger>();
     }
 
     public void OptionMenuQuit()
@@ -23,11 +25,12 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        souce.Play();
+        levelChanger.FadeToNextLevel();
+//        souce.Play();
         startArm.SetActive(true);
         optionArm.SetActive(false);
         QuitArm.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     public void OptionArm()

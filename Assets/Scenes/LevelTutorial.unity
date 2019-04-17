@@ -316,6 +316,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,11 +385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.5072
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -678,6 +678,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -742,11 +747,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 6.7273
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -866,6 +866,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -930,11 +935,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.5072
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -1079,9 +1079,10 @@ MonoBehaviour:
   autoInteract: 1
   hasBeenInteracted: 0
   dialogues:
-  - name: Xun
+  - name: Galaxymaxx
     sentences:
     - Catch Head is a final attack of a combo
+    - It deals a lot of damage
     - But it will only target enemy who is hit on air
   currentDialogue: 0
 --- !u!1001 &270159960
@@ -1253,13 +1254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInRange: 0
-  autoInteract: 0
+  autoInteract: 1
   hasBeenInteracted: 0
   dialogues:
-  - name: Xun
+  - name: Galaxymaxx
     sentences:
-    - "Air slash an ability to combo when enemy is on air\t"
-    - Try pressing "V" when jumping after dash uppercut
+    - "Air slash is an ability to combo enemy when it is hit on air\t"
+    - Try pressing "V" when jumping after dash uppercut to perform air slash
   currentDialogue: 0
 --- !u!114 &283290613 stripped
 MonoBehaviour:
@@ -1381,8 +1382,8 @@ MonoBehaviour:
     - The possibility of doing combos is infinitely
     - Just..............be creative
     - But sometimes, it is much more important to defend rather than attack recklessly
-    - Press "F" when the enemy is about to hit you to defend, when you know how to
-      do it, kill the minion
+    - Press "F" when the enemy is about to hit you to defend
+    - When you get the hinge of it, kill the enemy to progress to the next stage
   currentDialogue: 0
 --- !u!114 &323136000 stripped
 MonoBehaviour:
@@ -1409,6 +1410,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1474,11 +1480,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 13.5072
       objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (7)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!1 &375929975 stripped
@@ -1525,6 +1526,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1589,11 +1595,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5218441
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -1944,6 +1945,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2008,11 +2014,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.5072
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -2261,7 +2262,7 @@ MonoBehaviour:
   dialogues:
   - name: Galaxymaxx
     sentences:
-    - There are some place you can't go without jumping
+    - There are some places you can't go without jumping
     - Try to jump on the platform
   currentDialogue: 0
 --- !u!1001 &728003004
@@ -2616,6 +2617,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_Name
+      value: SavePoint (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2670,11 +2676,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
-        type: 3}
-      propertyPath: m_Name
-      value: SavePoint (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89647d793fda69c4c9d8e9816e9ad311, type: 3}
@@ -2984,6 +2985,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3048,11 +3054,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.5072
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -3354,6 +3355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3418,11 +3424,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 6.7273
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -3576,7 +3577,7 @@ PrefabInstance:
     - target: {fileID: 7795580186867017308, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a,
         type: 3}
       propertyPath: tip
-      value: Press "V" when jump
+      value: Press "V" when jumping
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4bbd27f244f1d439a6dbf636ba2d7a, type: 3}
@@ -3662,6 +3663,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3727,11 +3733,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 636.47925
       objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: Ground
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!1001 &1400659837
@@ -3741,6 +3742,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_Name
+      value: SavePoint
+      objectReference: {fileID: 0}
     - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3795,11 +3801,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
-        type: 3}
-      propertyPath: m_Name
-      value: SavePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89647d793fda69c4c9d8e9816e9ad311, type: 3}
@@ -4756,6 +4757,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4820,11 +4826,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 13.5072
-      objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
@@ -5074,7 +5075,7 @@ MonoBehaviour:
   dialogues:
   - name: Xun
     sentences:
-    - Catch Head even has the ability to drag the enemy from the other side
+    - Head catch is even able to drag and damage the enemy from the other side
     - Try head catch at the moment when you counter attack enemy
     - Which means you need to defend first ("F"), then counter attack ("G"), when
       counter attack hits enemy, you perform head catch by pressing "s" instantly
@@ -5090,6 +5091,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalGate (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5155,11 +5161,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 13.5072
       objectReference: {fileID: 0}
-    - target: {fileID: 32000673680870167, guid: bb077f9b4eab138428d46b821aedce0d,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalGate (8)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb077f9b4eab138428d46b821aedce0d, type: 3}
 --- !u!1 &2038787928 stripped
@@ -5206,6 +5207,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
+        type: 3}
+      propertyPath: m_Name
+      value: SavePoint (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1280829804081652807, guid: 89647d793fda69c4c9d8e9816e9ad311,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5260,11 +5266,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280829804081652860, guid: 89647d793fda69c4c9d8e9816e9ad311,
-        type: 3}
-      propertyPath: m_Name
-      value: SavePoint (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89647d793fda69c4c9d8e9816e9ad311, type: 3}
@@ -5941,11 +5942,6 @@ PrefabInstance:
       propertyPath: tipsPanelText
       value: 
       objectReference: {fileID: 1987795808}
-    - target: {fileID: 2177889124473127381, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e26aa6299fe9a1438519a0a4f4d273e, type: 3}
 --- !u!1001 &5222131671930141279
@@ -5983,12 +5979,12 @@ PrefabInstance:
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -539.6
+      value: -585.3
       objectReference: {fileID: 0}
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
@@ -6153,7 +6149,7 @@ PrefabInstance:
     - target: {fileID: 7330050099906130277, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.09775422
+      value: 0.0977542
       objectReference: {fileID: 0}
     - target: {fileID: 7330050099906130277, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
@@ -6168,7 +6164,7 @@ PrefabInstance:
     - target: {fileID: 7330050099047690478, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.14390615
+      value: 0.1439062
       objectReference: {fileID: 0}
     - target: {fileID: 7330050099047690478, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
@@ -6183,7 +6179,7 @@ PrefabInstance:
     - target: {fileID: 7330050099537654370, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.058919597
+      value: 0.05891958
       objectReference: {fileID: 0}
     - target: {fileID: 7330050099537654370, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
@@ -6198,7 +6194,7 @@ PrefabInstance:
     - target: {fileID: 7330050100232288999, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.025267074
+      value: -0.025267083
       objectReference: {fileID: 0}
     - target: {fileID: 7330050100232288999, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}

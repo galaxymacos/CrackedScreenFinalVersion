@@ -15,6 +15,7 @@ public class DashUpper : Skill
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private EnemyDetector dashEnemyDetector;
     [SerializeField] private EnemyDetector uppercutEnemyDetector;
+    [SerializeField] private AnimationClip clip;
 
     private bool _tookDamagePhaseOne;
     private bool _tookDamagePhaseTwo;
@@ -80,7 +81,7 @@ public class DashUpper : Skill
                     }
                 }
 
-                StartCoroutine(PlayerCanControl(phaseTwoDuration));
+//                StartCoroutine(PlayerCanControl(phaseTwoDuration));
             }
         }
     }
@@ -92,6 +93,7 @@ public class DashUpper : Skill
             AudioManager.instance.PlaySound(AudioGroup.Character,"Dash");
             GameManager.Instance.animator.SetTrigger("Dash Uppercut");
             playerController.canControl = false;
+            StartCoroutine(PlayerCanControl(clip.length));
 
             base.Play();
             _tookDamagePhaseOne = false;

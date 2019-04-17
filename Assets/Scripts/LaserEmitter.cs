@@ -33,9 +33,11 @@ public class LaserEmitter : MonoBehaviour
            lr.SetPosition(1,hitInfo.point);
             if (hitInfo.collider.gameObject == PlayerProperty.player)
             {
-                PlayerProperty.playerClass.TakeDamage(damage);
                 PlayerProperty.playerClass.GetKnockOff(hitInfo.point);
-                
+                if (PlayerProperty.playerClass.TakeDamage(damage))
+                {
+                    transform.parent.GetComponent<AudioSource>().Play();
+                }
             }
         }
         else
