@@ -226,6 +226,7 @@ PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDef
 
     // Player debuff
     public bool TakeDamage(int damage) {
+        
         if (IsPlayerInvincible() || PlayerProperty.hasSuckedEnemy)
         {
             return false;

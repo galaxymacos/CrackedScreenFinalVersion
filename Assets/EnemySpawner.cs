@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -22,22 +23,42 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private bool hasInteractedWithBarrier;
+    [SerializeField] private bool isBossSpawner;
     private void Update()
     {
         if (playerDetector.playerInRange() && !hasSpawned)
         {
             Spawn();
+            if (!isBossSpawner)
+            {
+                if (SceneManager.GetActiveScene().buildIndex == 5)
+                {
+                    AudioManager.instance.ChangeBgm("EnemySpawner");
+                }
+                else if(SceneManager.GetActiveScene().buildIndex == 6)
+                {
+                    AudioManager.instance.ChangeBgm("EnemySpawnerLevel2");
+                }
+            }
+            
         }
 
         if (hasSpawned)
         {
             if (isAllEnemiesDead())
             {
-                if (barrier != null && !hasInteractedWithBarrier)
+                if (!hasInteractedWithBarrier)
                 {
+                    if (!isBossSpawner)
+                    {
+                        AudioManager.instance.ChangeBgm(AudioManager.instance.prevBgm);
+
+                    }
                     hasInteractedWithBarrier = true;
-                    barrier.GetComponent<EnemySpawnerComponent>().OnEnemyDie();
-                }
+                    if(barrier != null){
+                        
+                        barrier.GetComponent<EnemySpawnerComponent>().OnEnemyDie();
+                }}
             }
         }
     }

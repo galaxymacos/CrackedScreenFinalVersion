@@ -93,7 +93,7 @@ public class FirstStageBoss : Enemy
                 if (attackCooldownUp() && !AnimationPlaying())
                 {
                     rb.velocity = new Vector3(0, rb.velocity.y, 0);
-                    animator.SetTrigger("Attack");
+                    animator.SetTrigger("Attack");    
                     AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"BasicAttack");
 
                     nextAttackTime = Time.time + 1 / attackSpeed;

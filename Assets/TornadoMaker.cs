@@ -38,6 +38,7 @@ public class TornadoMaker : BossAbility
         {
             rb.AddForce(new Vector3(horizontalJumpForce, 0, 0),ForceMode.Impulse);
         }
+        AudioManager.instance.StopSound(AudioGroup.FirstBoss);
         AudioManager.instance.PlaySound(AudioGroup.FirstBoss,"TornadoJump");
     }
 

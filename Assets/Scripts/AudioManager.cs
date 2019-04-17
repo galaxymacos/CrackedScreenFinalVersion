@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
     internal string prevBgm = "";
 
     public void ChangeBgm(string newBgm) {
-        StopSound(AudioGroup.Bgm);
+//        StopSound(AudioGroup.Bgm);
         StartAllBackgroundSounds();
         prevBgm = currentBgm;
         currentBgm = newBgm;
@@ -162,13 +162,13 @@ public class AudioManager : MonoBehaviour
             {
                 if (BackgroundMusics.sounds[i].source.volume > 0)
                 {
-                    BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/4;
+                    BackgroundMusics.sounds[i].source.volume -= Time.deltaTime/8;
                 }
             }
 
             if (BackgroundMusics.sounds[i].name == currentBgm) {
                 if (BackgroundMusics.sounds[i].source.volume < BackgroundMusics.sounds[i].volume) {
-                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime / 4;
+                    BackgroundMusics.sounds[i].source.volume += Time.deltaTime / 8;
                 }
             }
         }

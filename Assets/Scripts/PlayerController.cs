@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     // Player ability
     public bool canAwake;
-    public bool canControl;
-    public bool canControlDialogueBox;
+    internal bool canControl;
+    internal bool canControlDialogueBox;
     public float facingOffset = 1; // 1 if player is facing right and -1 if player is facing left
     public bool isFacingRight;
 
