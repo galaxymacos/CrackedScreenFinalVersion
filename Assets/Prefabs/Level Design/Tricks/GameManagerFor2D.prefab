@@ -195,11 +195,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Airborne Slash
-  cooldown: 0.9
+  cooldown: 0.4
   skillImage: {fileID: 0}
   damage: 50
   EnemyDetector: {fileID: 0}
-  enemyKnockdownForce: {x: 400, y: 700, z: 0}
+  enemyKnockdownForce: {x: 400, y: 1300, z: 0}
 --- !u!114 &2177889124953702681
 MonoBehaviour:
   m_ObjectHideFlags: 0

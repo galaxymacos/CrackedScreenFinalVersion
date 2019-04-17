@@ -10254,12 +10254,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1090384464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 259871229, guid: a02d529cfc22d5e44a66cfdca82056a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 5222131671930141279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1092655470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: eb68da570e4cffd45af1f0a118ef94d7,
@@ -21496,11 +21490,6 @@ PrefabInstance:
       propertyPath: PlayerAnimator
       value: 
       objectReference: {fileID: 764750511}
-    - target: {fileID: 2177889124415726824, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: threeDimensionParticleSystem
-      value: 
-      objectReference: {fileID: 1090384464}
     - target: {fileID: 2177889123798995065, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
         type: 3}
       propertyPath: animator
@@ -21526,11 +21515,6 @@ PrefabInstance:
       propertyPath: tipsPanelText
       value: 
       objectReference: {fileID: 1987795808}
-    - target: {fileID: 2177889124473127381, guid: 8e26aa6299fe9a1438519a0a4f4d273e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e26aa6299fe9a1438519a0a4f4d273e, type: 3}
 --- !u!1001 &3281106834395241865
