@@ -197,7 +197,7 @@ MonoBehaviour:
   skillName: Airborne Slash
   cooldown: 0.9
   skillImage: {fileID: 0}
-  damage: 10
+  damage: 50
   EnemyDetector: {fileID: 0}
   enemyKnockdownForce: {x: 400, y: 700, z: 0}
 --- !u!114 &2177889124953702681
@@ -217,7 +217,7 @@ MonoBehaviour:
   skillImage: {fileID: 0}
   skillHitBox: {fileID: 0}
   aoeHitBox: {fileID: 0}
-  damage: 100
+  damage: 150
   enemyKnockUpForce: {x: 1600, y: 800, z: 0}
   explodeParticleEffect: {fileID: 2212702820386442640, guid: 192f59e6652a5584c8caa145476ef698,
     type: 3}
@@ -244,7 +244,7 @@ MonoBehaviour:
   uppercutPosition: {fileID: 0}
   uppercutRadius: 2
   enemyKnockDownForce: {x: 0, y: 2000, z: 0}
-  damage: 30
+  damage: 60
   dashSpeed: 20
   dashEnemyDetector: {fileID: 0}
   uppercutEnemyDetector: {fileID: 0}
@@ -280,7 +280,7 @@ MonoBehaviour:
   skillName: Basic Attack
   cooldown: 0.5
   skillImage: {fileID: 0}
-  damage: 10
+  damage: 30
   EnemyDetector: {fileID: 0}
   clip: {fileID: 7400000, guid: af133abffac06524f801b74833c138e5, type: 2}
   enemyKnockdownForce: {x: 400, y: 900, z: 0}
