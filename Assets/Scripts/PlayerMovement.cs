@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Experimental.Input;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -139,14 +140,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerCurrentState == PlayerState.Run)
         {
-            if (!DialogueManager.Instance._dialogueStarted)
+            if (!DialogueManager.Instance._dialogueStarted && !PlayerProperty.playerClass.isPlayerUsingGroundAbility())
             {
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Run");
             }
         }
         else if (playerCurrentState == PlayerState.Walk)
         {
-            if (!DialogueManager.Instance._dialogueStarted)
+            if (!DialogueManager.Instance._dialogueStarted && !PlayerProperty.playerClass.isPlayerUsingGroundAbility())
             {
                 AudioManager.instance.PlaySound(AudioGroup.Character,"Walk");
             }

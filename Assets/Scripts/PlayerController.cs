@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private InputMaster controls;
 
+
     private void OnEnable()
     {
         controls.Player.Movement.Enable();

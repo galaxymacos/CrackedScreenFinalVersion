@@ -15,7 +15,6 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] private float delayBeforeFalling = 0.5f;
     private float crackingTimeRemains;
 
-    [SerializeField] private AudioSource soundOfIceCracking;
     [SerializeField] private AudioSource soundOfIceFalling;
     private AudioSource audioSource;
     private bool isFalling;
@@ -72,10 +71,6 @@ public class FallingTrap : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") && !hasInteracted)
         {
-            if (soundOfIceCracking)
-            {
-                soundOfIceCracking.Play();
-            }
             Instantiate(snowLotus, transform.position+ new Vector3(0,1,0), Quaternion.identity);
             hasInteracted = true;
             Destroy(gameObject);

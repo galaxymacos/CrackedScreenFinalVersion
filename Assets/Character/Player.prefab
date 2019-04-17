@@ -1424,6 +1424,7 @@ MonoBehaviour:
   maxHp: 100
   maxRage: 200
   rage: 0
+  threeDimensionParticleSystem: {fileID: 259871229}
   sprites: {fileID: 5387770269975078840}
 --- !u!114 &2130372258
 MonoBehaviour:
@@ -2079,7 +2080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 6.547923
+  m_Length: 6.5479336
   m_ChildTransform: {fileID: 7330050100368957461}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &7330050098841467356
@@ -2322,7 +2323,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099047690479}
-  m_LocalRotation: {x: 0, y: 0, z: 0.14392328, w: 0.98958886}
+  m_LocalRotation: {x: 0, y: 0, z: 0.14392805, w: 0.98958814}
   m_LocalPosition: {x: 0.13820948, y: 0.95279104, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2343,7 +2344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 5.2369037
+  m_Length: 5.236902
   m_ChildTransform: {fileID: 7330050099622602601}
   m_AttachedIK: {fileID: 7330050100851144587}
 --- !u!1 &7330050099143617042
@@ -3001,7 +3002,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099537654371}
-  m_LocalRotation: {x: 0, y: 0, z: 0.05892743, w: 0.9982623}
+  m_LocalRotation: {x: 0, y: 0, z: 0.058928527, w: 0.9982622}
   m_LocalPosition: {x: 6.2356, y: 0.21033049, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3022,7 +3023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 7.6875725
+  m_Length: 7.687569
   m_ChildTransform: {fileID: 7330050100158478485}
   m_AttachedIK: {fileID: 7330050098841467359}
 --- !u!1 &7330050099557368694
@@ -3416,7 +3417,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050099906130274}
-  m_LocalRotation: {x: 0, y: 0, z: 0.09776047, w: 0.99521}
+  m_LocalRotation: {x: 0, y: 0, z: 0.09776194, w: 0.9952099}
   m_LocalPosition: {x: 0.26471472, y: 0.4769037, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3437,7 +3438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 4.684325
+  m_Length: 4.6843214
   m_ChildTransform: {fileID: 7330050099190339871}
   m_AttachedIK: {fileID: 7330050099624059139}
 --- !u!1 &7330050100093468018
@@ -3775,7 +3776,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050100232288996}
-  m_LocalRotation: {x: 0, y: 0, z: -0.025275337, w: 0.9996805}
+  m_LocalRotation: {x: 0, y: 0, z: -0.025272163, w: 0.99968064}
   m_LocalPosition: {x: 6.196669, y: 0.11637926, z: -1.1046875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3796,7 +3797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 6.957
+  m_Length: 6.9570003
   m_ChildTransform: {fileID: 7330050099016360938}
   m_AttachedIK: {fileID: 7330050100208446041}
 --- !u!1 &7330050100277525629
@@ -4057,7 +4058,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7330050100368957458}
-  m_LocalRotation: {x: 0, y: 0, z: 0.37318358, w: 0.9277575}
+  m_LocalRotation: {x: 0, y: 0, z: 0.37318456, w: 0.92775714}
   m_LocalPosition: {x: 6.547918, y: 0.00000047683716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4078,7 +4079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 10.819249
+  m_Length: 10.8192425
   m_ChildTransform: {fileID: 7330050100277525628}
   m_AttachedIK: {fileID: 7330050100368785198}
 --- !u!1 &7330050100507508609
@@ -4396,7 +4397,7 @@ MonoBehaviour:
   skillName: Counter Attack
   cooldown: 0
   skillImage: {fileID: 0}
-  damage: 60
+  damage: 10
   EnemyDetector: {fileID: 299355947}
   stiffTimeWhenHit: 1
   enemyKnockdownForce: {x: 500, y: 1000, z: 0}

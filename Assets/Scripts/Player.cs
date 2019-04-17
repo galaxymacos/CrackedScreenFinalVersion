@@ -57,10 +57,24 @@ public class Player : MonoBehaviour {
         DimensionLeapParticleEffect = transform.Find("DimensionLeapParticleEffect").gameObject;
     }
 
+    [SerializeField] private GameObject threeDimensionParticleSystem;
     private void Update() {
         if (!PlayerProperty.animator.GetCurrentAnimatorStateInfo(0).IsName("Defend"))
         {
             enemyHitPlayerWhenDefend = false;
+        }
+        
+        if (GameManager.Instance.is3D)
+        {
+            var hasHitCenterGround = Physics.Raycast(PlayerProperty.playerPosition, Vector3.down, out var raycastHit);
+            if (hasHitCenterGround)
+            {
+                threeDimensionParticleSystem.transform.position = raycastHit.point;
+            }
+            else
+            {
+                threeDimensionParticleSystem.transform.position = PlayerProperty.playerPosition + new Vector3(0, -2, 0);
+            }
         }
 
 PlayerProperty.animator.SetBool("EnemyHitPlayerWhenDefend",enemyHitPlayerWhenDefend);

@@ -45,6 +45,10 @@ public class GameManager : MonoBehaviour
 
     public Animator animator;
     public PlayerAnimator PlayerAnimator;
+
+
+    readonly LayerMask GroundLayer = 1 << 11;
+
     
     
     //
@@ -96,6 +100,9 @@ public class GameManager : MonoBehaviour
         {
             PlayerProperty.controller.canControl = false;
         }
+
+        
+        
         if (!DialogueManager.Instance._dialogueStarted && !gameIsPaused && !Instance.gameOverPanel.activeSelf && !PlayerProperty.controller.isTransforming)
         {
             if (HitPauseTimeRemain > 0)
