@@ -997,14 +997,14 @@ MonoBehaviour:
   HitPauseTime: 0.2
   isFacingRight: 0
   laySecLeft: 0
-  maxHp: 200
+  maxHp: 500
   maxLaySec: 2
   moveSpeed: 10
   nextAttackTime: 0
   stunDuration: 0.5
   autoAttackRange: {fileID: 793323762}
   BossAbilities:
-  - {fileID: 2084412306}
+  - {fileID: 1959094804}
   ignoreKnockUpTime: 3
   moveTimeInARow: 3
   moveTowardsPlayer: 0
