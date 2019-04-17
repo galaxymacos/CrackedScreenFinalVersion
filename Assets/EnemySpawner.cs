@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
         playerDetector = GetComponent<EnemyDetector>();
     }
 
+    private bool hasInteractedWithBarrier;
     private void Update()
     {
         if (playerDetector.playerInRange() && !hasSpawned)
@@ -32,8 +33,9 @@ public class EnemySpawner : MonoBehaviour
         {
             if (isAllEnemiesDead())
             {
-                if (barrier != null)
+                if (barrier != null && !hasInteractedWithBarrier)
                 {
+                    hasInteractedWithBarrier = true;
                     barrier.GetComponent<EnemySpawnerComponent>().OnEnemyDie();
                 }
             }

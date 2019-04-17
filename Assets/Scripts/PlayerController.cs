@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool canControl;
     public bool canControlDialogueBox;
     public float facingOffset = 1; // 1 if player is facing right and -1 if player is facing left
-    private bool is3D;
     public bool isFacingRight;
 
 

@@ -12,6 +12,7 @@ public class FirstBossGate : EnemySpawnerComponent
         {
             rockRubbing.Play();
         }
+        GetComponent<AudioSource>().Play();
 
         GetComponent<Animator>().enabled = true;
     }

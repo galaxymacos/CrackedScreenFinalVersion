@@ -82,6 +82,10 @@ public class FirstStageBoss : Enemy
     
     public override void InteractWithPlayer()
     {
+        if (HP <= 0)
+        {
+            return;
+        }
         if (ignoreKnockUpTimeLeft > 0) ignoreKnockUpTimeLeft -= Time.deltaTime;
         if (_enemyCurrentState == EnemyState.Standing)
         {
