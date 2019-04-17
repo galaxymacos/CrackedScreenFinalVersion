@@ -115,7 +115,6 @@ public class FirstStageBoss : Enemy
     }
     private void SpecialAttack()
     {
-        print("Play special attack");
         specialAttackTimeRemains = specialAttackInterval;
         var randomAbilityIndex = Random.Range(0, BossAbilities.Length); 
         BossAbilities[randomAbilityIndex].Play();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,9 +45,7 @@ public class PiercingSpear : BossAbility
                     if (piercingSpearHitBox.playerInRange() && !GameManager.Instance.PlayerDying)
                     {
                         PlayerProperty.playerClass.GetKnockOff(transform.parent.position);
-                        print("player is knocked off");
                         PlayerProperty.player.transform.position = transform.position+new Vector3(3,1,0);
-
                     }    
                 }
                 
@@ -70,6 +69,15 @@ public class PiercingSpear : BossAbility
             }
         }
     }
+
+//    private void Update()
+//    {
+//        if (GameManager.Instance.PlayerDying)
+//        {
+//            isPiercing = false;
+//            piercingPlayer = false;
+//        }
+//    }
 
     public override void Play()
     {
