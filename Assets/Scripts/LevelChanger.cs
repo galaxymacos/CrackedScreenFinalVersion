@@ -20,6 +20,7 @@ public class LevelChanger : MonoBehaviour
 
     public void FadeToLevel(int levelIndex)
     {
+        PlayerPrefs.DeleteAll();
         operation = SceneManager.LoadSceneAsync(levelIndex);
         operation.allowSceneActivation = false;
         Animator.SetTrigger(FadeOut);

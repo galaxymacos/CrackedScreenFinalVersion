@@ -38,7 +38,18 @@ public class Player : MonoBehaviour {
     private GameObject DimensionLeapParticleEffect;
     
     
-
+    public void RespawnPlayer()
+    {
+        string encryptedCoordinate = PlayerPrefs.GetString("PlayerLastCoordinate");
+        string[] encryptedConponent = encryptedCoordinate.Split(',');
+        float x = float.Parse(encryptedConponent[0]);
+        float y = float.Parse(encryptedConponent[1]);
+        float z = float.Parse(encryptedConponent[2]);
+        Vector3 playerLastCoordinate = new Vector3(x, y, z);
+        GameManager.Instance.player.transform.position = playerLastCoordinate;
+//        PlayerProperty.player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+//        PlayerProperty.movementClass.ChangePlayerState(PlayerMovement.PlayerState.Stand);
+    }
 
     private void Start()
     {
@@ -54,6 +65,13 @@ public class Player : MonoBehaviour {
 
         GameManager.Instance.onPlayerDieCallback += RestorePlayerHealth;
         DimensionLeapParticleEffect = transform.Find("DimensionLeapParticleEffect").gameObject;
+
+        if (PlayerPrefs.HasKey("PlayerLastCoordinate") && PlayerPrefs.GetString("HasInteracted") == "False")
+        {
+            RespawnPlayer();
+            print("respawn player");
+            PlayerPrefs.SetString("HasInteracted", "True");
+        }
     }
 
     [SerializeField] private GameObject threeDimensionParticleSystem;

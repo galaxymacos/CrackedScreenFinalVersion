@@ -13,6 +13,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void GoToMenu()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
     }

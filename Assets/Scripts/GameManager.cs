@@ -83,8 +83,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CreatePlayerSaveSpot();
-
+    
         RefreshHeartUi();
         OnSceneChangeCallback += RearrangeObjectsBasedOnScene;
         OnSceneChangeCallback?.Invoke(false);
@@ -283,7 +282,7 @@ public class GameManager : MonoBehaviour
 //        AudioManager.instance.SwitchBgm("");
         Time.timeScale = 0f;
         
-        PlayerPrefs.DeleteAll(); // Delete all player data when game is turned off
+//        PlayerPrefs.DeleteAll(); // Delete all player data when game is turned off
     }
 
     private void RefreshHeartUi()
