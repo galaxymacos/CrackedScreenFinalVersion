@@ -29,15 +29,15 @@ public class SecondBossAttack : MonoBehaviour
 
     public void PlayFirstStrikeSound()
     {
-        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"FirstStrike");
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackFirstStrike");
     }
     
     public void PlaySecondStrikeSound()
     {
-        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"SecondStrike");
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackSecondStrike");
     }
     public void PlayThirdStrikeSound()
     {
-        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"ThirdStrike");
+        AudioManager.instance.PlaySound(AudioGroup.SecondBoss,"BasicAttackThirdStrike");
     }
 }

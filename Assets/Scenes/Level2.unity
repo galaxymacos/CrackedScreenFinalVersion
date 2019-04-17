@@ -1944,6 +1944,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
+        type: 3}
+      propertyPath: SecondBossSounds.sounds.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+    - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
+        type: 3}
+      propertyPath: SecondBossSounds.sounds.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
+    - target: {fileID: 4806271105166043185, guid: 377ab394f06d4134ba4190bd4bbe9a14,
+        type: 3}
+      propertyPath: SecondBossSounds.sounds.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bc51015f8fca8134383b2b0dfe0b95a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377ab394f06d4134ba4190bd4bbe9a14, type: 3}
 --- !u!1001 &235767824
@@ -4740,7 +4755,7 @@ PrefabInstance:
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 327.01
+      value: 326
       objectReference: {fileID: 0}
     - target: {fileID: 32000673680870163, guid: bb077f9b4eab138428d46b821aedce0d,
         type: 3}
@@ -7105,7 +7120,7 @@ PrefabInstance:
     - target: {fileID: 6878458127183754865, guid: 71fb66e0d881ac644a0ecc312bbdfc35,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 106.50796
+      value: 243.39404
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71fb66e0d881ac644a0ecc312bbdfc35, type: 3}
@@ -16235,7 +16250,7 @@ MonoBehaviour:
   enemyToSpawn:
   - {fileID: 1552054899364325813, guid: 4aff9fca27d71944ba039b79914f2adf, type: 3}
   barrier: {fileID: 36675085}
-  isBossSpawner: 0
+  isBossSpawner: 1
 --- !u!4 &4203752011126006583
 Transform:
   m_ObjectHideFlags: 0
@@ -16446,12 +16461,12 @@ PrefabInstance:
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -372.5
+      value: -498.7
       objectReference: {fileID: 0}
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.2
+      value: 39.72
       objectReference: {fileID: 0}
     - target: {fileID: 5222131670480362695, guid: a02d529cfc22d5e44a66cfdca82056a6,
         type: 3}

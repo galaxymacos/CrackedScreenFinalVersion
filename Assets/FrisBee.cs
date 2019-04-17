@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class FrisBee : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] private int maxBounceBackTime = 3;
+    [SerializeField] private float maxExistTime = 7;
     private int currentBounceBackTime = -1;
     
     [SerializeField] private float flySpeed = 25f;
@@ -22,6 +24,18 @@ public class FrisBee : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         startDirection = (PlayerProperty.playerPosition - transform.position).normalized;
         rb.velocity = startDirection * flySpeed;
+    }
+
+    private void Update()
+    {
+        if (maxExistTime > 0)
+        {
+            maxExistTime -= Time.deltaTime;
+            if (maxExistTime <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void FixedUpdate()

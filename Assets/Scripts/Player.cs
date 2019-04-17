@@ -22,7 +22,6 @@ public class Player : MonoBehaviour {
     internal float defendRecoilTimeRemain = 0;
     internal bool enemyHitPlayerWhenDefend;
 
-    public GameObject floatingText;
     public float hp = 200;
 
     [SerializeField] private float invincibieTime = 2f;

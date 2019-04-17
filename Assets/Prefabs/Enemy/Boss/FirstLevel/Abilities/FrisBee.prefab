@@ -116,9 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b74688f8c7a9fe489bc6d0ecad8a43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounceBackTime: 7
+  maxBounceBackTime: 5
+  maxExistTime: 10
   flySpeed: 25
-  reverseSpeed: 20
+  reverseSpeed: 40
 --- !u!65 &6657440216418896426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

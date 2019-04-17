@@ -692,8 +692,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8481021724953419185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.600006, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4, y: 2.87, z: 0}
+  m_LocalScale: {x: 1.1003, y: 3.469, z: 1}
   m_Children: []
   m_Father: {fileID: 8481021725202103637}
   m_RootOrder: 3
@@ -915,7 +915,7 @@ MonoBehaviour:
   - {fileID: 8481021725361355557}
   ignoreKnockUpTime: 3
   autoAttackRange: {fileID: 7990941295812334881}
-  specialAttackInterval: 5
+  specialAttackInterval: 4
   specialAttackTimeRemains: 0
 --- !u!95 &8481021725361355580
 Animator:
